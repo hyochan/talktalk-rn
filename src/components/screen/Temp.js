@@ -13,7 +13,6 @@ import {
   FlatList,
   InteractionManager,
 } from 'react-native';
-import { inject } from 'mobx-react/native';
 
 import { ratio } from '../../utils/Styles';
 import {

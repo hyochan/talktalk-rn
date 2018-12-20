@@ -1,9 +1,7 @@
 import React from 'react';
 import { createStackNavigator } from 'react-navigation';
-import { observer } from 'mobx-react/native';
 
 import { colors } from '../../utils/Styles';
-import appStore from '../../stores/appStore';
 import IntroScreen from '../screen/Intro';
 import TempScreen from '../screen/Temp';
 
@@ -42,7 +40,6 @@ const navigatorConfig = {
 
 const RootStackNavigator = createStackNavigator(routeConfig, navigatorConfig);
 
-@observer
 class RootNavigator extends React.Component {
   static router = RootStackNavigator.router;
 

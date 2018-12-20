@@ -7,6 +7,7 @@ module.exports = {
     "no-unused-expressions": 0,
     "no-unused-vars": 0,
     "no-return-assign": 0,
+    "no-useless-constructor": false,
     "comma-dangle": ["error", {
       "arrays": "only-multiline",
       "objects": "only-multiline",

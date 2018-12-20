@@ -26,8 +26,6 @@
     "build:android": "node node_modules/react-native/local-cli/cli.js bundle --entry-file index.js --platform android --dev false --bundle-output ./android/main.jsbundle --assets-dest ./android --sourcemap-output ./android/main.jsbundle.map"
   },
   "dependencies": {
-    "mobx": "^5.8.0",
-    "mobx-react": "^5.4.3",
     "react": "16.6.3",
     "react-native": "0.57.8",
     "react-native-gesture-handler": "^1.0.12",
@@ -39,7 +37,6 @@
   "devDependencies": {
     "@babel/cli": "^7.2.0",
     "@babel/core": "7.2.2",
-    "@babel/plugin-proposal-decorators": "7.2.2",
     "@babel/plugin-transform-runtime": "7.2.0",
     "@babel/preset-flow": "^7.0.0",
     "@babel/runtime": "7.2.0",

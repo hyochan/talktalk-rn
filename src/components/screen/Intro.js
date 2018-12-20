@@ -13,18 +13,15 @@ import {
   FlatList,
   InteractionManager,
 } from 'react-native';
-import { observable } from 'mobx';
-import { observer } from 'mobx-react';
-import { inject } from 'mobx-react/native';
 import { NavigationScreenProp, NavigationStateRoute } from 'react-navigation';
 
 import { ratio, colors } from '../../utils/Styles';
 import { IC_MASK } from '../../utils/Icons';
-import User from '../../models/User';
 import { getString } from '../../../STRINGS';
 import Button from '../shared/Button';
+import { UserConsumer } from '../../providers/User';
 
-const styles: any = StyleSheet.create({
+const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: colors.background,
@@ -89,13 +86,16 @@ type State = {
   isLoggingIn: boolean;
 }
 
-@inject('store') @observer
 class Page extends Component<Props, State> {
   timer: any;
 
   state = {
     isLoggingIn: false,
   };
+
+  constructor(props) {
+    super(props)
+  }
 
   componentWillUnmount() {
     if (this.timer) {
@@ -105,49 +105,50 @@ class Page extends Component<Props, State> {
 
   render() {
     return (
-      <View style={styles.container}>
-        <Text style={styles.titleTxt}>TalkTalk</Text>
-        <View style={styles.viewUser}>
-          <Text style={styles.txtUser}>{this.props.store.user.displayName}</Text>
-          <Text style={styles.txtUser}>{this.props.store.user.age}</Text>
-          <Text style={styles.txtUser}>{this.props.store.user.job}</Text>
-        </View>
-        <View style={styles.btnBottomWrapper}>
-          <Button
-            isLoading={this.state.isLoggingIn}
-            onPress={this.onLogin}
-            style={styles.btnLogin}
-            textStyle={styles.txtLogin}
-            imgLeftSrc={IC_MASK}
-            imgLeftStyle={styles.imgBtn}
-          >{getString('LOGIN')}</Button>
-          <Button
-            onPress={() => this.props.navigation.navigate('Temp') }
-            style={[
-              styles.btnNavigate,
-              {
-                marginTop: 15,
-              },
-            ]}
-            textStyle={{
-              color: colors.dodgerBlue,
-            }}
-          >Navigate</Button>
-        </View>
-      </View>
+      <UserConsumer>
+        {
+          (user) => (
+            <View style={styles.container}>
+              <Text style={styles.titleTxt}>TalkTalk</Text>
+              <View style={styles.viewUser}>
+                <Text style={styles.txtUser}>{user.state.displayName}</Text>
+                <Text style={styles.txtUser}>{user.state.age}</Text>
+                <Text style={styles.txtUser}>{user.state.job}</Text>
+              </View>
+              <View style={styles.btnBottomWrapper}>
+                <Button
+                  isLoading={this.state.isLoggingIn}
+                  onPress={() => {
+                    this.setState({ isLoggingIn: true }, () => {
+                      this.timer = setTimeout(() => {
+                        user.actions.setUser('dooboolab', 30, 'developer');
+                        this.setState({ isLoggingIn: false });
+                      }, 1000);
+                    });
+                  }}
+                  style={styles.btnLogin}
+                  textStyle={styles.txtLogin}
+                  imgLeftSrc={IC_MASK}
+                  imgLeftStyle={styles.imgBtn}
+                >{getString('LOGIN')}</Button>
+                <Button
+                  onPress={() => this.props.navigation.navigate('Temp') }
+                  style={[
+                    styles.btnNavigate,
+                    {
+                      marginTop: 15,
+                    },
+                  ]}
+                  textStyle={{
+                    color: colors.dodgerBlue,
+                  }}
+                >Navigate</Button>
+              </View>
+            </View>
+          )
+        }
+      </UserConsumer>
     );
-  }
-
-  onLogin = () => {
-    this.props.store.user = new User();
-    this.setState({ isLoggingIn: true }, () => {
-      this.timer = setTimeout(() => {
-        this.props.store.user.displayName = 'dooboolab';
-        this.props.store.user.age = 30;
-        this.props.store.user.job = 'developer';
-        this.setState({ isLoggingIn: false });
-      }, 1000);
-    });
   }
 }
 

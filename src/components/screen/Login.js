@@ -35,7 +35,7 @@ class Screen extends Component<Props, State> {
   render() {
     return (
       <View style={styles.container}>
-        <Text>Loading</Text>
+        <Text>Login</Text>
       </View>
     );
   }

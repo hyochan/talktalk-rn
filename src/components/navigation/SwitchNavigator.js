@@ -1,12 +1,18 @@
 import { createSwitchNavigator, createAppContainer } from 'react-navigation';
-import RootNavigator from './RootStackNavigator';
+import NotFound from '../screen/NotFound';
+import Loading from '../screen/Loading';
+import AuthStackNavigator from './AuthStackNavigator';
+import MainStackNavigator from './MainStackNavigator';
+
 const SwitchNavigator = createSwitchNavigator(
   {
-    RootNavigator,
+    NotFound,
+    Loading,
+    AuthStackNavigator,
+    MainStackNavigator,
   },
   {
-    initialRouteName: 'RootNavigator',
-    headerMode: 'none',
+    initialRouteName: 'Loading',
   },
 );
 

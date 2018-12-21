@@ -26,16 +26,17 @@
     "build:android": "node node_modules/react-native/local-cli/cli.js bundle --entry-file index.js --platform android --dev false --bundle-output ./android/main.jsbundle --assets-dest ./android --sourcemap-output ./android/main.jsbundle.map"
   },
   "dependencies": {
-    "react": "16.6.3",
+    "react": "16.7.0",
     "react-native": "0.57.8",
     "react-native-gesture-handler": "^1.0.12",
+    "react-native-linear-gradient": "^2.5.3",
     "react-native-localization": "^2.0.3",
     "react-native-modalbox": "^1.6.0",
     "react-native-status-bar-height": "^2.2.0",
-    "react-navigation": "^3.0.8"
+    "react-navigation": "^3.0.9"
   },
   "devDependencies": {
-    "@babel/cli": "^7.2.0",
+    "@babel/cli": "^7.2.3",
     "@babel/core": "7.2.2",
     "@babel/plugin-transform-runtime": "7.2.0",
     "@babel/preset-flow": "^7.0.0",
@@ -51,12 +52,12 @@
     "eslint-plugin-node": "^8.0.0",
     "eslint-plugin-promise": "^4.0.1",
     "eslint-plugin-standard": "^4.0.0",
-    "flow-bin": "^0.89.0",
+    "flow-bin": "^0.76.0",
     "jest": "23.6.0",
     "jsc-android": "^236355.1.1",
     "metro-react-native-babel-preset": "^0.51.0",
-    "react-dom": "^16.6.3",
-    "react-test-renderer": "16.6.3"
+    "react-dom": "^16.7.0",
+    "react-test-renderer": "16.7.0"
   },
   "jest": {
     "preset": "react-native",

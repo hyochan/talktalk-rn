@@ -147,6 +147,7 @@ configurations.all {
 }
 
 dependencies {
+    compile project(':react-native-linear-gradient')
     compile project(':react-native-gesture-handler')
     compile project(':react-native-localization')
     implementation project(':react-native-localization')

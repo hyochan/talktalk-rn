@@ -1,54 +1,44 @@
 // @flow
 import React, { Component } from 'react';
 import {
-  Platform,
-  StatusBar,
   StyleSheet,
-  TouchableHighlight,
   TouchableOpacity,
   Image,
-  ScrollView,
   Text,
   View,
-  FlatList,
-  InteractionManager,
 } from 'react-native';
 
-import { ratio } from '../../utils/Styles';
-import {
-  IC_MASK,
-} from '../../utils/Icons';
+import { ratio, colors } from '../../utils/Styles';
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: 'transparent',
-    flexDirection: 'row',
+    flexDirection: 'column',
     alignItems: 'center',
     justifyContent: 'center',
   },
 });
 
 type Props = {
-}
 
+};
 type State = {
+
 }
 
-class Page extends Component<Props, State> {
+class Screen extends Component<Props, State> {
   static navigationOptions = {
-    headerTitle: <Text style={{
-      fontSize: 18,
-    }}>Temp</Text>,
+    title: 'Title',
   };
 
   render() {
     return (
       <View style={styles.container}>
-        <Text>Temporary Page</Text>
+        <Text>Chat</Text>
       </View>
     );
   }
 }
 
-export default Page;
+export default Screen;

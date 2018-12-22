@@ -7,23 +7,23 @@ jobs:
     steps:
       - checkout
 
-      # - restore_cache:
-      #     key: yarn-v1-{{ checksum "yarn.lock" }}-{{ arch }}
+      - restore_cache:
+          key: yarn-v1-{{ checksum "yarn.lock" }}-{{ arch }}
 
-      # - restore_cache:
-      #     key: node-v1-{{ checksum "package.json" }}-{{ arch }}
+      - restore_cache:
+          key: node-v1-{{ checksum "package.json" }}-{{ arch }}
 
       - run: yarn install
 
-      # - save_cache:
-      #     key: yarn-v1-{{ checksum "yarn.lock" }}-{{ arch }}
-      #     paths:
-      #       - ~/.cache/yarn
+      - save_cache:
+          key: yarn-v1-{{ checksum "yarn.lock" }}-{{ arch }}
+          paths:
+            - ~/.cache/yarn
 
-      # - save_cache:
-      #     key: node-v1-{{ checksum "package.json" }}-{{ arch }}
-      #     paths:
-      #       - node_modules
+      - save_cache:
+          key: node-v1-{{ checksum "package.json" }}-{{ arch }}
+          paths:
+            - node_modules
 
       - run:
           name: jest tests
@@ -55,15 +55,15 @@ jobs:
       - attach_workspace:
           at: ~/talktalk-rn
 
-      # - restore_cache:
-      #     key: bundle-v1-{{ checksum "Gemfile.lock" }}-{{ arch }}
+      - restore_cache:
+          key: bundle-v1-{{ checksum "Gemfile.lock" }}-{{ arch }}
 
       - run: bundle install
 
-      # - save_cache:
-      #     key: bundle-v1-{{ checksum "Gemfile.lock" }}-{{ arch }}
-      #     paths:
-      #       - vendor/bundle
+      - save_cache:
+          key: bundle-v1-{{ checksum "Gemfile.lock" }}-{{ arch }}
+          paths:
+            - vendor/bundle
 
       - run:
           name: fastlane tests
@@ -92,11 +92,11 @@ jobs:
           name: set Ruby version
           command:  echo "ruby-2.4" > ~/.ruby-version
 
-      # - restore_cache:
-      #     key: yarn-v1-{{ checksum "yarn.lock" }}-{{ arch }}
+      - restore_cache:
+          key: yarn-v1-{{ checksum "yarn.lock" }}-{{ arch }}
 
-      # - restore_cache:
-      #     key: node-v1-{{ checksum "package.json" }}-{{ arch }}
+      - restore_cache:
+          key: node-v1-{{ checksum "package.json" }}-{{ arch }}
 
       # not using a workspace here as Node and Yarn versions
       # differ between our macOS executor image and the Docker containers above
@@ -107,13 +107,13 @@ jobs:
           paths:
             - ~/.cache/yarn
 
-      # - save_cache:
-      #     key: node-v1-{{ checksum "package.json" }}-{{ arch }}
-      #     paths:
-      #       - node_modules
+      - save_cache:
+          key: node-v1-{{ checksum "package.json" }}-{{ arch }}
+          paths:
+            - node_modules
 
-      # - restore_cache:
-      #     key: bundle-v1-{{ checksum "ios/Gemfile.lock" }}-{{ arch }}
+      - restore_cache:
+          key: bundle-v1-{{ checksum "ios/Gemfile.lock" }}-{{ arch }}
 
       - run:
           command: bundle install

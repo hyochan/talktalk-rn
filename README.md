@@ -1,4 +1,7 @@
 # TalkTalk
+[![codecov](https://codecov.io/gh/dooboolab/talktalk-rn/branch/master/graph/badge.svg)](https://codecov.io/gh/dooboolab/talktalk-rn)
+[![circleci](https://circleci.com/gh/dooboolab/talktalk-rn.png)](https://circleci.com/gh/dooboolab/talktalk-rn)
+
 > Specification
 * flow
 * react-navigation

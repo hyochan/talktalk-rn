@@ -38,6 +38,32 @@ jobs:
           paths:
             - node_modules
 
+      - run:
+          name: ESLint Test
+          working_directory: .
+          command: |
+            npm run lint
+
+      - run:
+          name: Flow Test
+          working_directory: .
+          command: |
+            npm run flow
+
+      - run:
+          name: Code Coverage
+          working_directory: .
+          command: |
+            npm run coverage
+
+      - run:
+          name: Jest Test
+          command: |
+            mkdir -p coverage
+            yarn run test
+          environment:
+            JEST_JUNIT_OUTPUT: test-results/jest/junit.xml
+
       - store_test_results:
           path: test-results
 

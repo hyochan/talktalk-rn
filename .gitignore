@@ -68,3 +68,6 @@ android/drawable-*/
 android/main.jsbundle.meta
 android/main.jsbundle.map
 android/app/release
+
+# codecoverage
+codecoverage/

@@ -22,6 +22,7 @@
     "ios:devices": "xcrun simctl list devices",
     "lint": "eslint -c .eslintrc.js './src/**/*.js'",
     "test": "jest -w 1 && npm run coverage",
+    "test:local": "npm run lint && npm run flow && npm run jest",
     "flow": "flow",
     "build": "babel src/ -d lib/",
     "build:ios": "node node_modules/react-native/local-cli/cli.js bundle --entry-file index.js --platform ios --dev false --bundle-output ./ios/main.jsbundle --assets-dest ./ios --sourcemap-output ./ios/main.jsbundle.map",

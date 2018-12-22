@@ -23,7 +23,7 @@ exports[`rendering test renders as expected 1`] = `
       "backgroundColor": "transparent",
       "height": 320,
       "justifyContent": "center",
-      "marginTop": 160,
+      "marginTop": 200,
     }
   }
   swipeThreshold={50}
@@ -150,7 +150,9 @@ exports[`rendering test renders as expected 1`] = `
                 "fontSize": 16,
               }
             }
-          />
+          >
+            ADD
+          </Text>
         </View>
       </TouchableOpacity>
       <View
@@ -190,7 +192,9 @@ exports[`rendering test renders as expected 1`] = `
                 "fontSize": 16,
               }
             }
-          />
+          >
+            CHAT
+          </Text>
         </View>
       </TouchableOpacity>
     </View>

@@ -115,7 +115,7 @@ jobs:
           name: Build Android APK
           working_directory: android
           command: |
-            npm run android:release
+            ./gradlew assembleRelease -x bundleReleaseJsAndAssets
 
   ios:
     macos:

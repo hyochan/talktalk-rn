@@ -45,7 +45,7 @@ jobs:
           path: test-results
 
   android:
-    working_directory: ~/talktalk-rn/android
+    working_directory: ~/talktalk-rn
     docker:
       - image: circleci/android:api-27-node8-alpha
     steps:
@@ -54,18 +54,6 @@ jobs:
 
       - attach_workspace:
           at: ~/talktalk-rn
-
-      - run:
-          name: Build Android JS Bundle
-          working_directory: android
-          command: |
-            ./gradlew bundleReleaseJsAndAssets
-
-      - run:
-          name: Build Android APK
-          working_directory: android
-          command: |
-            ./gradlew assembleRelease -x bundleReleaseJsAndAssets 
 
       - restore_cache:
           key: yarn-v1-{{ checksum "yarn.lock" }}-{{ arch }}
@@ -85,17 +73,17 @@ jobs:
           paths:
             - node_modules
 
-      - restore_cache:
-          key: bundle-v2-{{ checksum "android/Gemfile.lock" }}-{{ arch }}
+      # - restore_cache:
+      #     key: bundle-v2-{{ checksum "android/Gemfile.lock" }}-{{ arch }}
 
-      - run: 
-          command: bundle install --path vendor/bundle
-          working_directory: android
+      # - run: 
+      #     command: bundle install --path vendor/bundle
+      #     working_directory: android
 
-      - save_cache:
-          key: bundle-v2-{{ checksum "android/Gemfile.lock" }}-{{ arch }}
-          paths:
-            - android/vendor/bundle
+      # - save_cache:
+      #     key: bundle-v2-{{ checksum "android/Gemfile.lock" }}-{{ arch }}
+      #     paths:
+      #       - android/vendor/bundle
 
       - run: 
           name: Check MD5 on files
@@ -116,6 +104,18 @@ jobs:
           key: android-jars-v1-{{ checksum "android/build.gradle" }}-{{ checksum  "android.app.build.gradle.deps" }}
           paths:
             - ~/.gradle
+
+      - run:
+          name: Build Android JS Bundle
+          working_directory: android
+          command: |
+            npm run build:android
+
+      - run:
+          name: Build Android APK
+          working_directory: android
+          command: |
+            npm run android:release
 
   ios:
     macos:

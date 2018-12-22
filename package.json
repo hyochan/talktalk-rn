@@ -5,7 +5,7 @@
   "main": "lib/index.js",
   "license": "dooboolab",
   "scripts": {
-    "coverage": "nyc report --reporter=text-lcov > coverage.lcov && codecov",
+    "coverage": "jest --coverage",
     "start": "node node_modules/react-native/local-cli/cli.js start",
     "start:reset": "node node_modules/react-native/local-cli/cli.js start --reset-cache",
     "ios:iphone5": "node node_modules/react-native/local-cli/cli.js run-ios  --simulator='iPhone 5s'",
@@ -21,8 +21,7 @@
     "ios:release": "node node_modules/react-native/local-cli/cli.js run-ios --configuration Release",
     "ios:devices": "xcrun simctl list devices",
     "lint": "eslint -c .eslintrc.js './src/**/*.js'",
-    "test": "nyc jest -w 1 && npm run coverage",
-    "posttest": "nyc report --reporter=json",
+    "test": "jest -w 1 && npm run coverage",
     "flow": "flow",
     "build": "babel src/ -d lib/",
     "build:ios": "node node_modules/react-native/local-cli/cli.js bundle --entry-file index.js --platform ios --dev false --bundle-output ./ios/main.jsbundle --assets-dest ./ios --sourcemap-output ./ios/main.jsbundle.map",
@@ -60,7 +59,6 @@
     "jest": "23.6.0",
     "jsc-android": "^236355.1.1",
     "metro-react-native-babel-preset": "^0.51.0",
-    "nyc": "^13.1.0",
     "react-dom": "^16.7.0",
     "react-test-renderer": "16.7.0"
   },

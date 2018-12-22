@@ -59,10 +59,10 @@ jobs:
             JEST_JUNIT_OUTPUT: test-results/jest/junit.xml
 
       - store_test_results:
-          path: test-results
+          path: coverage
 
       - store_artifacts:
-          path: test-results
+          path: coverage
 
   android:
     working_directory: ~/talktalk-rn

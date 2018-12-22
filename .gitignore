@@ -70,4 +70,4 @@ android/main.jsbundle.map
 android/app/release
 
 # codecoverage
-codecoverage/
+coverage/

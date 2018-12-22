@@ -51,12 +51,6 @@ jobs:
             npm run flow
 
       - run:
-          name: Code Coverage
-          working_directory: .
-          command: |
-            npm run coverage
-
-      - run:
           name: Jest Test
           command: |
             mkdir -p coverage

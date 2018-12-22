@@ -67,6 +67,8 @@
     "transformIgnorePatterns": [
       "node_modules/(?!(.*-)?react-(.*-)?native(-.*)?)"
     ],
+    "coverageDirectory": "./coverage/",
+    "collectCoverage": true,
     "setupFiles": [
       "./test/jestSetup.js"
     ],

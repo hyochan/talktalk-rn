@@ -1,5 +1,5 @@
 TN:
-SF:/Users/hyochan/Documents/GitHub/talktalk-rn/STRINGS.js
+SF:/Users/hyochan/Documents/Github/talktalk-rn/STRINGS.js
 FN:66,getString
 FNF:1
 FNH:1
@@ -16,7 +16,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:/Users/hyochan/Documents/GitHub/talktalk-rn/assets/icons/mask.png
+SF:/Users/hyochan/Documents/Github/talktalk-rn/assets/icons/mask.png
 FNF:0
 FNH:0
 DA:1,3
@@ -26,7 +26,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:/Users/hyochan/Documents/GitHub/talktalk-rn/src/components/screen/Chat.js
+SF:/Users/hyochan/Documents/Github/talktalk-rn/src/components/screen/Chat.js
 FN:40,(anonymous_0)
 FN:40,Screen
 FN:40,render
@@ -50,7 +50,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:/Users/hyochan/Documents/GitHub/talktalk-rn/src/components/screen/FindPw.js
+SF:/Users/hyochan/Documents/Github/talktalk-rn/src/components/screen/FindPw.js
 FN:40,(anonymous_0)
 FN:40,Screen
 FN:40,render
@@ -74,7 +74,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:/Users/hyochan/Documents/GitHub/talktalk-rn/src/components/screen/Friend.js
+SF:/Users/hyochan/Documents/Github/talktalk-rn/src/components/screen/Friend.js
 FN:41,(anonymous_0)
 FN:41,Screen
 FN:41,render
@@ -105,7 +105,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:/Users/hyochan/Documents/GitHub/talktalk-rn/src/components/screen/Loading.js
+SF:/Users/hyochan/Documents/Github/talktalk-rn/src/components/screen/Loading.js
 FN:44,(anonymous_0)
 FN:44,Screen
 FN:44,render
@@ -129,7 +129,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:/Users/hyochan/Documents/GitHub/talktalk-rn/src/components/screen/Login.js
+SF:/Users/hyochan/Documents/Github/talktalk-rn/src/components/screen/Login.js
 FN:40,(anonymous_0)
 FN:40,Screen
 FN:40,render
@@ -153,7 +153,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:/Users/hyochan/Documents/GitHub/talktalk-rn/src/components/screen/Message.js
+SF:/Users/hyochan/Documents/Github/talktalk-rn/src/components/screen/Message.js
 FN:40,(anonymous_0)
 FN:40,Screen
 FN:40,render
@@ -177,7 +177,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:/Users/hyochan/Documents/GitHub/talktalk-rn/src/components/screen/NotFound.js
+SF:/Users/hyochan/Documents/Github/talktalk-rn/src/components/screen/NotFound.js
 FN:40,(anonymous_0)
 FN:40,Screen
 FN:40,render
@@ -201,7 +201,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:/Users/hyochan/Documents/GitHub/talktalk-rn/src/components/screen/ProfileUpdate.js
+SF:/Users/hyochan/Documents/Github/talktalk-rn/src/components/screen/ProfileUpdate.js
 FN:40,(anonymous_0)
 FN:40,Screen
 FN:40,render
@@ -225,7 +225,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:/Users/hyochan/Documents/GitHub/talktalk-rn/src/components/screen/SearchUser.js
+SF:/Users/hyochan/Documents/Github/talktalk-rn/src/components/screen/SearchUser.js
 FN:41,(anonymous_0)
 FN:41,Screen
 FN:41,render
@@ -256,7 +256,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:/Users/hyochan/Documents/GitHub/talktalk-rn/src/components/screen/Signup.js
+SF:/Users/hyochan/Documents/Github/talktalk-rn/src/components/screen/Signup.js
 FN:41,(anonymous_0)
 FN:41,Screen
 FN:41,render
@@ -280,7 +280,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:/Users/hyochan/Documents/GitHub/talktalk-rn/src/components/shared/Button.js
+SF:/Users/hyochan/Documents/Github/talktalk-rn/src/components/shared/Button.js
 FN:81,(anonymous_0)
 FN:81,Button
 FN:81,render
@@ -314,7 +314,7 @@ BRF:6
 BRH:3
 end_of_record
 TN:
-SF:/Users/hyochan/Documents/GitHub/talktalk-rn/src/components/shared/ChatListItem.js
+SF:/Users/hyochan/Documents/Github/talktalk-rn/src/components/shared/ChatListItem.js
 FN:40,(anonymous_0)
 FN:40,Shared
 FN:40,render
@@ -338,7 +338,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:/Users/hyochan/Documents/GitHub/talktalk-rn/src/components/shared/ChatroomListItem.js
+SF:/Users/hyochan/Documents/Github/talktalk-rn/src/components/shared/ChatroomListItem.js
 FN:36,(anonymous_0)
 FN:36,Shared
 FN:36,render
@@ -362,7 +362,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:/Users/hyochan/Documents/GitHub/talktalk-rn/src/components/shared/EmptyListItem.js
+SF:/Users/hyochan/Documents/Github/talktalk-rn/src/components/shared/EmptyListItem.js
 FN:39,(anonymous_0)
 FN:39,Shared
 FN:39,render
@@ -386,7 +386,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:/Users/hyochan/Documents/GitHub/talktalk-rn/src/components/shared/ProfileModal.js
+SF:/Users/hyochan/Documents/Github/talktalk-rn/src/components/shared/ProfileModal.js
 FN:131,(anonymous_0)
 FN:138,Shared
 FN:213,(anonymous_2)
@@ -453,7 +453,7 @@ BRF:10
 BRH:5
 end_of_record
 TN:
-SF:/Users/hyochan/Documents/GitHub/talktalk-rn/src/components/shared/StatusBar.js
+SF:/Users/hyochan/Documents/Github/talktalk-rn/src/components/shared/StatusBar.js
 FN:39,(anonymous_0)
 FN:39,Shared
 FN:39,render
@@ -477,7 +477,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:/Users/hyochan/Documents/GitHub/talktalk-rn/src/components/shared/TextInput.js
+SF:/Users/hyochan/Documents/Github/talktalk-rn/src/components/shared/TextInput.js
 FN:39,(anonymous_0)
 FN:39,Shared
 FN:39,render
@@ -501,7 +501,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:/Users/hyochan/Documents/GitHub/talktalk-rn/src/components/shared/UserListItem.js
+SF:/Users/hyochan/Documents/Github/talktalk-rn/src/components/shared/UserListItem.js
 FN:39,(anonymous_0)
 FN:39,Shared
 FN:39,render
@@ -525,7 +525,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:/Users/hyochan/Documents/GitHub/talktalk-rn/src/providers/ProfileModalProvider.js
+SF:/Users/hyochan/Documents/Github/talktalk-rn/src/providers/ProfileModalProvider.js
 FN:9,(anonymous_0)
 FN:9,ProfileModalProvider
 FN:17,setModal
@@ -583,7 +583,7 @@ BRF:4
 BRH:0
 end_of_record
 TN:
-SF:/Users/hyochan/Documents/GitHub/talktalk-rn/src/utils/Icons.js
+SF:/Users/hyochan/Documents/Github/talktalk-rn/src/utils/Icons.js
 FNF:0
 FNH:0
 DA:1,3
@@ -593,7 +593,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:/Users/hyochan/Documents/GitHub/talktalk-rn/src/utils/Styles.js
+SF:/Users/hyochan/Documents/Github/talktalk-rn/src/utils/Styles.js
 FNF:0
 FNH:0
 DA:1,18
@@ -630,7 +630,7 @@ BRF:8
 BRH:3
 end_of_record
 TN:
-SF:/Users/hyochan/Documents/GitHub/talktalk-rn/test/jestSetup.js
+SF:/Users/hyochan/Documents/Github/talktalk-rn/test/jestSetup.js
 FN:7,(anonymous_0)
 FNF:1
 FNH:0

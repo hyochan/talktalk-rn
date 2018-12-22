@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1545460518714" clover="3.2.0">
-  <project timestamp="1545460518714" name="All files">
+<coverage generated="1545481634017" clover="3.2.0">
+  <project timestamp="1545481634017" name="All files">
     <metrics statements="252" coveredstatements="213" conditionals="30" coveredconditionals="11" methods="77" coveredmethods="56" elements="359" coveredelements="280" complexity="0" loc="252" ncloc="252" packages="7" files="24" classes="24">
       <package name="talktalk-rn">
         <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-        <file name="STRINGS.js" path="/Users/hyochan/Documents/GitHub/talktalk-rn/STRINGS.js">
+        <file name="STRINGS.js" path="/Users/hyochan/Documents/Github/talktalk-rn/STRINGS.js">
           <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
           <line num="1" count="3" type="stmt"/>
           <line num="3" count="3" type="stmt"/>
@@ -16,14 +16,14 @@
       </package>
       <package name="talktalk-rn.assets.icons">
         <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <file name="mask.png" path="/Users/hyochan/Documents/GitHub/talktalk-rn/assets/icons/mask.png">
+        <file name="mask.png" path="/Users/hyochan/Documents/Github/talktalk-rn/assets/icons/mask.png">
           <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
           <line num="1" count="3" type="stmt"/>
         </file>
       </package>
       <package name="talktalk-rn.src.components.screen">
         <metrics statements="96" coveredstatements="92" conditionals="0" coveredconditionals="0" methods="34" coveredmethods="30"/>
-        <file name="Chat.js" path="/Users/hyochan/Documents/GitHub/talktalk-rn/src/components/screen/Chat.js">
+        <file name="Chat.js" path="/Users/hyochan/Documents/Github/talktalk-rn/src/components/screen/Chat.js">
           <metrics statements="9" coveredstatements="9" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
           <line num="1" count="1" type="stmt"/>
           <line num="2" count="1" type="stmt"/>
@@ -35,7 +35,7 @@
           <line num="51" count="1" type="stmt"/>
           <line num="54" count="1" type="stmt"/>
         </file>
-        <file name="FindPw.js" path="/Users/hyochan/Documents/GitHub/talktalk-rn/src/components/screen/FindPw.js">
+        <file name="FindPw.js" path="/Users/hyochan/Documents/Github/talktalk-rn/src/components/screen/FindPw.js">
           <metrics statements="9" coveredstatements="9" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
           <line num="1" count="1" type="stmt"/>
           <line num="2" count="1" type="stmt"/>
@@ -47,7 +47,7 @@
           <line num="51" count="1" type="stmt"/>
           <line num="54" count="1" type="stmt"/>
         </file>
-        <file name="Friend.js" path="/Users/hyochan/Documents/GitHub/talktalk-rn/src/components/screen/Friend.js">
+        <file name="Friend.js" path="/Users/hyochan/Documents/Github/talktalk-rn/src/components/screen/Friend.js">
           <metrics statements="12" coveredstatements="10" conditionals="0" coveredconditionals="0" methods="5" coveredmethods="3"/>
           <line num="1" count="1" type="stmt"/>
           <line num="2" count="1" type="stmt"/>
@@ -62,7 +62,7 @@
           <line num="65" count="1" type="stmt"/>
           <line num="68" count="1" type="stmt"/>
         </file>
-        <file name="Loading.js" path="/Users/hyochan/Documents/GitHub/talktalk-rn/src/components/screen/Loading.js">
+        <file name="Loading.js" path="/Users/hyochan/Documents/Github/talktalk-rn/src/components/screen/Loading.js">
           <metrics statements="9" coveredstatements="9" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
           <line num="1" count="1" type="stmt"/>
           <line num="2" count="1" type="stmt"/>
@@ -74,7 +74,7 @@
           <line num="55" count="1" type="stmt"/>
           <line num="58" count="1" type="stmt"/>
         </file>
-        <file name="Login.js" path="/Users/hyochan/Documents/GitHub/talktalk-rn/src/components/screen/Login.js">
+        <file name="Login.js" path="/Users/hyochan/Documents/Github/talktalk-rn/src/components/screen/Login.js">
           <metrics statements="9" coveredstatements="9" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
           <line num="1" count="1" type="stmt"/>
           <line num="2" count="1" type="stmt"/>
@@ -86,7 +86,7 @@
           <line num="51" count="1" type="stmt"/>
           <line num="54" count="1" type="stmt"/>
         </file>
-        <file name="Message.js" path="/Users/hyochan/Documents/GitHub/talktalk-rn/src/components/screen/Message.js">
+        <file name="Message.js" path="/Users/hyochan/Documents/Github/talktalk-rn/src/components/screen/Message.js">
           <metrics statements="9" coveredstatements="9" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
           <line num="1" count="1" type="stmt"/>
           <line num="2" count="1" type="stmt"/>
@@ -98,7 +98,7 @@
           <line num="51" count="1" type="stmt"/>
           <line num="54" count="1" type="stmt"/>
         </file>
-        <file name="NotFound.js" path="/Users/hyochan/Documents/GitHub/talktalk-rn/src/components/screen/NotFound.js">
+        <file name="NotFound.js" path="/Users/hyochan/Documents/Github/talktalk-rn/src/components/screen/NotFound.js">
           <metrics statements="9" coveredstatements="9" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
           <line num="1" count="1" type="stmt"/>
           <line num="2" count="1" type="stmt"/>
@@ -110,7 +110,7 @@
           <line num="51" count="1" type="stmt"/>
           <line num="54" count="1" type="stmt"/>
         </file>
-        <file name="ProfileUpdate.js" path="/Users/hyochan/Documents/GitHub/talktalk-rn/src/components/screen/ProfileUpdate.js">
+        <file name="ProfileUpdate.js" path="/Users/hyochan/Documents/Github/talktalk-rn/src/components/screen/ProfileUpdate.js">
           <metrics statements="9" coveredstatements="9" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
           <line num="1" count="1" type="stmt"/>
           <line num="2" count="1" type="stmt"/>
@@ -122,7 +122,7 @@
           <line num="51" count="1" type="stmt"/>
           <line num="54" count="1" type="stmt"/>
         </file>
-        <file name="SearchUser.js" path="/Users/hyochan/Documents/GitHub/talktalk-rn/src/components/screen/SearchUser.js">
+        <file name="SearchUser.js" path="/Users/hyochan/Documents/Github/talktalk-rn/src/components/screen/SearchUser.js">
           <metrics statements="12" coveredstatements="10" conditionals="0" coveredconditionals="0" methods="5" coveredmethods="3"/>
           <line num="1" count="1" type="stmt"/>
           <line num="2" count="1" type="stmt"/>
@@ -137,7 +137,7 @@
           <line num="62" count="1" type="stmt"/>
           <line num="65" count="1" type="stmt"/>
         </file>
-        <file name="Signup.js" path="/Users/hyochan/Documents/GitHub/talktalk-rn/src/components/screen/Signup.js">
+        <file name="Signup.js" path="/Users/hyochan/Documents/Github/talktalk-rn/src/components/screen/Signup.js">
           <metrics statements="9" coveredstatements="9" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
           <line num="1" count="1" type="stmt"/>
           <line num="2" count="1" type="stmt"/>
@@ -152,7 +152,7 @@
       </package>
       <package name="talktalk-rn.src.components.shared">
         <metrics statements="93" coveredstatements="83" conditionals="16" coveredconditionals="8" methods="32" coveredmethods="24"/>
-        <file name="Button.js" path="/Users/hyochan/Documents/GitHub/talktalk-rn/src/components/shared/Button.js">
+        <file name="Button.js" path="/Users/hyochan/Documents/Github/talktalk-rn/src/components/shared/Button.js">
           <metrics statements="13" coveredstatements="11" conditionals="6" coveredconditionals="3" methods="3" coveredmethods="3"/>
           <line num="1" count="1" type="stmt"/>
           <line num="2" count="1" type="stmt"/>
@@ -168,7 +168,7 @@
           <line num="125" count="1" type="stmt"/>
           <line num="128" count="1" type="stmt"/>
         </file>
-        <file name="ChatListItem.js" path="/Users/hyochan/Documents/GitHub/talktalk-rn/src/components/shared/ChatListItem.js">
+        <file name="ChatListItem.js" path="/Users/hyochan/Documents/Github/talktalk-rn/src/components/shared/ChatListItem.js">
           <metrics statements="9" coveredstatements="9" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
           <line num="1" count="1" type="stmt"/>
           <line num="2" count="1" type="stmt"/>
@@ -180,7 +180,7 @@
           <line num="51" count="1" type="stmt"/>
           <line num="54" count="1" type="stmt"/>
         </file>
-        <file name="ChatroomListItem.js" path="/Users/hyochan/Documents/GitHub/talktalk-rn/src/components/shared/ChatroomListItem.js">
+        <file name="ChatroomListItem.js" path="/Users/hyochan/Documents/Github/talktalk-rn/src/components/shared/ChatroomListItem.js">
           <metrics statements="9" coveredstatements="9" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
           <line num="1" count="1" type="stmt"/>
           <line num="2" count="1" type="stmt"/>
@@ -192,7 +192,7 @@
           <line num="47" count="1" type="stmt"/>
           <line num="50" count="1" type="stmt"/>
         </file>
-        <file name="EmptyListItem.js" path="/Users/hyochan/Documents/GitHub/talktalk-rn/src/components/shared/EmptyListItem.js">
+        <file name="EmptyListItem.js" path="/Users/hyochan/Documents/Github/talktalk-rn/src/components/shared/EmptyListItem.js">
           <metrics statements="9" coveredstatements="9" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
           <line num="1" count="1" type="stmt"/>
           <line num="2" count="1" type="stmt"/>
@@ -204,7 +204,7 @@
           <line num="50" count="1" type="stmt"/>
           <line num="53" count="1" type="stmt"/>
         </file>
-        <file name="ProfileModal.js" path="/Users/hyochan/Documents/GitHub/talktalk-rn/src/components/shared/ProfileModal.js">
+        <file name="ProfileModal.js" path="/Users/hyochan/Documents/Github/talktalk-rn/src/components/shared/ProfileModal.js">
           <metrics statements="26" coveredstatements="18" conditionals="10" coveredconditionals="5" methods="11" coveredmethods="3"/>
           <line num="1" count="3" type="stmt"/>
           <line num="2" count="3" type="stmt"/>
@@ -233,7 +233,7 @@
           <line num="241" count="3" type="cond" truecount="5" falsecount="5"/>
           <line num="244" count="3" type="stmt"/>
         </file>
-        <file name="StatusBar.js" path="/Users/hyochan/Documents/GitHub/talktalk-rn/src/components/shared/StatusBar.js">
+        <file name="StatusBar.js" path="/Users/hyochan/Documents/Github/talktalk-rn/src/components/shared/StatusBar.js">
           <metrics statements="9" coveredstatements="9" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
           <line num="1" count="1" type="stmt"/>
           <line num="2" count="1" type="stmt"/>
@@ -245,7 +245,7 @@
           <line num="50" count="1" type="stmt"/>
           <line num="53" count="1" type="stmt"/>
         </file>
-        <file name="TextInput.js" path="/Users/hyochan/Documents/GitHub/talktalk-rn/src/components/shared/TextInput.js">
+        <file name="TextInput.js" path="/Users/hyochan/Documents/Github/talktalk-rn/src/components/shared/TextInput.js">
           <metrics statements="9" coveredstatements="9" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
           <line num="1" count="1" type="stmt"/>
           <line num="2" count="1" type="stmt"/>
@@ -257,7 +257,7 @@
           <line num="50" count="1" type="stmt"/>
           <line num="53" count="1" type="stmt"/>
         </file>
-        <file name="UserListItem.js" path="/Users/hyochan/Documents/GitHub/talktalk-rn/src/components/shared/UserListItem.js">
+        <file name="UserListItem.js" path="/Users/hyochan/Documents/Github/talktalk-rn/src/components/shared/UserListItem.js">
           <metrics statements="9" coveredstatements="9" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
           <line num="1" count="1" type="stmt"/>
           <line num="2" count="1" type="stmt"/>
@@ -272,7 +272,7 @@
       </package>
       <package name="talktalk-rn.src.providers">
         <metrics statements="27" coveredstatements="8" conditionals="4" coveredconditionals="0" methods="9" coveredmethods="1"/>
-        <file name="ProfileModalProvider.js" path="/Users/hyochan/Documents/GitHub/talktalk-rn/src/providers/ProfileModalProvider.js">
+        <file name="ProfileModalProvider.js" path="/Users/hyochan/Documents/Github/talktalk-rn/src/providers/ProfileModalProvider.js">
           <metrics statements="27" coveredstatements="8" conditionals="4" coveredconditionals="0" methods="9" coveredmethods="1"/>
           <line num="1" count="2" type="stmt"/>
           <line num="2" count="2" type="stmt"/>
@@ -305,11 +305,11 @@
       </package>
       <package name="talktalk-rn.src.utils">
         <metrics statements="21" coveredstatements="17" conditionals="8" coveredconditionals="3" methods="0" coveredmethods="0"/>
-        <file name="Icons.js" path="/Users/hyochan/Documents/GitHub/talktalk-rn/src/utils/Icons.js">
+        <file name="Icons.js" path="/Users/hyochan/Documents/Github/talktalk-rn/src/utils/Icons.js">
           <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
           <line num="1" count="3" type="stmt"/>
         </file>
-        <file name="Styles.js" path="/Users/hyochan/Documents/GitHub/talktalk-rn/src/utils/Styles.js">
+        <file name="Styles.js" path="/Users/hyochan/Documents/Github/talktalk-rn/src/utils/Styles.js">
           <metrics statements="20" coveredstatements="16" conditionals="8" coveredconditionals="3" methods="0" coveredmethods="0"/>
           <line num="1" count="18" type="stmt"/>
           <line num="2" count="18" type="stmt"/>
@@ -335,7 +335,7 @@
       </package>
       <package name="talktalk-rn.test">
         <metrics statements="8" coveredstatements="6" conditionals="2" coveredconditionals="0" methods="1" coveredmethods="0"/>
-        <file name="jestSetup.js" path="/Users/hyochan/Documents/GitHub/talktalk-rn/test/jestSetup.js">
+        <file name="jestSetup.js" path="/Users/hyochan/Documents/Github/talktalk-rn/test/jestSetup.js">
           <metrics statements="8" coveredstatements="6" conditionals="2" coveredconditionals="0" methods="1" coveredmethods="0"/>
           <line num="1" count="18" type="stmt"/>
           <line num="2" count="18" type="stmt"/>

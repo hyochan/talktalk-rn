@@ -38,7 +38,7 @@ const styles: Styles = StyleSheet.create({
     backgroundColor: 'transparent',
     alignSelf: 'center',
     height: 320,
-    marginTop: 160,
+    marginTop: 200,
 
     alignContent: 'center',
     alignItems: 'center',
@@ -111,7 +111,7 @@ const styles: Styles = StyleSheet.create({
 
 type Props = {
   style?: ViewStyle;
-  onChat?: () => void;
+  onChatPressed?: () => void;
 };
 
 type State = {
@@ -197,11 +197,11 @@ class Shared extends Component<Props, State> {
             <View style={styles.viewBtnDivider}/>
             <TouchableOpacity
               activeOpacity={0.5}
-              onPress={this.props.onChat}
+              onPress={this.props.onChatPressed}
               style={styles.viewBtn}
             >
               <View style={styles.viewBtn}>
-                <Text style={styles.txtBtn}>{getString('GO_CHAT')}</Text>
+                <Text style={styles.txtBtn}>{getString('CHAT')}</Text>
               </View>
             </TouchableOpacity>
           </View>

@@ -15,7 +15,7 @@ import type {
 } from 'react-native/Libraries/StyleSheet/StyleSheetTypes';
 
 import { ratio, colors } from '../../utils/Styles';
-import { ProfileConsumer } from '../../providers/ProfileProvider';
+import { ProfileModalConsumer } from '../../providers/ProfileModalProvider';
 
 type Styles = {
   container: ViewStyle,
@@ -45,7 +45,7 @@ class Screen extends Component<Props, State> {
 
   render() {
     return (
-      <ProfileConsumer>
+      <ProfileModalConsumer>
         {
           (data) => {
             return (
@@ -60,7 +60,7 @@ class Screen extends Component<Props, State> {
             );
           }
         }
-      </ProfileConsumer>
+      </ProfileModalConsumer>
     );
   }
 }

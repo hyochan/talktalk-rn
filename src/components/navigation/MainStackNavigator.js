@@ -14,7 +14,7 @@ import Chat from '../screen/Chat';
 import NotFound from '../screen/NotFound';
 import ProfileModal from '../shared/ProfileModal';
 import { colors } from '../../utils/Styles';
-import { ProfileProvider, ProfileConsumer } from '../../providers/ProfileProvider';
+import { ProfileModalProvider, ProfileModalConsumer } from '../../providers/ProfileModalProvider';
 
 const routeConfig = {
   Main: { screen: MainTabNavigator, navigationOptions: MainTabNavigationOptions },
@@ -51,32 +51,11 @@ class RootNavigator extends React.Component<any, any> {
   render() {
     return (
       <View style={{ flex: 1, flexDirection: 'column' }}>
-        <ProfileProvider>
+        <ProfileModalProvider navigation={this.props.navigation}>
           <MainStackNavigator
             navigation={this.props.navigation}
           />
-          {/* ref is called */}
-          <ProfileModal
-            ref={(v) => {
-              console.log('v', v);
-            }}
-          />;
-          {/* ref is not called */}
-          <ProfileConsumer>
-            {
-              (data) => {
-                console.log(data);
-                <ProfileModal
-                  ref={(v) => {
-                    console.log('v', v);
-                    data.modal = v;
-                  }}
-                  onChat={ () => data.actions.onChatPressed(this.props.navigation) }
-                />;
-              }
-            }
-          </ProfileConsumer>
-        </ProfileProvider>
+        </ProfileModalProvider>
       </View>
     );
   }

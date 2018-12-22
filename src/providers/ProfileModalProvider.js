@@ -1,11 +1,12 @@
 import React, { createContext } from 'react';
 import { Text, TouchableOpacity, View } from 'react-native';
+import ProfileModal from '../components/shared/ProfileModal';
 
-const ProfileContext = createContext();
+const ProfileModalContext = createContext();
 
-export const ProfileConsumer = ProfileContext.Consumer;
+export const ProfileModalConsumer = ProfileModalContext.Consumer;
 
-export class ProfileProvider extends React.Component {
+export class ProfileModalProvider extends React.Component {
   static modal;
 
   state = {
@@ -20,7 +21,7 @@ export class ProfileProvider extends React.Component {
     showModal: (user) => {
       console.log('showModal');
       this.setState({ user }, () => {
-        if (this.state.profileModal) {
+        if (this.modal) {
           console.log('openModal');
           this.modal.showAddBtn(true);
           this.modal.open();
@@ -39,9 +40,16 @@ export class ProfileProvider extends React.Component {
     const { state, actions, modal } = this;
     const value = { state, actions, modal };
     return (
-      <ProfileContext.Provider value={value}>
+      <ProfileModalContext.Provider value={value}>
         {this.props.children}
-      </ProfileContext.Provider>
+        <ProfileModal
+          ref={(v) => {
+            console.log('v', v);
+            this.modal = v;
+          }}
+          onChatPressed={ () => this.actions.onChatPressed(this.props.navigation) }
+        />
+      </ProfileModalContext.Provider>
     );
   }
 }

@@ -6,11 +6,22 @@ import {
   Image,
   Text,
   View,
+
 } from 'react-native';
+
+import type {
+  ____ViewStyleProp_Internal as ViewStyle,
+  ____TextStyleProp_Internal as TextStyle,
+  ____ImageStyleProp_Internal as ImageStyle,
+} from 'react-native/Libraries/StyleSheet/StyleSheetTypes';
 
 import { ratio, colors } from '../../utils/Styles';
 
-const styles = StyleSheet.create({
+type Styles = {
+  container: ViewStyle,
+};
+
+const styles: Styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: 'transparent',
@@ -25,7 +36,7 @@ type Props = {
 };
 type State = {
 
-}
+};
 
 class Screen extends Component<Props, State> {
   static navigationOptions = {

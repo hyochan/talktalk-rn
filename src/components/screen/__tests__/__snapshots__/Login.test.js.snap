@@ -13,7 +13,7 @@ exports[`rendering test renders as expected 1`] = `
   }
 >
   <Text>
-    Loading
+    Login
   </Text>
 </View>
 `;

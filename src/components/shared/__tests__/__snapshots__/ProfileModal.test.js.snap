@@ -1,17 +1,199 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`rendering test renders as expected 1`] = `
-<View
+<ModalBox
+  animationDuration={400}
+  backButtonClose={false}
+  backdrop={true}
+  backdropColor="black"
+  backdropContent={null}
+  backdropOpacity={0.075}
+  backdropPressToClose={true}
+  coverScreen={false}
+  easing={[Function]}
+  entry="top"
+  keyboardTopOffset={22}
+  position="top"
+  startOpen={false}
   style={
     Object {
+      "alignContent": "center",
       "alignItems": "center",
+      "alignSelf": "center",
       "backgroundColor": "transparent",
+      "height": 320,
       "justifyContent": "center",
+      "marginTop": 160,
     }
   }
+  swipeThreshold={50}
+  swipeToClose={true}
 >
-  <Text>
-    Shared
-  </Text>
-</View>
+  <LinearGradient
+    colors={
+      Array [
+        "rgb(58,139,255)",
+        "rgb(100,199,255)",
+      ]
+    }
+    end={
+      Object {
+        "x": 1,
+        "y": 0.8,
+      }
+    }
+    locations={
+      Array [
+        0,
+        0.85,
+      ]
+    }
+    start={
+      Object {
+        "x": 0.4,
+        "y": 0.6,
+      }
+    }
+    style={
+      Object {
+        "alignItems": "center",
+        "alignSelf": "stretch",
+        "height": 320,
+        "justifyContent": "space-between",
+        "marginHorizontal": 20,
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "marginTop": 40,
+        }
+      }
+    >
+      <TouchableOpacity
+        activeOpacity={0.5}
+      >
+        <Component
+          source={
+            Object {
+              "testUri": "../../../assets/icons/mask.png",
+            }
+          }
+          style={
+            Object {
+              "alignSelf": "center",
+            }
+          }
+        />
+      </TouchableOpacity>
+      <Text
+        style={
+          Object {
+            "alignSelf": "center",
+            "color": "white",
+            "fontSize": 24,
+            "fontWeight": "bold",
+            "marginTop": 32,
+          }
+        }
+      />
+      <Text
+        style={
+          Object {
+            "alignSelf": "center",
+            "color": "white",
+            "fontSize": 12,
+            "marginTop": 8,
+          }
+        }
+      />
+    </View>
+    <View
+      style={
+        Object {
+          "alignItems": "center",
+          "alignSelf": "stretch",
+          "backgroundColor": "white",
+          "flexDirection": "row",
+          "height": 80,
+          "justifyContent": "space-between",
+        }
+      }
+    >
+      <TouchableOpacity
+        activeOpacity={0.5}
+        onPress={[Function]}
+        style={
+          Object {
+            "alignItems": "center",
+            "height": 80,
+            "justifyContent": "center",
+            "width": "50%",
+          }
+        }
+      >
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "height": 80,
+              "justifyContent": "center",
+              "width": "50%",
+            }
+          }
+        >
+          <Text
+            style={
+              Object {
+                "color": "rgb(58,139,255)",
+                "fontSize": 16,
+              }
+            }
+          />
+        </View>
+      </TouchableOpacity>
+      <View
+        style={
+          Object {
+            "backgroundColor": undefined,
+            "height": 80,
+            "width": 1,
+          }
+        }
+      />
+      <TouchableOpacity
+        activeOpacity={0.5}
+        style={
+          Object {
+            "alignItems": "center",
+            "height": 80,
+            "justifyContent": "center",
+            "width": "50%",
+          }
+        }
+      >
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "height": 80,
+              "justifyContent": "center",
+              "width": "50%",
+            }
+          }
+        >
+          <Text
+            style={
+              Object {
+                "color": "rgb(58,139,255)",
+                "fontSize": 16,
+              }
+            }
+          />
+        </View>
+      </TouchableOpacity>
+    </View>
+  </LinearGradient>
+</ModalBox>
 `;

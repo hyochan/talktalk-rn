@@ -16,7 +16,11 @@ import type {
 
 import { ratio, colors } from '../../utils/Styles';
 
-const styles = StyleSheet.create({
+type Styles = {
+  wrapper: ViewStyle,
+};
+
+const styles: Styles = StyleSheet.create({
   wrapper: {
     backgroundColor: 'transparent',
 

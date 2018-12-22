@@ -16,7 +16,14 @@ import type {
 
 import { ratio, colors } from '../../utils/Styles';
 
-const styles = StyleSheet.create({
+type Styles = {
+  btn: ViewStyle,
+  btnDisabled: ViewStyle,
+  txt: TextStyle,
+  imgLeft: ImageStyle,
+};
+
+const styles: Styles = StyleSheet.create({
   btn: {
     backgroundColor: 'transparent',
     alignSelf: 'center',
@@ -65,11 +72,11 @@ type Props = {
   indicatorColor?: string;
   activeOpacity?: number;
   children?: any;
-}
+};
 
 type State = {
 
-}
+};
 
 class Button extends Component<Props, State> {
   static defaultProps: Props = {

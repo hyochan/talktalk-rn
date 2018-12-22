@@ -39,7 +39,7 @@ type Props = {
 };
 type State = {
 
-}
+};
 
 class Screen extends Component<Props, State> {
   static navigationOptions = {

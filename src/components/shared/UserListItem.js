@@ -16,10 +16,13 @@ import type {
 
 import { ratio, colors } from '../../utils/Styles';
 
+type Styles = {
+  wrapper: ViewStyle,
+};
+
 const styles = StyleSheet.create({
   wrapper: {
     backgroundColor: 'transparent',
-
     alignItems: 'center',
     justifyContent: 'center',
   },

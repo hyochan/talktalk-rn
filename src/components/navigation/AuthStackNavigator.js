@@ -4,7 +4,6 @@ import { createStackNavigator, StackActions, NavigationActions } from 'react-nav
 import StackViewStyleInterpolator from 'react-navigation-stack/dist/views/StackView/StackViewStyleInterpolator';
 
 import { commonNavigationOptions } from './MainStackNavigator';
-import MainTabNavigator from './MainStackNavigator';
 import Login from '../screen/Login';
 import Signup from '../screen/Signup';
 import FindPw from '../screen/FindPw';

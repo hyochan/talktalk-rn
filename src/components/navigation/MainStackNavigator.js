@@ -4,7 +4,7 @@ import { createStackNavigator, StackActions, NavigationActions } from 'react-nav
 // import CardStackStyleInterpolator from 'react-navigation/src/views/CardStack/CardStackStyleInterpolator';
 import StackViewStyleInterpolator from 'react-navigation-stack/dist/views/StackView/StackViewStyleInterpolator';
 
-import MainTabNavigator, {MainTabNavigationOptions} from './MainTabNavigator';
+import MainTabNavigator, { MainTabNavigationOptions } from './MainTabNavigator';
 import Login from '../screen/Login';
 import Signup from '../screen/Signup';
 import FindPw from '../screen/FindPw';
@@ -14,6 +14,7 @@ import Chat from '../screen/Chat';
 import NotFound from '../screen/NotFound';
 import ProfileModal from '../shared/ProfileModal';
 import { colors } from '../../utils/Styles';
+import { ProfileProvider, ProfileConsumer } from '../../providers/ProfileProvider';
 
 const routeConfig = {
   Main: { screen: MainTabNavigator, navigationOptions: MainTabNavigationOptions },
@@ -26,13 +27,13 @@ const routeConfig = {
 export const commonNavigationOptions = {
   headerBackTitle: null,
   headerStyle: {
-    backgroundColor: colors.dodgerBlue, 
-    borderBottomColor: 'transparent', 
-    borderBottomWidth: 0, 
+    backgroundColor: colors.dodgerBlue,
+    borderBottomColor: 'transparent',
+    borderBottomWidth: 0,
     elevation: 0,
   },
-  headerTitleStyle: {color: 'white'},
-  headerTintColor: 'white', 
+  headerTitleStyle: { color: 'white' },
+  headerTintColor: 'white',
 };
 
 const navigatorConfig = {
@@ -50,21 +51,35 @@ class RootNavigator extends React.Component<any, any> {
   render() {
     return (
       <View style={{ flex: 1, flexDirection: 'column' }}>
-        <MainStackNavigator
-          navigation={this.props.navigation}
-        />
-        {/* <ProfileModal
-          ref={(v) => appStore.profileModal = v}
-          onChat={this.onChat}
-        /> */}
+        <ProfileProvider>
+          <MainStackNavigator
+            navigation={this.props.navigation}
+          />
+          {/* ref is called */}
+          <ProfileModal
+            ref={(v) => {
+              console.log('v', v);
+            }}
+          />;
+          {/* ref is not called */}
+          <ProfileConsumer>
+            {
+              (data) => {
+                console.log(data);
+                <ProfileModal
+                  ref={(v) => {
+                    console.log('v', v);
+                    data.modal = v;
+                  }}
+                  onChat={ () => data.actions.onChatPressed(this.props.navigation) }
+                />;
+              }
+            }
+          </ProfileConsumer>
+        </ProfileProvider>
       </View>
     );
   }
-
-  // private onChat = () => {
-  //   appStore.profileModal.close();
-  //   this.props.navigation.navigate('Chat');
-  // }
 }
 
 export default RootNavigator;

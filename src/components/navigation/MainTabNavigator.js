@@ -41,7 +41,7 @@ const styles = StyleSheet.create({
   txtSub: {
     color: 'white',
     fontSize: 15,
-    fontWeight: '700', 
+    fontWeight: '700',
   },
 });
 
@@ -53,17 +53,17 @@ const MainTabNavigator = createMaterialTopTabNavigator(
   {
     navigationOptions: ({ navigation, screenProps }) => ({
       tabBarVisible: true,
-      tabBarLabel: ({focused}) => {
+      tabBarLabel: ({ focused }) => {
         const { routeName } = navigation.state;
         switch (routeName) {
           case 'Friend':
-            return <Text style={[styles.txt, {opacity: focused ? 1 : 0.8}]}>
-                {getString('FRIEND')}  <Text style={styles.txtSub}>24</Text>
-              </Text>;
+            return <Text style={[styles.txt, { opacity: focused ? 1 : 0.8 }]}>
+              {getString('FRIEND')}  <Text style={styles.txtSub}>24</Text>
+            </Text>;
           case 'Message':
-            return <Text style={[styles.txt, {opacity: focused ? 1 : 0.8}]}>
-                {getString('MESSAGE')}  <Text style={styles.txtSub}>8</Text>
-              </Text>;
+            return <Text style={[styles.txt, { opacity: focused ? 1 : 0.8 }]}>
+              {getString('MESSAGE')}  <Text style={styles.txtSub}>8</Text>
+            </Text>;
         }
         return null;
       },
@@ -75,10 +75,12 @@ const MainTabNavigator = createMaterialTopTabNavigator(
         backgroundColor: 'white',
       },
       style: {
-        height: 40,
+        height: 44,
         justifyContent: 'center',
         backgroundColor: colors.dodgerBlue,
-        borderTopColor: 'transparent', borderTopWidth: 0, elevation: 0,
+        borderTopColor: 'transparent',
+        borderTopWidth: 0,
+        elevation: 0,
       },
     },
   },
@@ -86,9 +88,9 @@ const MainTabNavigator = createMaterialTopTabNavigator(
 
 export default MainTabNavigator;
 
-export const MainTabNavigationOptions = ({navigation}) => ({
+export const MainTabNavigationOptions = ({ navigation }) => ({
   title: 'Talk Talk',
-  headerLeft: 
+  headerLeft:
     <TouchableOpacity
       activeOpacity={0.5}
       onPress={() => navigation.navigate('ProfileUpdate')}

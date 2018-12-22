@@ -8,7 +8,18 @@ import {
   View,
 } from 'react-native';
 
+import type {
+  ____ViewStyleProp_Internal as ViewStyle,
+  ____TextStyleProp_Internal as TextStyle,
+  ____ImageStyleProp_Internal as ImageStyle,
+} from 'react-native/Libraries/StyleSheet/StyleSheetTypes';
+
 import { ratio, colors } from '../../utils/Styles';
+import { ProfileConsumer } from '../../providers/ProfileProvider';
+
+type Styles = {
+  container: ViewStyle,
+};
 
 const styles = StyleSheet.create({
   container: {
@@ -25,7 +36,7 @@ type Props = {
 };
 type State = {
 
-}
+};
 
 class Screen extends Component<Props, State> {
   static navigationOptions = {
@@ -34,9 +45,22 @@ class Screen extends Component<Props, State> {
 
   render() {
     return (
-      <View style={styles.container}>
-        <Text>Friend</Text>
-      </View>
+      <ProfileConsumer>
+        {
+          (data) => {
+            return (
+              <View style={styles.container}>
+                <Text>Friend</Text>
+                <TouchableOpacity
+                  onPress={() => data.actions.showModal({})}
+                >
+                  <Text>show profile</Text>
+                </TouchableOpacity>
+              </View>
+            );
+          }
+        }
+      </ProfileConsumer>
     );
   }
 }

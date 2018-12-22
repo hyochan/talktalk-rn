@@ -8,9 +8,20 @@ import {
   View,
 } from 'react-native';
 
-import { ratio, colors } from '../../utils/Styles';
+import type {
+  ____ViewStyleProp_Internal as ViewStyle,
+  ____TextStyleProp_Internal as TextStyle,
+  ____ImageStyleProp_Internal as ImageStyle,
+} from 'react-native/Libraries/StyleSheet/StyleSheetTypes';
 
-const styles = StyleSheet.create({
+import { ratio, colors } from '../../utils/Styles';
+import { ProfileConsumer } from '../../providers/ProfileProvider';
+
+type Styles = {
+  container: ViewStyle,
+};
+
+const styles: Styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: 'transparent',
@@ -25,7 +36,7 @@ type Props = {
 };
 type State = {
 
-}
+};
 
 class Screen extends Component<Props, State> {
   static navigationOptions = {
@@ -34,9 +45,19 @@ class Screen extends Component<Props, State> {
 
   render() {
     return (
-      <View style={styles.container}>
-        <Text>SearchUser</Text>
-      </View>
+      <ProfileConsumer>
+        {
+          (data) => {
+            <View style={styles.container}>
+              <Text>SearchUser</Text>
+              <TouchableOpacity
+                onPress={() => data.actions.showModal()}
+              >
+              </TouchableOpacity>
+            </View>;
+          }
+        }
+      </ProfileConsumer>
     );
   }
 }

@@ -55,27 +55,67 @@ jobs:
       - attach_workspace:
           at: ~/talktalk-rn
 
-      - restore_cache:
-          key: bundle-v1-{{ checksum "Gemfile.lock" }}-{{ arch }}
-
-      - run: bundle install
-
-      - save_cache:
-          key: bundle-v1-{{ checksum "Gemfile.lock" }}-{{ arch }}
-          paths:
-            - vendor/bundle
+      - run:
+          name: Build Android JS Bundle
+          working_directory: android
+          command: |
+            ./gradlew bundleReleaseJsAndAssets
 
       - run:
-          name: fastlane tests
+          name: Build Android APK
+          working_directory: android
           command: |
-            mkdir -p test-results/fastlane
-            bundle exec fastlane test
-            mv fastlane/report.xml test-results/fastlane
-      - store_test_results:
-          path: test-results
+            ./gradlew assembleRelease -x bundleReleaseJsAndAssets 
 
-      - store_artifacts:
-          path: test-results
+      - restore_cache:
+          key: yarn-v1-{{ checksum "yarn.lock" }}-{{ arch }}
+
+      - restore_cache:
+          key: node-v1-{{ checksum "package.json" }}-{{ arch }}
+
+      - run: yarn install
+
+      - save_cache:
+          key: yarn-v1-{{ checksum "yarn.lock" }}-{{ arch }}
+          paths:
+            - ~/.cache/yarn
+
+      - save_cache:
+          key: node-v1-{{ checksum "package.json" }}-{{ arch }}
+          paths:
+            - node_modules
+
+      - restore_cache:
+          key: bundle-v2-{{ checksum "android/Gemfile.lock" }}-{{ arch }}
+
+      - run: 
+          command: bundle install --path vendor/bundle
+          working_directory: android
+
+      - save_cache:
+          key: bundle-v2-{{ checksum "android/Gemfile.lock" }}-{{ arch }}
+          paths:
+            - android/vendor/bundle
+
+      - run: 
+          name: Check MD5 on files
+          command: |
+            md5sum android/build.gradle
+            md5sum android/app/build.gradle            
+            cat android/app/build.gradle | sed -n -e '/dependencies/,$p' > android.app.build.gradle.deps
+
+      - restore_cache:
+          key: android-jars-v1-{{ checksum "android/build.gradle" }}-{{ checksum  "android.app.build.gradle.deps" }}
+
+      - run:
+          name: Download Dependencies
+          command: ./gradlew androidDependencies
+          working_directory: android
+
+      - save_cache:
+          key: android-jars-v1-{{ checksum "android/build.gradle" }}-{{ checksum  "android.app.build.gradle.deps" }}
+          paths:
+            - ~/.gradle
 
   ios:
     macos:
@@ -168,6 +208,6 @@ workflows:
       - android:
           requires:
             - node
-      - ios:
-          requires:
-            - node
+      # - ios:
+      #     requires:
+      #       - node

@@ -1,6 +1,6 @@
 # TalkTalk
 [![codecov](https://codecov.io/gh/dooboolab/talktalk-rn/branch/master/graph/badge.svg)](https://codecov.io/gh/dooboolab/talktalk-rn)
-[![circleci](https://circleci.com/gh/dooboolab/talktalk-rn.png)](https://circleci.com/gh/dooboolab/talktalk-rn)
+[![CircleCI](https://circleci.com/gh/dooboolab/talktalk-rn.svg?style=svg)](https://circleci.com/gh/dooboolab/talktalk-rn)
 
 > Specification
 * flow

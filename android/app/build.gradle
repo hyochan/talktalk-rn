@@ -111,7 +111,7 @@ android {
       release {
         storeFile file("talktalk.keystore")
         storePassword "dooboolab!"
-        keyAlias "dooboo"
+        keyAlias "key0"
         keyPassword "dooboolab!"
       }
     }

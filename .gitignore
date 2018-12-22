@@ -67,4 +67,4 @@ ios/main.jsbundle.map
 android/drawable-*/
 android/main.jsbundle.meta
 android/main.jsbundle.map
-android/app/app-release.apk
+android/app/release

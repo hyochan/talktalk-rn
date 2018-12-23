@@ -13,7 +13,7 @@
     "android": "node node_modules/react-native/local-cli/cli.js run-android",
     "android:shake": "adb shell input keyevent 82",
     "android:log": "adb logcat '*:S' ReactNative:V ReactNativeJS:V",
-    "android:apk": "android && ./gradlew assembleRelease",
+    "android:apk": "cd android && ./gradlew assembleRelease",
     "android:release": "node node_modules/react-native/local-cli/cli.js run-android --variant=release",
     "circleci:node": "circleci build --job node",
     "circleci:android": "circleci build --job android",
@@ -67,7 +67,7 @@
   "jest": {
     "preset": "react-native",
     "transformIgnorePatterns": [
-      "node_modules/(?!(.*-)?react-(.*-)?native(-.*)?)",
+      "node_modules/(?!react-native|react-navigation)/",
       "<rootDir>/lib/"
     ],
     "coverageDirectory": "./coverage/",
@@ -93,6 +93,10 @@
     ],
     "snapshotSerializers": [
       "./node_modules/enzyme-to-json/serializer"
+    ],
+    "testPathIgnorePatterns": [
+      "\\.snap$",
+      "<rootDir>/node_modules/"
     ]
   }
 }

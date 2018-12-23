@@ -1,7 +1,8 @@
 module.exports = {
   "extends": "standard",
   "env": {
-    "browser": true
+    "browser": true,
+    "jest": true,
   },
   "rules": {
     "no-unused-expressions": 0,

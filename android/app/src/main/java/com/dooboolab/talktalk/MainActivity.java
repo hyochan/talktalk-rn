@@ -1,4 +1,4 @@
-package com.talktalk;
+package com.dooboolab.talktalk;
 
 import com.facebook.react.ReactActivity;
 

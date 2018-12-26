@@ -1,3 +1,4 @@
+import { name as appName } from './app.json';
 import { AppRegistry, YellowBox } from 'react-native';
 // if build release failed in android, try replace import statement with below.
 // import App from './lib/App';
@@ -11,4 +12,4 @@ YellowBox.ignoreWarnings([
   'Module RCTImageLoader'
 ]);
 
-AppRegistry.registerComponent('TalkTalk', () => App);
+AppRegistry.registerComponent(appName, () => App);

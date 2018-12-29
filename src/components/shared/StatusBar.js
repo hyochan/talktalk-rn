@@ -6,6 +6,8 @@ import {
   Image,
   Text,
   View,
+  Platform,
+  StatusBar,
 } from 'react-native';
 
 import type {
@@ -16,20 +18,8 @@ import type {
 
 import { ratio, colors } from '../../utils/Styles';
 
-type Styles = {
-  wrapper: ViewStyle,
-};
-
-const styles: Styles = StyleSheet.create({
-  wrapper: {
-    backgroundColor: 'transparent',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
-
 type Props = {
-  style: ViewStyle;
+  isDarkContent: boolean,
 };
 
 type State = {
@@ -38,14 +28,20 @@ type State = {
 
 class Shared extends Component<Props, State> {
   static defaultProps: Props = {
-    style: styles.wrapper,
+    isDarkContent: false,
   };
 
   render() {
+    const statusColor: 'default' | 'light-content' | 'dark-content' = Platform.OS === 'android'
+      ? 'default'
+      : this.props.isDarkContent
+        ? 'dark-content'
+        : 'light-content';
     return (
-      <View style={this.props.style}>
-        <Text>Shared</Text>
-      </View>
+      <StatusBar
+        barStyle={statusColor}
+        backgroundColor={colors.darkBlue}
+      />
     );
   }
 }

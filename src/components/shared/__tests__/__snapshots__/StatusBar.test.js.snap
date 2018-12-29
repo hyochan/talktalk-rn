@@ -1,17 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`rendering test renders as expected 1`] = `
-<View
-  style={
-    Object {
-      "alignItems": "center",
-      "backgroundColor": "transparent",
-      "justifyContent": "center",
-    }
-  }
->
-  <Text>
-    Shared
-  </Text>
-</View>
+<StatusBar
+  animated={false}
+  barStyle="light-content"
+  showHideTransition="fade"
+/>
 `;

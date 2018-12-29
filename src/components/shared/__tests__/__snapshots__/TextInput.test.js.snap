@@ -3,15 +3,46 @@
 exports[`rendering test renders as expected 1`] = `
 <View
   style={
-    Object {
-      "alignItems": "center",
-      "backgroundColor": "transparent",
-      "justifyContent": "center",
-    }
+    Array [
+      Object {
+        "alignItems": "flex-start",
+        "alignSelf": "stretch",
+        "flexDirection": "column",
+        "justifyContent": "flex-start",
+      },
+      Object {
+        "alignItems": "flex-start",
+        "alignSelf": "stretch",
+        "flexDirection": "column",
+        "justifyContent": "flex-start",
+      },
+    ]
   }
 >
-  <Text>
-    Shared
-  </Text>
+  <TextInput
+    allowFontScaling={true}
+    autoCapitalize="none"
+    autoCorrect={false}
+    onBlur={[Function]}
+    onFocus={[Function]}
+    style={
+      Array [
+        Object {
+          "alignItems": "center",
+          "alignSelf": "stretch",
+          "borderColor": "rgb(233,237,244)",
+          "borderWidth": 1,
+          "color": "rgb(65,77,107)",
+          "flexDirection": "row",
+          "fontSize": 16,
+          "justifyContent": "flex-start",
+          "paddingHorizontal": 20,
+          "paddingVertical": 22,
+        },
+        undefined,
+      ]
+    }
+    underlineColorAndroid="transparent"
+  />
 </View>
 `;

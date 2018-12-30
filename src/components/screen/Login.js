@@ -80,20 +80,19 @@ export const styles: Styles = StyleSheet.create({
   viewBtnWrapper: {
     alignSelf: 'stretch',
     marginTop: 20,
+    height: 60,
 
     flexDirection: 'row',
-    justifyContent: 'flex-end',
+    justifyContent: 'space-between',
     alignItems: 'center',
   },
   btnSignup: {
     backgroundColor: 'transparent',
-    alignSelf: 'center',
     borderRadius: 4,
     borderWidth: 1,
-    width: 136,
-    height: 60,
+    height: '100%',
+    width: '100%',
     borderColor: colors.dodgerBlue,
-    marginRight: 4,
 
     alignItems: 'center',
     justifyContent: 'center',
@@ -106,12 +105,9 @@ export const styles: Styles = StyleSheet.create({
   btnLogin: {
     backgroundColor: colors.dodgerBlue,
     borderColor: colors.dodgerBlue,
-    alignSelf: 'center',
     borderRadius: 4,
     borderWidth: 1,
-    width: 136,
     height: 60,
-    marginLeft: 4,
     shadowColor: colors.dodgerBlue,
     shadowOffset: {
       width: 0,
@@ -194,11 +190,14 @@ class Screen extends Component<Props, State> {
             />
             <View style={styles.viewBtnWrapper}>
               <Button
+                constainerStyle={{ flex: 1 }}
                 onPress={this.goToSignup}
                 style={styles.btnSignup}
                 textStyle={styles.txtSignUp}
               >{getString('SIGNUP')}</Button>
+              <View style={{ width: 8 }}/>
               <Button
+                constainerStyle={{ flex: 1 }}
                 isLoading={this.state.isLoggingIn}
                 onPress={this.onLogin}
                 style={styles.btnLogin}

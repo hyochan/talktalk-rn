@@ -17,7 +17,6 @@ exports[`rendering test renders as expected 1`] = `
         "alignItems": "center",
         "flex": 1,
         "flexDirection": "column",
-        "paddingTop": 20,
       }
     }
   >
@@ -100,13 +99,19 @@ exports[`rendering test renders as expected 1`] = `
             "alignItems": "center",
             "alignSelf": "stretch",
             "flexDirection": "row",
-            "justifyContent": "flex-end",
+            "height": 60,
+            "justifyContent": "space-between",
             "marginTop": 20,
           }
         }
       >
         <Button
           activeOpacity={0.5}
+          constainerStyle={
+            Object {
+              "flex": 1,
+            }
+          }
           imgLeftStyle={
             Object {
               "height": 24,
@@ -122,15 +127,13 @@ exports[`rendering test renders as expected 1`] = `
           style={
             Object {
               "alignItems": "center",
-              "alignSelf": "center",
               "backgroundColor": "transparent",
               "borderColor": "rgb(58,139,255)",
               "borderRadius": 4,
               "borderWidth": 1,
-              "height": 60,
+              "height": "100%",
               "justifyContent": "center",
-              "marginRight": 4,
-              "width": 136,
+              "width": "100%",
             }
           }
           textStyle={
@@ -143,8 +146,20 @@ exports[`rendering test renders as expected 1`] = `
         >
           SIGN UP
         </Button>
+        <View
+          style={
+            Object {
+              "width": 8,
+            }
+          }
+        />
         <Button
           activeOpacity={0.5}
+          constainerStyle={
+            Object {
+              "flex": 1,
+            }
+          }
           imgLeftStyle={
             Object {
               "height": 24,
@@ -160,14 +175,12 @@ exports[`rendering test renders as expected 1`] = `
           style={
             Object {
               "alignItems": "center",
-              "alignSelf": "center",
               "backgroundColor": "rgb(58,139,255)",
               "borderColor": "rgb(58,139,255)",
               "borderRadius": 4,
               "borderWidth": 1,
               "height": 60,
               "justifyContent": "center",
-              "marginLeft": 4,
               "shadowColor": "rgb(58,139,255)",
               "shadowOffset": Object {
                 "height": 10,
@@ -175,7 +188,6 @@ exports[`rendering test renders as expected 1`] = `
               },
               "shadowOpacity": 0.3,
               "shadowRadius": 4,
-              "width": 136,
             }
           }
           textStyle={

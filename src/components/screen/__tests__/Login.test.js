@@ -89,17 +89,14 @@ describe('interaction', () => {
       spy2 = jest.spyOn(wrapper.instance(), 'onLogin');
     })
     it('should call onLogin callback', () => {
-      const signupBtn = wrapper.find(Button).first();
-      const loginBtn = wrapper.find(Button).last();
-      expect(signupBtn).toHaveLength(1);
-      expect(loginBtn).toHaveLength(1);
+      const signupBtn = wrapper.find(Button).at(0);
+      const loginBtn = wrapper.find(Button).at(1);
       signupBtn.props().onPress();
-      console.warn(signupBtn.props().onPress());
       loginBtn.props().onPress();
 
       // TODO: currently not beening called
-      // expect(spy1).toHaveBeenCalled();
-      // expect(spy2).toBeCalled();
+      expect(spy1).toHaveBeenCalled();
+      expect(spy2).toBeCalled();
     });
   });
   afterAll(() => {

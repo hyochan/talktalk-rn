@@ -191,7 +191,7 @@ class Screen extends Component<Props, State> {
             <View style={styles.viewBtnWrapper}>
               <Button
                 constainerStyle={{ flex: 1 }}
-                onPress={this.goToSignup}
+                onPress={() => this.goToSignup()}
                 style={styles.btnSignup}
                 textStyle={styles.txtSignUp}
               >{getString('SIGNUP')}</Button>
@@ -199,7 +199,7 @@ class Screen extends Component<Props, State> {
               <Button
                 constainerStyle={{ flex: 1 }}
                 isLoading={this.state.isLoggingIn}
-                onPress={this.onLogin}
+                onPress={() => this.onLogin()}
                 style={styles.btnLogin}
                 textStyle={styles.txtLogin}
               >{getString('LOGIN')}</Button>

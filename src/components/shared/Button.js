@@ -24,13 +24,16 @@ type Styles = {
 };
 
 const styles: Styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
   btn: {
     backgroundColor: 'transparent',
     alignSelf: 'center',
     borderRadius: 4,
     borderWidth: 2,
-    width: 320,
-    height: 52,
+    width: '100%',
+    height: '100%',
     borderColor: 'white',
 
     alignItems: 'center',
@@ -41,8 +44,8 @@ const styles: Styles = StyleSheet.create({
     alignSelf: 'center',
     borderRadius: 4,
     borderWidth: 2,
-    width: 320,
-    height: 52,
+    width: '100%',
+    height: '100%',
     borderColor: '#333',
 
     alignItems: 'center',
@@ -61,6 +64,7 @@ const styles: Styles = StyleSheet.create({
 });
 
 type Props = {
+  constainerStyle?: ViewStyle;
   isLoading?: boolean;
   isDisabled?: boolean;
   onPress?: () => void;
@@ -92,35 +96,41 @@ class Button extends Component<Props, State> {
   render() {
     if (this.props.isDisabled) {
       return (
-        <View style={this.props.disabledStyle}>
-          <Text style={this.props.textStyle}>{this.props.children}</Text>
+        <View style={this.props.constainerStyle}>
+          <View style={this.props.disabledStyle}>
+            <Text style={this.props.textStyle}>{this.props.children}</Text>
+          </View>
         </View>
       );
     }
     if (this.props.isLoading) {
       return (
-        <View style={this.props.style}>
-          <ActivityIndicator size='small' color={this.props.indicatorColor} />
+        <View style={this.props.constainerStyle}>
+          <View style={this.props.style}>
+            <ActivityIndicator size='small' color={this.props.indicatorColor} />
+          </View>
         </View>
       );
     }
     return (
-      <TouchableOpacity
-        activeOpacity={this.props.activeOpacity}
-        onPress={this.props.onPress}
-      >
-        <View style={this.props.style}>
-          {
-            this.props.imgLeftSrc
-              ? <Image
-                style={this.props.imgLeftStyle}
-                source={this.props.imgLeftSrc}
-              />
-              : null
-          }
-          <Text style={this.props.textStyle}>{this.props.children}</Text>
-        </View>
-      </TouchableOpacity>
+      <View style={this.props.constainerStyle}>
+        <TouchableOpacity
+          activeOpacity={this.props.activeOpacity}
+          onPress={this.props.onPress}
+        >
+          <View style={this.props.style}>
+            {
+              this.props.imgLeftSrc
+                ? <Image
+                  style={this.props.imgLeftStyle}
+                  source={this.props.imgLeftSrc}
+                />
+                : null
+            }
+            <Text style={this.props.textStyle}>{this.props.children}</Text>
+          </View>
+        </TouchableOpacity>
+      </View>
     );
   }
 }

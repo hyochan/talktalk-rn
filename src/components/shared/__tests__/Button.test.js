@@ -33,7 +33,7 @@ describe('Button', () => {
       wrapper.setProps({ onPress: () => onPress()});
       expect(wrapper).toMatchSnapshot();
 
-      wrapper.first().props().onPress();
+      wrapper.find('TouchableOpacity').props().onPress();
       expect(cnt).toBe(2);
     });
   });

@@ -1,19 +1,239 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`rendering test renders as expected 1`] = `
-<View
+<ScrollView
   style={
     Object {
-      "alignItems": "center",
-      "backgroundColor": "transparent",
-      "flex": 1,
-      "flexDirection": "column",
-      "justifyContent": "center",
+      "backgroundColor": "white",
     }
   }
 >
-  <Text>
-    Login
-  </Text>
-</View>
+  <Shared
+    isDarkContent={true}
+  />
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "flex": 1,
+        "flexDirection": "column",
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "alignItems": "flex-start",
+          "flexDirection": "column",
+          "left": 40,
+          "position": "absolute",
+          "top": 76,
+        }
+      }
+    >
+      <Component
+        source={
+          Object {
+            "testUri": "../../../assets/icons/icon.png",
+          }
+        }
+        style={
+          Object {
+            "height": 48,
+            "width": 60,
+          }
+        }
+      />
+      <Text
+        style={
+          Object {
+            "color": "rgb(65,77,107)",
+            "fontSize": 20,
+            "fontWeight": "bold",
+            "marginTop": 16,
+          }
+        }
+      >
+        Hello
+        .
+      </Text>
+    </View>
+    <View
+      style={
+        Object {
+          "alignItems": "center",
+          "flexDirection": "column",
+          "height": 300,
+          "marginTop": 260,
+          "width": "78%",
+        }
+      }
+    >
+      <Shared
+        onTextChanged={[Function]}
+        style={
+          Object {
+            "alignItems": "flex-start",
+            "alignSelf": "stretch",
+            "flexDirection": "column",
+            "justifyContent": "flex-start",
+          }
+        }
+        txt=""
+        txtHint="Email"
+      />
+      <Shared
+        isPassword={true}
+        onTextChanged={[Function]}
+        style={
+          Object {
+            "marginTop": 8,
+          }
+        }
+        txt=""
+        txtHint="Password"
+      />
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+            "alignSelf": "stretch",
+            "flexDirection": "row",
+            "height": 60,
+            "justifyContent": "space-between",
+            "marginTop": 20,
+          }
+        }
+      >
+        <Button
+          activeOpacity={0.5}
+          constainerStyle={
+            Object {
+              "flex": 1,
+            }
+          }
+          imgLeftStyle={
+            Object {
+              "height": 24,
+              "left": 16,
+              "position": "absolute",
+              "width": 24,
+            }
+          }
+          indicatorColor="white"
+          isDisabled={false}
+          isLoading={false}
+          onPress={[Function]}
+          style={
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "transparent",
+              "borderColor": "rgb(58,139,255)",
+              "borderRadius": 4,
+              "borderWidth": 1,
+              "height": "100%",
+              "justifyContent": "center",
+              "width": "100%",
+            }
+          }
+          textStyle={
+            Object {
+              "color": "rgb(58,139,255)",
+              "fontSize": 16,
+              "fontWeight": "bold",
+            }
+          }
+        >
+          SIGN UP
+        </Button>
+        <View
+          style={
+            Object {
+              "width": 8,
+            }
+          }
+        />
+        <Button
+          activeOpacity={0.5}
+          constainerStyle={
+            Object {
+              "flex": 1,
+            }
+          }
+          imgLeftStyle={
+            Object {
+              "height": 24,
+              "left": 16,
+              "position": "absolute",
+              "width": 24,
+            }
+          }
+          indicatorColor="white"
+          isDisabled={false}
+          isLoading={false}
+          onPress={[Function]}
+          style={
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "rgb(58,139,255)",
+              "borderColor": "rgb(58,139,255)",
+              "borderRadius": 4,
+              "borderWidth": 1,
+              "height": 60,
+              "justifyContent": "center",
+              "shadowColor": "rgb(58,139,255)",
+              "shadowOffset": Object {
+                "height": 10,
+                "width": 0,
+              },
+              "shadowOpacity": 0.3,
+              "shadowRadius": 4,
+            }
+          }
+          textStyle={
+            Object {
+              "color": "white",
+              "fontSize": 16,
+              "fontWeight": "bold",
+            }
+          }
+        >
+          LOGIN
+        </Button>
+      </View>
+      <TouchableOpacity
+        activeOpacity={0.5}
+        onPress={[Function]}
+        style={
+          Object {
+            "marginTop": 20,
+          }
+        }
+      >
+        <Text
+          style={
+            Object {
+              "color": "rgb(58,139,255)",
+              "fontSize": 12,
+              "textDecorationLine": "underline",
+            }
+          }
+        >
+          Forgot password?
+        </Text>
+      </TouchableOpacity>
+      <Text
+        style={
+          Object {
+            "color": "rgb(175,194,219)",
+            "fontSize": 12,
+            "marginTop": 80,
+          }
+        }
+      >
+        copyright by dooboolab.com
+      </Text>
+    </View>
+  </View>
+</ScrollView>
 `;

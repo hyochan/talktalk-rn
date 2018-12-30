@@ -101,7 +101,7 @@ class Shared extends Component<Props, State> {
     focused: false,
   };
 
-  constructor(props) {
+  constructor(props: Props) {
     super(props);
   }
 

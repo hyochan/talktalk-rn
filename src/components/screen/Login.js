@@ -6,6 +6,7 @@ import {
   Image,
   Text,
   View,
+  SafeAreaView,
   ScrollView,
 } from 'react-native';
 
@@ -46,7 +47,6 @@ export const styles: Styles = StyleSheet.create({
   },
   container: {
     flex: 1,
-    paddingTop: statusBarHeight, // false to get height of android too.
 
     flexDirection: 'column',
     alignItems: 'center',
@@ -154,7 +154,9 @@ type State = {
 
 class Screen extends Component<Props, State> {
   static navigationOptions = {
-    header: null,
+    headerStyle: {
+      borderBottomWidth: 0,
+    }
   };
 
   constructor(props: Props) {

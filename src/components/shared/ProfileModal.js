@@ -38,7 +38,6 @@ const styles: Styles = StyleSheet.create({
     backgroundColor: 'transparent',
     alignSelf: 'center',
     height: 320,
-    marginTop: 200,
 
     alignContent: 'center',
     alignItems: 'center',
@@ -157,7 +156,7 @@ class Shared extends Component<Props, State> {
         ref={(v) => this.modal = v}
         backdropOpacity={0.075}
         entry={'top'}
-        position={'top'}
+        position={'center'}
         style={styles.modal}
       >
         <LinearGradient

@@ -18,18 +18,27 @@ import { ratio, colors } from '../../utils/Styles';
 
 type Styles = {
   wrapper: ViewStyle,
+  text: TextStyle,
 };
 
 const styles: Styles = StyleSheet.create({
   wrapper: {
-    backgroundColor: 'transparent',
-    alignItems: 'center',
+    flex: 1,
+    width: '100%',
     justifyContent: 'center',
+    alignItems: 'center',
+    alignSelf: 'stretch',
+  },
+  text: {
+    fontSize: 14 * ratio,
+    color: 'rgb(155,155,155)',
+    alignSelf: 'center',
   },
 });
 
 type Props = {
   style: ViewStyle;
+  children?: any;
 };
 
 type State = {
@@ -43,8 +52,14 @@ class Shared extends Component<Props, State> {
 
   render() {
     return (
-      <View style={this.props.style}>
-        <Text>Shared</Text>
+      <View
+        style={this.props.style}
+      >
+        <Text
+          style={[
+            styles.text,
+          ]}
+        >{this.props.children}</Text>
       </View>
     );
   }

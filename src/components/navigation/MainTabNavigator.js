@@ -8,6 +8,7 @@ import {
   createMaterialTopTabNavigator,
 } from 'react-navigation';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import Icon5, { FA5Style } from 'react-native-vector-icons/FontAwesome5';
 
 import type {
   ____ViewStyleProp_Internal as ViewStyle,
@@ -105,7 +106,7 @@ export const MainTabNavigationOptions = ({ navigation }) => ({
         activeOpacity={0.5}
         onPress={() => navigation.navigate('ProfileUpdate')}
       >
-        <Icon name="user-circle" size={20} color={colors.dodgerBlue} />
+        <Icon5 name="user-circle" size={20} color={colors.dodgerBlue} light/>
       </TouchableOpacity>
     </View>,
   headerRight:
@@ -116,7 +117,7 @@ export const MainTabNavigationOptions = ({ navigation }) => ({
         activeOpacity={0.5}
         onPress={() => navigation.navigate('SearchUser')}
       >
-        <Icon name="plus" size={20} color={colors.dodgerBlue} />
+        <Icon5 name="plus" size={20} color={colors.dodgerBlue} light/>
       </TouchableOpacity>
     </View>,
 });

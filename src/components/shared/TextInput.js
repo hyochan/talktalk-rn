@@ -95,6 +95,8 @@ type State = {
 class Shared extends Component<Props, State> {
   static defaultProps: Props = {
     style: styles.wrapper,
+    labelStyle: styles.label,
+    labelStyleFocus: styles.labelFocus,
   };
 
   state = {
@@ -138,11 +140,9 @@ class Shared extends Component<Props, State> {
   renderTxtLabel = () => {
     if (this.props.txtLabel) {
       return (
-        <View style={{ marginBottom: 6 }}>
-          <Text style={this.state.focused ? this.props.labelStyleFocus : this.props.labelStyle}>
-            {this.props.txtLabel}
-          </Text>
-        </View>
+        <Text style={this.state.focused ? this.props.labelStyleFocus : this.props.labelStyle}>
+          {this.props.txtLabel}
+        </Text>
       );
     }
     return null;

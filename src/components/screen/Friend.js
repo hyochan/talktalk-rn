@@ -39,9 +39,12 @@ type State = {
 };
 
 class Screen extends Component<Props, State> {
-  static navigationOptions = {
-    title: 'Title',
-  };
+  constructor(props: Props) {
+    super(props);
+    this.state = {
+      friends: [],
+    };
+  }
 
   render() {
     return (

@@ -38,10 +38,6 @@ type State = {
 };
 
 class Screen extends Component<Props, State> {
-  static navigationOptions = {
-    title: 'Title',
-  };
-
   render() {
     return (
       <View style={styles.container}>

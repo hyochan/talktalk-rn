@@ -9,11 +9,22 @@ import Button from '../../shared/Button';
 import renderer from 'react-test-renderer';
 import { shallow, render } from 'enzyme';
 
-const wrapper = shallow(<Login />);
-const tree = renderer.create(<Login />).toJSON();
-const instance = renderer.create(<Login />).getInstance();
+let props;
+let wrapper;
+let tree;
+let instance;
 
 describe('rendering test', () => {
+  beforeEach(() => {
+    props = {
+      navigation: {
+        navigate: jest.fn(),
+      },
+    };
+    wrapper = shallow(<Login {...props} />);
+    tree = renderer.create(<Login {...props} />).toJSON();
+    instance = renderer.create(<Login {...props} />).getInstance();
+  });
   const findElement = function (tree, element) {
     let result = undefined;
     for (let node in tree.children) {
@@ -73,30 +84,38 @@ describe('rendering test', () => {
 
 describe('interaction', () => {
   beforeEach(() => {
-    wrapper.setProps({
+    props = {
       navigation: {
         navigate: jest.fn(),
       },
-    });
+    };
+    wrapper = shallow(<Login {...props} />);
+    tree = renderer.create(<Login {...props} />).toJSON();
+    instance = renderer.create(<Login {...props} />).getInstance();
   });
   describe('clicking the button', () => {
-    let spy1;
-    let spy2;
-    beforeEach(() => {
-      wrapper.instance().goToSignup = jest.fn();
-      wrapper.instance().onLogin = jest.fn();
-      spy1 = jest.spyOn(wrapper.instance(), 'goToSignup');
-      spy2 = jest.spyOn(wrapper.instance(), 'onLogin');
-    })
     it('should call onLogin callback', () => {
-      const signupBtn = wrapper.find(Button).at(0);
-      const loginBtn = wrapper.find(Button).at(1);
-      signupBtn.props().onPress();
+      const spy = jest.spyOn(wrapper.instance(), 'onLogin');
+      const loginBtn = wrapper.find('#login');
       loginBtn.props().onPress();
-
-      // TODO: currently not beening called
-      expect(spy1).toHaveBeenCalled();
-      expect(spy2).toBeCalled();
+      expect(spy).toHaveBeenCalled();
+      expect(wrapper.instance().state.isLoggingIn).toEqual(false);
+      // wrapper.update();
+      // expect(wrapper.instance().state.isLoggingIn).toEqual(true);
+      // wrapper.update();
+      // expect(wrapper.instance().state.isLoggingIn).toEqual(false);
+    });
+    it('should call goToSignup callback', () => {
+      const spy = jest.spyOn(wrapper.instance(), 'goToSignup');
+      const signupBtn = wrapper.find('#signup');
+      signupBtn.props().onPress();
+      expect(spy).toBeCalled();
+      expect(props.navigation.navigate).toHaveBeenCalledWith('Signup');
+    });
+    it('should call goToForgotPw callack', () => {
+      const findPwBtn = wrapper.find('#find_pw');
+      findPwBtn.props().onPress();
+      expect(props.navigation.navigate).toHaveBeenCalledWith('FindPw');
     });
   });
   afterAll(() => {

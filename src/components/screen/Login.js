@@ -190,6 +190,7 @@ class Screen extends Component<Props, State> {
             />
             <View style={styles.viewBtnWrapper}>
               <Button
+                id='signup'
                 constainerStyle={{ flex: 1 }}
                 onPress={() => this.goToSignup()}
                 style={styles.btnSignup}
@@ -197,6 +198,7 @@ class Screen extends Component<Props, State> {
               >{getString('SIGNUP')}</Button>
               <View style={{ width: 8 }}/>
               <Button
+                id='login'
                 constainerStyle={{ flex: 1 }}
                 isLoading={this.state.isLoggingIn}
                 onPress={() => this.onLogin()}
@@ -205,8 +207,9 @@ class Screen extends Component<Props, State> {
               >{getString('LOGIN')}</Button>
             </View>
             <TouchableOpacity
+              id='find_pw'
               activeOpacity={0.5}
-              onPress={this.goToForgotPw}
+              onPress={() => this.goToFindPw()}
               style={styles.touchForgotPw}
             >
               <Text style={styles.txtForgotPw}>{getString('FORGOT_PW')}</Text>
@@ -229,17 +232,15 @@ class Screen extends Component<Props, State> {
   }
 
   goToSignup = () => {
-    console.log('goToSignup');
     this.props.navigation.navigate('Signup');
     // this.props.navigation.navigate('Signup');
   }
-  goToForgotPw = () => {
+  goToFindPw = () => {
     this.props.navigation.navigate('FindPw');
-    console.log('goToForgotPw');
   }
 
   onLogin = () => {
-    this.setState({ isLoggingIn: true }, async() => {
+    this.setState({ isLoggingIn: true }, () => {
       try {
       } catch (err) {
         // Alert.alert(getString('ERROR'), err.message);

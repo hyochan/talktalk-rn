@@ -15,3 +15,40 @@ describe('rendering test', () => {
     expect(wrapper).toMatchSnapshot();
   });
 });
+
+describe('context', () => {
+  let wrapper;
+  let props;
+
+  beforeEach(() => {
+    const context = {
+      state: {
+        user: null,
+      },
+      actions: {
+        setModal: jest.fn(),
+        showModal: jest.fn(),
+        onChatPressed: jest.fn(),
+      }
+    }
+    props = {
+      navigation: {
+        navigate: jest.fn(),
+      },
+      ...context,
+    };
+    const outer = shallow(<SearchUser />);
+    const Children = outer.props().children;
+    wrapper = shallow(<Children {...props} />);
+  });
+
+  it('renders context', () => {
+    expect(wrapper.find('TouchableOpacity')).toHaveLength(1);
+  });
+
+  it('should call showModal on click', () => {
+    const showProfileBtn = wrapper.find('TouchableOpacity');
+    showProfileBtn.props().onPress();
+    expect(props.actions.showModal).toHaveBeenCalled();
+  });
+});

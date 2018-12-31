@@ -48,13 +48,15 @@ class Screen extends Component<Props, State> {
       <ProfileModalConsumer>
         {
           (data) => {
-            <View style={styles.container}>
-              <Text>SearchUser</Text>
-              <TouchableOpacity
-                onPress={() => data.actions.showModal()}
-              >
-              </TouchableOpacity>
-            </View>;
+            return (
+              <View style={styles.container}>
+                <Text>SearchUser</Text>
+                <TouchableOpacity
+                  onPress={() => data.actions.showModal()}
+                >
+                </TouchableOpacity>
+              </View>
+            );
           }
         }
       </ProfileModalConsumer>

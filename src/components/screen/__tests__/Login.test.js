@@ -119,7 +119,8 @@ describe('interaction', () => {
     });
   });
   afterAll(() => {
-    Login.prototype.onLogin.mockRestore();
-    Login.prototype.goToSignup.mockRestore();
+    wrapper.instance().prototype.onLogin.mockRestore();
+    wrapper.instance().prototype.goToSignup.mockRestore();
+    wrapper.instance().prototype.goToFindPw.mockRestore();
   });
 });

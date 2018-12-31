@@ -30,3 +30,37 @@ describe('rendering test', () => {
   //   expect(cnt).toBe(2);
   // });
 });
+
+describe('interaction', () => {
+  let wrapper;
+  beforeEach(() => {
+    const input = {
+      open: jest.fn(),
+      close: jest.fn(),
+    };
+    wrapper = shallow(<ProfileModal />);
+    wrapper.instance().modal = input;
+  });
+  describe('should setUser', () => {
+    it('should call setUser callback', () => {
+      wrapper.instance().setUser();
+    });
+    it('should call open', () => {
+      wrapper.instance().open();
+      expect(wrapper.instance().state.isFriendAdded).toBe(false);
+      expect(wrapper.instance().state.isFriendAlreadyAdded).toBe(false);
+    });
+    it('should call showAddBtn', () => {
+      wrapper.instance().showAddBtn(false);
+      expect(wrapper.instance().state.showAddBtn).toBe(false);
+      wrapper.instance().showAddBtn(true);
+      expect(wrapper.instance().state.showAddBtn).toBe(true);
+    });
+    it('should call addFriend', () => {
+      wrapper.instance().addFriend();
+    });
+    it('should call deleteFriend', () => {
+      wrapper.instance().deleteFriend();
+    });
+  });
+});

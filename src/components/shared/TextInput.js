@@ -138,9 +138,11 @@ class Shared extends Component<Props, State> {
   renderTxtLabel = () => {
     if (this.props.txtLabel) {
       return (
-        <Text style={this.state.focused ? this.props.labelStyleFocus : this.props.labelStyle}>
-          {this.props.txtLabel}
-        </Text>
+        <View style={{ marginBottom: 6 }}>
+          <Text style={this.state.focused ? this.props.labelStyleFocus : this.props.labelStyle}>
+            {this.props.txtLabel}
+          </Text>
+        </View>
       );
     }
     return null;

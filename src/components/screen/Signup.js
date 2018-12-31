@@ -98,7 +98,7 @@ type State = {
 
 class Screen extends Component<Props, State> {
   static navigationOptions = {
-    title: 'Title',
+    title: getString('SIGNUP'),
   };
 
   constructor(props: Props) {
@@ -115,7 +115,7 @@ class Screen extends Component<Props, State> {
   render() {
     return (
       <View style={styles.container}>
-        <StatusBar isDarkContent={false}/>
+        <StatusBar isDarkContent={true}/>
         <ScrollView
           style={styles.scrollView}
           contentContainerStyle={styles.scrollViewContainer}

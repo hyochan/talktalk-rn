@@ -12,7 +12,7 @@ exports[`rendering test renders as expected 1`] = `
   }
 >
   <Shared
-    isDarkContent={false}
+    isDarkContent={true}
   />
   <ScrollView
     contentContainerStyle={

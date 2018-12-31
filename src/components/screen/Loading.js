@@ -4,8 +4,8 @@ import {
   StyleSheet,
   TouchableOpacity,
   Image,
-  Text,
   View,
+  Animated,
 } from 'react-native';
 
 import type {
@@ -14,11 +14,15 @@ import type {
   ____ImageStyleProp_Internal as ImageStyle,
 } from 'react-native/Libraries/StyleSheet/StyleSheetTypes';
 
+import { Text } from 'react-native-animatable';
+
+import { IC_MASK } from '../../utils/Icons';
+import { animateRotateLoop } from '../../utils/Functions';
 import { ratio, colors } from '../../utils/Styles';
+import { getString } from '../../../STRINGS';
 
 type Styles = {
   container: ViewStyle,
-  text: TextStyle,
 };
 
 const styles: Styles = StyleSheet.create({
@@ -28,9 +32,6 @@ const styles: Styles = StyleSheet.create({
     flexDirection: 'column',
     alignItems: 'center',
     justifyContent: 'center',
-  },
-  text: {
-    fontSize: 18,
   },
 });
 
@@ -45,11 +46,39 @@ class Screen extends Component<Props, State> {
   static navigationOptions = {
     title: 'Title',
   };
+  spinValue = new Animated.Value(0);
+  spin = this.spinValue.interpolate({
+    inputRange: [0, 1],
+    outputRange: ['0deg', '1260deg'],
+  });
+
+  constructor(props: Props) {
+    super(props);
+  }
 
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.text}>Loading</Text>
+        <Animated.Image
+          source={IC_MASK}
+          style={{
+            width: 60 * ratio,
+            height: 60 * ratio,
+            marginBottom: 16 * ratio,
+            transform: [{ rotate: this.spin }],
+          }}
+        />
+        <Text
+          animation='fadeIn'
+          iterationCount={'infinite'}
+          direction='alternate'
+          style={{
+            color: colors.dodgerBlue,
+            fontSize: 16 * ratio,
+          }}
+        >
+          { getString('LOADING') }
+        </Text>
       </View>
     );
   }

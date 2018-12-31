@@ -12,14 +12,37 @@ exports[`rendering test renders as expected 1`] = `
     }
   }
 >
-  <Text
+  <AnimatedComponent
+    source={
+      Object {
+        "testUri": "../../../assets/icons/mask.png",
+      }
+    }
     style={
       Object {
-        "fontSize": 18,
+        "height": 124.99999999999999,
+        "marginBottom": 33.33333333333333,
+        "transform": Array [
+          Object {
+            "rotate": "0deg",
+          },
+        ],
+        "width": 124.99999999999999,
+      }
+    }
+  />
+  <Text
+    animation="fadeIn"
+    direction="alternate"
+    iterationCount="infinite"
+    style={
+      Object {
+        "color": "rgb(58,139,255)",
+        "fontSize": 33.33333333333333,
       }
     }
   >
-    Loading
+    LOADING...
   </Text>
 </View>
 `;

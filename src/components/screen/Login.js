@@ -207,7 +207,6 @@ class Screen extends Component<Props, State> {
               >{getString('LOGIN')}</Button>
             </View>
             <TouchableOpacity
-              id='find_pw'
               activeOpacity={0.5}
               onPress={() => this.goToFindPw()}
               style={styles.touchForgotPw}

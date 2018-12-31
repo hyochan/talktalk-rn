@@ -205,7 +205,6 @@ exports[`rendering test renders as expected 1`] = `
       </View>
       <TouchableOpacity
         activeOpacity={0.5}
-        id="find_pw"
         onPress={[Function]}
         style={
           Object {

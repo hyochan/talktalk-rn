@@ -113,7 +113,7 @@ describe('interaction', () => {
       expect(props.navigation.navigate).toHaveBeenCalledWith('Signup');
     });
     it('should call goToForgotPw callack', () => {
-      const findPwBtn = wrapper.find('#find_pw');
+      const findPwBtn = wrapper.find('TouchableOpacity');
       findPwBtn.props().onPress();
       expect(props.navigation.navigate).toHaveBeenCalledWith('FindPw');
     });

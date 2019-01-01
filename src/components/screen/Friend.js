@@ -15,12 +15,12 @@ import type {
   ____ImageStyleProp_Internal as ImageStyle,
 } from 'react-native/Libraries/StyleSheet/StyleSheetTypes';
 
-import StatusBar from '../shared/StatusBar';
 import UserListItem from '../shared/UserListItem';
 import EmptyListItem from '../shared/EmptyListItem';
 
 import { getString } from '../../../STRINGS';
 import { ratio, colors } from '../../utils/Styles';
+import { Friend } from '../../utils/Types';
 import { ProfileModalConsumer } from '../../providers/ProfileModalProvider';
 
 type Styles = {
@@ -36,12 +36,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 });
-
-type Friend = {
-  img: string | null;
-  displayName: string;
-  statusMsg: string;
-}
 
 type Props = {
 
@@ -72,7 +66,6 @@ class Screen extends Component<Props, State> {
           (data) => {
             return (
               <View style={styles.container}>
-                <StatusBar isDarkContent={false}/>
                 <FlatList
                   style={{
                     alignSelf: 'stretch',
@@ -108,7 +101,6 @@ class Screen extends Component<Props, State> {
   }
 
   renderItem = (item: Friend, data: any) => {
-    console.log('user', item);
     return (
       <UserListItem
         id='user'

@@ -15,14 +15,11 @@ export class ProfileModalProvider extends React.Component {
 
   actions = {
     setModal: (v) => {
-      console.log('setModal', v);
       this.modal = v;
     },
     showModal: (user) => {
-      console.log('showModal');
       this.setState({ user }, () => {
         if (this.modal) {
-          console.log('openModal');
           this.modal.showAddBtn(true);
           this.modal.open();
         }
@@ -44,7 +41,6 @@ export class ProfileModalProvider extends React.Component {
         {this.props.children}
         <ProfileModal
           ref={(v) => {
-            console.log('v', v);
             this.modal = v;
           }}
           onChatPressed={ () => this.actions.onChatPressed(this.props.navigation) }

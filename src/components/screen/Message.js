@@ -53,7 +53,7 @@ class Screen extends Component<Props, State> {
           displayName: 'dooboolab',
           msg: 'When are you finishing??',
           count: 6,
-          date: new Date(),
+          date: new Date(0),
           status: true,
         },
         {
@@ -62,7 +62,7 @@ class Screen extends Component<Props, State> {
           displayName: 'Byun8585',
           msg: 'Hi. This is student from react-native...',
           count: 0,
-          date: new Date(),
+          date: new Date(0),
           status: false,
         },
       ],

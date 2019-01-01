@@ -33,7 +33,7 @@ exports[`rendering test should render as expected 1`] = `
       Array [
         Object {
           "count": 6,
-          "date": 2019-01-01T03:58:30.311Z,
+          "date": 1970-01-01T00:00:00.000Z,
           "displayName": "dooboolab",
           "id": 1,
           "img": null,
@@ -42,7 +42,7 @@ exports[`rendering test should render as expected 1`] = `
         },
         Object {
           "count": 0,
-          "date": 2019-01-01T03:58:30.311Z,
+          "date": 1970-01-01T00:00:00.000Z,
           "displayName": "Byun8585",
           "id": 2,
           "img": null,

@@ -35,7 +35,7 @@ describe('interaction', () => {
       sender: '0',
       img: null,
       message: 'hello',
-      date: new Date(),
+      date: new Date(0),
       isPeer: true,
     };
     wrapper.instance().renderItem({ item });

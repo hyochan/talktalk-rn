@@ -132,7 +132,7 @@ class Screen extends Component<Props, State> {
   keyboardDidShowListener: any;
   keyboardDidHideListener: any;
 
-  constructor(props) {
+  constructor(props: Props) {
     super(props);
     this.state = {
       isLoading: false,
@@ -143,7 +143,7 @@ class Screen extends Component<Props, State> {
           sender: '0',
           img: null,
           message: 'hello',
-          date: new Date(),
+          date: new Date(0),
           isPeer: true,
         },
         {
@@ -151,7 +151,7 @@ class Screen extends Component<Props, State> {
           sender: '1',
           img: null,
           message: 'hello',
-          date: new Date(),
+          date: new Date(0),
           isPeer: false,
         },
       ],
@@ -257,7 +257,7 @@ class Screen extends Component<Props, State> {
     );
   }
 
-  renderItem = ({ item }) => {
+  renderItem = ({ item } : any) => {
     return (
       <ChatListItem
         item={item}

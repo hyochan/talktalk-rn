@@ -95,7 +95,6 @@ const styles: Styles = StyleSheet.create({
 });
 
 type Props = {
-  style: ViewStyle,
   item: Chat,
 };
 
@@ -105,13 +104,12 @@ type State = {
 
 class Shared extends Component<Props, State> {
   static defaultProps: Props = {
-    style: styles.wrapper,
     item: {
       id: '0',
       sender: '0',
       img: null,
       message: 'hello',
-      date: new Date(),
+      date: new Date(0),
       isPeer: true,
     },
   };
@@ -123,7 +121,7 @@ class Shared extends Component<Props, State> {
           <View style={{ marginRight: 8 }}>
             {
               this.props.item.img
-                ? <Image style={styles.img} source={this.props.item.img}/>
+                ? <Image style={styles.imgPeer} source={this.props.item.img}/>
                 : <Icon5 name="meh" size={40} color={colors.dusk} light/>
             }
           </View>

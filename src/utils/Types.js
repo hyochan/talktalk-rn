@@ -15,3 +15,12 @@ export type Chatroom = {
   status: boolean,
   read: boolean,
 };
+
+export type Chat = {
+  id: string,
+  sender: string,
+  img: string | null,
+  message: string,
+  date: Date,
+  isPeer: boolean,
+}

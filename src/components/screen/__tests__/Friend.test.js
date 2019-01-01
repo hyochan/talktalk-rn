@@ -64,4 +64,7 @@ describe('context', () => {
     outer.instance().showProfileModal(items, context);
     expect(props.actions.showModal).toHaveBeenCalled();
   });
+  afterAll(() => {
+    wrapper.instance().prototype.showProfileModal.mockRestore();
+  });
 });

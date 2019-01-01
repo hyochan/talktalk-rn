@@ -27,7 +27,7 @@ type Styles = {
   container: ViewStyle,
 };
 
-const styles = StyleSheet.create({
+const styles: Styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: 'transparent',

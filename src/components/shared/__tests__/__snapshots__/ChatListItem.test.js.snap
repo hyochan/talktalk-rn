@@ -4,14 +4,63 @@ exports[`rendering test renders as expected 1`] = `
 <View
   style={
     Object {
-      "alignItems": "center",
-      "backgroundColor": "transparent",
-      "justifyContent": "center",
+      "alignItems": "flex-end",
+      "flexDirection": "row",
+      "justifyContent": "flex-start",
+      "marginLeft": 20,
+      "marginRight": 8,
+      "marginTop": 20,
+      "minHeight": 48,
+      "width": "100%",
     }
   }
 >
-  <Text>
-    Shared
+  <View
+    style={
+      Object {
+        "marginRight": 8,
+      }
+    }
+  >
+    <FA5iconClass
+      color="rgb(65,77,107)"
+      light={true}
+      name="meh"
+      size={40}
+      solid={false}
+    />
+  </View>
+  <Text
+    style={
+      Object {
+        "backgroundColor": "white",
+        "borderColor": "rgb(225,225,225)",
+        "borderRadius": 3,
+        "borderWidth": 1,
+        "color": "rgb(65,77,107)",
+        "fontSize": 14,
+        "marginRight": 8,
+        "padding": 12,
+        "shadowColor": undefined,
+        "shadowOffset": Object {
+          "height": 2,
+          "width": 0,
+        },
+      }
+    }
+  >
+    hello
+  </Text>
+  <Text
+    style={
+      Object {
+        "color": "rgb(175,194,219)",
+        "fontSize": 12,
+        "marginRight": 20,
+      }
+    }
+  >
+    9 : 0
   </Text>
 </View>
 `;

@@ -70,7 +70,7 @@
   "jest": {
     "preset": "react-native",
     "transformIgnorePatterns": [
-      "node_modules/(?!react-native|react-navigation|react-native-animatable|react-native-vector-icons)/",
+      "node_modules/(?!react-native|react-navigation|react-native-gesture-handler|react-native-animatable|react-native-vector-icons)/",
       "<rootDir>/lib/"
     ],
     "coverageDirectory": "./coverage/",

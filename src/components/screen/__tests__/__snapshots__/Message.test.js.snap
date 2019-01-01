@@ -37,7 +37,8 @@ exports[`rendering test should render as expected 1`] = `
           "displayName": "dooboolab",
           "id": 1,
           "img": null,
-          "msg": "When are you finishing??",
+          "msg": "How are you?",
+          "read": true,
           "status": true,
         },
         Object {
@@ -46,7 +47,8 @@ exports[`rendering test should render as expected 1`] = `
           "displayName": "Byun8585",
           "id": 2,
           "img": null,
-          "msg": "Hi. This is student from react-native...",
+          "msg": "Hi. This is student from react-native-seoul. Nice to meet you.",
+          "read": false,
           "status": false,
         },
       ]

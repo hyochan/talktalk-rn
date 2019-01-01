@@ -13,4 +13,5 @@ export type Chatroom = {
   count: number,
   date: Date | null,
   status: boolean,
+  read: boolean,
 };

@@ -32,6 +32,7 @@ describe('rendering test', () => {
         count: 6,
         date: new Date(0),
         status: true,
+        read: true,
       },
       {
         id: 2,
@@ -41,6 +42,7 @@ describe('rendering test', () => {
         count: 0,
         date: new Date(0),
         status: false,
+        read: false,
       },
     ];
     const rendered = wrapper.instance().renderItem(item);

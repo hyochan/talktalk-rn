@@ -63,6 +63,7 @@ exports[`rendering test should render as expected 1`] = `
               Object {
                 "color": "rgb(65,77,107)",
                 "fontSize": 14,
+                "fontWeight": "bold",
               }
             }
           />
@@ -79,12 +80,16 @@ exports[`rendering test should render as expected 1`] = `
           }
         >
           <Text
+            numberOfLines={2}
             style={
-              Object {
-                "color": "rgb(65,77,107)",
-                "fontSize": 12,
-                "maxWidth": 150,
-              }
+              Array [
+                Object {
+                  "color": "rgb(65,77,107)",
+                  "fontSize": 12,
+                  "maxWidth": 150,
+                },
+                Object {},
+              ]
             }
           />
           <Text

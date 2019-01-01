@@ -78,6 +78,7 @@ const styles: Styles = StyleSheet.create({
     justifyContent: 'space-between',
   },
   txtDisplayName: {
+    fontWeight: 'bold',
     fontSize: 14,
     color: colors.dusk,
   },
@@ -133,6 +134,7 @@ class Shared extends Component<Props, State> {
       count: '',
       date: null,
       status: false,
+      read: false,
     },
   };
 
@@ -168,7 +170,15 @@ class Shared extends Component<Props, State> {
                 }
               </View>
               <View style={styles.viewBottom}>
-                <Text style={styles.txtMsg}>{this.props.item.msg}</Text>
+                <Text
+                  numberOfLines={2}
+                  style={[
+                    styles.txtMsg,
+                    this.props.item.read
+                      ? { fontWeight: 'bold' }
+                      : { }
+                  ]}
+                >{this.props.item.msg}</Text>
                 <Text style={styles.txtDate}>{moment(this.props.item.date).fromNow()}</Text>
               </View>
             </View>

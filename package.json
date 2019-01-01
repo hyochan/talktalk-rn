@@ -74,6 +74,10 @@
       "<rootDir>/lib/"
     ],
     "coverageDirectory": "./coverage/",
+    "coveragePathIgnorePatterns": [
+      "/node_modules/",
+      "/test/"
+    ],
     "collectCoverage": true,
     "setupFiles": [
       "./test/jestSetup.js"

@@ -73,17 +73,12 @@ exports[`rendering test renders as expected 1`] = `
       <TouchableOpacity
         activeOpacity={0.5}
       >
-        <Component
-          source={
-            Object {
-              "testUri": "../../../assets/icons/mask.png",
-            }
-          }
-          style={
-            Object {
-              "alignSelf": "center",
-            }
-          }
+        <FA5iconClass
+          color="rgb(65,77,107)"
+          light={true}
+          name="meh"
+          size={80}
+          solid={false}
         />
       </TouchableOpacity>
       <Text

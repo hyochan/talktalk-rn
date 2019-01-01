@@ -85,14 +85,6 @@ class Screen extends Component<Props, State> {
                   ListEmptyComponent={<EmptyListItem>{getString('NO_CONTENT')}</EmptyListItem>}
                 />
               </View>
-              // <View style={styles.container}>
-              //   <Text>Friend</Text>
-              //   <TouchableOpacity
-              //     onPress={() => data.actions.showModal({})}
-              //   >
-              //     <Text>show profile</Text>
-              //   </TouchableOpacity>
-              // </View>
             );
           }
         }
@@ -111,7 +103,7 @@ class Screen extends Component<Props, State> {
   }
 
   showProfileModal = (item: Friend, data:any) => {
-    data.actions.showModal(item);
+    data.actions.showModal(item, true);
   }
 }
 

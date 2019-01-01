@@ -14,6 +14,8 @@ import {
 } from 'react-native';
 import Modal from 'react-native-modalbox';
 
+import Icon5 from 'react-native-vector-icons/FontAwesome5';
+import { Friend } from '../../utils/Types';
 import { IC_MASK } from '../../utils/Icons';
 import { ratio, colors } from '../../utils/Styles';
 import { getString } from '../../../STRINGS';
@@ -118,13 +120,7 @@ type State = {
   isAdding: boolean;
   isFriendAdded: boolean;
   isFriendAlreadyAdded: boolean;
-  user: {
-    id: string;
-    friendId?: string;
-    img: ImageSourcePropType;
-    displayName: string;
-    statusMsg: string;
-  };
+  user: Friend;
 };
 
 class Shared extends Component<Props, State> {
@@ -142,7 +138,7 @@ class Shared extends Component<Props, State> {
       isFriendAdded: false,
       isFriendAlreadyAdded: false,
       user: {
-        id: '',
+        uid: '',
         img: null,
         displayName: '',
         statusMsg: '',
@@ -169,7 +165,11 @@ class Shared extends Component<Props, State> {
               activeOpacity={0.5}
               // onPress={this.goToUpdateProfile}
             >
-              <Image style={styles.img} source={this.state.user.img ? this.state.user.img : IC_MASK}/>
+              {
+                this.state.user.img
+                  ? <Image style={styles.img} source={this.state.user.img}/>
+                  : <Icon5 name="meh" size={80} color={colors.dusk} light/>
+              }
             </TouchableOpacity>
             <Text style={styles.txtDisplayName}>{this.state.user.displayName}</Text>
             <Text style={styles.txtStatusMsg}>{this.state.user.statusMsg}</Text>
@@ -210,7 +210,9 @@ class Shared extends Component<Props, State> {
   }
 
   setUser = (user) => {
-    console.log('setUser');
+    this.setState({
+      user,
+    });
   }
 
   open = () => {

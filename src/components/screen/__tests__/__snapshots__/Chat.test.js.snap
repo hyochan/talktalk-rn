@@ -1,19 +1,176 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`rendering test renders as expected 1`] = `
-<View
+<SafeAreaView
   style={
     Object {
       "alignItems": "center",
-      "backgroundColor": "transparent",
+      "backgroundColor": "white",
       "flex": 1,
       "flexDirection": "column",
-      "justifyContent": "center",
     }
   }
 >
-  <Text>
-    Chat
-  </Text>
-</View>
+  <KeyboardAvoidingView
+    behavior="padding"
+    enabled={true}
+    keyboardVerticalOffset={88}
+    style={
+      Object {
+        "alignItems": "center",
+        "alignSelf": "stretch",
+        "flex": 1,
+        "flexDirection": "column",
+        "justifyContent": "center",
+      }
+    }
+  >
+    <FlatList
+      ListEmptyComponent={
+        <Shared
+          style={
+            Object {
+              "alignItems": "center",
+              "alignSelf": "stretch",
+              "flex": 1,
+              "justifyContent": "center",
+              "width": "100%",
+            }
+          }
+        >
+          No content
+        </Shared>
+      }
+      contentContainerStyle={null}
+      data={
+        Array [
+          Object {
+            "date": 2019-01-01T13:07:54.665Z,
+            "id": "0",
+            "img": null,
+            "isPeer": true,
+            "message": "hello",
+            "sender": "0",
+          },
+          Object {
+            "date": 2019-01-01T13:07:54.665Z,
+            "id": "1",
+            "img": null,
+            "isPeer": false,
+            "message": "hello",
+            "sender": "1",
+          },
+        ]
+      }
+      disableVirtualization={false}
+      horizontal={false}
+      initialNumToRender={10}
+      keyExtractor={[Function]}
+      maxToRenderPerBatch={10}
+      numColumns={1}
+      onEndReachedThreshold={2}
+      renderItem={[Function]}
+      scrollEventThrottle={50}
+      style={
+        Object {
+          "alignSelf": "stretch",
+        }
+      }
+      updateCellsBatchingPeriod={50}
+      windowSize={21}
+    />
+    <View
+      style={
+        Object {
+          "alignItems": "center",
+          "borderColor": "rgb(225,225,225)",
+          "borderTopWidth": 0.5,
+          "flexDirection": "row",
+          "height": 108.33333333333331,
+          "justifyContent": "flex-end",
+          "width": "100%",
+        }
+      }
+    >
+      <TextInput
+        allowFontScaling={true}
+        placeholder="Write message..."
+        placeholderTextColor="rgb(175,194,219)"
+        style={
+          Object {
+            "fontSize": 29.166666666666664,
+            "marginRight": 41.66666666666666,
+            "paddingLeft": 99.99999999999999,
+            "width": "80%",
+          }
+        }
+        underlineColorAndroid="transparent"
+      />
+      <TouchableOpacity
+        activeOpacity={0.2}
+        onPress={[Function]}
+        style={
+          Object {
+            "height": "100%",
+            "justifyContent": "center",
+            "left": 10,
+            "minWidth": 41.66666666666666,
+            "position": "absolute",
+          }
+        }
+      >
+        <Component
+          source={
+            Object {
+              "testUri": "../../../assets/icons/icSmile.png",
+            }
+          }
+          style={
+            Object {
+              "height": 41.66666666666666,
+              "width": 41.66666666666666,
+            }
+          }
+        />
+      </TouchableOpacity>
+      <Button
+        activeOpacity={0.5}
+        imgLeftStyle={
+          Object {
+            "height": 24,
+            "left": 16,
+            "position": "absolute",
+            "width": 24,
+          }
+        }
+        indicatorColor="white"
+        isDisabled={false}
+        isLoading={false}
+        onPress={[Function]}
+        style={
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "rgb(58,139,255)",
+            "borderRadius": 8.333333333333332,
+            "height": 74.99999999999999,
+            "justifyContent": "center",
+            "right": 16.666666666666664,
+            "width": 124.99999999999999,
+          }
+        }
+        textStyle={
+          Object {
+            "color": "white",
+            "fontSize": 29.166666666666664,
+            "fontWeight": "bold",
+            "paddingHorizontal": 10.416666666666664,
+            "paddingVertical": 20.83333333333333,
+          }
+        }
+      >
+        Send
+      </Button>
+    </View>
+  </KeyboardAvoidingView>
+</SafeAreaView>
 `;

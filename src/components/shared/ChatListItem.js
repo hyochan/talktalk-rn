@@ -109,7 +109,7 @@ class Shared extends Component<Props, State> {
       sender: '0',
       img: null,
       message: 'hello',
-      date: new Date(0),
+      date: null,
       isPeer: true,
     },
   };

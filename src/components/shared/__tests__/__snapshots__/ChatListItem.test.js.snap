@@ -60,7 +60,7 @@ exports[`rendering test renders as expected 1`] = `
       }
     }
   >
-    9 : 0
+    NaN : NaN
   </Text>
 </View>
 `;

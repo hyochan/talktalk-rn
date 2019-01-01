@@ -117,7 +117,7 @@ export const MainTabNavigationOptions = ({ navigation }) => ({
         activeOpacity={0.5}
         onPress={() => navigation.navigate('SearchUser')}
       >
-        <Icon5 name="plus" size={20} color={colors.dodgerBlue} light/>
+        <Icon5 name="search-plus" size={20} color={colors.dodgerBlue} light/>
       </TouchableOpacity>
     </View>,
 });

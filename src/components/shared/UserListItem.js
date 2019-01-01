@@ -57,7 +57,7 @@ const styles: Styles = StyleSheet.create({
     fontSize: 12,
     color: colors.dusk,
     maxWidth: 134.2,
-    borderWidth: 1,
+    borderWidth: 0.3,
     borderColor: colors.paleGray,
     paddingHorizontal: 8,
     paddingVertical: 4,

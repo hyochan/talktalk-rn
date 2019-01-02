@@ -213,7 +213,7 @@ class Screen extends Component<Props, State> {
                   multiline={true}
                   placeholder={ getString('WRITE_MESSAGE') }
                   placeholderTextColor={ colors.cloudyBlue }
-                  value={this.state.messsage}
+                  value={this.state.message}
                   defaultValue={this.state.message}
                   onChangeText={(text) => this.setState({ message: text })}
                 />

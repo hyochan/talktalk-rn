@@ -86,21 +86,26 @@ exports[`rendering test renders as expected 1`] = `
           "borderColor": "rgb(225,225,225)",
           "borderTopWidth": 0.5,
           "flexDirection": "row",
-          "height": 108.33333333333331,
           "justifyContent": "flex-end",
+          "maxHeight": 100,
+          "minHeight": 52,
           "width": "100%",
         }
       }
     >
       <TextInput
         allowFontScaling={true}
+        defaultValue=""
+        multiline={true}
+        onChangeText={[Function]}
         placeholder="Write message..."
         placeholderTextColor="rgb(175,194,219)"
         style={
           Object {
-            "fontSize": 29.166666666666664,
-            "marginRight": 41.66666666666666,
-            "paddingLeft": 99.99999999999999,
+            "color": "black",
+            "fontSize": 14,
+            "marginRight": 20,
+            "paddingLeft": 48,
             "width": "80%",
           }
         }
@@ -114,7 +119,7 @@ exports[`rendering test renders as expected 1`] = `
             "height": "100%",
             "justifyContent": "center",
             "left": 10,
-            "minWidth": 41.66666666666666,
+            "minWidth": 20,
             "position": "absolute",
           }
         }
@@ -127,8 +132,8 @@ exports[`rendering test renders as expected 1`] = `
           }
           style={
             Object {
-              "height": 41.66666666666666,
-              "width": 41.66666666666666,
+              "height": 20,
+              "width": 20,
             }
           }
         />
@@ -151,20 +156,20 @@ exports[`rendering test renders as expected 1`] = `
           Object {
             "alignItems": "center",
             "backgroundColor": "rgb(58,139,255)",
-            "borderRadius": 8.333333333333332,
-            "height": 74.99999999999999,
+            "borderRadius": 4,
+            "height": 36,
             "justifyContent": "center",
-            "right": 16.666666666666664,
-            "width": 124.99999999999999,
+            "right": 8,
+            "width": 60,
           }
         }
         textStyle={
           Object {
             "color": "white",
-            "fontSize": 29.166666666666664,
+            "fontSize": 14,
             "fontWeight": "bold",
-            "paddingHorizontal": 10.416666666666664,
-            "paddingVertical": 20.83333333333333,
+            "paddingHorizontal": 5,
+            "paddingVertical": 10,
           }
         }
       >

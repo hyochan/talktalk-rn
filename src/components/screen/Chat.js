@@ -8,6 +8,7 @@ import {
   Text,
   View,
   Keyboard,
+  Platform,
   TextInput,
   KeyboardAvoidingView,
   FlatList,
@@ -62,7 +63,8 @@ const styles: Styles = StyleSheet.create({
     width: '100%',
     borderTopWidth: 0.5,
     borderColor: 'rgb(225,225,225)',
-    height: 52 * ratio,
+    minHeight: 52,
+    maxHeight: 100,
 
     flexDirection: 'row',
     justifyContent: 'flex-end',
@@ -70,37 +72,38 @@ const styles: Styles = StyleSheet.create({
   },
   inputChat: {
     width: '80%',
-    fontSize: 14 * ratio,
-    marginRight: 20 * ratio,
-    paddingLeft: 48 * ratio,
+    fontSize: 14,
+    marginRight: 20,
+    paddingLeft: 48,
+    color: 'black',
   },
   touchMenu: {
     position: 'absolute',
     left: 10,
     height: '100%',
-    minWidth: 20 * ratio,
+    minWidth: 20,
     justifyContent: 'center',
   },
   imgMenu: {
-    width: 20 * ratio,
-    height: 20 * ratio,
+    width: 20,
+    height: 20,
   },
   btnSend: {
-    right: 8 * ratio,
+    right: 8,
     backgroundColor: colors.dodgerBlue,
-    borderRadius: 4 * ratio,
-    width: 60 * ratio,
-    height: 36 * ratio,
+    borderRadius: 4,
+    width: 60,
+    height: 36,
 
     alignItems: 'center',
     justifyContent: 'center',
   },
   txtSend: {
-    fontSize: 14 * ratio,
+    fontSize: 14,
     fontWeight: 'bold',
     color: 'white',
-    paddingHorizontal: 5 * ratio,
-    paddingVertical: 10 * ratio,
+    paddingHorizontal: 5,
+    paddingVertical: 10,
   },
   viewBottom: {
     position: 'absolute',
@@ -120,6 +123,7 @@ type State = {
   chats: any,
   showMenu: boolean,
   isLoading: boolean,
+  message: string,
 };
 
 class Screen extends Component<Props, State> {
@@ -137,6 +141,7 @@ class Screen extends Component<Props, State> {
     this.state = {
       isLoading: false,
       showMenu: false,
+      message: '',
       chats: [
         {
           id: '0',
@@ -173,7 +178,10 @@ class Screen extends Component<Props, State> {
       <SafeAreaView style={styles.container}>
         <KeyboardAvoidingView
           keyboardVerticalOffset = {Header.HEIGHT + 24}
-          behavior='padding'
+          behavior={Platform.select({
+            'android': null,
+            'ios': 'padding',
+          })}
           style={ styles.content }
         >
           <FlatList
@@ -202,8 +210,12 @@ class Screen extends Component<Props, State> {
                 <TextInput
                   ref={(v) => this.input1 = v}
                   style={styles.inputChat}
+                  multiline={true}
                   placeholder={ getString('WRITE_MESSAGE') }
                   placeholderTextColor={ colors.cloudyBlue }
+                  value={this.state.messsage}
+                  defaultValue={this.state.message}
+                  onChangeText={(text) => this.setState({ message: text })}
                 />
                 <TouchableOpacity
                   style={styles.touchMenu}
@@ -227,6 +239,7 @@ class Screen extends Component<Props, State> {
               <View style={styles.viewChat}>
                 <TextInput
                   ref={(v) => this.input2 = v}
+                  multiline={true}
                   onFocus={() => this.setState({ showMenu: false }, () => {
                     if (this.input1) {
                       this.input1.focus();
@@ -235,6 +248,8 @@ class Screen extends Component<Props, State> {
                   style={styles.inputChat}
                   placeholder={ getString('WRITE_MESSAGE') }
                   placeholderTextColor={ colors.cloudyBlue }
+                  value={this.state.message}
+                  defaultValue={this.state.message}
                 />
                 <TouchableOpacity
                   style={styles.touchMenu}

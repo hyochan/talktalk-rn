@@ -39,7 +39,7 @@ exports[`rendering test renders as expected 1`] = `
         }
         style={
           Object {
-            "height": 48,
+            "height": 60,
             "width": 60,
           }
         }
@@ -50,7 +50,7 @@ exports[`rendering test renders as expected 1`] = `
             "color": "rgb(65,77,107)",
             "fontSize": 20,
             "fontWeight": "bold",
-            "marginTop": 16,
+            "marginTop": 8,
           }
         }
       >

@@ -11,22 +11,9 @@ describe('rendering test', () => {
     <ChatroomListItem />,
   );
 
-  it('renders as expected', () => {
+  it('should render as expected', () => {
     expect(wrapper).toMatchSnapshot();
     // wrapper.setProps({ filled: false });
     // expect(wrapper).toMatchSnapshot();
   });
-
-  // it('simulate onPress', () => {
-  //   let cnt = 1;
-  //   const onPress = () => {
-  //     cnt++;
-  //   };
-
-  //   wrapper.setProps({ onPress: () => onPress()});
-  //   expect(wrapper).toMatchSnapshot();
-
-  //   wrapper.first().props().onPress();
-  //   expect(cnt).toBe(2);
-  // });
 });

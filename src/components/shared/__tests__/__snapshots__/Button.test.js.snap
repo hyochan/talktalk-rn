@@ -66,6 +66,36 @@ exports[`Button component test renders as expected 2`] = `
 </View>
 `;
 
+exports[`Button component test renders as expected 3`] = `
+<View>
+  <View>
+    <Text
+      style={
+        Object {
+          "color": "white",
+          "fontSize": 14,
+        }
+      }
+    />
+  </View>
+</View>
+`;
+
+exports[`Button component test renders as expected 4`] = `
+<View>
+  <View>
+    <Text
+      style={
+        Object {
+          "color": "white",
+          "fontSize": 14,
+        }
+      }
+    />
+  </View>
+</View>
+`;
+
 exports[`Button component test simulate onPress 1`] = `
 <View>
   <TouchableOpacity

@@ -19,3 +19,28 @@ console.error = (message) => {
 NativeModules.ReactLocalization = {
   language: 'en_US',
 };
+
+/**
+ * This is patch for mocking `react-native-gesture-handler` that failed `Chat.test.js`.
+ * issue: https://github.com/kmagiera/react-native-gesture-handler/issues/344
+ */
+
+NativeModules.RNGestureHandlerModule = {
+  attachGestureHandler: jest.fn(),
+  createGestureHandler: jest.fn(),
+  dropGestureHandler: jest.fn(),
+  updateGestureHandler: jest.fn(),
+  forceTouchAvailable: jest.fn(),
+  State: {},
+  Directions: {}
+};
+
+NativeModules.PlatformConstants = {
+  forceTouchAvailable: false,
+};
+
+NativeModules.UIManager = {
+  RCTView: () => ({
+    directEventTypes: {},
+  }),
+};

@@ -70,6 +70,20 @@ exports[`rendering test renders as expected 1`] = `
       }
     >
       <Shared
+        labelStyle={
+          Object {
+            "color": "rgb(134,154,183)",
+            "fontSize": 12,
+            "marginBottom": 8,
+          }
+        }
+        labelStyleFocus={
+          Object {
+            "color": "rgb(58,139,255)",
+            "fontSize": 12,
+            "marginBottom": 8,
+          }
+        }
         onTextChanged={[Function]}
         style={
           Object {
@@ -84,6 +98,20 @@ exports[`rendering test renders as expected 1`] = `
       />
       <Shared
         isPassword={true}
+        labelStyle={
+          Object {
+            "color": "rgb(134,154,183)",
+            "fontSize": 12,
+            "marginBottom": 8,
+          }
+        }
+        labelStyleFocus={
+          Object {
+            "color": "rgb(58,139,255)",
+            "fontSize": 12,
+            "marginBottom": 8,
+          }
+        }
         onTextChanged={[Function]}
         style={
           Object {

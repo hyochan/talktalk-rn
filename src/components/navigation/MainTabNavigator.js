@@ -7,7 +7,14 @@ import {
   NavigationAction,
   createMaterialTopTabNavigator,
 } from 'react-navigation';
-import LinearGradient from 'react-native-linear-gradient';
+import Icon from 'react-native-vector-icons/FontAwesome';
+import Icon5, { FA5Style } from 'react-native-vector-icons/FontAwesome5';
+
+import type {
+  ____ViewStyleProp_Internal as ViewStyle,
+  ____TextStyleProp_Internal as TextStyle,
+  ____ImageStyleProp_Internal as ImageStyle,
+} from 'react-native/Libraries/StyleSheet/StyleSheetTypes';
 
 import { ratio, colors, statusBarHeight } from '../../utils/Styles';
 import { IC_MASK, IC_ADD } from '../../utils/Icons';
@@ -15,10 +22,16 @@ import { getString } from '../../../STRINGS';
 import Friend from '../screen/Friend';
 import Message from '../screen/Message';
 
-const styles = StyleSheet.create({
+type Styles = {
+  container: ViewStyle,
+  imgHeaderLeft: ImageStyle,
+  txt: TextStyle,
+  txtSub: TextStyle,
+};
+
+const styles: Styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: 'white',
     paddingTop: statusBarHeight, // false to get height of android too.
   },
   imgHeaderLeft: {
@@ -28,11 +41,6 @@ const styles = StyleSheet.create({
     borderRadius: 14,
     borderColor: 'white',
     borderWidth: 1,
-  },
-  imgHeaderRight: {
-    width: 60,
-    height: 60,
-    tintColor: 'white',
   },
   txt: {
     color: 'white',
@@ -91,17 +99,25 @@ export default MainTabNavigator;
 export const MainTabNavigationOptions = ({ navigation }) => ({
   title: 'Talk Talk',
   headerLeft:
-    <TouchableOpacity
-      activeOpacity={0.5}
-      onPress={() => navigation.navigate('ProfileUpdate')}
-    >
-      <Image style={styles.imgHeaderLeft} source={IC_MASK}/>
-    </TouchableOpacity>,
+    <View style={{
+      marginLeft: 16,
+    }}>
+      <TouchableOpacity
+        activeOpacity={0.5}
+        onPress={() => navigation.navigate('ProfileUpdate')}
+      >
+        <Icon5 name="user-circle" size={20} color={colors.dodgerBlue} light/>
+      </TouchableOpacity>
+    </View>,
   headerRight:
-    <TouchableOpacity
-      activeOpacity={0.5}
-      onPress={() => navigation.navigate('SearchUser')}
-    >
-      <Image style={styles.imgHeaderRight} source={IC_ADD}/>
-    </TouchableOpacity>,
+    <View style={{
+      marginRight: 16,
+    }}>
+      <TouchableOpacity
+        activeOpacity={0.5}
+        onPress={() => navigation.navigate('SearchUser')}
+      >
+        <Icon5 name="search-plus" size={20} color={colors.dodgerBlue} light/>
+      </TouchableOpacity>
+    </View>,
 });

@@ -43,7 +43,7 @@ describe('interaction', () => {
   });
   describe('should setUser', () => {
     it('should call setUser callback', () => {
-      wrapper.instance().setUser();
+      wrapper.instance().setUser({});
     });
     it('should call open', () => {
       wrapper.instance().open();

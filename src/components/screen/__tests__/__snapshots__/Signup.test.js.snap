@@ -5,15 +5,196 @@ exports[`rendering test renders as expected 1`] = `
   style={
     Object {
       "alignItems": "center",
-      "backgroundColor": "transparent",
+      "backgroundColor": "white",
       "flex": 1,
       "flexDirection": "column",
-      "justifyContent": "center",
     }
   }
 >
-  <Text>
-    Signup
-  </Text>
+  <Shared
+    isDarkContent={true}
+  />
+  <ScrollView
+    contentContainerStyle={
+      Object {
+        "alignItems": "center",
+        "justifyContent": "center",
+      }
+    }
+    style={
+      Object {
+        "alignSelf": "stretch",
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "alignItems": "center",
+          "flexDirection": "column",
+          "marginTop": 83.33333333333331,
+          "width": "78%",
+        }
+      }
+    >
+      <Shared
+        labelStyle={
+          Object {
+            "color": "rgb(134,154,183)",
+            "fontSize": 12,
+            "marginBottom": 8,
+          }
+        }
+        labelStyleFocus={
+          Object {
+            "color": "rgb(58,139,255)",
+            "fontSize": 12,
+            "marginBottom": 8,
+          }
+        }
+        onTextChanged={[Function]}
+        style={
+          Object {
+            "marginTop": 16.666666666666664,
+          }
+        }
+        txt=""
+        txtHint="Email"
+        txtLabel="Email"
+      />
+      <Shared
+        isPassword={true}
+        labelStyle={
+          Object {
+            "color": "rgb(134,154,183)",
+            "fontSize": 12,
+            "marginBottom": 8,
+          }
+        }
+        labelStyleFocus={
+          Object {
+            "color": "rgb(58,139,255)",
+            "fontSize": 12,
+            "marginBottom": 8,
+          }
+        }
+        onTextChanged={[Function]}
+        style={
+          Object {
+            "marginTop": 49.99999999999999,
+          }
+        }
+        txt=""
+        txtHint="Password"
+        txtLabel="Password"
+      />
+      <Shared
+        labelStyle={
+          Object {
+            "color": "rgb(134,154,183)",
+            "fontSize": 12,
+            "marginBottom": 8,
+          }
+        }
+        labelStyleFocus={
+          Object {
+            "color": "rgb(58,139,255)",
+            "fontSize": 12,
+            "marginBottom": 8,
+          }
+        }
+        onTextChanged={[Function]}
+        style={
+          Object {
+            "marginTop": 49.99999999999999,
+          }
+        }
+        txt=""
+        txtHint="NAME"
+        txtLabel="NAME"
+      />
+      <Shared
+        labelStyle={
+          Object {
+            "color": "rgb(134,154,183)",
+            "fontSize": 12,
+            "marginBottom": 8,
+          }
+        }
+        labelStyleFocus={
+          Object {
+            "color": "rgb(58,139,255)",
+            "fontSize": 12,
+            "marginBottom": 8,
+          }
+        }
+        onTextChanged={[Function]}
+        style={
+          Object {
+            "marginTop": 49.99999999999999,
+          }
+        }
+        txt=""
+        txtHint="Status message"
+        txtLabel="Status message"
+      />
+      <View
+        style={
+          Object {
+            "alignItems": "flex-end",
+            "width": "100%",
+          }
+        }
+      >
+        <Button
+          activeOpacity={0.5}
+          id="register"
+          imgLeftStyle={
+            Object {
+              "height": 24,
+              "left": 16,
+              "position": "absolute",
+              "width": 24,
+            }
+          }
+          indicatorColor="white"
+          isDisabled={false}
+          isLoading={false}
+          onPress={[Function]}
+          style={
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "rgb(58,139,255)",
+              "borderColor": "rgb(58,139,255)",
+              "borderRadius": 8.333333333333332,
+              "borderWidth": 2.083333333333333,
+              "height": 124.99999999999999,
+              "justifyContent": "center",
+              "marginBottom": 99.99999999999999,
+              "marginLeft": 8.333333333333332,
+              "marginTop": 49.99999999999999,
+              "shadowColor": "rgb(58,139,255)",
+              "shadowOffset": Object {
+                "height": 20.83333333333333,
+                "width": 0,
+              },
+              "shadowOpacity": 0.3,
+              "shadowRadius": 8.333333333333332,
+              "width": 283.3333333333333,
+            }
+          }
+          textStyle={
+            Object {
+              "color": "white",
+              "fontSize": 33.33333333333333,
+              "fontWeight": "bold",
+            }
+          }
+        >
+          REGISTER
+        </Button>
+      </View>
+    </View>
+  </ScrollView>
 </View>
 `;

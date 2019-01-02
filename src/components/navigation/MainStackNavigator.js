@@ -13,6 +13,7 @@ import SearchUser from '../screen/SearchUser';
 import Chat from '../screen/Chat';
 import NotFound from '../screen/NotFound';
 import ProfileModal from '../shared/ProfileModal';
+import StatusBar from '../shared/StatusBar';
 import { colors } from '../../utils/Styles';
 import { ProfileModalProvider, ProfileModalConsumer } from '../../providers/ProfileModalProvider';
 
@@ -51,6 +52,7 @@ class RootNavigator extends React.Component<any, any> {
   render() {
     return (
       <View style={{ flex: 1, flexDirection: 'column' }}>
+        <StatusBar isDarkContent={true}/>
         <ProfileModalProvider navigation={this.props.navigation}>
           <MainStackNavigator
             navigation={this.props.navigation}

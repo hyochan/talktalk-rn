@@ -1,17 +1,111 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`rendering test renders as expected 1`] = `
+exports[`rendering test should render as expected 1`] = `
 <View
   style={
     Object {
-      "alignItems": "center",
-      "backgroundColor": "transparent",
-      "justifyContent": "center",
+      "width": "100%",
     }
   }
 >
-  <Text>
-    Shared
-  </Text>
+  <TouchableOpacity
+    activeOpacity={0.5}
+  >
+    <View
+      style={
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "white",
+          "borderBottomWidth": 1,
+          "borderColor": "rgb(247,248,251)",
+          "flexDirection": "row",
+          "height": 80,
+          "justifyContent": "flex-start",
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "marginHorizontal": 20,
+          }
+        }
+      >
+        <FA5iconClass
+          color="rgb(65,77,107)"
+          light={true}
+          name="meh"
+          size={40}
+          solid={false}
+        />
+        <View />
+      </View>
+      <View
+        style={
+          Object {
+            "flex": 1,
+            "flexDirection": "column",
+            "paddingRight": 20,
+          }
+        }
+      >
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "flexDirection": "row",
+              "justifyContent": "space-between",
+            }
+          }
+        >
+          <Text
+            style={
+              Object {
+                "color": "rgb(65,77,107)",
+                "fontSize": 14,
+                "fontWeight": "bold",
+              }
+            }
+          />
+          <View />
+        </View>
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "flexDirection": "row",
+              "justifyContent": "space-between",
+              "marginTop": 8,
+            }
+          }
+        >
+          <Text
+            numberOfLines={2}
+            style={
+              Array [
+                Object {
+                  "color": "rgb(65,77,107)",
+                  "fontSize": 12,
+                  "maxWidth": 150,
+                },
+                Object {},
+              ]
+            }
+          />
+          <Text
+            style={
+              Object {
+                "color": "rgb(134,154,183)",
+                "fontSize": 12,
+                "textAlign": "right",
+              }
+            }
+          >
+            Invalid date
+          </Text>
+        </View>
+      </View>
+    </View>
+  </TouchableOpacity>
 </View>
 `;

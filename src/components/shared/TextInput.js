@@ -95,6 +95,8 @@ type State = {
 class Shared extends Component<Props, State> {
   static defaultProps: Props = {
     style: styles.wrapper,
+    labelStyle: styles.label,
+    labelStyleFocus: styles.labelFocus,
   };
 
   state = {

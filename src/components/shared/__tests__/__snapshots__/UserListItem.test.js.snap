@@ -4,14 +4,46 @@ exports[`rendering test renders as expected 1`] = `
 <View
   style={
     Object {
-      "alignItems": "center",
-      "backgroundColor": "transparent",
-      "justifyContent": "center",
+      "width": "100%",
     }
   }
 >
-  <Text>
-    Shared
-  </Text>
+  <TouchableOpacity
+    activeOpacity={0.5}
+  >
+    <View
+      style={
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "white",
+          "borderBottomWidth": 1,
+          "borderColor": "rgb(245,245,245)",
+          "flexDirection": "row",
+          "height": 80,
+          "justifyContent": "flex-start",
+          "paddingHorizontal": 20,
+        }
+      }
+    >
+      <FA5iconClass
+        color="rgb(65,77,107)"
+        light={true}
+        name="meh"
+        size={40}
+        solid={false}
+      />
+      <Text
+        style={
+          Object {
+            "color": "rgb(65,77,107)",
+            "fontSize": 14,
+            "marginLeft": 12,
+            "width": 100,
+          }
+        }
+      />
+      <View />
+    </View>
+  </TouchableOpacity>
 </View>
 `;

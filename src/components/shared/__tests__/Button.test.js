@@ -22,9 +22,24 @@ describe('Button', () => {
       expect(wrapper).toMatchSnapshot();
       wrapper.setProps({ filled: false });
       expect(wrapper).toMatchSnapshot();
+      wrapper.setProps({ isDisabled: true });
+      wrapper.update();
+      expect(wrapper).toMatchSnapshot();
+      expect(wrapper.find('Text')).toHaveLength(1);
+      wrapper.setProps({ isLoading: true });
+      wrapper.update();
+      expect(wrapper).toMatchSnapshot();
+      // don't know if below is working
+      expect(wrapper.find('ActivityIndicator').last()).toHaveLength(1);
     });
 
     it('simulate onPress', () => {
+      // reset props to render correctly
+      wrapper.setProps({
+        filled: false,
+        isDisabled: false,
+        isLoading: false,
+      });
       let cnt = 1;
       const onPress = () => {
         cnt++;

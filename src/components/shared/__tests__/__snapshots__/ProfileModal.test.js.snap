@@ -13,7 +13,7 @@ exports[`rendering test renders as expected 1`] = `
   easing={[Function]}
   entry="top"
   keyboardTopOffset={22}
-  position="top"
+  position="center"
   startOpen={false}
   style={
     Object {
@@ -23,7 +23,6 @@ exports[`rendering test renders as expected 1`] = `
       "backgroundColor": "transparent",
       "height": 320,
       "justifyContent": "center",
-      "marginTop": 200,
     }
   }
   swipeThreshold={50}
@@ -74,17 +73,12 @@ exports[`rendering test renders as expected 1`] = `
       <TouchableOpacity
         activeOpacity={0.5}
       >
-        <Component
-          source={
-            Object {
-              "testUri": "../../../assets/icons/mask.png",
-            }
-          }
-          style={
-            Object {
-              "alignSelf": "center",
-            }
-          }
+        <FA5iconClass
+          color="rgb(65,77,107)"
+          light={true}
+          name="meh"
+          size={80}
+          solid={false}
         />
       </TouchableOpacity>
       <Text

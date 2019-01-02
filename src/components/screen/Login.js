@@ -61,13 +61,13 @@ export const styles: Styles = StyleSheet.create({
   },
   icon: {
     width: 60,
-    height: 48,
+    height: 60,
   },
   iconTxt: {
     color: colors.dusk,
     fontSize: 20,
     fontWeight: 'bold',
-    marginTop: 16,
+    marginTop: 8,
   },
   wrapper: {
     marginTop: 260,

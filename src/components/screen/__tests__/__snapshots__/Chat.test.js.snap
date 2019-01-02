@@ -110,6 +110,7 @@ exports[`rendering test renders as expected 1`] = `
           }
         }
         underlineColorAndroid="transparent"
+        value=""
       />
       <TouchableOpacity
         activeOpacity={0.2}

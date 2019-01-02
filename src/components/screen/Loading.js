@@ -16,7 +16,7 @@ import type {
 
 import { Text } from 'react-native-animatable';
 
-import { IC_MASK } from '../../utils/Icons';
+import { IC_ICON } from '../../utils/Icons';
 import { animateRotateLoop } from '../../utils/Functions';
 import { ratio, colors } from '../../utils/Styles';
 import { getString } from '../../../STRINGS';
@@ -60,7 +60,7 @@ class Screen extends Component<Props, State> {
     return (
       <View style={styles.container}>
         <Animated.Image
-          source={IC_MASK}
+          source={IC_ICON}
           style={{
             width: 60 * ratio,
             height: 60 * ratio,

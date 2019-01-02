@@ -15,7 +15,7 @@ exports[`rendering test renders as expected 1`] = `
   <AnimatedComponent
     source={
       Object {
-        "testUri": "../../../assets/icons/mask.png",
+        "testUri": "../../../assets/icons/icon.png",
       }
     }
     style={

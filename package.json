@@ -12,6 +12,7 @@
     "ios:iphone7+": "node node_modules/react-native/local-cli/cli.js run-ios  --simulator='iPhone 7 Plus'",
     "android": "node node_modules/react-native/local-cli/cli.js run-android",
     "android:shake": "adb shell input keyevent 82",
+    "android:window": "cd android && gradlew.bat installDebug",
     "android:log": "adb logcat '*:S' ReactNative:V ReactNativeJS:V",
     "android:apk": "cd android && ./gradlew assembleRelease",
     "android:release": "node node_modules/react-native/local-cli/cli.js run-android --variant=release",

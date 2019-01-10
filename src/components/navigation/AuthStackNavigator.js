@@ -15,7 +15,7 @@ const StackNavigator = createStackNavigator(
     FindPw: { screen: FindPw },
   },
   {
-    initialRouteName: 'Login',
+    initialRouteName: 'FindPw',
     navigationOptions: commonNavigationOptions,
     transitionConfig: () => ({ screenInterpolator: StackViewStyleInterpolator.forHorizontal }),
   },

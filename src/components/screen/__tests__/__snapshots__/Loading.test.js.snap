@@ -20,14 +20,14 @@ exports[`rendering test renders as expected 1`] = `
     }
     style={
       Object {
-        "height": 124.99999999999999,
-        "marginBottom": 33.33333333333333,
+        "height": 60,
+        "marginBottom": 16,
         "transform": Array [
           Object {
             "rotate": "0deg",
           },
         ],
-        "width": 124.99999999999999,
+        "width": 60,
       }
     }
   />
@@ -38,7 +38,7 @@ exports[`rendering test renders as expected 1`] = `
     style={
       Object {
         "color": "rgb(58,139,255)",
-        "fontSize": 33.33333333333333,
+        "fontSize": 16,
       }
     }
   >

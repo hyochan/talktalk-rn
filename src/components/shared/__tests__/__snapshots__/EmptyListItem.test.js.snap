@@ -18,7 +18,7 @@ exports[`rendering test renders as expected 1`] = `
         Object {
           "alignSelf": "center",
           "color": "rgb(155,155,155)",
-          "fontSize": 29.166666666666664,
+          "fontSize": 14,
         },
       ]
     }

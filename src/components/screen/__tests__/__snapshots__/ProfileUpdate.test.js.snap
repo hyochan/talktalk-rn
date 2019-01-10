@@ -5,15 +5,195 @@ exports[`rendering test renders as expected 1`] = `
   style={
     Object {
       "alignItems": "center",
-      "backgroundColor": "transparent",
+      "backgroundColor": "white",
       "flex": 1,
       "flexDirection": "column",
-      "justifyContent": "center",
     }
   }
 >
-  <Text>
-    ProfileUpdate
-  </Text>
+  <ScrollView
+    contentContainerStyle={
+      Object {
+        "alignItems": "center",
+        "justifyContent": "center",
+      }
+    }
+    style={
+      Object {
+        "alignSelf": "stretch",
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "alignItems": "center",
+          "flexDirection": "column",
+          "marginTop": 48,
+          "width": "78%",
+        }
+      }
+    >
+      <TouchableOpacity
+        activeOpacity={0.5}
+        onPress={[Function]}
+      >
+        <FA5iconClass
+          color="rgb(65,77,107)"
+          light={true}
+          name="meh"
+          size={80}
+          solid={false}
+        />
+      </TouchableOpacity>
+      <Shared
+        labelStyle={
+          Object {
+            "color": "rgb(134,154,183)",
+            "fontSize": 12,
+            "marginBottom": 8,
+          }
+        }
+        labelStyleFocus={
+          Object {
+            "color": "rgb(58,139,255)",
+            "fontSize": 12,
+            "marginBottom": 8,
+          }
+        }
+        onTextChanged={[Function]}
+        style={
+          Object {
+            "marginTop": 80,
+          }
+        }
+        txt=""
+        txtHint="NAME"
+        txtLabel="NAME"
+      />
+      <Shared
+        labelStyle={
+          Object {
+            "color": "rgb(134,154,183)",
+            "fontSize": 12,
+            "marginBottom": 8,
+          }
+        }
+        labelStyleFocus={
+          Object {
+            "color": "rgb(58,139,255)",
+            "fontSize": 12,
+            "marginBottom": 8,
+          }
+        }
+        onTextChanged={[Function]}
+        style={
+          Object {
+            "marginTop": 24,
+          }
+        }
+        txt=""
+        txtHint="Status message"
+        txtLabel="Status message"
+      />
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+            "flexDirection": "row",
+            "justifyContent": "space-between",
+            "marginBottom": 48,
+            "marginTop": 24,
+            "width": "100%",
+          }
+        }
+      >
+        <Button
+          activeOpacity={0.5}
+          id="logout"
+          imgLeftStyle={
+            Object {
+              "height": 24,
+              "left": 16,
+              "position": "absolute",
+              "width": 24,
+            }
+          }
+          indicatorColor="white"
+          isDisabled={false}
+          isLoading={false}
+          onPress={[Function]}
+          style={
+            Object {
+              "alignItems": "center",
+              "alignSelf": "center",
+              "backgroundColor": "transparent",
+              "borderColor": "rgb(58,139,255)",
+              "borderRadius": 4,
+              "borderWidth": 1,
+              "height": 60,
+              "justifyContent": "center",
+              "marginRight": 4,
+              "width": 136,
+            }
+          }
+          textStyle={
+            Object {
+              "color": "rgb(58,139,255)",
+              "fontSize": 16,
+              "fontWeight": "bold",
+            }
+          }
+        >
+          LOGOUT
+        </Button>
+        <Button
+          activeOpacity={0.5}
+          id="update"
+          imgLeftStyle={
+            Object {
+              "height": 24,
+              "left": 16,
+              "position": "absolute",
+              "width": 24,
+            }
+          }
+          indicatorColor="white"
+          isDisabled={false}
+          isLoading={false}
+          onPress={[Function]}
+          style={
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "rgb(58,139,255)",
+              "borderColor": "rgb(58,139,255)",
+              "borderRadius": 4,
+              "borderWidth": 1,
+              "height": 60,
+              "justifyContent": "center",
+              "marginLeft": 4,
+              "shadowColor": "rgb(58,139,255)",
+              "shadowOffset": Object {
+                "height": 10,
+                "width": 0,
+              },
+              "shadowOpacity": 0.3,
+              "shadowRadius": 4,
+              "width": 136,
+            }
+          }
+          textStyle={
+            Object {
+              "color": "white",
+              "fontSize": 16,
+              "fontWeight": "bold",
+            }
+          }
+        >
+          Update
+        </Button>
+      </View>
+    </View>
+  </ScrollView>
 </View>
 `;

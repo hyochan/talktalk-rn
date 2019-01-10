@@ -145,7 +145,7 @@ class Screen extends Component<Props, State> {
       chats: [
         {
           id: '0',
-          sender: '0',
+          sender: 'sender_name',
           img: null,
           message: 'hello',
           date: new Date(0),
@@ -153,7 +153,7 @@ class Screen extends Component<Props, State> {
         },
         {
           id: '1',
-          sender: '1',
+          sender: 'sender_name',
           img: null,
           message: 'hello',
           date: new Date(0),

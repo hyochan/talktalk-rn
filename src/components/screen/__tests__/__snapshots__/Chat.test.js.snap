@@ -50,7 +50,7 @@ exports[`rendering test renders as expected 1`] = `
             "img": null,
             "isPeer": true,
             "message": "hello",
-            "sender": "0",
+            "sender": "sender_name",
           },
           Object {
             "date": 1970-01-01T00:00:00.000Z,
@@ -58,7 +58,7 @@ exports[`rendering test renders as expected 1`] = `
             "img": null,
             "isPeer": false,
             "message": "hello",
-            "sender": "1",
+            "sender": "sender_name",
           },
         ]
       }

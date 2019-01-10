@@ -23,7 +23,9 @@ import { ratio, colors } from '../../utils/Styles';
 
 type Styles = {
   wrapperPeer: ViewStyle,
+  wrapperPeerMsg: ViewStyle,
   imgPeer: ImageStyle,
+  txtPeerName: TextStyle,
   txtPeerMsg: TextStyle,
   txtPeerDate: TextStyle,
   wrapperSelf: ViewStyle,
@@ -44,6 +46,9 @@ const styles: Styles = StyleSheet.create({
     marginLeft: 20,
     marginRight: 8,
   },
+  wrapperPeerMsg: {
+    flexDirection: 'column',
+  },
   imgPeer: {
     width: 32,
     height: 32,
@@ -62,6 +67,11 @@ const styles: Styles = StyleSheet.create({
       width: 0,
       height: 2,
     },
+  },
+  txtPeerName: {
+    fontSize: 12,
+    color: colors.dusk,
+    marginBottom: 2,
   },
   txtPeerDate: {
     fontSize: 12,
@@ -98,15 +108,11 @@ type Props = {
   item: Chat,
 };
 
-type State = {
-
-};
-
-class Shared extends Component<Props, State> {
+class Shared extends Component<Props> {
   static defaultProps: Props = {
     item: {
       id: '0',
-      sender: '0',
+      sender: 'sender_name',
       img: null,
       message: 'hello',
       date: null,
@@ -125,7 +131,10 @@ class Shared extends Component<Props, State> {
                 : <Icon5 name="meh" size={40} color={colors.dusk} light/>
             }
           </View>
-          <Text style={styles.txtPeerMsg}>{this.props.item.message}</Text>
+          <View style={styles.wrapperPeerMsg}>
+            <Text style={styles.txtPeerName}>{this.props.item.sender}</Text>
+            <Text style={styles.txtPeerMsg}>{this.props.item.message}</Text>
+          </View>
           <Text style={styles.txtPeerDate}>
             {`${moment(this.props.item.date).hour()} : ${moment(this.props.item.date).minutes()}`}
           </Text>

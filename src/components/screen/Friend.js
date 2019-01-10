@@ -18,10 +18,10 @@ import type {
 import UserListItem from '../shared/UserListItem';
 import EmptyListItem from '../shared/EmptyListItem';
 
-import { getString } from '../../../STRINGS';
 import { ratio, colors } from '../../utils/Styles';
 import { Friend } from '../../utils/Types';
 import { ProfileModalConsumer } from '../../providers/ProfileModalProvider';
+import { getString } from '../../../STRINGS';
 
 type Styles = {
   container: ViewStyle,

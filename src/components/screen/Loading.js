@@ -62,9 +62,9 @@ class Screen extends Component<Props, State> {
         <Animated.Image
           source={IC_ICON}
           style={{
-            width: 60 * ratio,
-            height: 60 * ratio,
-            marginBottom: 16 * ratio,
+            width: 60,
+            height: 60,
+            marginBottom: 16,
             transform: [{ rotate: this.spin }],
           }}
         />
@@ -74,7 +74,7 @@ class Screen extends Component<Props, State> {
           direction='alternate'
           style={{
             color: colors.dodgerBlue,
-            fontSize: 16 * ratio,
+            fontSize: 16,
           }}
         >
           { getString('LOADING') }

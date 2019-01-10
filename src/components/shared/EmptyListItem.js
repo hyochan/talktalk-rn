@@ -30,7 +30,7 @@ const styles: Styles = StyleSheet.create({
     alignSelf: 'stretch',
   },
   text: {
-    fontSize: 14 * ratio,
+    fontSize: 14,
     color: 'rgb(155,155,155)',
     alignSelf: 'center',
   },

@@ -32,7 +32,7 @@ exports[`rendering test renders as expected 1`] = `
         Object {
           "alignItems": "center",
           "flexDirection": "column",
-          "marginTop": 83.33333333333331,
+          "marginTop": 40,
           "width": "78%",
         }
       }
@@ -55,7 +55,7 @@ exports[`rendering test renders as expected 1`] = `
         onTextChanged={[Function]}
         style={
           Object {
-            "marginTop": 16.666666666666664,
+            "marginTop": 8,
           }
         }
         txt=""
@@ -81,7 +81,7 @@ exports[`rendering test renders as expected 1`] = `
         onTextChanged={[Function]}
         style={
           Object {
-            "marginTop": 49.99999999999999,
+            "marginTop": 24,
           }
         }
         txt=""
@@ -106,7 +106,7 @@ exports[`rendering test renders as expected 1`] = `
         onTextChanged={[Function]}
         style={
           Object {
-            "marginTop": 49.99999999999999,
+            "marginTop": 24,
           }
         }
         txt=""
@@ -131,7 +131,7 @@ exports[`rendering test renders as expected 1`] = `
         onTextChanged={[Function]}
         style={
           Object {
-            "marginTop": 49.99999999999999,
+            "marginTop": 24,
           }
         }
         txt=""
@@ -166,27 +166,27 @@ exports[`rendering test renders as expected 1`] = `
               "alignItems": "center",
               "backgroundColor": "rgb(58,139,255)",
               "borderColor": "rgb(58,139,255)",
-              "borderRadius": 8.333333333333332,
-              "borderWidth": 2.083333333333333,
-              "height": 124.99999999999999,
+              "borderRadius": 4,
+              "borderWidth": 1,
+              "height": 60,
               "justifyContent": "center",
-              "marginBottom": 99.99999999999999,
-              "marginLeft": 8.333333333333332,
-              "marginTop": 49.99999999999999,
+              "marginBottom": 48,
+              "marginLeft": 4,
+              "marginTop": 24,
               "shadowColor": "rgb(58,139,255)",
               "shadowOffset": Object {
-                "height": 20.83333333333333,
+                "height": 10,
                 "width": 0,
               },
               "shadowOpacity": 0.3,
-              "shadowRadius": 8.333333333333332,
-              "width": 283.3333333333333,
+              "shadowRadius": 4,
+              "width": 136,
             }
           }
           textStyle={
             Object {
               "color": "white",
-              "fontSize": 33.33333333333333,
+              "fontSize": 16,
               "fontWeight": "bold",
             }
           }

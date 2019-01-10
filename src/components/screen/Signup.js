@@ -47,7 +47,7 @@ const styles: Styles = StyleSheet.create({
     alignItems: 'center',
   },
   wrapper: {
-    marginTop: 40 * ratio,
+    marginTop: 40,
     width: '78%',
 
     flexDirection: 'column',
@@ -60,26 +60,26 @@ const styles: Styles = StyleSheet.create({
   btnRegister: {
     backgroundColor: colors.dodgerBlue,
     borderColor: colors.dodgerBlue,
-    borderRadius: 4 * ratio,
-    borderWidth: 1 * ratio,
-    width: 136 * ratio,
-    height: 60 * ratio,
-    marginLeft: 4 * ratio,
-    marginTop: 24 * ratio,
-    marginBottom: 48 * ratio,
+    borderRadius: 4,
+    borderWidth: 1,
+    width: 136,
+    height: 60,
+    marginLeft: 4,
+    marginTop: 24,
+    marginBottom: 48,
     shadowColor: colors.dodgerBlue,
     shadowOffset: {
       width: 0,
-      height: 10 * ratio,
+      height: 10,
     },
-    shadowRadius: 4 * ratio,
+    shadowRadius: 4,
     shadowOpacity: 0.3,
 
     alignItems: 'center',
     justifyContent: 'center',
   },
   txtRegister: {
-    fontSize: 16 * ratio,
+    fontSize: 16,
     fontWeight: 'bold',
     color: 'white',
   },
@@ -122,14 +122,14 @@ class Screen extends Component<Props, State> {
         >
           <View style={styles.wrapper}>
             <TextInput
-              style={{ marginTop: 8 * ratio }}
+              style={{ marginTop: 8 }}
               txtLabel={getString('EMAIL')}
               txtHint={ getString('EMAIL') }
               txt={ this.state.email }
               onTextChanged={ (text) => this.onTextChanged('EMAIL', text)}
             />
             <TextInput
-              style={{ marginTop: 24 * ratio }}
+              style={{ marginTop: 24 }}
               txtLabel={ getString('PASSWORD') }
               txtHint={ getString('PASSWORD') }
               txt={ this.state.pw }
@@ -137,14 +137,14 @@ class Screen extends Component<Props, State> {
               isPassword={ true }
             />
             <TextInput
-              style={{ marginTop: 24 * ratio }}
+              style={{ marginTop: 24 }}
               txtLabel={getString('NAME')}
               txtHint={ getString('NAME') }
               txt={ this.state.displayName }
               onTextChanged={ (text) => this.onTextChanged('NAME', text)}
             />
             <TextInput
-              style={{ marginTop: 24 * ratio }}
+              style={{ marginTop: 24 }}
               txtLabel={getString('STATUS_MSG')}
               txtHint={ getString('STATUS_MSG') }
               txt={ this.state.statusMsg }

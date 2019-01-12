@@ -3,16 +3,20 @@
 exports[`rendering test renders as expected 1`] = `
 <View
   style={
-    Object {
-      "alignItems": "flex-end",
-      "flexDirection": "row",
-      "justifyContent": "flex-start",
-      "marginLeft": 20,
-      "marginRight": 8,
-      "marginTop": 20,
-      "minHeight": 48,
-      "width": "100%",
-    }
+    Array [
+      Object {
+        "alignItems": "flex-end",
+        "flexDirection": "row",
+        "justifyContent": "flex-start",
+        "marginLeft": 20,
+        "marginRight": 8,
+        "minHeight": 48,
+        "width": "100%",
+      },
+      Object {
+        "marginTop": 20,
+      },
+    ]
   }
 >
   <View

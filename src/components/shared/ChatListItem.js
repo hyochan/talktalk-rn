@@ -38,7 +38,6 @@ const styles: Styles = StyleSheet.create({
   wrapperPeer: {
     minHeight: 48,
     width: '100%',
-    marginTop: 20,
 
     flexDirection: 'row',
     alignItems: 'flex-end',
@@ -106,6 +105,7 @@ const styles: Styles = StyleSheet.create({
 
 type Props = {
   item: Chat,
+  prevItem?: Chat,
 };
 
 class Shared extends Component<Props> {
@@ -121,18 +121,31 @@ class Shared extends Component<Props> {
   };
 
   render() {
+    console.log('prevItem', this.props.prevItem);
+    const isSamePeerMsg = this.props.prevItem && this.props.prevItem.sender === this.props.item.sender;
     return (
       this.props.item.isPeer
-        ? <View style={styles.wrapperPeer}>
+        ? <View style={[
+          styles.wrapperPeer,
+          {
+            marginTop: isSamePeerMsg ? 0 : 20,
+          }
+        ]}>
           <View style={{ marginRight: 8 }}>
             {
               this.props.item.img
                 ? <Image style={styles.imgPeer} source={this.props.item.img}/>
-                : <Icon5 name="meh" size={40} color={colors.dusk} light/>
+                : isSamePeerMsg
+                  ? <View style={{ width: 40 }} />
+                  : <Icon5 name="meh" size={40} color={colors.dusk} light/>
             }
           </View>
           <View style={styles.wrapperPeerMsg}>
-            <Text style={styles.txtPeerName}>{this.props.item.sender}</Text>
+            {
+              isSamePeerMsg
+                ? <View/>
+                : <Text style={styles.txtPeerName}>{this.props.item.sender}</Text>
+            }
             <Text style={styles.txtPeerMsg}>{this.props.item.message}</Text>
           </View>
           <Text style={styles.txtPeerDate}>

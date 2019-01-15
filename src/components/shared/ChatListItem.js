@@ -23,7 +23,9 @@ import { ratio, colors } from '../../utils/Styles';
 
 type Styles = {
   wrapperPeer: ViewStyle,
+  wrapperPeerMsg: ViewStyle,
   imgPeer: ImageStyle,
+  txtPeerName: TextStyle,
   txtPeerMsg: TextStyle,
   txtPeerDate: TextStyle,
   wrapperSelf: ViewStyle,
@@ -36,13 +38,15 @@ const styles: Styles = StyleSheet.create({
   wrapperPeer: {
     minHeight: 48,
     width: '100%',
-    marginTop: 20,
 
     flexDirection: 'row',
     alignItems: 'flex-end',
     justifyContent: 'flex-start',
     marginLeft: 20,
     marginRight: 8,
+  },
+  wrapperPeerMsg: {
+    flexDirection: 'column',
   },
   imgPeer: {
     width: 32,
@@ -62,6 +66,11 @@ const styles: Styles = StyleSheet.create({
       width: 0,
       height: 2,
     },
+  },
+  txtPeerName: {
+    fontSize: 12,
+    color: colors.dusk,
+    marginBottom: 2,
   },
   txtPeerDate: {
     fontSize: 12,
@@ -96,17 +105,14 @@ const styles: Styles = StyleSheet.create({
 
 type Props = {
   item: Chat,
+  prevItem?: Chat,
 };
 
-type State = {
-
-};
-
-class Shared extends Component<Props, State> {
+class Shared extends Component<Props> {
   static defaultProps: Props = {
     item: {
       id: '0',
-      sender: '0',
+      sender: 'sender_name',
       img: null,
       message: 'hello',
       date: null,
@@ -115,17 +121,32 @@ class Shared extends Component<Props, State> {
   };
 
   render() {
+    const isSamePeerMsg = this.props.prevItem && this.props.prevItem.sender === this.props.item.sender;
     return (
       this.props.item.isPeer
-        ? <View style={styles.wrapperPeer}>
+        ? <View style={[
+          styles.wrapperPeer,
+          {
+            marginTop: isSamePeerMsg ? 0 : 20,
+          }
+        ]}>
           <View style={{ marginRight: 8 }}>
             {
               this.props.item.img
                 ? <Image style={styles.imgPeer} source={this.props.item.img}/>
-                : <Icon5 name="meh" size={40} color={colors.dusk} light/>
+                : isSamePeerMsg
+                  ? <View style={{ width: 40 }} />
+                  : <Icon5 name="meh" size={40} color={colors.dusk} light/>
             }
           </View>
-          <Text style={styles.txtPeerMsg}>{this.props.item.message}</Text>
+          <View style={styles.wrapperPeerMsg}>
+            {
+              isSamePeerMsg
+                ? <View/>
+                : <Text style={styles.txtPeerName}>{this.props.item.sender}</Text>
+            }
+            <Text style={styles.txtPeerMsg}>{this.props.item.message}</Text>
+          </View>
           <Text style={styles.txtPeerDate}>
             {`${moment(this.props.item.date).hour()} : ${moment(this.props.item.date).minutes()}`}
           </Text>

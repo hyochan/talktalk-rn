@@ -145,7 +145,23 @@ class Screen extends Component<Props, State> {
       chats: [
         {
           id: '0',
-          sender: '0',
+          sender: 'sender_name',
+          img: null,
+          message: 'hello',
+          date: new Date(0),
+          isPeer: true,
+        },
+        {
+          id: '0',
+          sender: 'sender_name',
+          img: null,
+          message: 'hello',
+          date: new Date(0),
+          isPeer: true,
+        },
+        {
+          id: '0',
+          sender: 'sender2',
           img: null,
           message: 'hello',
           date: new Date(0),
@@ -153,7 +169,7 @@ class Screen extends Component<Props, State> {
         },
         {
           id: '1',
-          sender: '1',
+          sender: 'mememe',
           img: null,
           message: 'hello',
           date: new Date(0),
@@ -272,9 +288,10 @@ class Screen extends Component<Props, State> {
     );
   }
 
-  renderItem = ({ item } : any) => {
+  renderItem = ({ item, index } : any) => {
     return (
       <ChatListItem
+        prevItem={index > 0 ? this.state.chats[ index - 1 ] : null}
         item={item}
       />
     );

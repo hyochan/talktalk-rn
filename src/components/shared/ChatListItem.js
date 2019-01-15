@@ -121,7 +121,6 @@ class Shared extends Component<Props> {
   };
 
   render() {
-    console.log('prevItem', this.props.prevItem);
     const isSamePeerMsg = this.props.prevItem && this.props.prevItem.sender === this.props.item.sender;
     return (
       this.props.item.isPeer

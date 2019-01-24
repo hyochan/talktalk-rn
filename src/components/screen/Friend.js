@@ -19,7 +19,7 @@ import UserListItem from '../shared/UserListItem';
 import EmptyListItem from '../shared/EmptyListItem';
 
 import { ratio, colors } from '../../utils/Styles';
-import { Friend } from '../../utils/Types';
+import { User as Friend } from '../../models/User';
 import { ProfileModalConsumer } from '../../providers/ProfileModalProvider';
 import { getString } from '../../../STRINGS';
 
@@ -50,11 +50,13 @@ class Screen extends Component<Props, State> {
     super(props);
     this.state = {
       friends: [
-        {
-          img: null,
-          displayName: 'test',
-          statusMsg: 'status',
-        },
+        new Friend(
+          'my_uid',
+          'hello',
+          '',
+          'I am fine today',
+          false,
+        ),
       ],
     };
   }

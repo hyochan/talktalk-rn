@@ -7,6 +7,9 @@ import { shallow, render } from 'enzyme';
 
 import Message from '../Message';
 import ChatroomListItem from '../../shared/ChatroomListItem';
+import { Chatroom } from '../../../models/Chatroom';
+import { Chat } from '../../../models/Chat';
+import { User } from '../../../models/User';
 
 describe('rendering test', () => {
   let wrapper;
@@ -23,28 +26,17 @@ describe('rendering test', () => {
     expect(wrapper).toMatchSnapshot();
   });
   it('should render item', () => {
-    const item = [
-      {
-        id: 1,
-        img: null,
-        displayName: 'dooboolab',
-        msg: 'When are you finishing??',
-        count: 6,
-        date: new Date(0),
-        status: true,
-        read: true,
-      },
-      {
-        id: 2,
-        img: null,
-        displayName: 'Byun8585',
-        msg: 'Hi. This is student from react-native...',
-        count: 0,
-        date: new Date(0),
-        status: false,
-        read: false,
-      },
-    ];
+    const item = new Chatroom(
+      '',
+      new Chat(
+        '',
+        new User('sender_uid1', 'dooboolab', '', 'I am fine', true),
+        'How are you?',
+        new Date(0),
+        new Date(0),
+      ),
+      6,
+    );
     const rendered = wrapper.instance().renderItem(item);
     expect(wrapper.find(ChatroomListItem).last()).toHaveLength(1);
     const shallowRendered = shallow(rendered);

@@ -16,8 +16,10 @@ import type {
   ____ImageStyleProp_Internal as ImageStyle,
 } from 'react-native/Libraries/StyleSheet/StyleSheetTypes';
 
-import { Chatroom } from '../../utils/Types';
+import { Chatroom } from '../../models/Chatroom';
 import { colors } from '../../utils/Styles';
+import { Chat } from '../../models/Chat';
+import { User } from '../../models/User';
 
 type Styles = {
   container: ViewStyle,
@@ -126,16 +128,16 @@ type State = {
 class Shared extends Component<Props, State> {
   static defaultProps: Props = {
     style: styles.wrapper,
-    item: {
-      id: '',
-      img: null,
-      displayName: '',
-      msg: '',
-      count: '',
-      date: null,
-      status: false,
-      read: false,
-    },
+    item: new Chatroom(
+      '',
+      new Chat(
+        '',
+        new User('', '', '', ''),
+        '',
+        new Date(0),
+        new Date(0),
+      ),
+    ),
   };
 
   render() {
@@ -148,23 +150,23 @@ class Shared extends Component<Props, State> {
           <View style={this.props.style}>
             <View style={styles.imgWrapper}>
               {
-                this.props.item.img
+                this.props.item.lastChat.sender.img
                   ? <Image style={styles.img} source={this.props.item.img}/>
                   : <Icon5 name="meh" size={40} color={colors.dusk} light/>
               }
               {
-                this.props.item.status
+                this.props.item.lastChat.sender.isOnline
                   ? <View style={styles.status}/>
                   : <View/>
               }
             </View>
             <View style={styles.viewContent}>
               <View style={styles.viewTop}>
-                <Text style={styles.txtDisplayName}>{this.props.item.displayName}</Text>
+                <Text style={styles.txtDisplayName}>{this.props.item.lastChat.sender.displayName}</Text>
                 {
-                  this.props.item.count
+                  this.props.item.lastChatCnt !== 0
                     ? <View style={styles.viewCount}>
-                      <Text style={styles.txtCount}>{this.props.item.count}</Text>
+                      <Text style={styles.txtCount}>{this.props.item.lastChatCnt}</Text>
                     </View>
                     : <View/>
                 }
@@ -174,12 +176,12 @@ class Shared extends Component<Props, State> {
                   numberOfLines={2}
                   style={[
                     styles.txtMsg,
-                    this.props.item.read
+                    this.props.item.lastChatCnt !== 0 // Have unread message status
                       ? { fontWeight: 'bold' }
                       : { }
                   ]}
-                >{this.props.item.msg}</Text>
-                <Text style={styles.txtDate}>{moment(this.props.item.date).fromNow()}</Text>
+                >{this.props.item.lastChat.message}</Text>
+                <Text style={styles.txtDate}>{moment(this.props.item.lastChat.created).fromNow()}</Text>
               </View>
             </View>
           </View>

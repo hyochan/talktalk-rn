@@ -18,8 +18,9 @@ import type {
   ____ImageStyleProp_Internal as ImageStyle,
 } from 'react-native/Libraries/StyleSheet/StyleSheetTypes';
 
-import { Chat } from '../../utils/Types';
+import { Chat } from '../../models/Chat';
 import { ratio, colors } from '../../utils/Styles';
+import { User } from '../../models/User';
 
 type Styles = {
   wrapperPeer: ViewStyle,
@@ -108,22 +109,22 @@ type Props = {
   prevItem?: Chat,
 };
 
+const myFakeUid = '2'; // TODO: temporary
 class Shared extends Component<Props> {
   static defaultProps: Props = {
-    item: {
-      id: '0',
-      sender: 'sender_name',
-      img: null,
-      message: 'hello',
-      date: null,
-      isPeer: true,
-    },
+    item: new Chat(
+      '',
+      new User('', '', '', ''),
+      '',
+      new Date(0),
+      new Date(0),
+    ),
   };
 
   render() {
-    const isSamePeerMsg = this.props.prevItem && this.props.prevItem.sender === this.props.item.sender;
+    const isSamePeerMsg = this.props.prevItem && this.props.prevItem.sender.uid === this.props.item.sender.uid;
     return (
-      this.props.item.isPeer
+      this.props.item.sender.uid !== myFakeUid // peer message
         ? <View style={[
           styles.wrapperPeer,
           {
@@ -132,8 +133,8 @@ class Shared extends Component<Props> {
         ]}>
           <View style={{ marginRight: 8 }}>
             {
-              this.props.item.img
-                ? <Image style={styles.imgPeer} source={this.props.item.img}/>
+              this.props.item.sender.photoURL !== ''
+                ? <Image style={styles.imgPeer} source={this.props.item.sender.photoURL}/>
                 : isSamePeerMsg
                   ? <View style={{ width: 40 }} />
                   : <Icon5 name="meh" size={40} color={colors.dusk} light/>
@@ -143,17 +144,17 @@ class Shared extends Component<Props> {
             {
               isSamePeerMsg
                 ? <View/>
-                : <Text style={styles.txtPeerName}>{this.props.item.sender}</Text>
+                : <Text style={styles.txtPeerName}>{this.props.item.sender.displayName}</Text>
             }
             <Text style={styles.txtPeerMsg}>{this.props.item.message}</Text>
           </View>
           <Text style={styles.txtPeerDate}>
-            {`${moment(this.props.item.date).hour()} : ${moment(this.props.item.date).minutes()}`}
+            {`${moment(this.props.item.created).hour()} : ${moment(this.props.item.created).minutes()}`}
           </Text>
         </View>
         : <View style={styles.wrapperSelf}>
           <Text style={styles.txtMyDate}>
-            {`${moment(this.props.item.date).hour()} : ${moment(this.props.item.date).minutes()}`}
+            {`${moment(this.props.item.created).hour()} : ${moment(this.props.item.created).minutes()}`}
           </Text>
           <LinearGradient
             start={{ x: 0.2, y: 0.4 }} end={{ x: 1.0, y: 0.8 }}

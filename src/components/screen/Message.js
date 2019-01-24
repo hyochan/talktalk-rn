@@ -17,9 +17,11 @@ import type {
 
 import EmptyListItem from '../shared/EmptyListItem';
 import ChatroomListItem from '../shared/ChatroomListItem';
-import { Chatroom } from '../../utils/Types';
 import { ratio, colors } from '../../utils/Styles';
 import { getString } from '../../../STRINGS';
+import { Chatroom } from '../../models/Chatroom';
+import { Chat } from '../../models/Chat';
+import { User } from '../../models/User';
 
 type Styles = {
   container: ViewStyle,
@@ -47,26 +49,28 @@ class Screen extends Component<Props, State> {
     super(props);
     this.state = {
       rooms: [
-        {
-          id: 1,
-          img: null,
-          displayName: 'dooboolab',
-          msg: 'How are you?',
-          count: 6,
-          date: new Date(0),
-          status: true,
-          read: true,
-        },
-        {
-          id: 2,
-          img: null,
-          displayName: 'Byun8585',
-          msg: 'Hi. This is student from react-native-seoul. Nice to meet you.',
-          count: 0,
-          date: new Date(0),
-          status: false,
-          read: false,
-        },
+        new Chatroom(
+          '',
+          new Chat(
+            '',
+            new User('sender_uid1', 'dooboolab', '', 'I am fine', true),
+            'How are you?',
+            new Date(0),
+            new Date(0),
+          ),
+          6,
+        ),
+        new Chatroom(
+          '',
+          new Chat(
+            '',
+            new User('sender_uid2', 'Byun8585', '', 'hello folks', false),
+            'Hi. This is student from react-native-seoul. Nice to meet you.',
+            new Date(0),
+            new Date(0),
+          ),
+          0,
+        ),
       ],
     };
   }

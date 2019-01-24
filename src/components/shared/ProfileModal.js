@@ -15,7 +15,7 @@ import {
 import Modal from 'react-native-modalbox';
 
 import Icon5 from 'react-native-vector-icons/FontAwesome5';
-import { Friend } from '../../utils/Types';
+import { User } from '../../models/User';
 import { IC_MASK } from '../../utils/Icons';
 import { ratio, colors } from '../../utils/Styles';
 import { getString } from '../../../STRINGS';
@@ -120,7 +120,7 @@ type State = {
   isAdding: boolean;
   isFriendAdded: boolean;
   isFriendAlreadyAdded: boolean;
-  user: Friend;
+  user: User;
 };
 
 class Shared extends Component<Props, State> {
@@ -137,12 +137,7 @@ class Shared extends Component<Props, State> {
       isAdding: false,
       isFriendAdded: false,
       isFriendAlreadyAdded: false,
-      user: {
-        uid: '',
-        img: null,
-        displayName: '',
-        statusMsg: '',
-      },
+      user: new User(),
     };
   }
 
@@ -209,7 +204,7 @@ class Shared extends Component<Props, State> {
     );
   }
 
-  setUser = (user) => {
+  setUser = (user: User) => {
     this.setState({
       user,
     });

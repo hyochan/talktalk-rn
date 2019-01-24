@@ -158,8 +158,8 @@ class Shared extends Component<Props> {
           <Text style={styles.txtMyDate}>
             {
               this.props.item.created
-              ? `${moment(this.props.item.created).hour()} : ${moment(this.props.item.created).minutes()}`
-              : '0 : 0'
+                ? `${moment(this.props.item.created).hour()} : ${moment(this.props.item.created).minutes()}`
+                : '0 : 0'
             }
           </Text>
           <LinearGradient

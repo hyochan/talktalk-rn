@@ -116,8 +116,6 @@ class Shared extends Component<Props> {
       '',
       new User('', '', '', ''),
       '',
-      new Date(0),
-      new Date(0),
     ),
   };
 
@@ -149,12 +147,20 @@ class Shared extends Component<Props> {
             <Text style={styles.txtPeerMsg}>{this.props.item.message}</Text>
           </View>
           <Text style={styles.txtPeerDate}>
-            {`${moment(this.props.item.created).hour()} : ${moment(this.props.item.created).minutes()}`}
+            {
+              this.props.item.created
+                ? `${moment(this.props.item.created).hour()} : ${moment(this.props.item.created).minutes()}`
+                : '0 : 0'
+            }
           </Text>
         </View>
         : <View style={styles.wrapperSelf}>
           <Text style={styles.txtMyDate}>
-            {`${moment(this.props.item.created).hour()} : ${moment(this.props.item.created).minutes()}`}
+            {
+              this.props.item.created
+              ? `${moment(this.props.item.created).hour()} : ${moment(this.props.item.created).minutes()}`
+              : '0 : 0'
+            }
           </Text>
           <LinearGradient
             start={{ x: 0.2, y: 0.4 }} end={{ x: 1.0, y: 0.8 }}

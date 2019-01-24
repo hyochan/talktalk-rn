@@ -134,8 +134,6 @@ class Shared extends Component<Props, State> {
         '',
         new User('', '', '', ''),
         '',
-        new Date(0),
-        new Date(0),
       ),
     ),
   };
@@ -181,7 +179,11 @@ class Shared extends Component<Props, State> {
                       : { }
                   ]}
                 >{this.props.item.lastChat.message}</Text>
-                <Text style={styles.txtDate}>{moment(this.props.item.lastChat.created).fromNow()}</Text>
+                <Text style={styles.txtDate}>{
+                  this.props.item.lastChat.created
+                    ? moment(this.props.item.lastChat.created).fromNow()
+                    : 'nan'
+                }</Text>
               </View>
             </View>
           </View>

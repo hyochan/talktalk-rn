@@ -36,7 +36,7 @@ exports[`rendering test should render as expected 1`] = `
           "created": undefined,
           "id": "",
           "lastChat": Chat {
-            "created": 1970-01-01T00:00:00.000Z,
+            "created": undefined,
             "id": "",
             "message": "How are you?",
             "sender": User {
@@ -51,7 +51,7 @@ exports[`rendering test should render as expected 1`] = `
               "uid": "sender_uid1",
               "updated": undefined,
             },
-            "updated": 1970-01-01T00:00:00.000Z,
+            "updated": undefined,
           },
           "lastChatCnt": 6,
           "updated": undefined,
@@ -62,7 +62,7 @@ exports[`rendering test should render as expected 1`] = `
           "created": undefined,
           "id": "",
           "lastChat": Chat {
-            "created": 1970-01-01T00:00:00.000Z,
+            "created": undefined,
             "id": "",
             "message": "Hi. This is student from react-native-seoul. Nice to meet you.",
             "sender": User {
@@ -77,7 +77,7 @@ exports[`rendering test should render as expected 1`] = `
               "uid": "sender_uid2",
               "updated": undefined,
             },
-            "updated": 1970-01-01T00:00:00.000Z,
+            "updated": undefined,
           },
           "lastChatCnt": 0,
           "updated": undefined,

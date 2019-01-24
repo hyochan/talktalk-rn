@@ -32,8 +32,6 @@ describe('rendering test', () => {
         '',
         new User('sender_uid1', 'dooboolab', '', 'I am fine', true),
         'How are you?',
-        new Date(0),
-        new Date(0),
       ),
       6,
     );

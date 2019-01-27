@@ -29,6 +29,9 @@ node_modules/react-native/flow-github/
 [options]
 emoji=true
 
+esproposal.optional_chaining=enable
+esproposal.nullish_coalescing=enable
+
 module.system=haste
 module.system.haste.use_name_reducers=true
 # get basename
@@ -63,8 +66,5 @@ suppress_comment=\\(.\\|\n\\)*\\$FlowIssue\\((\\(<VERSION>\\)? *\\(site=[a-z,_]*
 suppress_comment=\\(.\\|\n\\)*\\$FlowFixedInNextDeploy
 suppress_comment=\\(.\\|\n\\)*\\$FlowExpectedError
 
-[untyped]
-.*/node_modules/react-native/Libraries/Components/Switch
-
 [version]
-^0.76.0
+^0.85.0

@@ -26,10 +26,12 @@ import ChatListItem from '../shared/ChatListItem';
 import EmptyListItem from '../shared/EmptyListItem';
 import Button from '../shared/Button';
 
-import { Chatroom } from '../../utils/Types';
+import { Chatroom } from '../../models/Chatroom';
 import { IC_SMILE } from '../../utils/Icons';
 import { ratio, colors } from '../../utils/Styles';
 import { getString } from '../../../STRINGS';
+import { Chat } from '../../models/Chat';
+import { User } from '../../models/User';
 
 type Styles = {
   container: ViewStyle,
@@ -120,10 +122,10 @@ type Props = {
   navigation: any;
 };
 type State = {
-  chats: any,
-  showMenu: boolean,
   isLoading: boolean,
+  showMenu: boolean,
   message: string,
+  chats: Chat[],
 };
 
 class Screen extends Component<Props, State> {
@@ -143,38 +145,42 @@ class Screen extends Component<Props, State> {
       showMenu: false,
       message: '',
       chats: [
-        {
-          id: '0',
-          sender: 'sender_name',
-          img: null,
-          message: 'hello',
-          date: new Date(0),
-          isPeer: true,
-        },
-        {
-          id: '0',
-          sender: 'sender_name',
-          img: null,
-          message: 'hello',
-          date: new Date(0),
-          isPeer: true,
-        },
-        {
-          id: '0',
-          sender: 'sender2',
-          img: null,
-          message: 'hello',
-          date: new Date(0),
-          isPeer: true,
-        },
-        {
-          id: '1',
-          sender: 'mememe',
-          img: null,
-          message: 'hello',
-          date: new Date(0),
-          isPeer: false,
-        },
+        new Chat(
+          '',
+          new User(
+            '0',
+            'sender111',
+            '',
+          ),
+          'hello1',
+        ),
+        new Chat(
+          '',
+          new User(
+            '0',
+            'sender111',
+            '',
+          ),
+          'hello2',
+        ),
+        new Chat(
+          '',
+          new User(
+            '1',
+            'sender2222',
+            '',
+          ),
+          'hello',
+        ),
+        new Chat(
+          '',
+          new User(
+            '2',
+            'sender2222',
+            '',
+          ),
+          'hello',
+        ),
       ],
     };
   }

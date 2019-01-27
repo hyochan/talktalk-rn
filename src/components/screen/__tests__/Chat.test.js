@@ -1,6 +1,8 @@
 import 'react-native';
 import * as React from 'react';
 import Chat from '../Chat';
+import { User } from '../../../models/User';
+import { Chat as ChatM } from '../../../models/Chat';
 
 // Note: test renderer must be required after react-native.
 import renderer from 'react-test-renderer';
@@ -30,14 +32,11 @@ describe('interaction', () => {
   });
   it('should render chat item', () => {
     const spy = jest.spyOn(wrapper.instance(), 'renderItem');
-    const item = {
-      id: '0',
-      sender: '0',
-      img: null,
-      message: 'hello',
-      date: new Date(0),
-      isPeer: true,
-    };
+    const item = new ChatM(
+      '',
+      new User('sender_uid1', 'dooboolab', '', 'I am fine', true),
+      'How are you?',
+    );
     wrapper.instance().renderItem({ item });
     expect(spy).toHaveBeenCalled();
   });

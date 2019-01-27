@@ -1,6 +1,6 @@
 import React, { createContext } from 'react';
 import { Text, TouchableOpacity, View } from 'react-native';
-import { Friend } from '../utils/Types';
+import { User as Friend } from '../models/User';
 import ProfileModal from '../components/shared/ProfileModal';
 
 const ProfileModalContext = createContext();

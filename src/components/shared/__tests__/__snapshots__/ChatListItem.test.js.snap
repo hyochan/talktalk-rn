@@ -49,9 +49,7 @@ exports[`rendering test renders as expected 1`] = `
           "marginBottom": 2,
         }
       }
-    >
-      sender_name
-    </Text>
+    />
     <Text
       style={
         Object {
@@ -70,9 +68,7 @@ exports[`rendering test renders as expected 1`] = `
           },
         }
       }
-    >
-      hello
-    </Text>
+    />
   </View>
   <Text
     style={
@@ -83,7 +79,7 @@ exports[`rendering test renders as expected 1`] = `
       }
     }
   >
-    NaN : NaN
+    0 : 0
   </Text>
 </View>
 `;

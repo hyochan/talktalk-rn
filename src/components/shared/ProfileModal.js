@@ -142,7 +142,6 @@ class Shared extends Component<Props, State> {
   }
 
   render() {
-    console.log('this.state', this.state);
     return (
       <Modal
         ref={(v) => this.modal = v}
@@ -229,11 +228,10 @@ class Shared extends Component<Props, State> {
   }
 
   addFriend = () => {
-    console.log('addFriend');
+
   }
 
   deleteFriend = () => {
-    console.log('deleteFriend');
     this.modal.close();
   }
 }

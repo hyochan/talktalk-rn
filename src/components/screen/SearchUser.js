@@ -70,30 +70,25 @@ class Screen extends Component<Props, State> {
   scrollY = new Animated.Value(0);
   searchTxt: string = '';
   users: Friend[];
-
-  constructor(props: Props) {
-    super(props);
-    this.state = {
-      users: [
-        {
-          img: null,
-          displayName: 'test',
-          statusMsg: 'status',
-        },
-        {
-          img: IC_BACK,
-          displayName: 'geoseong',
-          statusMsg: 'healthy',
-        },
-        {
-          img: IC_ICON,
-          displayName: 'hyochan',
-          statusMsg: 'healthy',
-        },
-      ],
-    };
-  }
-
+  state = {
+    users: [
+      {
+        img: null,
+        displayName: 'test',
+        statusMsg: 'status',
+      },
+      {
+        img: IC_BACK,
+        displayName: 'geoseong',
+        statusMsg: 'healthy',
+      },
+      {
+        img: IC_ICON,
+        displayName: 'hyochan',
+        statusMsg: 'healthy',
+      },
+    ],
+  };
   async componentDidMount() {
     /**
      * @author geoseong
@@ -118,7 +113,6 @@ class Screen extends Component<Props, State> {
     data.actions.showModal(item, true);
   }
   onItemClick = (item: string) => {
-    // console.log(item);
     this.props.navigation.navigate('Profile', { user: item });
   }
   onTxtChanged = (txt: string) => {
@@ -126,7 +120,6 @@ class Screen extends Component<Props, State> {
     this.onSearch();
   }
   onSearch = () => {
-    console.log('onSearch:', this.searchTxt);
     if (this.searchTxt === '') {
       this.setState({ users: this.users });
     } else {

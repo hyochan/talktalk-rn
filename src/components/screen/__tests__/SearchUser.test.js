@@ -15,36 +15,3 @@ describe('rendering test', () => {
     expect(wrapper).toMatchSnapshot();
   });
 });
-
-// describe('context', () => {
-//   let wrapper;
-//   let props;
-
-//   beforeEach(() => {
-//     const context = {
-//       state: {
-//         user: null,
-//       },
-//       actions: {
-//         renderItem: jest.fn(),
-//         showProfileModal: jest.fn(),
-//         onItemClick: jest.fn(),
-//         onTxtChanged: jest.fn(),
-//         onSearch: jest.fn(),
-//       }
-//     }
-//     props = {
-//       navigation: {
-//         navigate: jest.fn(),
-//       },
-//       ...context,
-//     };
-//     const outer = shallow(<SearchUser />);
-//     const Children = outer.props().children;
-//     wrapper = shallow(<Children {...props} />);
-//   });
-
-//   it('renders context', () => {
-//     expect(wrapper.find('TextInput')).toHaveLength(1);
-//   });
-// });

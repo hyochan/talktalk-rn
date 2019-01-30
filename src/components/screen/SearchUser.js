@@ -70,25 +70,32 @@ class Screen extends Component<Props, State> {
   scrollY = new Animated.Value(0);
   searchTxt: string = '';
   users: Friend[];
-  state = {
-    users: [
-      {
-        img: null,
-        displayName: 'test',
-        statusMsg: 'status',
-      },
-      {
-        img: IC_BACK,
-        displayName: 'geoseong',
-        statusMsg: 'healthy',
-      },
-      {
-        img: IC_ICON,
-        displayName: 'hyochan',
-        statusMsg: 'healthy',
-      },
-    ],
-  };
+  constructor(props: Props) {
+    super(props);
+    this.state = {
+      users: [
+        {
+          img: null,
+          displayName: 'test',
+          statusMsg: 'status',
+        },
+        {
+          img: IC_BACK,
+          displayName: 'geoseong',
+          statusMsg: 'healthy',
+        },
+        {
+          img: IC_ICON,
+          displayName: 'hyochan',
+          statusMsg: 'healthy',
+        },
+      ],
+    };
+  }
+
+  componentDidMount = () => {
+    this.users = this.state.users;
+  }
   renderItem = (item: Friend, data: any) => {
     return (
       <UserListItem

@@ -89,17 +89,6 @@ class Screen extends Component<Props, State> {
       },
     ],
   };
-  async componentDidMount() {
-    /**
-     * @author geoseong
-     * @name db_getAllUser()
-     * @description get user data from server. it commented because server isn't implemented yet.
-     */
-    // this.users = await db_getAllUser();
-    // this.setState({ users: this.users });
-    this.users = this.state.users;
-  }
-
   renderItem = (item: Friend, data: any) => {
     return (
       <UserListItem

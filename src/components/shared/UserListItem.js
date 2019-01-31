@@ -17,6 +17,7 @@ import type {
 } from 'react-native/Libraries/StyleSheet/StyleSheetTypes';
 
 import { ratio, colors } from '../../utils/Styles';
+import { User as Friend } from '../../models/User';
 
 type Styles = {
   container: ViewStyle,
@@ -64,15 +65,9 @@ const styles: Styles = StyleSheet.create({
   },
 });
 
-type User = {
-  img: string | null;
-  displayName: string;
-  statusMsg: string;
-};
-
 type Props = {
   style: ViewStyle;
-  user: User;
+  user: Friend;
   onPress?: () => void;
   onLongPress?: () => void;
 };
@@ -85,9 +80,15 @@ class Shared extends Component<Props, State> {
   static defaultProps: Props = {
     style: styles.wrapper,
     user: {
-      img: null,
+      uid: '',
       displayName: '',
+      photoURL: null,
       statusMsg: '',
+      isOnline: '',
+      friends: '',
+      Chatrooms: '',
+      created: '',
+      updated: '',
     },
   };
 
@@ -107,8 +108,8 @@ class Shared extends Component<Props, State> {
         >
           <View style={this.props.style}>
             {
-              this.props.user.img
-                ? <Image style={styles.img} source={this.props.user.img}/>
+              this.props.user.photoURL
+                ? <Image style={styles.img} source={this.props.user.photoURL}/>
                 : <Icon5 name="meh" size={40} color={colors.dusk} light/>
             }
             <Text style={styles.txt}>{this.props.user.displayName}</Text>

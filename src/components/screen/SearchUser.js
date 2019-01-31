@@ -28,7 +28,7 @@ import UserListItem from '../shared/UserListItem';
 type Styles = {
   container: ViewStyle,
   viewSearch: ViewStyle,
-  imgSearch: ViewStyle,
+  imgSearch: ImageStyle,
 };
 
 const styles: Styles = StyleSheet.create({
@@ -75,19 +75,37 @@ class Screen extends Component<Props, State> {
     this.state = {
       users: [
         {
-          img: null,
+          uid: '1',
           displayName: 'test',
+          photoURL: null,
           statusMsg: 'status',
+          isOnline: '',
+          friends: '',
+          Chatrooms: '',
+          created: '',
+          updated: '',
         },
         {
-          img: IC_BACK,
+          uid: '2',
           displayName: 'geoseong',
+          photoURL: IC_BACK,
           statusMsg: 'healthy',
+          isOnline: '',
+          friends: '',
+          Chatrooms: '',
+          created: '',
+          updated: '',
         },
         {
-          img: IC_ICON,
+          uid: '3',
           displayName: 'hyochan',
+          photoURL: IC_ICON,
           statusMsg: 'healthy',
+          isOnline: '',
+          friends: '',
+          Chatrooms: '',
+          created: '',
+          updated: '',
         },
       ],
     };

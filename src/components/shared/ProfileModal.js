@@ -161,8 +161,8 @@ class Shared extends Component<Props, State> {
               // onPress={this.goToUpdateProfile}
             >
               {
-                this.state.user.img
-                  ? <Image style={styles.img} source={this.state.user.img}/>
+                this.state.user.photoURL
+                  ? <Image style={styles.img} source={this.state.user.photoURL}/>
                   : <Icon5 name="meh" size={80} color={colors.dusk} light/>
               }
             </TouchableOpacity>

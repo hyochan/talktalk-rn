@@ -5,9 +5,3 @@ exports[`[serachUser] rendering test renders as expected 1`] = `
   <Component />
 </ContextConsumer>
 `;
-
-exports[`rendering test renders as expected 1`] = `
-<ContextConsumer>
-  <Component />
-</ContextConsumer>
-`;

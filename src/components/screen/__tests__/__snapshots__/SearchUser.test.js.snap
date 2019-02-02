@@ -1,5 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`[serachUser] rendering test renders as expected 1`] = `
+<ContextConsumer>
+  <Component />
+</ContextConsumer>
+`;
+
 exports[`rendering test renders as expected 1`] = `
 <ContextConsumer>
   <Component />

@@ -39,8 +39,8 @@ NativeModules.PlatformConstants = {
   forceTouchAvailable: false,
 };
 
-NativeModules.UIManager = {
-  RCTView: () => ({
-    directEventTypes: {},
-  }),
-};
+// NativeModules.UIManager = {
+//   RCTView: () => ({
+//     directEventTypes: {},
+//   }),
+// };

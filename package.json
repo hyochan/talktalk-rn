@@ -10,6 +10,7 @@
     "ios:iphone5": "node node_modules/react-native/local-cli/cli.js run-ios  --simulator='iPhone 5s'",
     "ios:iphone7": "node node_modules/react-native/local-cli/cli.js run-ios  --simulator='iPhone 7'",
     "ios:iphone7+": "node node_modules/react-native/local-cli/cli.js run-ios  --simulator='iPhone 7 Plus'",
+    "ios:iphoneX": "node node_modules/react-native/local-cli/cli.js run-ios  --simulator='iPhone X'",
     "android": "node node_modules/react-native/local-cli/cli.js run-android",
     "android:shake": "adb shell input keyevent 82",
     "android:window": "cd android && gradlew.bat installDebug",

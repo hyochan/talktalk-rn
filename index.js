@@ -7,6 +7,8 @@ import App from './src/App';
 YellowBox.ignoreWarnings([
   // 'Warning: componentWillMount is deprecated',
   // 'Warning: isMounted',
+  'Remote debuggger',
+  'WebView has been extracted',
   'Warning: isMounted(...) is deprecated',
   'Class RCTCxxModule',
   'Module RCTImageLoader'

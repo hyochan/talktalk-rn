@@ -221,7 +221,7 @@ class Screen extends Component<Props, State> {
                         paddingLeft: 34,
                         paddingRight: 10
                       }}
-                      onSubmitEditing={this.onSearch}
+                      // onSubmitEditing={this.onSearch}
                       defaultValue={''}
                     />
                     <Image source={IC_SEARCH} style={styles.imgSearch}/>

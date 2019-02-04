@@ -67,7 +67,7 @@ jobs:
   android:
     working_directory: ~/talktalk-rn
     docker:
-      - image: circleci/android:api-27-node8-alpha
+        - image: circleci/android:api-28-node8-alpha
     steps:
       - checkout:
           path: ~/talktalk-rn

@@ -129,7 +129,7 @@ class Shared extends Component<Props, State> {
           onBlur={ () => this.setState({ focused: false }) }
           placeholder={this.props.txtHint}
           placeholderTextColor={this.props.placeholderTextColor}
-          onSubmitEditing={this.props.onSubmitEditing}
+          // onSubmitEditing={this.props.onSubmitEditing}
           returnKeyType={this.props.returnKeyType}
           secureTextEntry={this.props.isPassword}
         />

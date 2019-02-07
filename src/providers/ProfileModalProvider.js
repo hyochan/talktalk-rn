@@ -2,17 +2,19 @@ import React, { createContext } from 'react';
 import { Text, TouchableOpacity, View } from 'react-native';
 import { User as Friend } from '../models/User';
 import ProfileModal from '../components/shared/ProfileModal';
+import { ProfileModalContext } from './ProfileModalContext';
 
-const ProfileModalContext = createContext();
+const ProfileModalConsumer = ProfileModalContext.Consumer;
 
-export const ProfileModalConsumer = ProfileModalContext.Consumer;
-
-export class ProfileModalProvider extends React.Component {
+class ProfileModalProvider extends React.Component {
   static modal: ProfileModal;
 
-  state = {
-    user: null,
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      user: null,
+    };
+  }
 
   actions = {
     setModal: (v) => {
@@ -42,6 +44,7 @@ export class ProfileModalProvider extends React.Component {
       <ProfileModalContext.Provider value={value}>
         {this.props.children}
         <ProfileModal
+          id="modal"
           ref={(v) => {
             this.modal = v;
           }}
@@ -51,3 +54,5 @@ export class ProfileModalProvider extends React.Component {
     );
   }
 }
+
+export { ProfileModalConsumer, ProfileModalProvider };

@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`[ProfileModalProvider] rendering test [ProfileModalProvider] renders as expected 1`] = `
+<ContextProvider
+  value={
+    Object {
+      "actions": Object {
+        "onChatPressed": [Function],
+        "setModal": [Function],
+        "showModal": [Function],
+      },
+      "modal": undefined,
+      "state": Object {
+        "user": null,
+      },
+    }
+  }
+>
+  <Shared
+    id="modal"
+    onChatPressed={[Function]}
+    style={
+      Object {
+        "alignItems": "center",
+        "alignSelf": "stretch",
+        "height": 320,
+        "justifyContent": "space-between",
+        "marginHorizontal": 20,
+      }
+    }
+  />
+</ContextProvider>
+`;

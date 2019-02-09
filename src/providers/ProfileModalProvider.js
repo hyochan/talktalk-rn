@@ -2,7 +2,7 @@ import React, { createContext } from 'react';
 import { Text, TouchableOpacity, View } from 'react-native';
 import { User as Friend } from '../models/User';
 import ProfileModal from '../components/shared/ProfileModal';
-import { ProfileModalContext } from './ProfileModalContext';
+import { ProfileModalContext } from '../contexts/ProfileModalContext';
 
 const ProfileModalConsumer = ProfileModalContext.Consumer;
 
@@ -22,8 +22,8 @@ class ProfileModalProvider extends React.Component {
     },
     showModal: (user: Friend, deleteMode?: boolean) => {
       this.setState({ user }, () => {
-        this.modal.setUser(user);
         if (this.modal) {
+          this.modal.setUser(user);
           this.modal.showAddBtn(!deleteMode);
           this.modal.open();
         }

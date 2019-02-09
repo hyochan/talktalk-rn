@@ -80,7 +80,8 @@
     "coverageDirectory": "./coverage/",
     "coveragePathIgnorePatterns": [
       "/node_modules/",
-      "/test/"
+      "/test/",
+      "/src/contexts/"
     ],
     "collectCoverage": true,
     "setupFiles": [

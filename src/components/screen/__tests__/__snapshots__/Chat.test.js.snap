@@ -197,17 +197,11 @@ exports[`rendering test renders as expected 1`] = `
       </TouchableOpacity>
       <Button
         activeOpacity={0.5}
-        imgLeftStyle={
-          Object {
-            "height": 24,
-            "left": 16,
-            "position": "absolute",
-            "width": 24,
-          }
-        }
+        height={60}
         indicatorColor="white"
         isDisabled={false}
         isLoading={false}
+        isWhite={false}
         onPress={[Function]}
         style={
           Object {
@@ -229,6 +223,7 @@ exports[`rendering test renders as expected 1`] = `
             "paddingVertical": 10,
           }
         }
+        width={136}
       >
         Send
       </Button>

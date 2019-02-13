@@ -1,42 +1,19 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`rendering test renders as expected 1`] = `
-<View
-  style={
-    Object {
-      "alignItems": "center",
-      "backgroundColor": "white",
-      "flex": 1,
-      "flexDirection": "column",
-    }
-  }
->
+<Styled(View)>
   <Shared
     isDarkContent={true}
   />
-  <ScrollView
+  <Styled(ScrollView)
     contentContainerStyle={
       Object {
         "alignItems": "center",
         "justifyContent": "center",
       }
     }
-    style={
-      Object {
-        "alignSelf": "stretch",
-      }
-    }
   >
-    <View
-      style={
-        Object {
-          "alignItems": "center",
-          "flexDirection": "column",
-          "marginTop": 40,
-          "width": "78%",
-        }
-      }
-    >
+    <Styled(View)>
       <Shared
         labelStyle={
           Object {
@@ -110,8 +87,8 @@ exports[`rendering test renders as expected 1`] = `
           }
         }
         txt=""
-        txtHint="NAME"
-        txtLabel="NAME"
+        txtHint="name"
+        txtLabel="name"
       />
       <Shared
         labelStyle={
@@ -138,63 +115,22 @@ exports[`rendering test renders as expected 1`] = `
         txtHint="Status message"
         txtLabel="Status message"
       />
-      <View
-        style={
-          Object {
-            "alignItems": "flex-end",
-            "width": "100%",
-          }
-        }
-      >
+      <Styled(View)>
         <Button
           activeOpacity={0.5}
+          height={60}
           id="register"
-          imgLeftStyle={
-            Object {
-              "height": 24,
-              "left": 16,
-              "position": "absolute",
-              "width": 24,
-            }
-          }
           indicatorColor="white"
           isDisabled={false}
           isLoading={false}
+          isWhite={false}
           onPress={[Function]}
-          style={
-            Object {
-              "alignItems": "center",
-              "backgroundColor": "rgb(58,139,255)",
-              "borderColor": "rgb(58,139,255)",
-              "borderRadius": 4,
-              "borderWidth": 1,
-              "height": 60,
-              "justifyContent": "center",
-              "marginBottom": 48,
-              "marginLeft": 4,
-              "marginTop": 24,
-              "shadowColor": "rgb(58,139,255)",
-              "shadowOffset": Object {
-                "height": 10,
-                "width": 0,
-              },
-              "shadowOpacity": 0.3,
-              "shadowRadius": 4,
-              "width": 136,
-            }
-          }
-          textStyle={
-            Object {
-              "color": "white",
-              "fontSize": 16,
-              "fontWeight": "bold",
-            }
-          }
+          width={136}
         >
-          REGISTER
+          Register
         </Button>
-      </View>
-    </View>
-  </ScrollView>
-</View>
+      </Styled(View)>
+    </Styled(View)>
+  </Styled(ScrollView)>
+</Styled(View)>
 `;

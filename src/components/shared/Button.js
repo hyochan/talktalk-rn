@@ -8,74 +8,70 @@ import {
   Text,
   View,
 } from 'react-native';
-import type {
-  ____ViewStyleProp_Internal as ViewStyle,
-  ____TextStyleProp_Internal as TextStyle,
-  ____ImageStyleProp_Internal as ImageStyle,
-} from 'react-native/Libraries/StyleSheet/StyleSheetTypes';
+import styled from 'styled-components/native';
 
 import { ratio, colors } from '../../utils/Styles';
 
-type Styles = {
-  btn: ViewStyle,
-  btnDisabled: ViewStyle,
-  txt: TextStyle,
-  imgLeft: ImageStyle,
-};
+const StyledContainer = styled.View`
+  flex: 1;
+`;
 
-const styles: Styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-  btn: {
-    backgroundColor: 'transparent',
-    alignSelf: 'center',
-    borderRadius: 4,
-    borderWidth: 2,
-    width: '100%',
-    height: '100%',
-    borderColor: 'white',
+const StyledButton = styled.View`
+  background-color: ${colors.dodgerBlue};
+  border-color: ${colors.dodgerBlue};
+  border-radius: 4;
+  border-width: 1;
+  shadow-color: ${colors.dodgerBlue};
+  shadow-radius: 4;
+  shadow-opacity: 0.3;
+  align-items: center;
+  justify-content: center;
+`;
 
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  btnDisabled: {
-    backgroundColor: 'rgb(243,243,243)',
-    alignSelf: 'center',
-    borderRadius: 4,
-    borderWidth: 2,
-    width: '100%',
-    height: '100%',
-    borderColor: '#333',
+const StyledButtonWhite = styled(StyledButton)`
+  background-color: white;
+  shadow-radius: 0;
+  shadow-opacity: 0.0;
+`;
 
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  txt: {
-    fontSize: 14,
-    color: 'white',
-  },
-  imgLeft: {
-    width: 24,
-    height: 24,
-    position: 'absolute',
-    left: 16,
-  },
-});
+const StyledButtonDisabled = styled.View`
+  background-color: rgb(243,243,243);
+  align-self: center;
+  border-radius: 4;
+  border-width: 2;
+  border-color: #333;
+  align-items: center;
+  justify-content: center;
+`;
+
+const StyledText = styled.Text`
+  font-size: 14;
+  font-weight: bold;
+  color: ${colors.dodgerBlue};
+`;
+
+const StyledTextWhite = styled(StyledText)`
+  color: white;
+`;
+
+const StyledImageLeft = styled.Image`
+  width: 24;
+  height: 24;
+  position: absolute;
+  left: 16;
+`;
 
 type Props = {
-  constainerStyle?: ViewStyle;
+  isWhite?: boolean;
   isLoading?: boolean;
   isDisabled?: boolean;
   onPress?: () => void;
-  style?: ViewStyle;
-  disabledStyle?: ViewStyle;
-  textStyle?: TextStyle;
   imgLeftSrc?: any;
-  imgLeftStyle?: ImageStyle;
   indicatorColor?: string;
   activeOpacity?: number;
   children?: any;
+  width?: number;
+  height?: number;
 };
 
 type State = {
@@ -84,53 +80,77 @@ type State = {
 
 class Button extends Component<Props, State> {
   static defaultProps: Props = {
+    isWhite: false,
     isLoading: false,
     isDisabled: false,
-    style: styles.btn,
-    textStyle: styles.txt,
-    imgLeftStyle: styles.imgLeft,
     indicatorColor: 'white',
     activeOpacity: 0.5,
+    width: 136,
+    height: 60,
   };
 
   render() {
     if (this.props.isDisabled) {
       return (
-        <View style={this.props.constainerStyle}>
-          <View style={this.props.disabledStyle}>
-            <Text style={this.props.textStyle}>{this.props.children}</Text>
-          </View>
-        </View>
+        <StyledContainer>
+          <StyledButtonDisabled>
+            <StyledText>{this.props.children}</StyledText>
+          </StyledButtonDisabled>
+        </StyledContainer>
       );
     }
     if (this.props.isLoading) {
       return (
-        <View style={this.props.constainerStyle}>
-          <View style={this.props.style}>
+        <StyledContainer>
+          <StyledButton>
             <ActivityIndicator size='small' color={this.props.indicatorColor} />
-          </View>
-        </View>
+          </StyledButton>
+        </StyledContainer>
       );
     }
     return (
-      <View style={this.props.constainerStyle}>
+      <StyledContainer>
         <TouchableOpacity
           activeOpacity={this.props.activeOpacity}
           onPress={this.props.onPress}
         >
-          <View style={this.props.style}>
-            {
-              this.props.imgLeftSrc
-                ? <Image
-                  style={this.props.imgLeftStyle}
-                  source={this.props.imgLeftSrc}
-                />
-                : null
-            }
-            <Text style={this.props.textStyle}>{this.props.children}</Text>
-          </View>
+          {
+            !this.props.isWhite
+              ? <StyledButton>
+                {this.renderContent()}
+              </StyledButton>
+              : <StyledButtonWhite>
+                {this.renderContent()}
+              </StyledButtonWhite>
+          }
         </TouchableOpacity>
-      </View>
+      </StyledContainer>
+    );
+  }
+
+  renderContent = () => {
+    return <View style={{
+      width: this.props.width,
+      height: this.props.height,
+      justifyContent: 'center',
+      alignItems: 'center',
+    }}>
+      {
+        this.props.imgLeftSrc
+          ? <StyledImageLeft
+            source={this.props.imgLeftSrc}
+          />
+          : null
+      }
+      { this.renderText() }
+    </View>;
+  }
+
+  renderText = () => {
+    return (
+      this.props.isWhite
+        ? <StyledText>{this.props.children}</StyledText>
+        : <StyledTextWhite>{this.props.children}</StyledTextWhite>
     );
   }
 }

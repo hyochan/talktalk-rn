@@ -1,269 +1,143 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`rendering test renders as expected 1`] = `
-<ScrollView
-  style={
-    Object {
-      "backgroundColor": "white",
-    }
-  }
->
-  <Shared
-    isDarkContent={true}
-  />
-  <View
-    style={
-      Object {
-        "alignItems": "center",
-        "flex": 1,
-        "flexDirection": "column",
-      }
-    }
-  >
-    <View
-      style={
-        Object {
-          "alignItems": "flex-start",
-          "flexDirection": "column",
-          "left": 40,
-          "position": "absolute",
-          "top": 76,
-        }
-      }
-    >
-      <Component
-        source={
-          Object {
-            "testUri": "../../../assets/icons/icon.png",
-          }
-        }
-        style={
-          Object {
-            "height": 60,
-            "width": 60,
-          }
-        }
-      />
-      <Text
-        style={
-          Object {
-            "color": "rgb(65,77,107)",
-            "fontSize": 20,
-            "fontWeight": "bold",
-            "marginTop": 8,
-          }
-        }
-      >
-        Hello
-        .
-      </Text>
-    </View>
-    <View
-      style={
-        Object {
-          "alignItems": "center",
-          "flexDirection": "column",
-          "height": 300,
-          "marginTop": 260,
-          "width": "78%",
-        }
-      }
-    >
-      <Shared
-        labelStyle={
-          Object {
-            "color": "rgb(134,154,183)",
-            "fontSize": 12,
-            "marginBottom": 8,
-          }
-        }
-        labelStyleFocus={
-          Object {
-            "color": "rgb(58,139,255)",
-            "fontSize": 12,
-            "marginBottom": 8,
-          }
-        }
-        onTextChanged={[Function]}
-        style={
-          Object {
-            "alignItems": "flex-start",
-            "alignSelf": "stretch",
-            "flexDirection": "column",
-            "justifyContent": "flex-start",
-          }
-        }
-        txt=""
-        txtHint="Email"
-      />
-      <Shared
-        isPassword={true}
-        labelStyle={
-          Object {
-            "color": "rgb(134,154,183)",
-            "fontSize": 12,
-            "marginBottom": 8,
-          }
-        }
-        labelStyleFocus={
-          Object {
-            "color": "rgb(58,139,255)",
-            "fontSize": 12,
-            "marginBottom": 8,
-          }
-        }
-        onTextChanged={[Function]}
-        style={
-          Object {
-            "marginTop": 8,
-          }
-        }
-        txt=""
-        txtHint="Password"
-      />
-      <View
-        style={
-          Object {
-            "alignItems": "center",
-            "alignSelf": "stretch",
-            "flexDirection": "row",
-            "height": 60,
-            "justifyContent": "space-between",
-            "marginTop": 20,
-          }
-        }
-      >
-        <Button
-          activeOpacity={0.5}
-          constainerStyle={
+<SafeAreaView>
+  <Styled(ScrollView)>
+    <Shared
+      isDarkContent={true}
+    />
+    <Styled(View)>
+      <Styled(View)>
+        <Styled(Component)
+          source={
             Object {
-              "flex": 1,
-            }
-          }
-          id="signup"
-          imgLeftStyle={
-            Object {
-              "height": 24,
-              "left": 16,
-              "position": "absolute",
-              "width": 24,
-            }
-          }
-          indicatorColor="white"
-          isDisabled={false}
-          isLoading={false}
-          onPress={[Function]}
-          style={
-            Object {
-              "alignItems": "center",
-              "backgroundColor": "transparent",
-              "borderColor": "rgb(58,139,255)",
-              "borderRadius": 4,
-              "borderWidth": 1,
-              "height": "100%",
-              "justifyContent": "center",
-              "width": "100%",
-            }
-          }
-          textStyle={
-            Object {
-              "color": "rgb(58,139,255)",
-              "fontSize": 16,
-              "fontWeight": "bold",
-            }
-          }
-        >
-          SIGN UP
-        </Button>
-        <View
-          style={
-            Object {
-              "width": 8,
+              "testUri": "../../../assets/icons/icon.png",
             }
           }
         />
-        <Button
-          activeOpacity={0.5}
-          constainerStyle={
+        <Styled(Text)>
+          Hello
+          .
+        </Styled(Text)>
+      </Styled(View)>
+      <Styled(View)>
+        <Shared
+          labelStyle={
             Object {
-              "flex": 1,
+              "color": "rgb(134,154,183)",
+              "fontSize": 12,
+              "marginBottom": 8,
             }
           }
-          id="login"
-          imgLeftStyle={
-            Object {
-              "height": 24,
-              "left": 16,
-              "position": "absolute",
-              "width": 24,
-            }
-          }
-          indicatorColor="white"
-          isDisabled={false}
-          isLoading={false}
-          onPress={[Function]}
-          style={
-            Object {
-              "alignItems": "center",
-              "backgroundColor": "rgb(58,139,255)",
-              "borderColor": "rgb(58,139,255)",
-              "borderRadius": 4,
-              "borderWidth": 1,
-              "height": 60,
-              "justifyContent": "center",
-              "shadowColor": "rgb(58,139,255)",
-              "shadowOffset": Object {
-                "height": 10,
-                "width": 0,
-              },
-              "shadowOpacity": 0.3,
-              "shadowRadius": 4,
-            }
-          }
-          textStyle={
-            Object {
-              "color": "white",
-              "fontSize": 16,
-              "fontWeight": "bold",
-            }
-          }
-        >
-          LOGIN
-        </Button>
-      </View>
-      <TouchableOpacity
-        activeOpacity={0.5}
-        onPress={[Function]}
-        style={
-          Object {
-            "marginTop": 20,
-          }
-        }
-      >
-        <Text
-          style={
+          labelStyleFocus={
             Object {
               "color": "rgb(58,139,255)",
               "fontSize": 12,
-              "textDecorationLine": "underline",
+              "marginBottom": 8,
             }
           }
-        >
-          Forgot password?
-        </Text>
-      </TouchableOpacity>
-      <Text
-        style={
-          Object {
-            "color": "rgb(175,194,219)",
-            "fontSize": 12,
-            "marginTop": 80,
+          onTextChanged={[Function]}
+          style={
+            Object {
+              "alignItems": "flex-start",
+              "alignSelf": "stretch",
+              "flexDirection": "column",
+              "justifyContent": "flex-start",
+            }
           }
-        }
-      >
-        copyright by dooboolab.com
-      </Text>
-    </View>
-  </View>
-</ScrollView>
+          txt=""
+          txtHint="Email"
+        />
+        <Shared
+          isPassword={true}
+          labelStyle={
+            Object {
+              "color": "rgb(134,154,183)",
+              "fontSize": 12,
+              "marginBottom": 8,
+            }
+          }
+          labelStyleFocus={
+            Object {
+              "color": "rgb(58,139,255)",
+              "fontSize": 12,
+              "marginBottom": 8,
+            }
+          }
+          onTextChanged={[Function]}
+          style={
+            Object {
+              "marginTop": 8,
+            }
+          }
+          txt=""
+          txtHint="Password"
+        />
+        <Styled(View)>
+          <Button
+            activeOpacity={0.5}
+            constainerStyle={
+              Object {
+                "flex": 1,
+              }
+            }
+            height={60}
+            id="signup"
+            indicatorColor="white"
+            isDisabled={false}
+            isLoading={false}
+            isWhite={true}
+            onPress={[Function]}
+            width={136}
+          >
+            Sign Up
+          </Button>
+          <View
+            style={
+              Object {
+                "width": 8,
+              }
+            }
+          />
+          <Button
+            activeOpacity={0.5}
+            constainerStyle={
+              Object {
+                "flex": 1,
+              }
+            }
+            height={60}
+            id="login"
+            indicatorColor="white"
+            isDisabled={false}
+            isLoading={false}
+            isWhite={false}
+            onPress={[Function]}
+            width={136}
+          >
+            Login
+          </Button>
+        </Styled(View)>
+        <View
+          style={
+            Object {
+              "height": 16,
+            }
+          }
+        />
+        <TouchableOpacity
+          activeOpacity={0.5}
+          onPress={[Function]}
+        >
+          <Styled(Text)>
+            Forgot password?
+          </Styled(Text)>
+        </TouchableOpacity>
+        <Styled(Text)>
+          copyright by dooboolab.com
+        </Styled(Text)>
+      </Styled(View)>
+    </Styled(View)>
+  </Styled(ScrollView)>
+</SafeAreaView>
 `;

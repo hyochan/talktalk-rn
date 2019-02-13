@@ -9,6 +9,8 @@ import {
   ScrollView,
 } from 'react-native';
 
+import styled from 'styled-components/native';
+
 import type {
   ____ViewStyleProp_Internal as ViewStyle,
   ____TextStyleProp_Internal as TextStyle,
@@ -28,62 +30,32 @@ type Styles = {
   scrollViewContainer: ViewStyle,
   wrapper: ViewStyle,
   btnWrapper: ViewStyle,
-  btnRegister: ViewStyle,
-  txtRegister: TextStyle,
 };
 
-const styles: Styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: 'white',
-    flexDirection: 'column',
-    alignItems: 'center',
-  },
-  scrollView: {
-    alignSelf: 'stretch',
-  },
-  scrollViewContainer: {
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  wrapper: {
-    marginTop: 40,
-    width: '78%',
+const StyledContainer = styled.View`
+  flex:1;
+  background-color: white;
+  flex-direction: column;
+  align-items: center;
+`;
 
-    flexDirection: 'column',
-    alignItems: 'center',
-  },
-  btnWrapper: {
-    width: '100%',
-    alignItems: 'flex-end',
-  },
-  btnRegister: {
-    backgroundColor: colors.dodgerBlue,
-    borderColor: colors.dodgerBlue,
-    borderRadius: 4,
-    borderWidth: 1,
-    width: 136,
-    height: 60,
-    marginLeft: 4,
-    marginTop: 24,
-    marginBottom: 48,
-    shadowColor: colors.dodgerBlue,
-    shadowOffset: {
-      width: 0,
-      height: 10,
-    },
-    shadowRadius: 4,
-    shadowOpacity: 0.3,
+const StyledScrollView = styled.ScrollView`
+  align-self: stretch;
+`;
 
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  txtRegister: {
-    fontSize: 16,
-    fontWeight: 'bold',
-    color: 'white',
-  },
-});
+const StyledWrapper = styled.View`
+  margin-top: 40;
+  width: 78%;
+
+  flex-direction: column;
+  align-items: center;
+`;
+
+const StyledButtonWrapper = styled.View`
+  margin-top: 24;
+  width: 100%;
+  align-items: flex-end;
+`;
 
 type Props = {
   navigation: any;
@@ -114,13 +86,15 @@ class Screen extends Component<Props, State> {
 
   render() {
     return (
-      <View style={styles.container}>
+      <StyledContainer>
         <StatusBar isDarkContent={true}/>
-        <ScrollView
-          style={styles.scrollView}
-          contentContainerStyle={styles.scrollViewContainer}
+        <StyledScrollView
+          contentContainerStyle={{
+            justifyContent: 'center',
+            alignItems: 'center',
+          }}
         >
-          <View style={styles.wrapper}>
+          <StyledWrapper>
             <TextInput
               style={{ marginTop: 8 }}
               txtLabel={getString('EMAIL')}
@@ -150,18 +124,16 @@ class Screen extends Component<Props, State> {
               txt={ this.state.statusMsg }
               onTextChanged={ (text) => this.onTextChanged('STATUS_MSG', text)}
             />
-            <View style={styles.btnWrapper}>
+            <StyledButtonWrapper>
               <Button
                 id='register'
                 isLoading={this.state.isRegistering}
                 onPress={() => this.onRegister()}
-                style={styles.btnRegister}
-                textStyle={styles.txtRegister}
               >{getString('REGISTER')}</Button>
-            </View>
-          </View>
-        </ScrollView>
-      </View>
+            </StyledButtonWrapper>
+          </StyledWrapper>
+        </StyledScrollView>
+      </StyledContainer>
     );
   }
 

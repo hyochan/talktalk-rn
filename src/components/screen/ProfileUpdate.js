@@ -10,6 +10,8 @@ import {
 } from 'react-native';
 import Icon5, { FA5Style } from 'react-native-vector-icons/FontAwesome5';
 
+import styled from 'styled-components/native';
+
 import type {
   ____ViewStyleProp_Internal as ViewStyle,
   ____TextStyleProp_Internal as TextStyle,
@@ -165,15 +167,13 @@ class Screen extends Component<Props, State> {
               <Button
                 id='logout'
                 onPress={() => this.onLogout()}
-                style={styles.btnLogout}
-                textStyle={styles.txtLogout}
+                isWhite
               >{getString('LOGOUT')}</Button>
+              <View style={{ width: 8 }}/>
               <Button
                 id='update'
                 isLoading={this.state.isUpdating}
                 onPress={() => this.onUpdate()}
-                style={styles.btnUpdate}
-                textStyle={styles.txtUpdate}
               >{getString('UPDATE')}</Button>
             </View>
           </View>

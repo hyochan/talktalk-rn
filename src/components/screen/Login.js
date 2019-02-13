@@ -24,120 +24,110 @@ import { IC_ICON } from '../../utils/Icons';
 import { statusBarHeight, ratio, colors } from '../../utils/Styles';
 import { getString } from '../../../STRINGS';
 
-type Styles = {
-  scrollView: ViewStyle,
-  container: ViewStyle,
-  iconWrapper: ViewStyle,
-  icon: ImageStyle,
-  iconTxt: TextStyle,
-  wrapper: ViewStyle,
-  viewBtnWrapper: ViewStyle,
-  btnSignup: ViewStyle,
-  txtSignUp: TextStyle,
-  btnLogin: ViewStyle,
-  txtLogin: TextStyle,
-  touchForgotPw: ViewStyle,
-  txtForgotPw: TextStyle,
-  txtCopyright: TextStyle,
-}
+import styled from 'styled-components/native';
 
-export const styles: Styles = StyleSheet.create({
-  scrollView: {
-    backgroundColor: 'white',
-  },
-  container: {
-    flex: 1,
+const StyledScollView = styled.ScrollView`
+  background-color: white;
+`;
 
-    flexDirection: 'column',
-    alignItems: 'center',
-  },
-  iconWrapper: {
-    position: 'absolute',
-    top: 76,
-    left: 40,
+const StyledContainer = styled.View`
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
+`;
 
-    flexDirection: 'column',
-    alignItems: 'flex-start',
-  },
-  icon: {
-    width: 60,
-    height: 60,
-  },
-  iconTxt: {
-    color: colors.dusk,
-    fontSize: 20,
-    fontWeight: 'bold',
-    marginTop: 8,
-  },
-  wrapper: {
-    marginTop: 260,
-    width: '78%',
-    height: 300,
+const StyledIconWrapper = styled.View`
+  position: absolute;
+  top: 76;
+  left: 40;
 
-    flexDirection: 'column',
-    alignItems: 'center',
-  },
-  viewBtnWrapper: {
-    alignSelf: 'stretch',
-    marginTop: 20,
-    height: 60,
+  flex-direction: column;
+  align-items: flex-start;
+`;
 
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-  },
-  btnSignup: {
-    backgroundColor: 'transparent',
-    borderRadius: 4,
-    borderWidth: 1,
-    height: '100%',
-    width: '100%',
-    borderColor: colors.dodgerBlue,
+const StyledIcon = styled.Image`
+  width: 60;
+  height: 60;
+`;
 
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  txtSignUp: {
-    fontSize: 16,
-    fontWeight: 'bold',
-    color: colors.dodgerBlue,
-  },
-  btnLogin: {
-    backgroundColor: colors.dodgerBlue,
-    borderColor: colors.dodgerBlue,
-    borderRadius: 4,
-    borderWidth: 1,
-    height: 60,
-    shadowColor: colors.dodgerBlue,
-    shadowOffset: {
-      width: 0,
-      height: 10,
-    },
-    shadowRadius: 4,
-    shadowOpacity: 0.3,
+const StyledIconText = styled.Text`
+  color: ${colors.dusk},
+  font-size: 20;
+  font-weight: bold;
+  margin-top: 8;
+`;
 
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  txtLogin: {
-    fontSize: 16,
-    fontWeight: 'bold',
-    color: 'white',
-  },
-  touchForgotPw: {
-    marginTop: 20,
-  },
-  txtForgotPw: {
-    fontSize: 12,
-    color: colors.dodgerBlue,
-    textDecorationLine: 'underline',
-  },
-  txtCopyright: {
-    marginTop: 80,
-    fontSize: 12,
-    color: colors.cloudyBlue,
-  },
-});
+const StyledInputWrapper = styled.View`
+  margin-top: 260;
+  width: 78%;
+  height: 300;
+
+  flex-direction: column;
+  align-items: center;
+`;
+
+const StyledButtonWrapper = styled.View`
+  align-self: stretch;
+  margin-top: 20;
+  height: 60;
+
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+`;
+
+const StyledButtonSignup = styled.View`
+  background-color: transparent;
+  border-radisu: 4;
+  border-width: 1;
+  height: 100%;
+  width: 100%;
+
+  border-color: ${colors.dodgerBlue};
+  align-items: center;
+  justify-content: center;
+`;
+
+const StyledTextSignup = styled.Text`
+  font-size: 16;
+  font-weight: bold;
+  color: ${colors.dodgerBlue};
+`;
+
+const StyledButtonLogin = styled.View`
+  background-color: ${colors.dodgerBlue};
+  border-color: ${colors.dodgerBlue};
+  border-radius: 4;
+  border-width: 1;
+  height: 60;
+  shadow-color: ${colors.dodgerBlue};
+  showdow-offset: {
+    width: 0;
+    height: 10;
+  };
+  shadow-radius: 4;
+  shadow-opacity: 0.3;
+  align-items: center;
+  justify-content: center;
+`;
+
+const StyledTextLogin = styled.TextInput`
+  font-size: 16;
+  font-weight: bold;
+  color: white;
+`;
+
+const StyledTextForgotPw = styled.Text`
+  font-size: 12;
+  color: ${colors.dodgerBlue};
+  text-decoration-line: underline;
+`;
+
+const StyledTextCopyright = styled.Text`
+  margin-top: 80;
+  font-size: 12;
+  color: ${colors.cloudyBlue};
+`;
 
 type Props = {
   navigation: any;
@@ -166,57 +156,56 @@ class Screen extends Component<Props, State> {
 
   render() {
     return (
-      <ScrollView style={styles.scrollView}>
-        <StatusBar isDarkContent={true}/>
-        <View style={styles.container}>
-          <View style={styles.iconWrapper}>
-            <Image style={styles.icon} source={IC_ICON}/>
-            <Text style={styles.iconTxt}>{getString('HELLO')}.</Text>
-          </View>
-          <View style={styles.wrapper}>
-            <TextInput
-              // txtLabel={ getString('EMAIL') }
-              txtHint={ getString('EMAIL') }
-              txt={ this.state.email }
-              onTextChanged={ (text) => this.onTextChanged('EMAIL', text)}
-            />
-            <TextInput
-              style={{ marginTop: 8 }}
-              // txtLabel={ getString('EMAIL') }
-              txtHint={ getString('PASSWORD') }
-              txt={ this.state.pw }
-              onTextChanged={ (text) => this.onTextChanged('PW', text)}
-              isPassword={ true }
-            />
-            <View style={styles.viewBtnWrapper}>
-              <Button
-                id='signup'
-                constainerStyle={{ flex: 1 }}
-                onPress={() => this.goToSignup()}
-                style={styles.btnSignup}
-                textStyle={styles.txtSignUp}
-              >{getString('SIGNUP')}</Button>
-              <View style={{ width: 8 }}/>
-              <Button
-                id='login'
-                constainerStyle={{ flex: 1 }}
-                isLoading={this.state.isLoggingIn}
-                onPress={() => this.onLogin()}
-                style={styles.btnLogin}
-                textStyle={styles.txtLogin}
-              >{getString('LOGIN')}</Button>
-            </View>
-            <TouchableOpacity
-              activeOpacity={0.5}
-              onPress={() => this.goToFindPw()}
-              style={styles.touchForgotPw}
-            >
-              <Text style={styles.txtForgotPw}>{getString('FORGOT_PW')}</Text>
-            </TouchableOpacity>
-            <Text style={styles.txtCopyright}>copyright by dooboolab.com</Text>
-          </View>
-        </View>
-      </ScrollView>
+      <SafeAreaView>
+        <StyledScollView>
+          <StatusBar isDarkContent={true}/>
+          <StyledContainer>
+            <StyledIconWrapper>
+              <StyledIcon source={IC_ICON}/>
+              <StyledIconText>{getString('HELLO')}.</StyledIconText>
+            </StyledIconWrapper>
+            <StyledInputWrapper>
+              <TextInput
+                // txtLabel={ getString('EMAIL') }
+                txtHint={ getString('EMAIL') }
+                txt={ this.state.email }
+                onTextChanged={ (text) => this.onTextChanged('EMAIL', text)}
+              />
+              <TextInput
+                style={{ marginTop: 8 }}
+                // txtLabel={ getString('EMAIL') }
+                txtHint={ getString('PASSWORD') }
+                txt={ this.state.pw }
+                onTextChanged={ (text) => this.onTextChanged('PW', text)}
+                isPassword={ true }
+              />
+              <StyledButtonWrapper>
+                <Button
+                  id='signup'
+                  constainerStyle={{ flex: 1 }}
+                  onPress={() => this.goToSignup()}
+                  isWhite
+                >{getString('SIGN_UP')}</Button>
+                <View style={{ width: 8 }}/>
+                <Button
+                  id='login'
+                  constainerStyle={{ flex: 1 }}
+                  isLoading={this.state.isLoggingIn}
+                  onPress={() => this.onLogin()}
+                >{getString('LOGIN')}</Button>
+              </StyledButtonWrapper>
+              <View style={{ height: 16 }} />
+              <TouchableOpacity
+                activeOpacity={0.5}
+                onPress={() => this.goToFindPw()}
+              >
+                <StyledTextForgotPw>{getString('FORGOT_PW')}</StyledTextForgotPw>
+              </TouchableOpacity>
+              <StyledTextCopyright>copyright by dooboolab.com</StyledTextCopyright>
+            </StyledInputWrapper>
+          </StyledContainer>
+        </StyledScollView>
+      </SafeAreaView>
     );
   }
 

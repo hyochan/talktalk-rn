@@ -1,15 +1,24 @@
-import React, { createContext } from 'react';
+import React, { createContext, Component } from 'react';
 import { Text, TouchableOpacity, View } from 'react-native';
+import { NavigationScreenProps } from 'react-navigation';
 import { User as Friend } from '../models/User';
 import ProfileModal from '../components/shared/ProfileModal';
 import { ProfileModalContext } from '../contexts/ProfileModalContext';
 
 const ProfileModalConsumer = ProfileModalContext.Consumer;
 
-class ProfileModalProvider extends React.Component {
+type Props = {
+  navigation: NavigationScreenProps,
+};
+
+type State = {
+  user: Friend[],
+};
+
+class ProfileModalProvider extends Component<Props, State> {
   static modal: ProfileModal;
 
-  constructor(props) {
+  constructor(props: Props) {
     super(props);
     this.state = {
       user: null,
@@ -17,7 +26,7 @@ class ProfileModalProvider extends React.Component {
   }
 
   actions = {
-    setModal: (v) => {
+    setModal: (v: ProfileModal) => {
       this.modal = v;
     },
     showModal: (user: Friend, deleteMode?: boolean) => {
@@ -29,7 +38,7 @@ class ProfileModalProvider extends React.Component {
         }
       });
     },
-    onChatPressed: (navigation) => {
+    onChatPressed: (navigation: NavigationScreenProps) => {
       if (this.modal) {
         this.modal.close();
       }
@@ -45,7 +54,7 @@ class ProfileModalProvider extends React.Component {
         {this.props.children}
         <ProfileModal
           id="modal"
-          ref={(v) => {
+          ref={(v: NavigationScreenProps) => {
             this.modal = v;
           }}
           onChatPressed={ () => this.actions.onChatPressed(this.props.navigation) }

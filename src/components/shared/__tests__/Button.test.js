@@ -25,7 +25,6 @@ describe('Button', () => {
       wrapper.setProps({ isDisabled: true });
       wrapper.update();
       expect(wrapper).toMatchSnapshot();
-      expect(wrapper.find('Text')).toHaveLength(1);
       wrapper.setProps({ isLoading: true });
       wrapper.update();
       expect(wrapper).toMatchSnapshot();

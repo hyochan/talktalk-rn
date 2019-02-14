@@ -1,7 +1,103 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Button component test renders as expected 1`] = `
+<Styled(View)>
+  <TouchableOpacity
+    activeOpacity={0.5}
+  >
+    <Styled(View)>
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+            "height": 60,
+            "justifyContent": "center",
+            "width": 136,
+          }
+        }
+      >
+        <Styled(Styled(Text)) />
+      </View>
+    </Styled(View)>
+  </TouchableOpacity>
+</Styled(View)>
+`;
+
+exports[`Button component test renders as expected 2`] = `
+<Styled(View)>
+  <TouchableOpacity
+    activeOpacity={0.5}
+  >
+    <Styled(View)>
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+            "height": 60,
+            "justifyContent": "center",
+            "width": 136,
+          }
+        }
+      >
+        <Styled(Styled(Text)) />
+      </View>
+    </Styled(View)>
+  </TouchableOpacity>
+</Styled(View)>
+`;
+
+exports[`Button component test renders as expected 3`] = `
+<Styled(View)>
+  <Styled(View)>
+    <Styled(Text) />
+  </Styled(View)>
+</Styled(View)>
+`;
+
+exports[`Button component test renders as expected 4`] = `
+<Styled(View)>
+  <Styled(View)>
+    <Styled(Text) />
+  </Styled(View)>
+</Styled(View)>
+`;
+
+exports[`Button component test simulate onPress 1`] = `
+<Styled(View)>
+  <TouchableOpacity
+    activeOpacity={0.5}
+    onPress={[Function]}
+  >
+    <Styled(View)>
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+            "height": 60,
+            "justifyContent": "center",
+            "width": 136,
+          }
+        }
+      >
+        <Styled(Styled(Text)) />
+      </View>
+    </Styled(View)>
+  </TouchableOpacity>
+</Styled(View)>
+`;
+
 exports[`Button renders without crashing 1`] = `
-<View>
+<View
+  style={
+    Array [
+      Object {
+        "flexBasis": 0,
+        "flexGrow": 1,
+        "flexShrink": 1,
+      },
+    ]
+  }
+>
   <View
     accessible={true}
     isTVSelectable={true}
@@ -19,27 +115,43 @@ exports[`Button renders without crashing 1`] = `
   >
     <View
       style={
-        Object {
-          "alignItems": "center",
-          "alignSelf": "center",
-          "backgroundColor": "transparent",
-          "borderColor": "white",
-          "borderRadius": 4,
-          "borderWidth": 2,
-          "height": "100%",
-          "justifyContent": "center",
-          "width": "100%",
-        }
+        Array [
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "rgb(58,139,255)",
+            "borderColor": "rgb(58,139,255)",
+            "borderRadius": 4,
+            "borderWidth": 1,
+            "justifyContent": "center",
+            "shadowColor": "rgb(58,139,255)",
+            "shadowOpacity": 0.3,
+            "shadowRadius": 4,
+          },
+        ]
       }
     >
-      <Text
+      <View
         style={
           Object {
-            "color": "white",
-            "fontSize": 14,
+            "alignItems": "center",
+            "height": 60,
+            "justifyContent": "center",
+            "width": 136,
           }
         }
-      />
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "white",
+                "fontSize": 14,
+                "fontWeight": "bold",
+              },
+            ]
+          }
+        />
+      </View>
     </View>
   </View>
 </View>

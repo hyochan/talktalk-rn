@@ -128,7 +128,7 @@ class Button extends Component<Props, State> {
     );
   }
 
-  renderContent = () => {
+  renderContent() {
     return <View style={{
       width: this.props.width,
       height: this.props.height,
@@ -146,7 +146,7 @@ class Button extends Component<Props, State> {
     </View>;
   }
 
-  renderText = () => {
+  renderText() {
     return (
       this.props.isWhite
         ? <StyledText>{this.props.children}</StyledText>

@@ -54,7 +54,7 @@ class ProfileModalProvider extends Component<Props, State> {
         {this.props.children}
         <ProfileModal
           id="modal"
-          ref={(v: NavigationScreenProps) => {
+          ref={(v: ProfileModal) => {
             this.modal = v;
           }}
           onChatPressed={ () => this.actions.onChatPressed(this.props.navigation) }

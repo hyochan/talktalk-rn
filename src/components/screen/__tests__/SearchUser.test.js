@@ -7,6 +7,8 @@ import { IC_BACK, IC_SEARCH, IC_ICON } from '../../../utils/Icons';
 import renderer from 'react-test-renderer';
 import { shallow, render } from 'enzyme';
 
+jest.useFakeTimers(); // related to Animated Component
+
 describe('[serachUser] rendering test', () => {
   const wrapper = shallow(
     <SearchUser />,

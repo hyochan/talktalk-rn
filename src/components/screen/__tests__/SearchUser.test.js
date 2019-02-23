@@ -7,8 +7,6 @@ import { IC_BACK, IC_SEARCH, IC_ICON } from '../../../utils/Icons';
 import renderer from 'react-test-renderer';
 import { shallow, render } from 'enzyme';
 
-jest.useFakeTimers(); // related to Animated Component
-
 describe('[serachUser] rendering test', () => {
   const wrapper = shallow(
     <SearchUser />,
@@ -61,7 +59,7 @@ describe('[serachUser] interaction', () => {
     animatedFlatList = wrapper.find('#animatedFlatlist');
     txtInput = wrapper.find('#styledInput');
   });
-  describe('[serachUser] when friend name typed in TextInput', () => {
+  describe('when friend name typed in TextInput', () => {
     it('if there has results: (onTxtChanged -> onSearch) and (renderItem)', () => {
       const spyOnTxtChanged = jest.spyOn(outer.instance(), 'onTxtChanged');
       const spyOnSearch = jest.spyOn(outer.instance(), 'onSearch');
@@ -88,7 +86,7 @@ describe('[serachUser] interaction', () => {
         justifyContent: 'center',
       });
     });
-    it('[serachUser] see Animation is working well', () => {
+    it('see Animation is working well', () => {
       let scrollY = outer.instance().scrollY;
       expect(scrollY).toEqual(new Animated.Value(0));
 

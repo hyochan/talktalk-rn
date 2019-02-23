@@ -7,8 +7,6 @@ import { IC_BACK, IC_SEARCH, IC_ICON } from '../../../utils/Icons';
 import renderer from 'react-test-renderer';
 import { shallow, render } from 'enzyme';
 
-jest.useFakeTimers(); // related to Animated Component
-
 describe('[serachUser] rendering test', () => {
   const wrapper = shallow(
     <SearchUser />,
@@ -38,6 +36,7 @@ describe('[serachUser] interaction', () => {
   };
 
   beforeEach(() => {
+    jest.useFakeTimers(); // related to Animated Component
     context = {
       state: {
         user: null,
@@ -60,7 +59,7 @@ describe('[serachUser] interaction', () => {
     animatedFlatList = wrapper.find('#animatedFlatlist');
     txtInput = wrapper.find('#styledInput');
   });
-  describe('[serachUser] when friend name typed in TextInput', () => {
+  describe('when friend name typed in TextInput', () => {
     it('if there has results: (onTxtChanged -> onSearch) and (renderItem)', () => {
       const spyOnTxtChanged = jest.spyOn(outer.instance(), 'onTxtChanged');
       const spyOnSearch = jest.spyOn(outer.instance(), 'onSearch');
@@ -76,18 +75,18 @@ describe('[serachUser] interaction', () => {
       expect(outer.instance().state.users[0].displayName).toEqual(inputData.displayName);
 
       outer.instance().onSearch('');
-      expect(outer.instance().containerStyle()).toEqual(null);
+      expect(outer.instance().renderContainer()).toEqual(null);
     });
     it('if there has no results', () => {
       outer.instance().onSearch('noresult');
       expect(outer.instance().state.users.length).toEqual(0);
-      expect(outer.instance().containerStyle()).toEqual({
+      expect(outer.instance().renderContainer()).toEqual({
         flex: 1,
         alignItems: 'center',
         justifyContent: 'center',
       });
     });
-    it('[serachUser] see Animation is working well', () => {
+    it('see Animation is working well', () => {
       let scrollY = outer.instance().scrollY;
       expect(scrollY).toEqual(new Animated.Value(0));
 
@@ -103,7 +102,7 @@ describe('[serachUser] interaction', () => {
       }, 1000)
     });
   });
-  describe('[serachUser] when profile modal clicked', () => {
+  describe('when profile modal clicked', () => {
     it('should call showProfileModal', () => {
       const spyShowProfileModal = jest.spyOn(outer.instance(), 'showProfileModal');
       const UserListItem = animatedFlatList.props().renderItem;

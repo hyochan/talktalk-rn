@@ -9,6 +9,7 @@ import {
   TextInput,
   Animated,
   FlatList,
+  SafeAreaView,
 } from 'react-native';
 import { getString } from '../../../STRINGS';
 import { User as Friend } from '../../models/User';
@@ -25,35 +26,74 @@ import { ProfileModalConsumer } from '../../providers/ProfileModalProvider';
 import EmptyListItem from '../shared/EmptyListItem';
 import UserListItem from '../shared/UserListItem';
 
-type Styles = {
-  container: ViewStyle,
-  viewSearch: ViewStyle,
-  imgSearch: ImageStyle,
-};
+import styled from 'styled-components/native';
 
-const styles: Styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: 'transparent',
-    flexDirection: 'column',
-    alignItems: 'center',
-    justifyContent: 'center',
+const Friends = [
+  {
+    uid: '1', displayName: 'test', photoURL: null, statusMsg: 'status', isOnline: '', friends: '', Chatrooms: '', created: '', updated: '',
   },
-  viewSearch: {
-    width: '100%',
-    justifyContent: 'center',
-    // backgroundColor: colors.dodgerBlue,
-    overflow: 'hidden',
+  {
+    uid: '2', displayName: 'geoseong', photoURL: IC_BACK, statusMsg: 'healthy', isOnline: '', friends: '', Chatrooms: '', created: '', updated: '',
   },
-  imgSearch: {
-    position: 'absolute',
-    width: 16,
-    height: 16,
-    left: 30,
-    top: 18,
+  {
+    uid: '3', displayName: 'hyochan', photoURL: IC_ICON, statusMsg: 'healthy', isOnline: '', friends: '', Chatrooms: '', created: '', updated: '',
   },
-});
+  {
+    uid: '4', displayName: 'test', photoURL: null, statusMsg: 'status', isOnline: '', friends: '', Chatrooms: '', created: '', updated: '',
+  },
+  {
+    uid: '5', displayName: 'geoseong', photoURL: IC_BACK, statusMsg: 'healthy', isOnline: '', friends: '', Chatrooms: '', created: '', updated: '',
+  },
+  {
+    uid: '6', displayName: 'hyochan', photoURL: IC_ICON, statusMsg: 'healthy', isOnline: '', friends: '', Chatrooms: '', created: '', updated: '',
+  },
+  {
+    uid: '7', displayName: 'test', photoURL: null, statusMsg: 'status', isOnline: '', friends: '', Chatrooms: '', created: '', updated: '',
+  },
+  {
+    uid: '8', displayName: 'geoseong', photoURL: IC_BACK, statusMsg: 'healthy', isOnline: '', friends: '', Chatrooms: '', created: '', updated: '',
+  },
+  {
+    uid: '9', displayName: 'hyochan', photoURL: IC_ICON, statusMsg: 'healthy', isOnline: '', friends: '', Chatrooms: '', created: '', updated: '',
+  },
+];
 const AnimatedFlatList = Animated.createAnimatedComponent(FlatList);
+const StyledSafeAreaView = styled.SafeAreaView`
+  flex: 1;
+`;
+const StyledContainer = styled.View`
+  flex: 1;
+  background-color: transparent;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+`;
+const StyledSearchView = styled.View`
+  width: 100%;
+  height: 50;
+  justify-content: center;
+  overflow: hidden;
+`;
+const StyledAnimatedFlatList = styled(AnimatedFlatList)`
+  width: 100%;
+  height: 100%;
+`;
+const StyledTextInput = styled.TextInput`
+  width: 100%;
+  height: 30;
+  top: 10;
+  background-color: rgb(247,248,251);
+  border-radius: 4;
+  padding-left: 34;
+  padding-right: 10;
+`;
+const StyledSearchImage = styled.Image`
+  width: 16;
+  height: 16;
+  position: absolute;
+  top: 18;
+  left: 30;
+`;
 
 type Props = {
 
@@ -72,76 +112,8 @@ class Screen extends Component<Props, State> {
   constructor(props: Props) {
     super(props);
     this.state = {
-      searchedUsers: [
-        {
-          uid: '1',
-          displayName: 'test',
-          photoURL: null,
-          statusMsg: 'status',
-          isOnline: '',
-          friends: '',
-          Chatrooms: '',
-          created: '',
-          updated: '',
-        },
-        {
-          uid: '2',
-          displayName: 'geoseong',
-          photoURL: IC_BACK,
-          statusMsg: 'healthy',
-          isOnline: '',
-          friends: '',
-          Chatrooms: '',
-          created: '',
-          updated: '',
-        },
-        {
-          uid: '3',
-          displayName: 'hyochan',
-          photoURL: IC_ICON,
-          statusMsg: 'healthy',
-          isOnline: '',
-          friends: '',
-          Chatrooms: '',
-          created: '',
-          updated: '',
-        },
-      ],
-      users: [
-        {
-          uid: '1',
-          displayName: 'test',
-          photoURL: null,
-          statusMsg: 'status',
-          isOnline: '',
-          friends: '',
-          Chatrooms: '',
-          created: '',
-          updated: '',
-        },
-        {
-          uid: '2',
-          displayName: 'geoseong',
-          photoURL: IC_BACK,
-          statusMsg: 'healthy',
-          isOnline: '',
-          friends: '',
-          Chatrooms: '',
-          created: '',
-          updated: '',
-        },
-        {
-          uid: '3',
-          displayName: 'hyochan',
-          photoURL: IC_ICON,
-          statusMsg: 'healthy',
-          isOnline: '',
-          friends: '',
-          Chatrooms: '',
-          created: '',
-          updated: '',
-        },
-      ],
+      searchedUsers: Friends,
+      users: Friends,
     };
   }
 
@@ -159,8 +131,16 @@ class Screen extends Component<Props, State> {
   }
   onTxtChanged = (txt: string) => {
     this.onSearch(txt);
+    this.scrollY.setValue(0);
+    Animated.timing(this.scrollY, {
+      toValue: 100,
+      duration: 500,
+    }).start();
   }
   onSearch = (txt: string) => {
+    console.log({ txt });
+    const { state: { searchedUsers } } = this;
+    console.log({ searchedUsers });
     const searchedUser = (txt === '')
       ? this.state.searchedUsers
       : this.state.searchedUsers.filter((item) => item.displayName.includes(txt));
@@ -179,66 +159,38 @@ class Screen extends Component<Props, State> {
   render() {
     return (
       <ProfileModalConsumer>
-        {
-          (data) => {
-            return (
-              <View style={styles.container}>
-                <Animated.View style={[
-                  styles.viewSearch,
-                  {
-                    height: 50,
-                    transform: [{
-                      translateY: this.scrollY.interpolate({
-                        inputRange: [-50, 0, 50, 100],
-                        outputRange: [0, 0, -50, -50],
-                      })
-                    }],
-                  }
-                ]}>
-                  <Animated.View style={{
+        { (data) => {
+          return (
+            <StyledSafeAreaView>
+              <StyledContainer>
+                <StyledSearchView>
+                  <View style={{
                     position: 'absolute',
                     width: '100%',
                     paddingHorizontal: 20,
                     height: 50,
-                    opacity: this.scrollY.interpolate({
-                      inputRange: [-50, 0, 50, 100],
-                      outputRange: [1, 1, 0, 0],
-                    })
                   }}>
-                    <TextInput
+                    <StyledTextInput
                       onChangeText={(text) => this.onTxtChanged(text)}
                       underlineColorAndroid='transparent' // android fix
                       autoCapitalize='none'
                       autoCorrect={false}
                       multiline={false}
                       // value={this.searchTxt}
-                      style={{
-                        width: '100%',
-                        height: 30,
-                        top: 10,
-                        backgroundColor: 'rgb(247,248,251)',
-                        borderRadius: 4,
-                        paddingLeft: 34,
-                        paddingRight: 10
-                      }}
-                      // onSubmitEditing={this.onSearch}
                       defaultValue={''}
                     />
-                    <Image source={IC_SEARCH} style={styles.imgSearch}/>
-                  </Animated.View>
-                </Animated.View>
-                <AnimatedFlatList
+                    <StyledSearchImage source={IC_SEARCH} />
+                  </View>
+                </StyledSearchView>
+                <StyledAnimatedFlatList
                   id='animated'
                   style={{
-                    width: '100%',
-                    height: '100%',
-                    marginBottom: -50,
                     transform: [{
                       translateY: this.scrollY.interpolate({
-                        inputRange: [-50, 0, 50, 100],
-                        outputRange: [0, 0, -50, -50],
+                        inputRange: [0, 50, 100],
+                        outputRange: [0, 25, 0],
                       })
-                    }],
+                    }]
                   }}
                   contentContainerStyle={this.containerStyle}
                   keyExtractor={(item, index) => index.toString()}
@@ -246,10 +198,10 @@ class Screen extends Component<Props, State> {
                   renderItem={({ item }) => this.renderItem(item, data)}
                   ListEmptyComponent={<EmptyListItem>{getString('NO_CONTENT')}</EmptyListItem>}
                 />
-              </View>
-            );
-          }
-        }
+              </StyledContainer>
+            </StyledSafeAreaView>
+          );
+        }}
       </ProfileModalConsumer>
     );
   }

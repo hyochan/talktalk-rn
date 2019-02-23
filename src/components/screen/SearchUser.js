@@ -28,7 +28,7 @@ import UserListItem from '../shared/UserListItem';
 
 import styled from 'styled-components/native';
 
-const FriendsSampleData = [
+const userSampleData = [
   {
     uid: '1', displayName: 'test', photoURL: null, statusMsg: 'status', isOnline: '', friends: '', Chatrooms: '', created: '', updated: '',
   },
@@ -118,8 +118,8 @@ class Screen extends Component<Props, State> {
   constructor(props: Props) {
     super(props);
     this.state = {
-      searchedUsers: FriendsSampleData,
-      users: FriendsSampleData,
+      searchedUsers: userSampleData,
+      users: userSampleData,
     };
   }
 
@@ -149,7 +149,7 @@ class Screen extends Component<Props, State> {
       : this.state.searchedUsers.filter((item) => item.displayName.includes(txt));
     this.setState({ users: searchedUser });
   }
-  containerStyle = () => {
+  renderContainer = () => {
     return this.state.users.length === 0
       ? {
         flex: 1,
@@ -190,7 +190,7 @@ class Screen extends Component<Props, State> {
                       })
                     }]
                   }}
-                  contentContainerStyle={this.containerStyle}
+                  contentContainerStyle={this.renderContainer}
                   keyExtractor={(item, index) => index.toString()}
                   data={this.state.users}
                   renderItem={({ item }) => this.renderItem(item, data)}

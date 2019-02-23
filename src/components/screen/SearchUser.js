@@ -28,7 +28,7 @@ import UserListItem from '../shared/UserListItem';
 
 import styled from 'styled-components/native';
 
-const Friends = [
+const FriendsSampleData = [
   {
     uid: '1', displayName: 'test', photoURL: null, statusMsg: 'status', isOnline: '', friends: '', Chatrooms: '', created: '', updated: '',
   },
@@ -78,6 +78,12 @@ const StyledAnimatedFlatList = styled(AnimatedFlatList)`
   width: 100%;
   height: 100%;
 `;
+const StyledTextInputWrapper = styled.View`
+  width: 100%;
+  height: 50;
+  position: absolute;
+  padding-horizontal: 20;
+`;
 const StyledTextInput = styled.TextInput`
   width: 100%;
   height: 30;
@@ -112,8 +118,8 @@ class Screen extends Component<Props, State> {
   constructor(props: Props) {
     super(props);
     this.state = {
-      searchedUsers: Friends,
-      users: Friends,
+      searchedUsers: FriendsSampleData,
+      users: FriendsSampleData,
     };
   }
 
@@ -138,15 +144,11 @@ class Screen extends Component<Props, State> {
     }).start();
   }
   onSearch = (txt: string) => {
-    console.log({ txt });
-    const { state: { searchedUsers } } = this;
-    console.log({ searchedUsers });
     const searchedUser = (txt === '')
       ? this.state.searchedUsers
       : this.state.searchedUsers.filter((item) => item.displayName.includes(txt));
     this.setState({ users: searchedUser });
   }
-
   containerStyle = () => {
     return this.state.users.length === 0
       ? {
@@ -164,13 +166,9 @@ class Screen extends Component<Props, State> {
             <StyledSafeAreaView>
               <StyledContainer>
                 <StyledSearchView>
-                  <View style={{
-                    position: 'absolute',
-                    width: '100%',
-                    paddingHorizontal: 20,
-                    height: 50,
-                  }}>
+                  <StyledTextInputWrapper>
                     <StyledTextInput
+                      id="styledInput"
                       onChangeText={(text) => this.onTxtChanged(text)}
                       underlineColorAndroid='transparent' // android fix
                       autoCapitalize='none'
@@ -180,10 +178,10 @@ class Screen extends Component<Props, State> {
                       defaultValue={''}
                     />
                     <StyledSearchImage source={IC_SEARCH} />
-                  </View>
+                  </StyledTextInputWrapper>
                 </StyledSearchView>
                 <StyledAnimatedFlatList
-                  id='animated'
+                  id='animatedFlatlist'
                   style={{
                     transform: [{
                       translateY: this.scrollY.interpolate({

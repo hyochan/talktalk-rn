@@ -33,6 +33,7 @@
     "build:android": "node node_modules/react-native/local-cli/cli.js bundle --entry-file index.js --platform android --dev false --bundle-output ./android/main.jsbundle --assets-dest ./android --sourcemap-output ./android/main.jsbundle.map"
   },
   "dependencies": {
+    "jest-styled-components": "^6.3.1",
     "moment": "^2.24.0",
     "react": "16.8.1",
     "react-native": "^0.59.0-rc.2",

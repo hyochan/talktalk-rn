@@ -1,4 +1,4 @@
-import 'react-native';
+import { Animated } from 'react-native';
 import * as React from 'react';
 import SearchUser from '../SearchUser';
 import { IC_BACK, IC_SEARCH, IC_ICON } from '../../../utils/Icons';
@@ -6,6 +6,8 @@ import { IC_BACK, IC_SEARCH, IC_ICON } from '../../../utils/Icons';
 // Note: test renderer must be required after react-native.
 import renderer from 'react-test-renderer';
 import { shallow, render } from 'enzyme';
+
+jest.useFakeTimers(); // related to Animated Component
 
 describe('[serachUser] rendering test', () => {
   const wrapper = shallow(
@@ -22,9 +24,7 @@ describe('[serachUser] interaction', () => {
   let outer;
   let context;
   let animatedFlatList;
-
   let txtInput;
-
   const inputData = {
     uid: '2',
     displayName: 'geoseong',
@@ -57,11 +57,10 @@ describe('[serachUser] interaction', () => {
     outer = shallow(<SearchUser {...props} />);
     const Children = outer.props().children;
     wrapper = shallow(<Children {...props} />);
-    animatedFlatList = wrapper.find('#animated');
-    txtInput = wrapper.find('TextInput');
+    animatedFlatList = wrapper.find('#animatedFlatlist');
+    txtInput = wrapper.find('#styledInput');
   });
   describe('[serachUser] when friend name typed in TextInput', () => {
-    
     it('if there has results: (onTxtChanged -> onSearch) and (renderItem)', () => {
       const spyOnTxtChanged = jest.spyOn(outer.instance(), 'onTxtChanged');
       const spyOnSearch = jest.spyOn(outer.instance(), 'onSearch');
@@ -87,6 +86,21 @@ describe('[serachUser] interaction', () => {
         alignItems: 'center',
         justifyContent: 'center',
       });
+    });
+    it('[serachUser] see Animation is working well', () => {
+      let scrollY = outer.instance().scrollY;
+      expect(scrollY).toEqual(new Animated.Value(0));
+
+      outer.instance().onTxtChanged('');
+      let afterScrollY = new Animated.Value(0)
+      Animated.timing(afterScrollY, {
+        toValue: 100,
+        duration: 500,
+      }).start();
+      setTimeout(() => {
+        console.log('after scrollY', afterScrollY)
+        expect(scrollY).toEqual(afterScrollY);
+      }, 1000)
     });
   });
   describe('[serachUser] when profile modal clicked', () => {

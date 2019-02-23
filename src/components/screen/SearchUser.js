@@ -144,9 +144,6 @@ class Screen extends Component<Props, State> {
     }).start();
   }
   onSearch = (txt: string) => {
-    console.log({ txt });
-    const { state: { searchedUsers } } = this;
-    console.log({ searchedUsers });
     const searchedUser = (txt === '')
       ? this.state.searchedUsers
       : this.state.searchedUsers.filter((item) => item.displayName.includes(txt));

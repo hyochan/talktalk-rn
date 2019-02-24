@@ -149,7 +149,7 @@ class Screen extends Component<Props, State> {
       : this.state.searchedUsers.filter((item) => item.displayName.includes(txt));
     this.setState({ users: searchedUser });
   }
-  renderContainer = () => {
+  getContentContainerStyle = () => {
     return this.state.users.length === 0
       ? {
         flex: 1,
@@ -190,7 +190,7 @@ class Screen extends Component<Props, State> {
                       })
                     }]
                   }}
-                  contentContainerStyle={this.renderContainer}
+                  contentContainerStyle={this.getContentContainerStyle}
                   keyExtractor={(item, index) => index.toString()}
                   data={this.state.users}
                   renderItem={({ item }) => this.renderItem(item, data)}

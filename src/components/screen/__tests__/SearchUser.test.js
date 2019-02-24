@@ -75,12 +75,12 @@ describe('[serachUser] interaction', () => {
       expect(outer.instance().state.users[0].displayName).toEqual(inputData.displayName);
 
       outer.instance().onSearch('');
-      expect(outer.instance().renderContainer()).toEqual(null);
+      expect(outer.instance().getContentContainerStyle()).toEqual(null);
     });
     it('if there has no results', () => {
       outer.instance().onSearch('noresult');
       expect(outer.instance().state.users.length).toEqual(0);
-      expect(outer.instance().renderContainer()).toEqual({
+      expect(outer.instance().getContentContainerStyle()).toEqual({
         flex: 1,
         alignItems: 'center',
         justifyContent: 'center',

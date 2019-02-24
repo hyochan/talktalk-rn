@@ -7,6 +7,7 @@
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
     "start:reset": "node node_modules/react-native/local-cli/cli.js start --reset-cache",
+    "codecov": "codecov -t d7babaa6-7370-43a3-9b26-a2147d466e3e",
     "ios:iphone5": "node node_modules/react-native/local-cli/cli.js run-ios  --simulator='iPhone 5s'",
     "ios:iphone7": "node node_modules/react-native/local-cli/cli.js run-ios  --simulator='iPhone 7'",
     "ios:iphone7+": "node node_modules/react-native/local-cli/cli.js run-ios  --simulator='iPhone 7 Plus'",

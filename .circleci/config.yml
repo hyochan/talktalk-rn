@@ -64,12 +64,6 @@ jobs:
       - store_artifacts:
           path: coverage
 
-      - run:
-          name: codecov
-          working_directory: .
-          command: |
-            npm run codecov
-
   android:
     working_directory: ~/talktalk-rn
     docker:

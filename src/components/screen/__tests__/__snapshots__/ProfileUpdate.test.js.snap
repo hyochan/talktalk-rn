@@ -11,7 +11,7 @@ exports[`rendering test renders as expected 1`] = `
     }
   }
 >
-  <ScrollView
+  <ScrollViewMock
     contentContainerStyle={
       Object {
         "alignItems": "center",
@@ -143,6 +143,6 @@ exports[`rendering test renders as expected 1`] = `
         </Button>
       </View>
     </View>
-  </ScrollView>
+  </ScrollViewMock>
 </View>
 `;

@@ -125,6 +125,7 @@ exports[`rendering test renders as expected 1`] = `
       maxToRenderPerBatch={10}
       numColumns={1}
       onEndReachedThreshold={2}
+      removeClippedSubviews={false}
       renderItem={[Function]}
       scrollEventThrottle={50}
       style={
@@ -156,6 +157,7 @@ exports[`rendering test renders as expected 1`] = `
         onChangeText={[Function]}
         placeholder="Write message..."
         placeholderTextColor="rgb(175,194,219)"
+        rejectResponderTermination={true}
         style={
           Object {
             "color": "black",
@@ -181,7 +183,7 @@ exports[`rendering test renders as expected 1`] = `
           }
         }
       >
-        <Component
+        <Image
           source={
             Object {
               "testUri": "../../../assets/icons/icSmile.png",

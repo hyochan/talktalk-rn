@@ -7,11 +7,17 @@ import { commonNavigationOptions } from './MainStackNavigator';
 import Login from '../screen/Login';
 import Signup from '../screen/Signup';
 import FindPw from '../screen/FindPw';
+import { getString } from '../../../STRINGS';
 
 const StackNavigator = createStackNavigator(
   {
     Login: { screen: Login },
-    Signup: { screen: Signup },
+    Signup: {
+      screen: Signup,
+      navigationOptions: {
+        title: getString('SIGNUP'),
+      },
+    },
     FindPw: { screen: FindPw },
   },
   {

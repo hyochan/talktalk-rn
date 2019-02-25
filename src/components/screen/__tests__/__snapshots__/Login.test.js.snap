@@ -2,13 +2,13 @@
 
 exports[`rendering test renders as expected 1`] = `
 <SafeAreaView>
-  <Styled(ScrollView)>
+  <Styled(ScrollViewMock)>
     <Shared
       isDarkContent={true}
     />
     <Styled(View)>
       <Styled(View)>
-        <Styled(Component)
+        <Styled(Image)
           source={
             Object {
               "testUri": "../../../assets/icons/icon.png",
@@ -138,6 +138,6 @@ exports[`rendering test renders as expected 1`] = `
         </Styled(Text)>
       </Styled(View)>
     </Styled(View)>
-  </Styled(ScrollView)>
+  </Styled(ScrollViewMock)>
 </SafeAreaView>
 `;

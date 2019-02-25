@@ -25,6 +25,7 @@ exports[`rendering test renders as expected 1`] = `
     autoCorrect={false}
     onBlur={[Function]}
     onFocus={[Function]}
+    rejectResponderTermination={true}
     style={
       Array [
         Object {

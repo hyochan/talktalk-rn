@@ -1,5 +1,5 @@
 // @flow
-import React, { Component } from 'react';
+import React, { Component, useState, useEffect } from 'react';
 import {
   StyleSheet,
   TouchableOpacity,
@@ -68,97 +68,90 @@ type State = {
   statusMsg: string;
 };
 
-class Screen extends Component<Props, State> {
-  static navigationOptions = {
-    title: getString('SIGNUP'),
+function Screen(props: Props, state: State) {
+  let [isRegistering, setIsRegistering] = React.useState(false);
+  let [email, setEmail] = React.useState('');
+  let [pw, setPw] = React.useState('');
+  let [displayName, setDisplayName] = React.useState('');
+  let [statusMsg, setStatusMsg] = React.useState('');
+
+  useEffect(() => {
+    if (isRegistering) {
+      setIsRegistering(false);
+    }
+  }, [isRegistering]);
+
+  const onRegister = () => {
+    setIsRegistering(true);
   };
 
-  constructor(props: Props) {
-    super(props);
-    this.state = {
-      isRegistering: false,
-      email: '',
-      pw: '',
-      displayName: '',
-      statusMsg: '',
-    };
-  }
-
-  render() {
-    return (
-      <StyledContainer>
-        <StatusBar isDarkContent={true}/>
-        <StyledScrollView
-          contentContainerStyle={{
-            justifyContent: 'center',
-            alignItems: 'center',
-          }}
-        >
-          <StyledWrapper>
-            <TextInput
-              style={{ marginTop: 8 }}
-              txtLabel={getString('EMAIL')}
-              txtHint={ getString('EMAIL') }
-              txt={ this.state.email }
-              onTextChanged={ (text) => this.onTextChanged('EMAIL', text)}
-            />
-            <TextInput
-              style={{ marginTop: 24 }}
-              txtLabel={ getString('PASSWORD') }
-              txtHint={ getString('PASSWORD') }
-              txt={ this.state.pw }
-              onTextChanged={ (text) => this.onTextChanged('PW', text)}
-              isPassword={ true }
-            />
-            <TextInput
-              style={{ marginTop: 24 }}
-              txtLabel={getString('NAME')}
-              txtHint={ getString('NAME') }
-              txt={ this.state.displayName }
-              onTextChanged={ (text) => this.onTextChanged('NAME', text)}
-            />
-            <TextInput
-              style={{ marginTop: 24 }}
-              txtLabel={getString('STATUS_MSG')}
-              txtHint={ getString('STATUS_MSG') }
-              txt={ this.state.statusMsg }
-              onTextChanged={ (text) => this.onTextChanged('STATUS_MSG', text)}
-            />
-            <StyledButtonWrapper>
-              <Button
-                id='register'
-                isLoading={this.state.isRegistering}
-                onPress={() => this.onRegister()}
-              >{getString('REGISTER')}</Button>
-            </StyledButtonWrapper>
-          </StyledWrapper>
-        </StyledScrollView>
-      </StyledContainer>
-    );
-  }
-
-  onRegister = () => {
-    this.setState({ isRegistering: true }, () => {
-      this.setState({ isRegistering: false });
-    });
-  }
-
-  onTextChanged = (type: string, text: string) => {
+  const onTextChanged = (type: string, text: string) => {
     switch (type) {
       case 'EMAIL':
-        this.setState({ email: text });
+        setEmail(text);
         break;
       case 'PW':
-        this.setState({ pw: text });
+        setPw(text);
         break;
       case 'NAME':
-        this.setState({ displayName: text });
+        setDisplayName(text);
         break;
       case 'STATUS_MSG':
-        this.setState({ statusMsg: text });
+        setStatusMsg(text);
         break;
     }
-  }
+  };
+
+  return (
+    <StyledContainer>
+      <StatusBar isDarkContent={true}/>
+      <StyledScrollView
+        contentContainerStyle={{
+          justifyContent: 'center',
+          alignItems: 'center',
+        }}
+      >
+        <StyledWrapper>
+          <TextInput
+            style={{ marginTop: 8 }}
+            txtLabel={getString('EMAIL')}
+            txtHint={ getString('EMAIL') }
+            txt={ email }
+            onTextChanged={ (text) => onTextChanged('EMAIL', text)}
+          />
+          <TextInput
+            style={{ marginTop: 24 }}
+            txtLabel={ getString('PASSWORD') }
+            txtHint={ getString('PASSWORD') }
+            txt={ pw }
+            onTextChanged={ (text) => onTextChanged('PW', text)}
+            isPassword={ true }
+          />
+          <TextInput
+            style={{ marginTop: 24 }}
+            txtLabel={getString('NAME')}
+            txtHint={ getString('NAME') }
+            txt={ displayName }
+            onTextChanged={ (text) => onTextChanged('NAME', text)}
+          />
+          <TextInput
+            style={{ marginTop: 24 }}
+            txtLabel={getString('STATUS_MSG')}
+            txtHint={ getString('STATUS_MSG') }
+            txt={ statusMsg }
+            onTextChanged={ (text) => onTextChanged('STATUS_MSG', text)}
+          />
+          <StyledButtonWrapper>
+            <Button
+              testID='register'
+              isLoading={isRegistering}
+              onPress={() => onRegister()}
+            >{getString('REGISTER')}</Button>
+          </StyledButtonWrapper>
+        </StyledWrapper>
+      </StyledScrollView>
+    </StyledContainer>
+  );
 }
 
 export default Screen;

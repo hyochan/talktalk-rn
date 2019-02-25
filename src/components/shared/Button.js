@@ -99,15 +99,6 @@ class Button extends Component<Props, State> {
         </StyledContainer>
       );
     }
-    if (this.props.isLoading) {
-      return (
-        <StyledContainer>
-          <StyledButton>
-            <ActivityIndicator size='small' color={this.props.indicatorColor} />
-          </StyledButton>
-        </StyledContainer>
-      );
-    }
     return (
       <StyledContainer>
         <TouchableOpacity
@@ -136,13 +127,15 @@ class Button extends Component<Props, State> {
       alignItems: 'center',
     }}>
       {
-        this.props.imgLeftSrc
-          ? <StyledImageLeft
-            source={this.props.imgLeftSrc}
-          />
-          : null
+        this.props.isLoading
+          ? <ActivityIndicator size='small' color={this.props.indicatorColor} />
+          : this.props.imgLeftSrc
+            ? <StyledImageLeft
+              source={this.props.imgLeftSrc}
+            />
+            : null
       }
-      { this.renderText() }
+      { this.props.isLoading ? null : this.renderText() }
     </View>;
   }
 

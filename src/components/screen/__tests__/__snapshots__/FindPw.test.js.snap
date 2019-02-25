@@ -5,7 +5,7 @@ exports[`rendering test renders as expected 1`] = `
   <Shared
     isDarkContent={false}
   />
-  <Styled(ScrollView)
+  <Styled(ScrollViewMock)
     contentContainerStyle={
       Object {
         "alignItems": "center",
@@ -56,6 +56,6 @@ exports[`rendering test renders as expected 1`] = `
         </Button>
       </Styled(View)>
     </Styled(View)>
-  </Styled(ScrollView)>
+  </Styled(ScrollViewMock)>
 </Styled(View)>
 `;

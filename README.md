@@ -1,4 +1,5 @@
 # TalkTalk
+[![All Contributors](https://img.shields.io/badge/all_contributors-0-orange.svg?style=flat-square)](#contributors)
 [![codecov](https://codecov.io/gh/dooboolab/talktalk-rn/branch/master/graph/badge.svg)](https://codecov.io/gh/dooboolab/talktalk-rn)
 [![CircleCI](https://circleci.com/gh/dooboolab/talktalk-rn.svg?style=svg)](https://circleci.com/gh/dooboolab/talktalk-rn)
 
@@ -114,3 +115,13 @@ NativeModules.ReactLocalization = {
 
 ## React navigation
 3
+
+## Contributors
+
+Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
+
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore -->
+<!-- ALL-CONTRIBUTORS-LIST:END -->
+
+This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!

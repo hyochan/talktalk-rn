@@ -69,11 +69,11 @@ type State = {
 };
 
 function Screen(props: Props, state: State) {
-  let [isRegistering, setIsRegistering] = React.useState(false);
-  let [email, setEmail] = React.useState('');
-  let [pw, setPw] = React.useState('');
-  let [displayName, setDisplayName] = React.useState('');
-  let [statusMsg, setStatusMsg] = React.useState('');
+  let [isRegistering, setIsRegistering] = useState(false);
+  let [email, setEmail] = useState('');
+  let [pw, setPw] = useState('');
+  let [displayName, setDisplayName] = useState('');
+  let [statusMsg, setStatusMsg] = useState('');
 
   useEffect(() => {
     if (isRegistering) {

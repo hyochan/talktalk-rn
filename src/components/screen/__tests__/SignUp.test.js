@@ -1,6 +1,6 @@
 import 'react-native';
 import * as React from 'react';
-import Signup from '../Signup';
+import SignUp from '../SignUp';
 
 // Note: test renderer must be required after react-native.
 import renderer from 'react-test-renderer';
@@ -11,16 +11,16 @@ const props = {
     navigate: jest.fn(),
   },
 };
-const component: React.Element<any> = <Signup {...props}/>;
+const component: React.Element<any> = <SignUp {...props}/>;
 
-describe('[Signup] rendering test', () => {
+describe('[SignUp] rendering test', () => {
   it('renders as expected', () => {
     const json = renderer.create(component).toJSON();
     expect(json).toMatchSnapshot();
   });
 });
 
-describe('[Signup] interaction', () => {
+describe('[SignUp] interaction', () => {
   let rendered: renderer.ReactTestRenderer;
   let root: renderer.ReactTestInstance;
   let testingLib: any;

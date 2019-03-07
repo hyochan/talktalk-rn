@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`rendering test should render as expected 1`] = `
+exports[`[ChatroomListItem] rendering test renders as expected 1`] = `
 <View
   style={
     Object {
@@ -8,8 +8,20 @@ exports[`rendering test should render as expected 1`] = `
     }
   }
 >
-  <TouchableOpacity
-    activeOpacity={0.5}
+  <View
+    accessible={true}
+    isTVSelectable={true}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "opacity": 1,
+      }
+    }
   >
     <View
       style={
@@ -31,7 +43,7 @@ exports[`rendering test should render as expected 1`] = `
           }
         }
       >
-        <Component
+        <Unknown
           color="rgb(65,77,107)"
           light={true}
           name="meh"
@@ -41,61 +53,76 @@ exports[`rendering test should render as expected 1`] = `
       </View>
       <View
         style={
-          Object {
-            "flex": 1,
-            "flexDirection": "column",
-            "paddingRight": 20,
-          }
+          Array [
+            Object {
+              "flexBasis": 0,
+              "flexDirection": "column",
+              "flexGrow": 1,
+              "flexShrink": 1,
+              "paddingRight": 20,
+            },
+          ]
         }
       >
         <View
           style={
-            Object {
-              "alignItems": "center",
-              "flexDirection": "row",
-              "justifyContent": "space-between",
-            }
+            Array [
+              Object {
+                "alignItems": "center",
+                "flexDirection": "row",
+                "justifyContent": "space-between",
+              },
+            ]
           }
         >
           <Text
             style={
-              Object {
-                "color": "rgb(65,77,107)",
-                "fontSize": 14,
-                "fontWeight": "bold",
-              }
+              Array [
+                Object {
+                  "color": "rgb(65,77,107)",
+                  "fontSize": 14,
+                  "fontWeight": "bold",
+                },
+              ]
             }
-          />
+          >
+            
+          </Text>
           <View
             style={
-              Object {
-                "alignItems": "center",
-                "backgroundColor": "rgb(80,227,194)",
-                "borderRadius": 8,
-                "height": 16,
-                "justifyContent": "center",
-                "width": 16,
-              }
+              Array [
+                Object {
+                  "flexBasis": 0,
+                  "flexDirection": "column",
+                  "flexGrow": 1,
+                  "flexShrink": 1,
+                  "paddingRight": 20,
+                },
+              ]
             }
           >
             <Text
               style={
-                Object {
-                  "color": "white",
-                  "fontSize": 10,
-                }
+                Array [
+                  Object {
+                    "color": "white",
+                    "fontSize": 10,
+                  },
+                ]
               }
             />
           </View>
         </View>
         <View
           style={
-            Object {
-              "alignItems": "center",
-              "flexDirection": "row",
-              "justifyContent": "space-between",
-              "marginTop": 8,
-            }
+            Array [
+              Object {
+                "alignItems": "center",
+                "flexDirection": "row",
+                "justifyContent": "space-between",
+                "marginTop": 8,
+              },
+            ]
           }
         >
           <Text
@@ -112,7 +139,9 @@ exports[`rendering test should render as expected 1`] = `
                 },
               ]
             }
-          />
+          >
+            
+          </Text>
           <Text
             style={
               Object {
@@ -127,6 +156,6 @@ exports[`rendering test should render as expected 1`] = `
         </View>
       </View>
     </View>
-  </TouchableOpacity>
+  </View>
 </View>
 `;

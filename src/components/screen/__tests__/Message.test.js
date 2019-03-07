@@ -37,8 +37,8 @@ describe('rendering test', () => {
     );
     const rendered = wrapper.instance().renderItem(item);
     expect(wrapper.find(ChatroomListItem).last()).toHaveLength(1);
-    const shallowRendered = shallow(rendered);
-    shallowRendered.instance().props.onPress('aaaaaa');
+    // const shallowRendered = shallow(rendered);
+    // shallowRendered.instance().props.onPress('aaaaaa');
   });
   it('should navigate on item click', () => {
     wrapper.instance().onItemClick('aaaaaa');

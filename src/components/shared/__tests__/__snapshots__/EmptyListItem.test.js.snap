@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`rendering test renders as expected 1`] = `
+exports[`[EmptyListItem] rendering test renders as expected 1`] = `
 <View
   style={
     Object {
@@ -14,13 +14,11 @@ exports[`rendering test renders as expected 1`] = `
 >
   <Text
     style={
-      Array [
-        Object {
-          "alignSelf": "center",
-          "color": "rgb(155,155,155)",
-          "fontSize": 14,
-        },
-      ]
+      Object {
+        "alignSelf": "center",
+        "color": "rgb(155,155,155)",
+        "fontSize": 14,
+      }
     }
   />
 </View>

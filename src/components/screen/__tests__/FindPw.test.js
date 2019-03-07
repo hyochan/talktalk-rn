@@ -4,53 +4,44 @@ import FindPw from '../FindPw';
 
 // Note: test renderer must be required after react-native.
 import renderer from 'react-test-renderer';
-import { shallow, render } from 'enzyme';
+import { render, fireEvent } from 'react-native-testing-library';
 
-describe('rendering test', () => {
-  const wrapper = shallow(
-    <FindPw />,
-  );
+const props = {
+  navigation: {
+    navigate: jest.fn(),
+  },
+};
+const component: React.Element<any> = <FindPw {...props}/>;
 
+describe('[FindPw] rendering test', () => {
   it('renders as expected', () => {
-    expect(wrapper).toMatchSnapshot();
+    const json = renderer.create(component).toJSON();
+    expect(json).toMatchSnapshot();
   });
 });
 
-describe('interaction', () => {
-  let props;
-  let wrapper;
-  beforeEach(() => {
-    props = {
-      navigation: {
-        navigate: jest.fn(),
-        goBack: jest.fn(),
-      },
-    };
-    wrapper = shallow(<FindPw {...props} />);
+describe('[FindPw] interaction', () => {
+  let rendered: renderer.ReactTestRenderer;
+  let root: renderer.ReactTestInstance;
+  let testingLib: any;
+
+  beforeAll(() => {
+    rendered = renderer.create(component);
+    root = rendered.root;
+    testingLib = render(component);
   });
-  describe('clicking the button', () => {
-    it('should call onSendLink callback', () => {
-      const spy = jest.spyOn(wrapper.instance(), 'onSendLink');
-      const btn = wrapper.find('#send_link');
-      btn.props().onPress();
-      expect(spy).toHaveBeenCalled();
-    });
+
+  it('should invoke changeText event handler when email changed ', () => {
+    const emailInput = testingLib.getByTestId('input_email');
+    emailInput.props.onTextChanged('email test');
+    expect(emailInput.props.txt).toEqual('email test');
   });
-  describe('goBack', () => {
-    it('should navigate when goBack callback', () => {
-      const instance = wrapper.instance();
-      instance.goBack();
-      expect(props.navigation.goBack).toHaveBeenCalledTimes(1);
-    });
-  });
-  describe('change text', () => {
-    it('should change state onTextChanged', () => {
-      const instance = wrapper.instance();
-      instance.onTextChanged('EMAIL', 'aa@aa.aa');
-      expect(instance.state.email).toEqual('aa@aa.aa');
-    });
-  });
-  afterAll(() => {
-    wrapper.instance().prototype.onSendLink.mockRestore();
+
+  it('should call [sendLink] on button click', () => {
+    const btnSendLink = testingLib.getByTestId('btnSendLink');
+    fireEvent(btnSendLink, 'press');
+    expect(btnSendLink.props.isLoading).toEqual(false);
+    btnSendLink.props.onPress();
+    expect(btnSendLink.props.isLoading).toEqual(true);
   });
 });

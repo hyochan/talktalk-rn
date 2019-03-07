@@ -58,6 +58,12 @@ jobs:
           environment:
             JEST_JUNIT_OUTPUT: test-results/jest/junit.xml
 
+      - run:
+          name: Coverage
+          working_directory: .
+          command: |
+            npm run codecov -- -t d7babaa6-7370-43a3-9b26-a2147d466e3e
+
       - store_test_results:
           path: coverage
 
@@ -94,14 +100,14 @@ jobs:
             - node_modules
 
       # - restore_cache:
-      #     key: bundle-v2-{{ checksum "android/Gemfile.lock" }}-{{ arch }}
+      #     key: bundle-v1-{{ checksum "android/Gemfile.lock" }}-{{ arch }}
 
       # - run: 
       #     command: bundle install --path vendor/bundle
       #     working_directory: android
 
       # - save_cache:
-      #     key: bundle-v2-{{ checksum "android/Gemfile.lock" }}-{{ arch }}
+      #     key: bundle-v1-{{ checksum "android/Gemfile.lock" }}-{{ arch }}
       #     paths:
       #       - android/vendor/bundle
 

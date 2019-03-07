@@ -1,5 +1,5 @@
 // @flow
-import React, { Component } from 'react';
+import React, { Component, useState } from 'react';
 import {
   StyleSheet,
   TouchableOpacity,
@@ -76,7 +76,7 @@ const StyledButtonWrapper = styled.View`
   align-items: center;
 `;
 
-const StyledButtonSignup = styled.View`
+const StyledButtonSignUp = styled.View`
   background-color: transparent;
   border-radisu: 4;
   border-width: 1;
@@ -88,7 +88,7 @@ const StyledButtonSignup = styled.View`
   justify-content: center;
 `;
 
-const StyledTextSignup = styled.Text`
+const StyledTextSignUp = styled.Text`
   font-size: 16;
   font-weight: bold;
   color: ${colors.dodgerBlue};
@@ -138,105 +138,95 @@ type State = {
   pw: string;
 };
 
-class Screen extends Component<Props, State> {
-  static navigationOptions = {
-    headerStyle: {
-      borderBottomWidth: 0,
+function Screen(props: Props, state: State) {
+  const [isLoggingIn, setIsLoggingIn] = useState(false);
+  const [email, setEmail] = useState('');
+  const [pw, setPw] = useState('');
+  let timer;
+
+  const onTextChanged = (type: string, text: string) => {
+    switch (type) {
+      case 'EMAIL':
+        setEmail(text);
+        break;
+      case 'PW':
+        setPw(text);
+        break;
     }
   };
 
-  constructor(props: Props) {
-    super(props);
-    this.state = {
-      isLoggingIn: false,
-      email: '',
-      pw: '',
-    };
-  }
+  const goToSignUp = () => {
+    props.navigation.navigate('SignUp');
+    // props.navigation.navigate('SignUp');
+  };
 
-  render() {
-    return (
-      <SafeAreaView>
-        <StyledScollView>
-          <StatusBar isDarkContent={true}/>
-          <StyledContainer>
-            <StyledIconWrapper>
-              <StyledIcon source={IC_ICON}/>
-              <StyledIconText>{getString('HELLO')}.</StyledIconText>
-            </StyledIconWrapper>
-            <StyledInputWrapper>
-              <TextInput
-                // txtLabel={ getString('EMAIL') }
-                txtHint={ getString('EMAIL') }
-                txt={ this.state.email }
-                onTextChanged={ (text) => this.onTextChanged('EMAIL', text)}
-              />
-              <TextInput
-                style={{ marginTop: 8 }}
-                // txtLabel={ getString('EMAIL') }
-                txtHint={ getString('PASSWORD') }
-                txt={ this.state.pw }
-                onTextChanged={ (text) => this.onTextChanged('PW', text)}
-                isPassword={ true }
-              />
-              <StyledButtonWrapper>
-                <Button
-                  id='signup'
-                  constainerStyle={{ flex: 1 }}
-                  onPress={() => this.goToSignup()}
-                  isWhite
-                >{getString('SIGN_UP')}</Button>
-                <View style={{ width: 8 }}/>
-                <Button
-                  id='login'
-                  constainerStyle={{ flex: 1 }}
-                  isLoading={this.state.isLoggingIn}
-                  onPress={() => this.onLogin()}
-                >{getString('LOGIN')}</Button>
-              </StyledButtonWrapper>
-              <View style={{ height: 16 }} />
-              <TouchableOpacity
-                activeOpacity={0.5}
-                onPress={() => this.goToFindPw()}
-              >
-                <StyledTextForgotPw>{getString('FORGOT_PW')}</StyledTextForgotPw>
-              </TouchableOpacity>
-              <StyledTextCopyright>copyright by dooboolab.com</StyledTextCopyright>
-            </StyledInputWrapper>
-          </StyledContainer>
-        </StyledScollView>
-      </SafeAreaView>
-    );
-  }
+  const goToFindPw = () => {
+    props.navigation.navigate('FindPw');
+  };
 
-  onTextChanged = (type: string, text: string) => {
-    switch (type) {
-      case 'EMAIL':
-        this.setState({ email: text });
-        return;
-      case 'PW':
-        this.setState({ pw: text });
-    }
-  }
+  const onLogin = () => {
+    setIsLoggingIn(true);
+    timer = setTimeout(() => {
+      setIsLoggingIn(false);
+      clearTimeout(timer);
+    }, 1000);
+  };
 
-  goToSignup = () => {
-    this.props.navigation.navigate('Signup');
-    // this.props.navigation.navigate('Signup');
-  }
-  goToFindPw = () => {
-    this.props.navigation.navigate('FindPw');
-  }
-
-  onLogin = () => {
-    this.setState({ isLoggingIn: true }, () => {
-      try {
-      } catch (err) {
-        // Alert.alert(getString('ERROR'), err.message);
-      } finally {
-        this.setState({ isLoggingIn: false });
-      }
-    });
-  }
+  return (
+    <SafeAreaView>
+      <StyledScollView>
+        <StatusBar isDarkContent={true}/>
+        <StyledContainer>
+          <StyledIconWrapper>
+            <StyledIcon source={IC_ICON}/>
+            <StyledIconText>{getString('HELLO')}.</StyledIconText>
+          </StyledIconWrapper>
+          <StyledInputWrapper>
+            <TextInput
+              testID='email_input'
+              // txtLabel={ getString('EMAIL') }
+              txtHint={ getString('EMAIL') }
+              txt={ email }
+              onTextChanged={ (text) => onTextChanged('EMAIL', text)}
+            />
+            <TextInput
+              testID='pw_input'
+              style={{ marginTop: 8 }}
+              // txtLabel={ getString('EMAIL') }
+              txtHint={ getString('PASSWORD') }
+              txt={ pw }
+              onTextChanged={ (text) => onTextChanged('PW', text)}
+              isPassword={ true }
+            />
+            <StyledButtonWrapper>
+              <Button
+                testID='btnSignUp'
+                constainerStyle={{ flex: 1 }}
+                onPress={() => goToSignUp()}
+                isWhite
+              >{getString('SIGN_UP')}</Button>
+              <View style={{ width: 8 }}/>
+              <Button
+                testID='btnLogin'
+                constainerStyle={{ flex: 1 }}
+                isLoading={isLoggingIn}
+                onPress={() => onLogin()}
+              >{getString('LOGIN')}</Button>
+            </StyledButtonWrapper>
+            <View style={{ height: 16 }} />
+            <TouchableOpacity
+              testID='findPw'
+              activeOpacity={0.5}
+              onPress={() => goToFindPw()}
+            >
+              <StyledTextForgotPw>{getString('FORGOT_PW')}</StyledTextForgotPw>
+            </TouchableOpacity>
+            <StyledTextCopyright>copyright by dooboolab.com</StyledTextCopyright>
+          </StyledInputWrapper>
+        </StyledContainer>
+      </StyledScollView>
+    </SafeAreaView>
+  );
 }
 
 export default Screen;

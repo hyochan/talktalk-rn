@@ -5,14 +5,32 @@ import StackViewStyleInterpolator from 'react-navigation-stack/dist/views/StackV
 
 import { commonNavigationOptions } from './MainStackNavigator';
 import Login from '../screen/Login';
-import Signup from '../screen/Signup';
+import SignUp from '../screen/SignUp';
 import FindPw from '../screen/FindPw';
+import { getString } from '../../../STRINGS';
 
 const StackNavigator = createStackNavigator(
   {
-    Login: { screen: Login },
-    Signup: { screen: Signup },
-    FindPw: { screen: FindPw },
+    Login: {
+      screen: Login,
+      navigationOptions: {
+        headerStyle: {
+          borderBottomWidth: 0,
+        },
+      },
+    },
+    SignUp: {
+      screen: SignUp,
+      navigationOptions: {
+        title: getString('SIGNUP'),
+      },
+    },
+    FindPw: {
+      screen: FindPw,
+      navigationOptions: {
+        title: getString('FIND_PW'),
+      },
+    },
   },
   {
     initialRouteName: 'Login',

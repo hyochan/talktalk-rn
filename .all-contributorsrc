@@ -6,8 +6,58 @@
   "files": [
     "README.md"
   ],
-  "imageSize": 100,
-  "commit": true,
-  "contributors": [],
-  "contributorsPerLine": 7
+  "imageSize": 60,
+  "badgeTemplate": "[![All Contributors](https://img.shields.io/badge/all_contributors-<%= contributors.length %>-orange.svg?style=flat-square)](#contributors)",
+  "types": {
+    "custom": {
+      "symbol": "🔭",
+      "description": "A custom contribution type.",
+      "link": "[<%= symbol %>](<%= url %> \"<%= description %>\"),"
+    }
+  },
+  "contributors": [
+    {
+      "login": "hyochan",
+      "name": "Hyo Chan Jang",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/27461460?v=4",
+      "profile": "http://dooboolab.com",
+      "contributions": [
+        "code",
+        "doc",
+        "eventOrganizing",
+        "maintenance",
+        "talk",
+        "test"
+      ]
+    },
+    {
+      "login": "geoseong",
+      "name": "TaeSeong Park",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/19166187?v=4",
+      "profile": "https://github.com/geoseong",
+      "contributions": [
+        "code",
+        "doc",
+        "example",
+        "maintenance"
+      ]
+    },
+    {
+      "login": "cometkim",
+      "name": "Hyeseong Kim",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/9696352?v=4",
+      "profile": "https://blog.cometkim.kr",
+      "contributions": [
+        "doc",
+        "example",
+        "ideas",
+        "infra",
+        "security",
+        "talk",
+        "test"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7,
+  "commit": true
 }

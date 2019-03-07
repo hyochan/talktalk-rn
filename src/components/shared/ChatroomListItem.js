@@ -26,17 +26,7 @@ import { User } from '../../models/User';
 import { BaseButton } from 'react-native-gesture-handler';
 
 type Styles = {
-  container: ViewStyle,
   wrapper: ViewStyle,
-  status: ViewStyle,
-  imgWrapper: ViewStyle,
-  img: ImageStyle,
-  viewContent: ViewStyle,
-  viewTop: ViewStyle,
-  txtDisplayName: TextStyle,
-  viewCount: ViewStyle,
-  txtCount: TextStyle,
-  viewBottom: ViewStyle,
   txtMsg: TextStyle,
   txtDate: TextStyle,
 };

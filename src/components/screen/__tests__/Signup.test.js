@@ -21,53 +21,43 @@ describe('[Signup] rendering test', () => {
 });
 
 describe('[Signup] interaction', () => {
-  // let renderResult: RenderResult;
-  // beforeEach(() => {
-  //   renderResult = render(component);
-  // });
-  // it('should simulate [onRegister] when [Button] has been pressed', () => {
-  //   const btnInstance: ReactTestInstance = renderResult.getByTestId('register');
-  //   fireEvent(btnInstance, 'press');
-  //   console.log(btnInstance);
-  // });
-});
+  let rendered: renderer.ReactTestRenderer;
+  let root: renderer.ReactTestInstance;
+  let testingLib: any;
 
-describe('interaction', () => {
-  // let props;
-  // let wrapper;
-  // beforeEach(() => {
-  //   props = {
-  //     navigation: {
-  //       navigate: jest.fn(),
-  //     },
-  //   };
-  //   wrapper = shallow(<Signup {...props} />);
-  // });
-  // describe('clicking the button', () => {
-  //   it('should call onRegister callback', () => {
-  //     const spy = jest.spyOn(wrapper.instance(), 'onRegister');
-  //     const btn = wrapper.find('#register');
-  //     btn.props().onPress();
-  //     expect(spy).toHaveBeenCalled();
-  //     expect(wrapper.instance().state.isRegistering).toEqual(false);
-  //     // wrapper.update();
-  //     // expect(wrapper.instance().state.isRegistering).toEqual(false);
-  //   });
-  // });
-  // describe('change text', () => {
-  //   it('should change state onTextChanged', () => {
-  //     const instance = wrapper.instance();
-  //     instance.onTextChanged('EMAIL', 'aa@aa.aa');
-  //     expect(instance.state.email).toEqual('aa@aa.aa');
-  //     instance.onTextChanged('PW', 'aaaaaa');
-  //     expect(instance.state.pw).toEqual('aaaaaa');
-  //     instance.onTextChanged('NAME', 'aaaaaa');
-  //     expect(instance.state.displayName).toEqual('aaaaaa');
-  //     instance.onTextChanged('STATUS_MSG', 'aaaaaa');
-  //     expect(instance.state.statusMsg).toEqual('aaaaaa');
-  //   });
-  // });
-  // afterAll(() => {
-  //   wrapper.instance().prototype.onRegister.mockRestore();
-  // });
+  beforeAll(() => {
+    rendered = renderer.create(component);
+    root = rendered.root;
+    testingLib = render(component);
+  });
+
+  it('should changeText when email changed', () => {
+    const emailInput = testingLib.getByTestId('email_input');
+    emailInput.props.onTextChanged('email test');
+    expect(emailInput.props.txt).toEqual('email test');
+  });
+
+  it('should changeText when password changed', () => {
+    const passwordInput = testingLib.getByTestId('pw_input');
+    passwordInput.props.onTextChanged('pw test');
+    expect(passwordInput.props.txt).toEqual('pw test');
+  });
+
+  it('should changeText when name changed', () => {
+    const nameInput = testingLib.getByTestId('name_input');
+    nameInput.props.onTextChanged('name test');
+    expect(nameInput.props.txt).toEqual('name test');
+  });
+
+  it('should changeText when status changed', () => {
+    const statusInput = testingLib.getByTestId('status_input');
+    statusInput.props.onTextChanged('status test');
+    expect(statusInput.props.txt).toEqual('status test');
+  })
+
+  it('should simulate when [onRegister] clicked', () => {
+    const registerBtn = testingLib.getByTestId('register');
+    fireEvent(registerBtn, 'press');
+    expect(registerBtn.props.isLoading).toEqual(false);
+  });
 });

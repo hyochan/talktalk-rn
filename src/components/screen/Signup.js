@@ -69,11 +69,11 @@ type State = {
 };
 
 function Screen(props: Props, state: State) {
-  let [isRegistering, setIsRegistering] = useState(false);
-  let [email, setEmail] = useState('');
-  let [pw, setPw] = useState('');
-  let [displayName, setDisplayName] = useState('');
-  let [statusMsg, setStatusMsg] = useState('');
+  const [isRegistering, setIsRegistering] = useState(false);
+  const [email, setEmail] = useState('');
+  const [pw, setPw] = useState('');
+  const [displayName, setDisplayName] = useState('');
+  const [statusMsg, setStatusMsg] = useState('');
 
   useEffect(() => {
     if (isRegistering) {
@@ -113,6 +113,7 @@ function Screen(props: Props, state: State) {
       >
         <StyledWrapper>
           <TextInput
+            testID='email_input'
             style={{ marginTop: 8 }}
             txtLabel={getString('EMAIL')}
             txtHint={ getString('EMAIL') }
@@ -120,6 +121,7 @@ function Screen(props: Props, state: State) {
             onTextChanged={ (text) => onTextChanged('EMAIL', text)}
           />
           <TextInput
+            testID='pw_input'
             style={{ marginTop: 24 }}
             txtLabel={ getString('PASSWORD') }
             txtHint={ getString('PASSWORD') }
@@ -128,6 +130,7 @@ function Screen(props: Props, state: State) {
             isPassword={ true }
           />
           <TextInput
+            testID='name_input'
             style={{ marginTop: 24 }}
             txtLabel={getString('NAME')}
             txtHint={ getString('NAME') }
@@ -135,6 +138,7 @@ function Screen(props: Props, state: State) {
             onTextChanged={ (text) => onTextChanged('NAME', text)}
           />
           <TextInput
+            testID='status_input'
             style={{ marginTop: 24 }}
             txtLabel={getString('STATUS_MSG')}
             txtHint={ getString('STATUS_MSG') }

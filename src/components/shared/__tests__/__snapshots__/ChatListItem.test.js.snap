@@ -1,22 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`rendering test renders as expected 1`] = `
-<View
+<Styled(View)
   style={
-    Array [
-      Object {
-        "alignItems": "flex-end",
-        "flexDirection": "row",
-        "justifyContent": "flex-start",
-        "marginLeft": 20,
-        "marginRight": 8,
-        "minHeight": 48,
-        "width": "100%",
-      },
-      Object {
-        "marginTop": 20,
-      },
-    ]
+    Object {
+      "marginTop": 20,
+    }
   }
 >
   <View
@@ -41,24 +30,14 @@ exports[`rendering test renders as expected 1`] = `
       }
     }
   >
-    <Text
-      style={
-        Object {
-          "color": "rgb(65,77,107)",
-          "fontSize": 12,
-          "marginBottom": 2,
-        }
-      }
-    />
-    <Text
+    <Styled(Text) />
+    <View
       style={
         Object {
           "backgroundColor": "white",
           "borderColor": "rgb(225,225,225)",
           "borderRadius": 3,
           "borderWidth": 1,
-          "color": "rgb(65,77,107)",
-          "fontSize": 14,
           "marginRight": 8,
           "padding": 12,
           "shadowColor": undefined,
@@ -68,18 +47,12 @@ exports[`rendering test renders as expected 1`] = `
           },
         }
       }
-    />
+    >
+      <Styled(Text) />
+    </View>
   </View>
-  <Text
-    style={
-      Object {
-        "color": "rgb(175,194,219)",
-        "fontSize": 12,
-        "marginRight": 20,
-      }
-    }
-  >
+  <Styled(Text)>
     0 : 0
-  </Text>
-</View>
+  </Styled(Text)>
+</Styled(View)>
 `;

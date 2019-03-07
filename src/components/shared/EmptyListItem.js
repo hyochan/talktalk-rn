@@ -18,7 +18,6 @@ import { ratio, colors } from '../../utils/Styles';
 
 type Styles = {
   wrapper: ViewStyle,
-  text: TextStyle,
 };
 
 const styles: Styles = StyleSheet.create({

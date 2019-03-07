@@ -1,5 +1,5 @@
 // @flow
-import React, { Component } from 'react';
+import React, { Component, useState, useEffect } from 'react';
 import {
   StyleSheet,
   TouchableOpacity,
@@ -58,71 +58,59 @@ type State = {
   isLoading: boolean,
 };
 
-class Screen extends Component<Props, State> {
-  static navigationOptions = {
-    title: getString('FIND_PW'),
-  };
+function Screen(props: Props) {
+  const [isLoading, setLoading] = useState(false);
+  const [email, setEmail] = useState('');
 
-  constructor(props: Props) {
-    super(props);
-    this.state = {
-      isLoading: false,
-      email: '',
-    };
-  }
+  useEffect(() => {
+    if (isLoading) {
+      setLoading(false);
+    }
+  }, [isLoading]);
 
-  render() {
-    return (
-      <StyledContainer>
-        <StatusBar isDarkContent={false}/>
-        <StyledScrollView
-          contentContainerStyle={{
-            alignItems: 'center',
-            justifyContent: 'center',
-          }}
-        >
-          <StyledWrapper>
-            <TextInput
-              style={{ marginTop: 8 * ratio }}
-              txtLabel={getString('EMAIL')}
-              txtHint={ getString('EMAIL') }
-              txt={ this.state.email }
-              onTextChanged={ (text) => this.onTextChanged('EMAIL', text)}
-              isPassword={ true }
-            />
-            <StyledButtonWrapper>
-              <Button
-                id='send_link'
-                isLoading={this.state.isLoading}
-                onPress={() => this.onSendLink()}
-              >{getString('SEND_LINK')}</Button>
-            </StyledButtonWrapper>
-          </StyledWrapper>
-        </StyledScrollView>
-      </StyledContainer>
-    );
-  }
-
-  onTextChanged = (type: string, text: string) => {
+  const onTextChanged = (type: string, text: string) => {
     switch (type) {
       case 'EMAIL':
-        this.setState({ email: text });
+        setEmail(text);
         break;
     }
-  }
+  };
 
-  goBack = () => {
-    this.props.navigation.goBack();
-  }
-
-  onSendLink = () => {
+  const onSendLink = () => {
     console.log('onSendLink');
-    this.setState({
-      isLoading: true,
-    }, async() => {
-      this.setState({ isLoading: false });
-    });
-  }
+    setLoading(true);
+  };
+
+  return (
+    <StyledContainer>
+      <StatusBar isDarkContent={false}/>
+      <StyledScrollView
+        contentContainerStyle={{
+          alignItems: 'center',
+          justifyContent: 'center',
+        }}
+      >
+        <StyledWrapper>
+          <TextInput
+            testID='input_email'
+            style={{ marginTop: 8 * ratio }}
+            txtLabel={getString('EMAIL')}
+            txtHint={ getString('EMAIL') }
+            txt={ email }
+            onTextChanged={ (text) => onTextChanged('EMAIL', text)}
+            isPassword={ true }
+          />
+          <StyledButtonWrapper>
+            <Button
+              testID='btnSendLink'
+              isLoading={isLoading}
+              onPress={() => onSendLink()}
+            >{getString('SEND_LINK')}</Button>
+          </StyledButtonWrapper>
+        </StyledWrapper>
+      </StyledScrollView>
+    </StyledContainer>
+  );
 }
 
 export default Screen;

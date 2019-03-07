@@ -25,7 +25,12 @@ const StackNavigator = createStackNavigator(
         title: getString('SIGNUP'),
       },
     },
-    FindPw: { screen: FindPw },
+    FindPw: {
+      screen: FindPw,
+      navigationOptions: {
+        title: getString('FIND_PW'),
+      },
+    },
   },
   {
     initialRouteName: 'Login',

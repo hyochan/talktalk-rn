@@ -59,5 +59,7 @@ describe('[Signup] interaction', () => {
     const registerBtn = testingLib.getByTestId('register');
     fireEvent(registerBtn, 'press');
     expect(registerBtn.props.isLoading).toEqual(false);
+    registerBtn.props.onPress();
+    expect(registerBtn.props.isLoading).toEqual(true);
   });
 });

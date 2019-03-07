@@ -8,6 +8,7 @@ import {
   View,
   Dimensions,
   PixelRatio,
+  TouchableOpacity,
 } from 'react-native';
 
 import styled from 'styled-components/native';
@@ -15,16 +16,9 @@ import LinearGradient from 'react-native-linear-gradient';
 import moment from 'moment';
 import Icon5 from 'react-native-vector-icons/FontAwesome5';
 
-import type {
-  ____ViewStyleProp_Internal as ViewStyle,
-  ____TextStyleProp_Internal as TextStyle,
-  ____ImageStyleProp_Internal as ImageStyle,
-} from 'react-native/Libraries/StyleSheet/StyleSheetTypes';
-
 import { Chat } from '../../models/Chat';
 import { ratio, colors, screenWidth } from '../../utils/Styles';
 import { User } from '../../models/User';
-import { TouchableOpacity } from 'react-native-gesture-handler';
 
 const StyledWrapperPeer = styled.View`
   min-height: 48;
@@ -91,77 +85,76 @@ function Shared(props: Props) {
   const isSamePeerMsg = props.prevItem && props.prevItem.sender.uid === props.item.sender.uid;
   return (
     props.item.sender.uid !== myFakeUid // peer message
-    ? <StyledWrapperPeer style={{
-      marginTop: isSamePeerMsg ? 0 : 20,
-      marginRight: 80,
-    }}>
-      <View style={{ marginRight: 8 }}>
-        <TouchableOpacity
-          onPress={props.onPressPeerImage}
-        >
-          {
-            props.item.sender.photoURL !== ''
-              ? <StyledImageSender source={props.item.sender.photoURL}/>
-              : isSamePeerMsg
-                ? <View style={{ width: 40 }} />
-                : <Icon5 name="meh" size={40} color={colors.dusk} light/>
-          }
-        </TouchableOpacity>
-      </View>
-      <View style={{flexDirection: 'column' }}>
-        {
-          isSamePeerMsg
-            ? <View/>
-            : <StyledTextPeerName>{props.item.sender.displayName}</StyledTextPeerName>
-        }
-        <View style={{
-          marginRight: 8,
-          backgroundColor: 'white',
-          borderRadius: 3,
-          borderWidth: 1,
-          borderColor: 'rgb(225,225,225)',
-          padding: 12,
-          shadowColor: colors.paleGray,
-          shadowOffset: {
-            width: 0,
-            height: 2,
-          },
-          marginVertical: 4,
-        }}><StyledTextPeerMessage
-          >{props.item.message}</StyledTextPeerMessage>
+      ? <StyledWrapperPeer style={{
+        marginTop: isSamePeerMsg ? 0 : 20,
+        marginRight: 80,
+      }}>
+        <View style={{ marginRight: 8 }}>
+          <TouchableOpacity
+            testID='peer_image'
+            onPress={props.onPressPeerImage}
+          >
+            {
+              props.item.sender.photoURL !== ''
+                ? <StyledImageSender source={props.item.sender.photoURL}/>
+                : isSamePeerMsg
+                  ? <View style={{ width: 40 }} />
+                  : <Icon5 name="meh" size={40} color={colors.dusk} light/>
+            }
+          </TouchableOpacity>
         </View>
-        <StyledTextPeerDate>
+        <View style={{ flexDirection: 'column' }}>
+          {
+            isSamePeerMsg
+              ? <View/>
+              : <StyledTextPeerName>{props.item.sender.displayName}</StyledTextPeerName>
+          }
+          <View style={{
+            marginRight: 8,
+            backgroundColor: 'white',
+            borderRadius: 3,
+            borderWidth: 1,
+            borderColor: 'rgb(225,225,225)',
+            padding: 12,
+            shadowColor: colors.paleGray,
+            shadowOffset: {
+              width: 0,
+              height: 2,
+            },
+            marginVertical: 4,
+          }}><StyledTextPeerMessage
+            >{props.item.message}</StyledTextPeerMessage>
+          </View>
+          <StyledTextPeerDate>
+            {
+              props.item.created
+                ? `${moment(props.item.created).hour()} : ${moment(props.item.created).minutes()}`
+                : '0 : 0'
+            }
+          </StyledTextPeerDate>
+        </View>
+      </StyledWrapperPeer>
+      : <StyledWrapperMy>
+        <LinearGradient
+          start={{ x: 0.2, y: 0.4 }} end={{ x: 1.0, y: 0.8 }}
+          locations={[0, 0.85]}
+          colors={['rgb(100,152,212)', colors.dodgerBlue]}
+          style={{
+            marginHorizontal: 20,
+            marginLeft: 8,
+            padding: 12,
+            borderRadius: 3,
+          }}>
+          <StyledTextMessage>{props.item.message}</StyledTextMessage>
+        </LinearGradient>
+        <StyledTextDate>
           {
             props.item.created
               ? `${moment(props.item.created).hour()} : ${moment(props.item.created).minutes()}`
               : '0 : 0'
           }
-        </StyledTextPeerDate>
-      </View>
-    </StyledWrapperPeer>
-    : <StyledWrapperMy>
-      <LinearGradient
-        start={{ x: 0.2, y: 0.4 }} end={{ x: 1.0, y: 0.8 }}
-        locations={[0, 0.85]}
-        colors={['rgb(100,152,212)', colors.dodgerBlue]}
-        style={{
-          marginHorizontal: 20,
-          marginLeft: 8,
-          borderRadius: 3,
-          padding: 12,
-          borderRadius: 1,
-          borderRadius: 3,
-        }}>
-        <StyledTextMessage>{props.item.message}</StyledTextMessage>
-      </LinearGradient>
-      <StyledTextDate>
-        {
-          props.item.created
-            ? `${moment(props.item.created).hour()} : ${moment(props.item.created).minutes()}`
-            : '0 : 0'
-        }
-      </StyledTextDate>
-    </StyledWrapperMy>
+        </StyledTextDate>
+      </StyledWrapperMy>
   );
 }
 

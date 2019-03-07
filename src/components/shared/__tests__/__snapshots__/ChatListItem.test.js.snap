@@ -1,12 +1,22 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`rendering test renders as expected 1`] = `
-<Styled(View)
+exports[`[ChatListItem] rendering test renders as expected 1`] = `
+<View
   style={
-    Object {
-      "marginRight": 80,
-      "marginTop": 20,
-    }
+    Array [
+      Object {
+        "alignItems": "flex-start",
+        "flexDirection": "row",
+        "justifyContent": "flex-start",
+        "marginLeft": 20,
+        "marginRight": 8,
+        "minHeight": 48,
+      },
+      Object {
+        "marginRight": 80,
+        "marginTop": 20,
+      },
+    ]
   }
 >
   <View
@@ -16,23 +26,29 @@ exports[`rendering test renders as expected 1`] = `
       }
     }
   >
-    <TouchableOpacity
-      activeOpacity={0.2}
-      delayLongPress={600}
-      extraButtonProps={
+    <View
+      accessible={true}
+      isTVSelectable={true}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
         Object {
-          "rippleColor": "transparent",
+          "opacity": 1,
         }
       }
+      testID="peer_image"
     >
-      <FA5iconClass
+      <Unknown
         color="rgb(65,77,107)"
         light={true}
         name="meh"
         size={40}
-        solid={false}
       />
-    </TouchableOpacity>
+    </View>
   </View>
   <View
     style={
@@ -41,7 +57,19 @@ exports[`rendering test renders as expected 1`] = `
       }
     }
   >
-    <Styled(Text) />
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "rgb(65,77,107)",
+            "fontSize": 12,
+            "marginBottom": 2,
+          },
+        ]
+      }
+    >
+      
+    </Text>
     <View
       style={
         Object {
@@ -60,11 +88,32 @@ exports[`rendering test renders as expected 1`] = `
         }
       }
     >
-      <Styled(Text) />
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "rgb(65,77,107)",
+              "fontSize": 14,
+            },
+          ]
+        }
+      >
+        
+      </Text>
     </View>
-    <Styled(Text)>
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "rgb(175,194,219)",
+            "fontSize": 12,
+            "marginRight": 20,
+          },
+        ]
+      }
+    >
       0 : 0
-    </Styled(Text)>
+    </Text>
   </View>
-</Styled(View)>
+</View>
 `;

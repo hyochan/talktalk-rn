@@ -25,12 +25,11 @@ exports[`rendering test renders as expected 1`] = `
         }
       }
     >
-      <FA5iconClass
+      <Component
         color="rgb(65,77,107)"
         light={true}
         name="meh"
         size={40}
-        solid={false}
       />
       <Text
         style={

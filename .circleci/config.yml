@@ -8,20 +8,20 @@ jobs:
       - checkout
 
       - restore_cache:
-          key: yarn-v1-{{ checksum "yarn.lock" }}-{{ arch }}
+          key: yarn-v2-{{ checksum "yarn.lock" }}-{{ arch }}
 
       - restore_cache:
-          key: node-v1-{{ checksum "package.json" }}-{{ arch }}
+          key: node-v2-{{ checksum "package.json" }}-{{ arch }}
 
       - run: yarn install
 
       - save_cache:
-          key: yarn-v1-{{ checksum "yarn.lock" }}-{{ arch }}
+          key: yarn-v2-{{ checksum "yarn.lock" }}-{{ arch }}
           paths:
             - ~/.cache/yarn
 
       - save_cache:
-          key: node-v1-{{ checksum "package.json" }}-{{ arch }}
+          key: node-v2-{{ checksum "package.json" }}-{{ arch }}
           paths:
             - node_modules
 
@@ -82,20 +82,20 @@ jobs:
           at: ~/talktalk-rn
 
       - restore_cache:
-          key: yarn-v1-{{ checksum "yarn.lock" }}-{{ arch }}
+          key: yarn-v2-{{ checksum "yarn.lock" }}-{{ arch }}
 
       - restore_cache:
-          key: node-v1-{{ checksum "package.json" }}-{{ arch }}
+          key: node-v2-{{ checksum "package.json" }}-{{ arch }}
 
       - run: yarn install
 
       - save_cache:
-          key: yarn-v1-{{ checksum "yarn.lock" }}-{{ arch }}
+          key: yarn-v2-{{ checksum "yarn.lock" }}-{{ arch }}
           paths:
             - ~/.cache/yarn
 
       - save_cache:
-          key: node-v1-{{ checksum "package.json" }}-{{ arch }}
+          key: node-v2-{{ checksum "package.json" }}-{{ arch }}
           paths:
             - node_modules
 
@@ -119,7 +119,7 @@ jobs:
             cat android/app/build.gradle | sed -n -e '/dependencies/,$p' > android.app.build.gradle.deps
 
       - restore_cache:
-          key: android-jars-v1-{{ checksum "android/build.gradle" }}-{{ checksum  "android.app.build.gradle.deps" }}
+          key: android-jars-v2-{{ checksum "android/build.gradle" }}-{{ checksum  "android.app.build.gradle.deps" }}
 
       - run:
           name: Download Dependencies
@@ -127,7 +127,7 @@ jobs:
           working_directory: android
 
       - save_cache:
-          key: android-jars-v1-{{ checksum "android/build.gradle" }}-{{ checksum  "android.app.build.gradle.deps" }}
+          key: android-jars-v2-{{ checksum "android/build.gradle" }}-{{ checksum  "android.app.build.gradle.deps" }}
           paths:
             - ~/.gradle
 
@@ -159,34 +159,34 @@ jobs:
           command:  echo "ruby-2.4" > ~/.ruby-version
 
       - restore_cache:
-          key: yarn-v1-{{ checksum "yarn.lock" }}-{{ arch }}
+          key: yarn-v2-{{ checksum "yarn.lock" }}-{{ arch }}
 
       - restore_cache:
-          key: node-v1-{{ checksum "package.json" }}-{{ arch }}
+          key: node-v2-{{ checksum "package.json" }}-{{ arch }}
 
       # not using a workspace here as Node and Yarn versions
       # differ between our macOS executor image and the Docker containers above
       - run: yarn install
 
       - save_cache:
-          key: yarn-v1-{{ checksum "yarn.lock" }}-{{ arch }}
+          key: yarn-v2-{{ checksum "yarn.lock" }}-{{ arch }}
           paths:
             - ~/.cache/yarn
 
       - save_cache:
-          key: node-v1-{{ checksum "package.json" }}-{{ arch }}
+          key: node-v2-{{ checksum "package.json" }}-{{ arch }}
           paths:
             - node_modules
 
       - restore_cache:
-          key: bundle-v1-{{ checksum "ios/Gemfile.lock" }}-{{ arch }}
+          key: bundle-v2-{{ checksum "ios/Gemfile.lock" }}-{{ arch }}
 
       - run:
           command: bundle install
           working_directory: ios
 
       - save_cache:
-          key: bundle-v1-{{ checksum "ios/Gemfile.lock" }}-{{ arch }}
+          key: bundle-v2-{{ checksum "ios/Gemfile.lock" }}-{{ arch }}
           paths:
             - vendor/bundle
 

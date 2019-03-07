@@ -6,7 +6,7 @@ import StackViewStyleInterpolator from 'react-navigation-stack/dist/views/StackV
 
 import MainTabNavigator, { MainTabNavigationOptions } from './MainTabNavigator';
 import Login from '../screen/Login';
-import Signup from '../screen/Signup';
+import SignUp from '../screen/SignUp';
 import FindPw from '../screen/FindPw';
 import ProfileUpdate from '../screen/ProfileUpdate';
 import SearchUser from '../screen/SearchUser';

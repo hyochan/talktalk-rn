@@ -1,13 +1,20 @@
 # TalkTalk
-[![All Contributors](https://img.shields.io/badge/all_contributors-0-orange.svg?style=flat-square)](#contributors)
+[![CircleCI](https://circleci.com/gh/dooboolab/talktalk-rn.svg?style=shield)](https://circleci.com/gh/dooboolab/talktalk-rn)
 [![codecov](https://codecov.io/gh/dooboolab/talktalk-rn/branch/master/graph/badge.svg)](https://codecov.io/gh/dooboolab/talktalk-rn)
-[![CircleCI](https://circleci.com/gh/dooboolab/talktalk-rn.svg?style=svg)](https://circleci.com/gh/dooboolab/talktalk-rn)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
+[![All Contributors](https://img.shields.io/badge/all_contributors-0-orange.svg?style=flat-square)](#contributors)
+[![Slack](https://img.shields.io/badge/slack-dooboolab-purple.svg)](https://dooboolab.com/joinSlack)
+
+![m63gkogvnu](https://user-images.githubusercontent.com/27461460/53927695-ffc23580-40ca-11e9-91cd-aadb42eb49a1.gif)
 
 > Specification
 * flow
+* styeld-component
+* react-hook
 * react-navigation
 * localization
 * jest
+* react-native-testing-library
 
 # Gain points
 ```

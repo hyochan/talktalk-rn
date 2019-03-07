@@ -7,112 +7,65 @@ import Button from '../../shared/Button';
 
 // Note: test renderer must be required after react-native.
 import renderer from 'react-test-renderer';
-import { shallow, render } from 'enzyme';
+import { render, fireEvent } from 'react-native-testing-library';
 
-let props;
-let wrapper;
-let tree;
-let instance;
+const props = {
+  navigation: {
+    navigate: jest.fn(),
+  },
+};
+const component: React.Element<any> = <Login {...props}/>;
 
-describe('rendering test', () => {
-  beforeEach(() => {
-    props = {
-      navigation: {
-        navigate: jest.fn(),
-      },
-    };
-    wrapper = shallow(<Login {...props} />);
-    tree = renderer.create(<Login {...props} />).toJSON();
-    instance = renderer.create(<Login {...props} />).getInstance();
-  });
-  const findElement = function (tree, element) {
-    let result = undefined;
-    for (let node in tree.children) {
-      if (tree.children[node].props.txt==element) {
-        result = true;
-      }
-    }
-    return result;
-  };
-
+describe('[Login] rendering test', () => {
   it('renders as expected', () => {
-    expect(wrapper).toMatchSnapshot();
-  });
-
-  it('renders initial state', () => {
-    expect(instance.state.email).toEqual('');
-    expect(instance.state.pw).toEqual('');
-    expect(instance.state.isLoggingIn).toEqual(false);
-  });
-
-  it('find all components', () => {
-    // expect(wrapper.find('StyledScollView')).toHaveLength(1);
-    // expect(wrapper.find('StatusBar')).toHaveLength(0);
-    expect(wrapper.find(TextInput)).toHaveLength(2);
-    expect(wrapper.find(Button)).toHaveLength(2);
-    // expect(wrapper.find('Text').at(0)).toHaveLength(1);
-    // expect(wrapper.find('Text').at(0).children).toHaveLength(1);
-  });
-
-  it('find elements', () => {
-    expect(findElement(tree, getString('EMAIL')));
-    expect(findElement(tree, getString('PASSWORD')));
-  });
-
-  it('all functions defined', () => {
-    expect(instance.onLogin).toBeDefined;
-    expect(instance.onTextChanged).toBeDefined;
-    expect(instance.goToSignup).toBeDefined;
-    expect(instance.goToForgotPw).toBeDefined;
-  });
-
-  it('onTextChanged', () => {
-    instance.onTextChanged('EMAIL', 'aa@aa.aa');
-    expect(instance.state.email).toEqual('aa@aa.aa');
-    instance.onTextChanged('PW', 'aaaaaa');
-    expect(instance.state.pw).toEqual('aaaaaa');
+    const json = renderer.create(component).toJSON();
+    expect(json).toMatchSnapshot();
   });
 });
 
-describe('interaction', () => {
-  beforeEach(() => {
-    props = {
-      navigation: {
-        navigate: jest.fn(),
-      },
-    };
-    wrapper = shallow(<Login {...props} />);
-    tree = renderer.create(<Login {...props} />).toJSON();
-    instance = renderer.create(<Login {...props} />).getInstance();
+describe('[Login] interaction', () => {
+  let rendered: renderer.ReactTestRenderer;
+  let root: renderer.ReactTestInstance;
+  let testingLib: any;
+
+  beforeAll(() => {
+    rendered = renderer.create(component);
+    root = rendered.root;
+    testingLib = render(component);
   });
-  describe('clicking the button', () => {
-    it('should call onLogin callback', () => {
-      const spy = jest.spyOn(wrapper.instance(), 'onLogin');
-      const loginBtn = wrapper.find('#login');
-      loginBtn.props().onPress();
-      expect(spy).toHaveBeenCalled();
-      expect(wrapper.instance().state.isLoggingIn).toEqual(false);
-      // wrapper.update();
-      // expect(wrapper.instance().state.isLoggingIn).toEqual(true);
-      // wrapper.update();
-      // expect(wrapper.instance().state.isLoggingIn).toEqual(false);
-    });
-    it('should call goToSignup callback', () => {
-      const spy = jest.spyOn(wrapper.instance(), 'goToSignup');
-      const signupBtn = wrapper.find('#signup');
-      signupBtn.props().onPress();
-      expect(spy).toBeCalled();
-      expect(props.navigation.navigate).toHaveBeenCalledWith('Signup');
-    });
-    it('should call goToForgotPw callack', () => {
-      const findPwBtn = wrapper.find('TouchableOpacity');
-      findPwBtn.props().onPress();
-      expect(props.navigation.navigate).toHaveBeenCalledWith('FindPw');
-    });
+
+  it('should invoke changeText event handler when email changed ', () => {
+    const emailInput = testingLib.getByTestId('email_input');
+    emailInput.props.onTextChanged('email test');
+    expect(emailInput.props.txt).toEqual('email test');
   });
-  afterAll(() => {
-    wrapper.instance().prototype.onLogin.mockRestore();
-    wrapper.instance().prototype.goToSignup.mockRestore();
-    wrapper.instance().prototype.goToFindPw.mockRestore();
+
+  it('should invoke changeText event handler when password changed ', () => {
+    const passwordInput = testingLib.getByTestId('pw_input');
+    passwordInput.props.onTextChanged('pw test');
+    expect(passwordInput.props.txt).toEqual('pw test');
+  });
+
+  it('should simulate when [goToSignUp] is clicked', () => {
+    const buttons = root.findAllByType(Button);
+    buttons[0].props.onPress();
+    expect(props.navigation.navigate).toBeCalledWith('SignUp');
+  });
+
+  it('should simulate when [onLogin] is clicked', () => {
+    jest.useFakeTimers();
+    const buttons = root.findAllByType(Button);
+    fireEvent(testingLib.getByTestId('btnLogin'), 'press');
+
+    expect(setTimeout).toHaveBeenCalledTimes(1);
+    jest.runAllTimers();
+    expect(clearTimeout).toHaveBeenCalledTimes(1);
+    expect(buttons[0].props.isLoading).toEqual(false);
+  });
+
+  it('should simulate when [goToForgotPw] is clicked', () => {
+    const findPwBtn = testingLib.getByTestId('findPw');
+    fireEvent(findPwBtn, 'press');
+    expect(props.navigation.navigate).toHaveBeenCalledWith('FindPw');
   });
 });

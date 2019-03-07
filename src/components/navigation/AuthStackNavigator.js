@@ -11,7 +11,14 @@ import { getString } from '../../../STRINGS';
 
 const StackNavigator = createStackNavigator(
   {
-    Login: { screen: Login },
+    Login: {
+      screen: Login,
+      navigationOptions: {
+        headerStyle: {
+          borderBottomWidth: 0,
+        },
+      },
+    },
     Signup: {
       screen: Signup,
       navigationOptions: {

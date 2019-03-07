@@ -6,6 +6,8 @@ import {
   Image,
   Text,
   View,
+  Dimensions,
+  PixelRatio,
 } from 'react-native';
 
 import styled from 'styled-components/native';
@@ -20,14 +22,14 @@ import type {
 } from 'react-native/Libraries/StyleSheet/StyleSheetTypes';
 
 import { Chat } from '../../models/Chat';
-import { ratio, colors } from '../../utils/Styles';
+import { ratio, colors, screenWidth } from '../../utils/Styles';
 import { User } from '../../models/User';
+import { TouchableOpacity } from 'react-native-gesture-handler';
 
 const StyledWrapperPeer = styled.View`
   min-height: 48;
-  width: 100%;
   flexDirection: row;
-  alignItems: flex-end;
+  alignItems: flex-start;
   justifyContent: flex-start;
   margin-left: 20;
   margin-right: 8;
@@ -60,7 +62,7 @@ const StyledWrapperMy = styled.View`
   width: 100%;
   margin-top: 20;
 
-  flex-direction: row;
+  flex-direction: column;
   align-items: flex-end;
   justify-content: flex-end;
 `;
@@ -68,7 +70,8 @@ const StyledWrapperMy = styled.View`
 const StyledTextDate = styled.Text`
   font-size: 12;
   color: ${colors.cloudyBlue},
-  margin-left: 20;
+  margin-top: 4;
+  margin-right: 20;
 `;
 
 const StyledTextMessage = styled.Text`
@@ -79,6 +82,7 @@ const StyledTextMessage = styled.Text`
 type Props = {
   item: Chat,
   prevItem?: Chat,
+  onPressPeerImage?: Function,
 };
 
 const myFakeUid = '2'; // TODO: temporary
@@ -89,15 +93,20 @@ function Shared(props: Props) {
     props.item.sender.uid !== myFakeUid // peer message
     ? <StyledWrapperPeer style={{
       marginTop: isSamePeerMsg ? 0 : 20,
+      marginRight: 80,
     }}>
       <View style={{ marginRight: 8 }}>
-        {
-          props.item.sender.photoURL !== ''
-            ? <StyledImageSender source={props.item.sender.photoURL}/>
-            : isSamePeerMsg
-              ? <View style={{ width: 40 }} />
-              : <Icon5 name="meh" size={40} color={colors.dusk} light/>
-        }
+        <TouchableOpacity
+          onPress={props.onPressPeerImage}
+        >
+          {
+            props.item.sender.photoURL !== ''
+              ? <StyledImageSender source={props.item.sender.photoURL}/>
+              : isSamePeerMsg
+                ? <View style={{ width: 40 }} />
+                : <Icon5 name="meh" size={40} color={colors.dusk} light/>
+          }
+        </TouchableOpacity>
       </View>
       <View style={{flexDirection: 'column' }}>
         {
@@ -117,30 +126,24 @@ function Shared(props: Props) {
             width: 0,
             height: 2,
           },
+          marginVertical: 4,
         }}><StyledTextPeerMessage
           >{props.item.message}</StyledTextPeerMessage>
         </View>
+        <StyledTextPeerDate>
+          {
+            props.item.created
+              ? `${moment(props.item.created).hour()} : ${moment(props.item.created).minutes()}`
+              : '0 : 0'
+          }
+        </StyledTextPeerDate>
       </View>
-      <StyledTextPeerDate>
-        {
-          props.item.created
-            ? `${moment(props.item.created).hour()} : ${moment(props.item.created).minutes()}`
-            : '0 : 0'
-        }
-      </StyledTextPeerDate>
     </StyledWrapperPeer>
     : <StyledWrapperMy>
-     <StyledTextDate>
-        {
-          props.item.created
-            ? `${moment(props.item.created).hour()} : ${moment(props.item.created).minutes()}`
-            : '0 : 0'
-        }
-      </StyledTextDate>
       <LinearGradient
         start={{ x: 0.2, y: 0.4 }} end={{ x: 1.0, y: 0.8 }}
         locations={[0, 0.85]}
-        colors={['rgb(100,199,255)', colors.dodgerBlue]}
+        colors={['rgb(100,152,212)', colors.dodgerBlue]}
         style={{
           marginHorizontal: 20,
           marginLeft: 8,
@@ -149,8 +152,15 @@ function Shared(props: Props) {
           borderRadius: 1,
           borderRadius: 3,
         }}>
-        <StyledTextMessage>hello</StyledTextMessage>
+        <StyledTextMessage>{props.item.message}</StyledTextMessage>
       </LinearGradient>
+      <StyledTextDate>
+        {
+          props.item.created
+            ? `${moment(props.item.created).hour()} : ${moment(props.item.created).minutes()}`
+            : '0 : 0'
+        }
+      </StyledTextDate>
     </StyledWrapperMy>
   );
 }

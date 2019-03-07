@@ -4,6 +4,7 @@ exports[`rendering test renders as expected 1`] = `
 <Styled(View)
   style={
     Object {
+      "marginRight": 80,
       "marginTop": 20,
     }
   }
@@ -15,13 +16,23 @@ exports[`rendering test renders as expected 1`] = `
       }
     }
   >
-    <FA5iconClass
-      color="rgb(65,77,107)"
-      light={true}
-      name="meh"
-      size={40}
-      solid={false}
-    />
+    <TouchableOpacity
+      activeOpacity={0.2}
+      delayLongPress={600}
+      extraButtonProps={
+        Object {
+          "rippleColor": "transparent",
+        }
+      }
+    >
+      <FA5iconClass
+        color="rgb(65,77,107)"
+        light={true}
+        name="meh"
+        size={40}
+        solid={false}
+      />
+    </TouchableOpacity>
   </View>
   <View
     style={
@@ -39,6 +50,7 @@ exports[`rendering test renders as expected 1`] = `
           "borderRadius": 3,
           "borderWidth": 1,
           "marginRight": 8,
+          "marginVertical": 4,
           "padding": 12,
           "shadowColor": undefined,
           "shadowOffset": Object {
@@ -50,9 +62,9 @@ exports[`rendering test renders as expected 1`] = `
     >
       <Styled(Text) />
     </View>
+    <Styled(Text)>
+      0 : 0
+    </Styled(Text)>
   </View>
-  <Styled(Text)>
-    0 : 0
-  </Styled(Text)>
 </Styled(View)>
 `;

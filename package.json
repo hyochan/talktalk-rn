@@ -17,6 +17,7 @@
     "android:log": "adb logcat '*:S' ReactNative:V ReactNativeJS:V",
     "android:apk": "cd android && ./gradlew assembleRelease",
     "android:release": "node node_modules/react-native/local-cli/cli.js run-android --variant=release",
+    "codecov": "codecov",
     "circleci:node": "circleci build --job node",
     "circleci:android": "circleci build --job android",
     "fix:react-navigation": "sed -i '' 's/ TabRouter/ tabRouter/g' ./node_modules/react-navigation/src/navigators/DrawerNavigator.js && sed -i '' 's/ StackRouter/ stackRouter/g' ./node_modules/react-navigation/src/navigators/StackNavigator.js && sed -i '' 's/ TabRouter/ tabRouter/g' ./node_modules/react-navigation/src/navigators/TabNavigator.js && sed -i '' 's/ SwitchRouter/ switchRouter/g' ./node_modules/react-navigation/src/navigators/SwitchNavigator.js",

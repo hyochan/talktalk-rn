@@ -58,6 +58,12 @@ jobs:
           environment:
             JEST_JUNIT_OUTPUT: test-results/jest/junit.xml
 
+      - run:
+          name: Coverage
+          working_directory: .
+          command: |
+            npm run codecov -- -t d7babaa6-7370-43a3-9b26-a2147d466e3e
+
       - store_test_results:
           path: coverage
 

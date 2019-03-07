@@ -4,51 +4,40 @@ import Button from '../Button';
 
 // Note: test renderer must be required after react-native.
 import renderer from 'react-test-renderer';
-import { shallow, render } from 'enzyme';
+import { render, fireEvent } from 'react-native-testing-library';
 
-describe('Button', () => {
-  it('renders without crashing', () => {
-    const rendered = renderer.create(<Button />).toJSON();
-    expect(rendered).toMatchSnapshot();
-    expect(rendered).toBeTruthy();
+let cnt = 0;
+const onPress = () => {
+  cnt++;
+};
+const component: React.Element<any> = <Button onPress={onPress}/>;
+
+describe('[Button] rendering test', () => {
+  it('renders [enabled] as expected', () => {
+    const json = renderer.create(component).toJSON();
+    expect(json).toMatchSnapshot();
+  });
+  it('renders [disabled] as expected', () => {
+    const disabledComponent: React.Element<any> = <Button isDisabled={true}/>;
+    const json = renderer.create(disabledComponent).toJSON();
+    expect(json).toMatchSnapshot();
+  });
+});
+
+describe('[Button] interaction', () => {
+  let rendered: renderer.ReactTestRenderer;
+  let root: renderer.ReactTestInstance;
+  let testingLib: any;
+
+  beforeAll(() => {
+    rendered = renderer.create(component);
+    root = rendered.root;
+    testingLib = render(component);
   });
 
-  describe('component test', () => {
-    const wrapper = shallow(
-      <Button />,
-    );
-
-    it('renders as expected', () => {
-      expect(wrapper).toMatchSnapshot();
-      wrapper.setProps({ filled: false });
-      expect(wrapper).toMatchSnapshot();
-      wrapper.setProps({ isDisabled: true });
-      wrapper.update();
-      expect(wrapper).toMatchSnapshot();
-      wrapper.setProps({ isLoading: true });
-      wrapper.update();
-      expect(wrapper).toMatchSnapshot();
-      // don't know if below is working
-      expect(wrapper.find('ActivityIndicator').last()).toHaveLength(1);
-    });
-
-    it('simulate onPress', () => {
-      // reset props to render correctly
-      wrapper.setProps({
-        filled: false,
-        isDisabled: false,
-        isLoading: false,
-      });
-      let cnt = 1;
-      const onPress = () => {
-        cnt++;
-      };
-
-      wrapper.setProps({ onPress: () => onPress()});
-      expect(wrapper).toMatchSnapshot();
-
-      wrapper.find('TouchableOpacity').props().onPress();
-      expect(cnt).toBe(2);
-    });
+  it('should fireEvent when peer image is pressed', () => {
+    const touchBtn = testingLib.getByTestId('press_id');
+    fireEvent(touchBtn, 'press');
+    expect(cnt).toEqual(1);
   });
 });

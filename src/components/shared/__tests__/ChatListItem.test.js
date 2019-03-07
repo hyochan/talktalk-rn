@@ -17,10 +17,6 @@ describe('[ChatListItem] rendering test', () => {
     const json = renderer.create(component).toJSON();
     expect(json).toMatchSnapshot();
   });
-  it('renders [myMessage] as expected', () => {
-    const json = renderer.create(component).toJSON();
-    expect(json).toMatchSnapshot();
-  });
 });
 
 describe('[ChatListItem] interaction', () => {

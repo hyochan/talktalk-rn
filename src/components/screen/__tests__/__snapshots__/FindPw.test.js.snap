@@ -134,6 +134,7 @@ exports[`[FindPw] rendering test renders as expected 1`] = `
                   "opacity": 1,
                 }
               }
+              testID="press_id"
             >
               <View
                 style={

@@ -45,7 +45,6 @@ app/
 │  └─ utils
 │  └─ index.js
 ├─ test/
-├─ .babelrc
 ├─ .buckconfig
 ├─ .eslintignore
 ├─ .eslintrc.js
@@ -54,6 +53,7 @@ app/
 ├─ .gitignore
 ├─ .watchmanconfig
 ├─ app.json
+├─ babel.config.js
 ├─ index.js
 ├─ package.json
 ├─ README.md
@@ -115,10 +115,10 @@ NativeModules.ReactLocalization = {
 ```
 
 ## React version
-16.6.3
+16.8
 
 ## React Native version
-0.58
+0.59
 
 ## React navigation
 3

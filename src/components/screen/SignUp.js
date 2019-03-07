@@ -24,14 +24,6 @@ import StatusBar from '../shared/StatusBar';
 import { ratio, colors } from '../../utils/Styles';
 import { getString } from '../../../STRINGS';
 
-type Styles = {
-  container: ViewStyle,
-  scrollView: ViewStyle,
-  scrollViewContainer: ViewStyle,
-  wrapper: ViewStyle,
-  btnWrapper: ViewStyle,
-};
-
 const StyledContainer = styled.View`
   flex:1;
   background-color: white;

@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`[Signup] rendering test renders as expected 1`] = `
+exports[`[SignUp] rendering test renders as expected 1`] = `
 <View
   style={
     Array [

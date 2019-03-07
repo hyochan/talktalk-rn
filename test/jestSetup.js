@@ -44,3 +44,8 @@ NativeModules.PlatformConstants = {
 //     directEventTypes: {},
 //   }),
 // };
+
+jest.mock('react-native-vector-icons/FontAwesome5', () => {
+  const mockComponent = require('react-native/jest/mockComponent');
+  return mockComponent('react-native-vector-icons/FontAwesome5');
+});

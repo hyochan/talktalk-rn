@@ -3,10 +3,11 @@
   "projectOwner": "dooboolab",
   "repoType": "github",
   "repoHost": "https://github.com",
-  "files": ["README.md"],
+  "files": [
+    "README.md"
+  ],
   "imageSize": 100,
   "badgeTemplate": "[![All Contributors](https://img.shields.io/badge/all_contributors-<%= contributors.length %>-orange.svg?style=flat-square)](#contributors)",
-  "contributorTemplate": "<%= avatarBlock %><br /><%= contributions %>",
   "types": {
     "custom": {
       "symbol": "🔭",
@@ -14,7 +15,34 @@
       "link": "[<%= symbol %>](<%= url %> \"<%= description %>\"),"
     }
   },
-  "contributors": [],
+  "contributors": [
+    {
+      "login": "hyochan",
+      "name": "Hyo Chan Jang",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/27461460?v=4",
+      "profile": "http://dooboolab.com",
+      "contributions": [
+        "code",
+        "doc",
+        "eventOrganizing",
+        "maintenance",
+        "talk",
+        "test"
+      ]
+    },
+    {
+      "login": "geoseong",
+      "name": "TaeSeong Park",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/19166187?v=4",
+      "profile": "https://github.com/geoseong",
+      "contributions": [
+        "code",
+        "doc",
+        "example",
+        "maintenance"
+      ]
+    }
+  ],
   "contributorsPerLine": 7,
   "commit": true
 }

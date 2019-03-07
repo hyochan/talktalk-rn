@@ -41,6 +41,21 @@
         "example",
         "maintenance"
       ]
+    },
+    {
+      "login": "cometkim",
+      "name": "Hyeseong Kim",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/9696352?v=4",
+      "profile": "https://blog.cometkim.kr",
+      "contributions": [
+        "doc",
+        "example",
+        "ideas",
+        "infra",
+        "security",
+        "talk",
+        "test"
+      ]
     }
   ],
   "contributorsPerLine": 7,

@@ -34,6 +34,8 @@ describe('[Login] interaction', () => {
 
   it('should invoke changeText event handler when message changed', () => {
     const textInput = testingLib.getByTestId('input_chat');
+    jest.useFakeTimers();
+    jest.runAllTimers();
     fireEvent.changeText(textInput, 'chat test');
     expect(textInput.props.value).toEqual('chat test');
   });
@@ -54,9 +56,6 @@ describe('[Login] interaction', () => {
   it('should call [setShowMenu] when focused', () => {
     const touchMenu = testingLib.getByTestId('touch_menu');
     fireEvent(touchMenu, 'press');
-
-    const textInput = testingLib.getByTestId('input_chat');
-    textInput.props.onFocus();
   });
 
   it('should [sendChat] when pressing button', () => {

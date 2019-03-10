@@ -15,12 +15,18 @@ import ProfileModal from '../shared/ProfileModal';
 import StatusBar from '../shared/StatusBar';
 import { colors } from '../../utils/Styles';
 import { ProfileModalProvider, ProfileModalConsumer } from '../../providers/ProfileModalProvider';
+import { getString } from '../../../STRINGS';
 
 const routeConfig = {
   Main: { screen: MainTabNavigator, navigationOptions: MainTabNavigationOptions },
   ProfileUpdate: { screen: ProfileUpdate },
   SearchUser: { screen: SearchUser },
-  Chat: { screen: Chat },
+  Chat: {
+    screen: Chat,
+    navigationOptions: {
+      title: getString('CHAT'),
+    },
+  },
 };
 
 export const commonNavigationOptions = {

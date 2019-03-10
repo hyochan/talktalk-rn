@@ -91,7 +91,6 @@ const StyledViewBottom = styled.View`
 `;
 
 const StyledViewMenu = styled.View`
-  height: 258;
   background-color: green;
 `;
 
@@ -131,11 +130,11 @@ type State = {
 };
 
 function Screen(props: Props, state: State) {
-  let keyboardDidShowListener: any;
-  let keyboardDidHideListener: any;
+  let keyboardShowListener: any;
 
   const input1 = useRef(null);
   const input2 = useRef(null);
+  const [keyboardHeight, setKeyboardHeight] = useState(258);
   const [isLoading, setIsLoading] = useState(false);
   const [showMenu, setShowMenu] = useState(false);
   const [message, setMessage] = useState('');
@@ -198,12 +197,12 @@ function Screen(props: Props, state: State) {
   }, [showMenu]);
 
   useEffect(() => {
-    Keyboard.addListener('keyboardDidShow', (e) => {
-      console.log('keyboardHeight', e.endCoordinates.height);
+    keyboardShowListener = Keyboard.addListener('keyboardDidShow', (e) => {
+      setKeyboardHeight(e.endCoordinates.height);
     });
     return () => {
-      if (keyboardDidShowListener) {
-        keyboardDidShowListener.remove();
+      if (keyboardShowListener) {
+        keyboardShowListener.remove();
       }
     };
   });
@@ -309,7 +308,9 @@ function Screen(props: Props, state: State) {
                 textStyle={styles.txtSend}
               >{getString('SEND')}</Button>
             </StyledViewChat>
-            <StyledViewMenu />
+            <StyledViewMenu style={{
+              height: keyboardHeight,
+            }}/>
           </StyledViewBottom>
           : null
       }

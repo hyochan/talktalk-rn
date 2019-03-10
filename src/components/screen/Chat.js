@@ -1,5 +1,10 @@
 // @flow
-import React, { Component } from 'react';
+import React, {
+  Component,
+  useState,
+  useEffect,
+  useRef,
+} from 'react';
 import {
   SafeAreaView,
   StyleSheet,
@@ -13,6 +18,7 @@ import {
   KeyboardAvoidingView,
   FlatList,
 } from 'react-native';
+import styled from 'styled-components/native';
 
 import { Header } from 'react-navigation';
 
@@ -33,63 +39,68 @@ import { getString } from '../../../STRINGS';
 import { Chat } from '../../models/Chat';
 import { User } from '../../models/User';
 
+const StyledContainer = styled.SafeAreaView`
+  flex: 1;
+  background-color: white;
+  flex-direction: column;
+  align-items: center;
+`;
+
+const StyledKeyboardAvoidingView = styled.KeyboardAvoidingView`
+  flex: 1;
+  justify-content: center;
+  align-self: stretch;
+
+  flex-direction: column;
+  align-items: center;
+`;
+
+const StyledViewChat = styled.View`
+  width: 100%;
+  border-top-width: 0.5;
+  border-color: rgb(225,225,225);
+  background-color: white;
+  min-height: 52;
+  max-height: 100;
+
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+`;
+
+const StyledInputChat = styled.TextInput`
+  width: 80%;
+  font-size: 14;
+  margin-right: 20;
+  padding-left: 48;
+  color: black;
+`;
+
+const StyledTouchMenu = styled.TouchableOpacity`
+  position: absolute;
+  left: 10;
+  height: 100%;
+  minWidth: 20;
+  justifyContent: center;
+`;
+
+const StyledViewBottom = styled.View`
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+`;
+
+const StyledViewMenu = styled.View`
+  height: 258;
+  background-color: green;
+`;
+
 type Styles = {
-  container: ViewStyle,
-  content: ViewStyle,
-  viewChat: ViewStyle,
-  inputChat: TextStyle,
-  touchMenu: ViewStyle,
-  imgMenu: ImageStyle,
   btnSend: ViewStyle,
   txtSend: TextStyle,
-  viewBottom: ViewStyle,
-  viewMenu: ViewStyle,
 };
 
 const styles: Styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: 'white',
-    flexDirection: 'column',
-    alignItems: 'center',
-  },
-  content: {
-    flex: 1,
-    justifyContent: 'center',
-    alignSelf: 'stretch',
-
-    flexDirection: 'column',
-    alignItems: 'center',
-  },
-  viewChat: {
-    width: '100%',
-    borderTopWidth: 0.5,
-    borderColor: 'rgb(225,225,225)',
-    minHeight: 52,
-    maxHeight: 100,
-
-    flexDirection: 'row',
-    justifyContent: 'flex-end',
-    alignItems: 'center',
-  },
-  inputChat: {
-    width: '80%',
-    fontSize: 14,
-    marginRight: 20,
-    paddingLeft: 48,
-    color: 'black',
-  },
-  touchMenu: {
-    position: 'absolute',
-    left: 10,
-    height: '100%',
-    minWidth: 20,
-    justifyContent: 'center',
-  },
-  imgMenu: {
-    width: 20,
-    height: 20,
-  },
   btnSend: {
     right: 8,
     backgroundColor: colors.dodgerBlue,
@@ -107,15 +118,6 @@ const styles: Styles = StyleSheet.create({
     paddingHorizontal: 5,
     paddingVertical: 10,
   },
-  viewBottom: {
-    position: 'absolute',
-    bottom: 0,
-    width: '100%',
-  },
-  viewMenu: {
-    height: 258,
-    backgroundColor: 'green',
-  },
 });
 
 type Props = {
@@ -128,205 +130,191 @@ type State = {
   chats: Chat[],
 };
 
-class Screen extends Component<Props, State> {
-  static navigationOptions = {
-    title: getString('CHAT'),
-  };
+function Screen(props: Props, state: State) {
+  let keyboardDidShowListener: any;
+  let keyboardDidHideListener: any;
 
-  input1: any;
-  input2: any;
-  keyboardDidShowListener: any;
-  keyboardDidHideListener: any;
+  const input1 = useRef(null);
+  const input2 = useRef(null);
+  const [isLoading, setIsLoading] = useState(false);
+  const [showMenu, setShowMenu] = useState(false);
+  const [message, setMessage] = useState('');
+  const [chats, setChats] = useState([
+    new Chat(
+      '',
+      new User(
+        '0',
+        'sender111',
+        '',
+      ),
+      'hello1',
+    ),
+    new Chat(
+      '',
+      new User(
+        '0',
+        'sender111',
+        '',
+      ),
+      'Hello2. This is long message. This is long message. This is long message. This is long message. This is long message. This is long message. This is long message. This is long message. This is long message. This is long message. This is long message.',
+    ),
+    new Chat(
+      '',
+      new User(
+        '1',
+        'sender2222',
+        '',
+      ),
+      'hello',
+    ),
+    new Chat(
+      '',
+      new User(
+        '2',
+        'sender2222',
+        '',
+      ),
+      'hello',
+    ),
+    new Chat(
+      '',
+      new User(
+        '2',
+        'sender2222',
+        '',
+      ),
+      'hello. This is my long message. This is my long message. This is my long message. This is my long message. This is my long message. This is my long message. This is my long message. This is my long message. This is my long message.',
+    ),
+  ]);
 
-  constructor(props: Props) {
-    super(props);
-    this.state = {
-      isLoading: false,
-      showMenu: false,
-      message: '',
-      chats: [
-        new Chat(
-          '',
-          new User(
-            '0',
-            'sender111',
-            '',
-          ),
-          'hello1',
-        ),
-        new Chat(
-          '',
-          new User(
-            '0',
-            'sender111',
-            '',
-          ),
-          'Hello2. This is long message. This is long message. This is long message. This is long message. This is long message. This is long message. This is long message. This is long message. This is long message. This is long message. This is long message.',
-        ),
-        new Chat(
-          '',
-          new User(
-            '1',
-            'sender2222',
-            '',
-          ),
-          'hello',
-        ),
-        new Chat(
-          '',
-          new User(
-            '2',
-            'sender2222',
-            '',
-          ),
-          'hello',
-        ),
-        new Chat(
-          '',
-          new User(
-            '2',
-            'sender2222',
-            '',
-          ),
-          'hello. This is my long message. This is my long message. This is my long message. This is my long message. This is my long message. This is my long message. This is my long message. This is my long message. This is my long message.',
-        ),
-      ],
-    };
-  }
+  useEffect(() => {
+    if (showMenu) {
+      Keyboard.dismiss();
+    } else {
+      if (input1 && input1.current) {
+        input1.current.focus();
+      }
+    }
+  }, [showMenu]);
 
-  componentDidMount() {
-    this.keyboardDidShowListener = Keyboard.addListener('keyboardDidShow', (e) => {
+  useEffect(() => {
+    Keyboard.addListener('keyboardDidShow', (e) => {
       console.log('keyboardHeight', e.endCoordinates.height);
     });
-  }
+    return () => {
+      if (keyboardDidShowListener) {
+        keyboardDidShowListener.remove();
+      }
+    };
+  });
 
-  componentWillUnmount() {
-    this.keyboardDidShowListener.remove();
-  }
-
-  render() {
-    return (
-      <SafeAreaView style={styles.container}>
-        <KeyboardAvoidingView
-          keyboardVerticalOffset = {Header.HEIGHT + 24}
-          behavior={Platform.select({
-            'android': null,
-            'ios': 'padding',
-          })}
-          style={ styles.content }
-        >
-          <FlatList
-            style={{
-              alignSelf: 'stretch',
-            }}
-            contentContainerStyle={
-              this.state.chats.length === 0
-                ? {
-                  flex: 1,
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                }
-                : null
-            }
-            keyExtractor={(item, index) => index.toString()}
-            data={this.state.chats}
-            renderItem={this.renderItem}
-            ListEmptyComponent={<EmptyListItem>{getString('NO_CONTENT')}</EmptyListItem>}
-          />
-          {
-            !this.state.showMenu
-              ? <View
-                style={styles.viewChat}
-              >
-                <TextInput
-                  ref={(v) => this.input1 = v}
-                  style={styles.inputChat}
-                  multiline={true}
-                  placeholder={ getString('WRITE_MESSAGE') }
-                  placeholderTextColor={ colors.cloudyBlue }
-                  value={this.state.message}
-                  defaultValue={this.state.message}
-                  onChangeText={(text) => this.setState({ message: text })}
-                />
-                <TouchableOpacity
-                  style={styles.touchMenu}
-                  onPress={this.showMenu}
-                >
-                  <Image style={styles.imgMenu} source={IC_SMILE}/>
-                </TouchableOpacity>
-                <Button
-                  isLoading={this.state.isLoading}
-                  onPress={this.sendChat}
-                  style={styles.btnSend}
-                  textStyle={styles.txtSend}
-                >{getString('SEND')}</Button>
-              </View>
-              : null
-          }
-        </KeyboardAvoidingView>
-        {
-          this.state.showMenu
-            ? <View style={styles.viewBottom}>
-              <View style={styles.viewChat}>
-                <TextInput
-                  ref={(v) => this.input2 = v}
-                  multiline={true}
-                  onFocus={() => this.setState({ showMenu: false }, () => {
-                    if (this.input1) {
-                      this.input1.focus();
-                    }
-                  })}
-                  style={styles.inputChat}
-                  placeholder={ getString('WRITE_MESSAGE') }
-                  placeholderTextColor={ colors.cloudyBlue }
-                  value={this.state.message}
-                  defaultValue={this.state.message}
-                />
-                <TouchableOpacity
-                  style={styles.touchMenu}
-                  onPress={this.showMenu}
-                >
-                  <Image style={styles.imgMenu} source={IC_SMILE}/>
-                </TouchableOpacity>
-                <Button
-                  isLoading={this.state.isLoading}
-                  onPress={this.sendChat}
-                  style={styles.btnSend}
-                  textStyle={styles.txtSend}
-                >{getString('SEND')}</Button>
-              </View>
-              <View style={styles.viewMenu}/>
-            </View>
-            : null
-        }
-      </SafeAreaView>
-    );
-  }
-
-  renderItem = ({ item, index } : any) => {
+  const renderItem = ({ item, index } : any) => {
     return (
       <ChatListItem
-        prevItem={index > 0 ? this.state.chats[ index - 1 ] : null}
+        prevItem={index > 0 ? chats[ index - 1 ] : null}
         item={item}
       />
     );
-  }
+  };
 
-  sendChat = () => {
+  const sendChat = () => {
     console.log('sendChat');
-  }
+  };
 
-  showMenu = () => {
-    console.log('showMenu');
-    Keyboard.dismiss();
-    this.setState({
-      showMenu: !this.state.showMenu,
-    });
-  }
+  const goBack = () => {
+    props.navigation.goBack();
+  };
 
-  goBack = () => {
-    this.props.navigation.goBack();
-  }
+  return (
+    <StyledContainer>
+      <StyledKeyboardAvoidingView
+        keyboardVerticalOffset = {Header.HEIGHT + 24}
+        behavior={Platform.select({
+          'android': null,
+          'ios': 'padding',
+        })}
+      >
+        <FlatList
+          style={{ alignSelf: 'stretch' }}
+          contentContainerStyle={
+            chats.length === 0
+              ? {
+                flex: 1,
+                alignItems: 'center',
+                justifyContent: 'center',
+              }
+              : null
+          }
+          keyExtractor={(item, index) => index.toString()}
+          data={chats}
+          renderItem={renderItem}
+          ListEmptyComponent={<EmptyListItem>{getString('NO_CONTENT')}</EmptyListItem>}
+        />
+        {
+          !showMenu
+            ? <StyledViewChat>
+              <StyledInputChat
+                ref={input1}
+                onFocus={() => setShowMenu(false)}
+                multiline={true}
+                placeholder={ getString('WRITE_MESSAGE') }
+                placeholderTextColor={ colors.cloudyBlue }
+                value={message}
+                defaultValue={message}
+                onChangeText={(text) => setMessage(text)}
+              />
+              <StyledTouchMenu
+                onPress={() => setShowMenu(true)}
+              >
+                <Image style={{
+                  width: 20,
+                  height: 20,
+                }} source={IC_SMILE}/>
+              </StyledTouchMenu>
+              <Button
+                isLoading={isLoading}
+                onPress={sendChat}
+                style={styles.btnSend}
+                textStyle={styles.txtSend}
+              >{getString('SEND')}</Button>
+            </StyledViewChat>
+            : null
+        }
+      </StyledKeyboardAvoidingView>
+      {
+        showMenu
+          ? <StyledViewBottom>
+            <StyledViewChat>
+              <StyledInputChat
+                ref={input2}
+                onFocus={() => setShowMenu(false)}
+                multiline={true}
+                placeholder={ getString('WRITE_MESSAGE') }
+                placeholderTextColor={ colors.cloudyBlue }
+                value={message}
+                defaultValue={message}
+              />
+              <StyledTouchMenu
+                onPress={() => setShowMenu(false)}
+              >
+                <Image style={{
+                  width: 20,
+                  height: 20,
+                }} source={IC_SMILE}/>
+              </StyledTouchMenu>
+              <Button
+                isLoading={isLoading}
+                onPress={sendChat}
+                style={styles.btnSend}
+                textStyle={styles.txtSend}
+              >{getString('SEND')}</Button>
+            </StyledViewChat>
+            <StyledViewMenu />
+          </StyledViewBottom>
+          : null
+      }
+    </StyledContainer>
+  );
 }
 
 export default Screen;

@@ -284,7 +284,6 @@ function Screen(props: Props, state: State) {
           ? <StyledViewBottom>
             <StyledViewChat>
               <StyledInputChat
-                testID='input_chat'
                 ref={input2}
                 onFocus={() => setShowMenu(false)}
                 multiline={true}

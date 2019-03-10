@@ -220,10 +220,6 @@ function Screen(props: Props, state: State) {
     console.log('sendChat');
   };
 
-  const goBack = () => {
-    props.navigation.goBack();
-  };
-
   return (
     <StyledContainer>
       <StyledKeyboardAvoidingView
@@ -253,6 +249,7 @@ function Screen(props: Props, state: State) {
           !showMenu
             ? <StyledViewChat>
               <StyledInputChat
+                testID='input_chat'
                 ref={input1}
                 onFocus={() => setShowMenu(false)}
                 multiline={true}
@@ -263,6 +260,7 @@ function Screen(props: Props, state: State) {
                 onChangeText={(text) => setMessage(text)}
               />
               <StyledTouchMenu
+                testID='touch_menu'
                 onPress={() => setShowMenu(true)}
               >
                 <Image style={{
@@ -271,6 +269,7 @@ function Screen(props: Props, state: State) {
                 }} source={IC_SMILE}/>
               </StyledTouchMenu>
               <Button
+                testID='btn_chat'
                 isLoading={isLoading}
                 onPress={sendChat}
                 style={styles.btnSend}
@@ -285,6 +284,7 @@ function Screen(props: Props, state: State) {
           ? <StyledViewBottom>
             <StyledViewChat>
               <StyledInputChat
+                testID='input_chat'
                 ref={input2}
                 onFocus={() => setShowMenu(false)}
                 multiline={true}
@@ -294,6 +294,7 @@ function Screen(props: Props, state: State) {
                 defaultValue={message}
               />
               <StyledTouchMenu
+                testID='touch_menu'
                 onPress={() => setShowMenu(false)}
               >
                 <Image style={{
@@ -302,6 +303,7 @@ function Screen(props: Props, state: State) {
                 }} source={IC_SMILE}/>
               </StyledTouchMenu>
               <Button
+                testID='btn_chat'
                 isLoading={isLoading}
                 onPress={sendChat}
                 style={styles.btnSend}

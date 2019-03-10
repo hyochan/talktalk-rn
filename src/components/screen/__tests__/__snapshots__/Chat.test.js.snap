@@ -1,31 +1,43 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`rendering test renders as expected 1`] = `
-<SafeAreaView
+exports[`[Chat] rendering test renders as expected 1`] = `
+<RCTSafeAreaView
+  emulateUnlessSupported={true}
   style={
-    Object {
-      "alignItems": "center",
-      "backgroundColor": "white",
-      "flex": 1,
-      "flexDirection": "column",
-    }
-  }
->
-  <KeyboardAvoidingView
-    behavior="padding"
-    enabled={true}
-    keyboardVerticalOffset={88}
-    style={
+    Array [
       Object {
         "alignItems": "center",
-        "alignSelf": "stretch",
-        "flex": 1,
+        "backgroundColor": "white",
+        "flexBasis": 0,
         "flexDirection": "column",
-        "justifyContent": "center",
-      }
+        "flexGrow": 1,
+        "flexShrink": 1,
+      },
+    ]
+  }
+>
+  <View
+    onLayout={[Function]}
+    style={
+      Array [
+        Array [
+          Object {
+            "alignItems": "center",
+            "alignSelf": "stretch",
+            "flexBasis": 0,
+            "flexDirection": "column",
+            "flexGrow": 1,
+            "flexShrink": 1,
+            "justifyContent": "center",
+          },
+        ],
+        Object {
+          "paddingBottom": 0,
+        },
+      ]
     }
   >
-    <FlatList
+    <RCTScrollView
       ListEmptyComponent={
         <Shared
           style={
@@ -137,35 +149,562 @@ exports[`rendering test renders as expected 1`] = `
         ]
       }
       disableVirtualization={false}
+      getItem={[Function]}
+      getItemCount={[Function]}
       horizontal={false}
       initialNumToRender={10}
       keyExtractor={[Function]}
       maxToRenderPerBatch={10}
       numColumns={1}
+      onContentSizeChange={[Function]}
       onEndReachedThreshold={2}
+      onLayout={[Function]}
+      onMomentumScrollEnd={[Function]}
+      onScroll={[Function]}
+      onScrollBeginDrag={[Function]}
+      onScrollEndDrag={[Function]}
       removeClippedSubviews={false}
       renderItem={[Function]}
       scrollEventThrottle={50}
+      stickyHeaderIndices={Array []}
       style={
         Object {
           "alignSelf": "stretch",
         }
       }
       updateCellsBatchingPeriod={50}
+      viewabilityConfigCallbackPairs={Array []}
       windowSize={21}
-    />
+    >
+      <View>
+        <View
+          onLayout={[Function]}
+          style={null}
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "flex-start",
+                  "flexDirection": "row",
+                  "justifyContent": "flex-start",
+                  "marginLeft": 20,
+                  "marginRight": 8,
+                  "minHeight": 48,
+                },
+                Object {
+                  "marginRight": 80,
+                  "marginTop": 20,
+                },
+              ]
+            }
+          >
+            <View
+              style={
+                Object {
+                  "marginRight": 8,
+                }
+              }
+            >
+              <View
+                accessible={true}
+                isTVSelectable={true}
+                onResponderGrant={[Function]}
+                onResponderMove={[Function]}
+                onResponderRelease={[Function]}
+                onResponderTerminate={[Function]}
+                onResponderTerminationRequest={[Function]}
+                onStartShouldSetResponder={[Function]}
+                style={
+                  Object {
+                    "opacity": 1,
+                  }
+                }
+                testID="peer_image"
+              >
+                <Unknown
+                  color="rgb(65,77,107)"
+                  light={true}
+                  name="meh"
+                  size={40}
+                />
+              </View>
+            </View>
+            <View
+              style={
+                Object {
+                  "flexDirection": "column",
+                }
+              }
+            >
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "rgb(65,77,107)",
+                      "fontSize": 12,
+                      "marginBottom": 2,
+                    },
+                  ]
+                }
+              >
+                sender111
+              </Text>
+              <View
+                style={
+                  Object {
+                    "backgroundColor": "white",
+                    "borderColor": "rgb(225,225,225)",
+                    "borderRadius": 3,
+                    "borderWidth": 1,
+                    "marginRight": 8,
+                    "marginVertical": 4,
+                    "padding": 12,
+                    "shadowColor": undefined,
+                    "shadowOffset": Object {
+                      "height": 2,
+                      "width": 0,
+                    },
+                  }
+                }
+              >
+                <Text
+                  style={
+                    Array [
+                      Object {
+                        "color": "rgb(65,77,107)",
+                        "fontSize": 14,
+                      },
+                    ]
+                  }
+                >
+                  hello1
+                </Text>
+              </View>
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "rgb(175,194,219)",
+                      "fontSize": 12,
+                      "marginRight": 20,
+                    },
+                  ]
+                }
+              >
+                0 : 0
+              </Text>
+            </View>
+          </View>
+        </View>
+        <View
+          onLayout={[Function]}
+          style={null}
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "flex-start",
+                  "flexDirection": "row",
+                  "justifyContent": "flex-start",
+                  "marginLeft": 20,
+                  "marginRight": 8,
+                  "minHeight": 48,
+                },
+                Object {
+                  "marginRight": 80,
+                  "marginTop": 0,
+                },
+              ]
+            }
+          >
+            <View
+              style={
+                Object {
+                  "marginRight": 8,
+                }
+              }
+            >
+              <View
+                accessible={true}
+                isTVSelectable={true}
+                onResponderGrant={[Function]}
+                onResponderMove={[Function]}
+                onResponderRelease={[Function]}
+                onResponderTerminate={[Function]}
+                onResponderTerminationRequest={[Function]}
+                onStartShouldSetResponder={[Function]}
+                style={
+                  Object {
+                    "opacity": 1,
+                  }
+                }
+                testID="peer_image"
+              >
+                <View
+                  style={
+                    Object {
+                      "width": 40,
+                    }
+                  }
+                />
+              </View>
+            </View>
+            <View
+              style={
+                Object {
+                  "flexDirection": "column",
+                }
+              }
+            >
+              <View />
+              <View
+                style={
+                  Object {
+                    "backgroundColor": "white",
+                    "borderColor": "rgb(225,225,225)",
+                    "borderRadius": 3,
+                    "borderWidth": 1,
+                    "marginRight": 8,
+                    "marginVertical": 4,
+                    "padding": 12,
+                    "shadowColor": undefined,
+                    "shadowOffset": Object {
+                      "height": 2,
+                      "width": 0,
+                    },
+                  }
+                }
+              >
+                <Text
+                  style={
+                    Array [
+                      Object {
+                        "color": "rgb(65,77,107)",
+                        "fontSize": 14,
+                      },
+                    ]
+                  }
+                >
+                  Hello2. This is long message. This is long message. This is long message. This is long message. This is long message. This is long message. This is long message. This is long message. This is long message. This is long message. This is long message.
+                </Text>
+              </View>
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "rgb(175,194,219)",
+                      "fontSize": 12,
+                      "marginRight": 20,
+                    },
+                  ]
+                }
+              >
+                0 : 0
+              </Text>
+            </View>
+          </View>
+        </View>
+        <View
+          onLayout={[Function]}
+          style={null}
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "flex-start",
+                  "flexDirection": "row",
+                  "justifyContent": "flex-start",
+                  "marginLeft": 20,
+                  "marginRight": 8,
+                  "minHeight": 48,
+                },
+                Object {
+                  "marginRight": 80,
+                  "marginTop": 20,
+                },
+              ]
+            }
+          >
+            <View
+              style={
+                Object {
+                  "marginRight": 8,
+                }
+              }
+            >
+              <View
+                accessible={true}
+                isTVSelectable={true}
+                onResponderGrant={[Function]}
+                onResponderMove={[Function]}
+                onResponderRelease={[Function]}
+                onResponderTerminate={[Function]}
+                onResponderTerminationRequest={[Function]}
+                onStartShouldSetResponder={[Function]}
+                style={
+                  Object {
+                    "opacity": 1,
+                  }
+                }
+                testID="peer_image"
+              >
+                <Unknown
+                  color="rgb(65,77,107)"
+                  light={true}
+                  name="meh"
+                  size={40}
+                />
+              </View>
+            </View>
+            <View
+              style={
+                Object {
+                  "flexDirection": "column",
+                }
+              }
+            >
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "rgb(65,77,107)",
+                      "fontSize": 12,
+                      "marginBottom": 2,
+                    },
+                  ]
+                }
+              >
+                sender2222
+              </Text>
+              <View
+                style={
+                  Object {
+                    "backgroundColor": "white",
+                    "borderColor": "rgb(225,225,225)",
+                    "borderRadius": 3,
+                    "borderWidth": 1,
+                    "marginRight": 8,
+                    "marginVertical": 4,
+                    "padding": 12,
+                    "shadowColor": undefined,
+                    "shadowOffset": Object {
+                      "height": 2,
+                      "width": 0,
+                    },
+                  }
+                }
+              >
+                <Text
+                  style={
+                    Array [
+                      Object {
+                        "color": "rgb(65,77,107)",
+                        "fontSize": 14,
+                      },
+                    ]
+                  }
+                >
+                  hello
+                </Text>
+              </View>
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "rgb(175,194,219)",
+                      "fontSize": 12,
+                      "marginRight": 20,
+                    },
+                  ]
+                }
+              >
+                0 : 0
+              </Text>
+            </View>
+          </View>
+        </View>
+        <View
+          onLayout={[Function]}
+          style={null}
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "flex-end",
+                  "flexDirection": "column",
+                  "justifyContent": "flex-end",
+                  "marginTop": 20,
+                  "minHeight": 48,
+                  "width": "100%",
+                },
+              ]
+            }
+          >
+            <BVLinearGradient
+              colors={
+                Array [
+                  4284782804,
+                  4282027007,
+                ]
+              }
+              endPoint={
+                Object {
+                  "x": 1,
+                  "y": 0.8,
+                }
+              }
+              locations={
+                Array [
+                  0,
+                  0.85,
+                ]
+              }
+              startPoint={
+                Object {
+                  "x": 0.2,
+                  "y": 0.4,
+                }
+              }
+              style={
+                Object {
+                  "borderRadius": 3,
+                  "marginHorizontal": 20,
+                  "marginLeft": 8,
+                  "padding": 12,
+                }
+              }
+            >
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "white",
+                      "fontSize": 14,
+                    },
+                  ]
+                }
+              >
+                hello
+              </Text>
+            </BVLinearGradient>
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "rgb(175,194,219),",
+                    "fontSize": 12,
+                    "marginRight": 20,
+                    "marginTop": 4,
+                  },
+                ]
+              }
+            >
+              0 : 0
+            </Text>
+          </View>
+        </View>
+        <View
+          onLayout={[Function]}
+          style={null}
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "flex-end",
+                  "flexDirection": "column",
+                  "justifyContent": "flex-end",
+                  "marginTop": 20,
+                  "minHeight": 48,
+                  "width": "100%",
+                },
+              ]
+            }
+          >
+            <BVLinearGradient
+              colors={
+                Array [
+                  4284782804,
+                  4282027007,
+                ]
+              }
+              endPoint={
+                Object {
+                  "x": 1,
+                  "y": 0.8,
+                }
+              }
+              locations={
+                Array [
+                  0,
+                  0.85,
+                ]
+              }
+              startPoint={
+                Object {
+                  "x": 0.2,
+                  "y": 0.4,
+                }
+              }
+              style={
+                Object {
+                  "borderRadius": 3,
+                  "marginHorizontal": 20,
+                  "marginLeft": 8,
+                  "padding": 12,
+                }
+              }
+            >
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "white",
+                      "fontSize": 14,
+                    },
+                  ]
+                }
+              >
+                hello. This is my long message. This is my long message. This is my long message. This is my long message. This is my long message. This is my long message. This is my long message. This is my long message. This is my long message.
+              </Text>
+            </BVLinearGradient>
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "rgb(175,194,219),",
+                    "fontSize": 12,
+                    "marginRight": 20,
+                    "marginTop": 4,
+                  },
+                ]
+              }
+            >
+              0 : 0
+            </Text>
+          </View>
+        </View>
+      </View>
+    </RCTScrollView>
     <View
       style={
-        Object {
-          "alignItems": "center",
-          "borderColor": "rgb(225,225,225)",
-          "borderTopWidth": 0.5,
-          "flexDirection": "row",
-          "justifyContent": "flex-end",
-          "maxHeight": 100,
-          "minHeight": 52,
-          "width": "100%",
-        }
+        Array [
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "white",
+            "borderColor": "rgb(225,225,225)",
+            "borderTopWidth": 0.5,
+            "flexDirection": "row",
+            "justifyContent": "flex-end",
+            "maxHeight": 100,
+            "minHeight": 52,
+            "width": "100%",
+          },
+        ]
       }
     >
       <TextInput
@@ -173,33 +712,45 @@ exports[`rendering test renders as expected 1`] = `
         defaultValue=""
         multiline={true}
         onChangeText={[Function]}
+        onFocus={[Function]}
         placeholder="Write message..."
         placeholderTextColor="rgb(175,194,219)"
         rejectResponderTermination={true}
         style={
-          Object {
-            "color": "black",
-            "fontSize": 14,
-            "marginRight": 20,
-            "paddingLeft": 48,
-            "width": "80%",
-          }
+          Array [
+            Object {
+              "color": "black",
+              "fontSize": 14,
+              "marginRight": 20,
+              "paddingLeft": 48,
+              "width": "80%",
+            },
+          ]
         }
+        testID="input_chat"
         underlineColorAndroid="transparent"
         value=""
       />
-      <TouchableOpacity
-        activeOpacity={0.2}
-        onPress={[Function]}
+      <View
+        accessible={true}
+        isTVSelectable={true}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
         style={
           Object {
             "height": "100%",
             "justifyContent": "center",
             "left": 10,
             "minWidth": 20,
+            "opacity": 1,
             "position": "absolute",
           }
         }
+        testID="touch_menu"
       >
         <Image
           source={
@@ -214,40 +765,79 @@ exports[`rendering test renders as expected 1`] = `
             }
           }
         />
-      </TouchableOpacity>
-      <Button
-        activeOpacity={0.5}
-        height={60}
-        indicatorColor="white"
-        isDisabled={false}
-        isLoading={false}
-        isWhite={false}
-        onPress={[Function]}
+      </View>
+      <View
         style={
-          Object {
-            "alignItems": "center",
-            "backgroundColor": "rgb(58,139,255)",
-            "borderRadius": 4,
-            "height": 36,
-            "justifyContent": "center",
-            "right": 8,
-            "width": 60,
-          }
+          Array [
+            Object {
+              "flexBasis": 0,
+              "flexGrow": 1,
+              "flexShrink": 1,
+            },
+          ]
         }
-        textStyle={
-          Object {
-            "color": "white",
-            "fontSize": 14,
-            "fontWeight": "bold",
-            "paddingHorizontal": 5,
-            "paddingVertical": 10,
-          }
-        }
-        width={136}
       >
-        Send
-      </Button>
+        <View
+          accessible={true}
+          isTVSelectable={true}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "opacity": 1,
+            }
+          }
+          testID="press_id"
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "backgroundColor": "rgb(58,139,255)",
+                  "borderColor": "rgb(58,139,255)",
+                  "borderRadius": 4,
+                  "borderWidth": 1,
+                  "justifyContent": "center",
+                  "shadowColor": "rgb(58,139,255)",
+                  "shadowOpacity": 0.3,
+                  "shadowRadius": 4,
+                },
+              ]
+            }
+          >
+            <View
+              style={
+                Object {
+                  "alignItems": "center",
+                  "height": 60,
+                  "justifyContent": "center",
+                  "width": 136,
+                }
+              }
+            >
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "white",
+                      "fontSize": 14,
+                      "fontWeight": "bold",
+                    },
+                  ]
+                }
+              >
+                Send
+              </Text>
+            </View>
+          </View>
+        </View>
+      </View>
     </View>
-  </KeyboardAvoidingView>
-</SafeAreaView>
+  </View>
+</RCTSafeAreaView>
 `;

@@ -1,92 +1,48 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Button component test renders as expected 1`] = `
-<Styled(View)>
-  <TouchableOpacity
-    activeOpacity={0.5}
+exports[`[Button] rendering test renders [disabled] as expected 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "flexBasis": 0,
+        "flexGrow": 1,
+        "flexShrink": 1,
+      },
+    ]
+  }
+>
+  <View
+    style={
+      Array [
+        Object {
+          "alignItems": "center",
+          "alignSelf": "center",
+          "backgroundColor": "rgb(243,243,243)",
+          "borderColor": "#333",
+          "borderRadius": 4,
+          "borderWidth": 2,
+          "justifyContent": "center",
+        },
+      ]
+    }
   >
-    <Styled(View)>
-      <View
-        style={
+    <Text
+      style={
+        Array [
           Object {
-            "alignItems": "center",
-            "height": 60,
-            "justifyContent": "center",
-            "width": 136,
-          }
-        }
-      >
-        <Styled(Styled(Text)) />
-      </View>
-    </Styled(View)>
-  </TouchableOpacity>
-</Styled(View)>
+            "color": "rgb(58,139,255)",
+            "fontSize": 14,
+            "fontWeight": "bold",
+          },
+        ]
+      }
+    />
+  </View>
+</View>
 `;
 
-exports[`Button component test renders as expected 2`] = `
-<Styled(View)>
-  <TouchableOpacity
-    activeOpacity={0.5}
-  >
-    <Styled(View)>
-      <View
-        style={
-          Object {
-            "alignItems": "center",
-            "height": 60,
-            "justifyContent": "center",
-            "width": 136,
-          }
-        }
-      >
-        <Styled(Styled(Text)) />
-      </View>
-    </Styled(View)>
-  </TouchableOpacity>
-</Styled(View)>
-`;
-
-exports[`Button component test renders as expected 3`] = `
-<Styled(View)>
-  <Styled(View)>
-    <Styled(Text) />
-  </Styled(View)>
-</Styled(View)>
-`;
-
-exports[`Button component test renders as expected 4`] = `
-<Styled(View)>
-  <Styled(View)>
-    <Styled(Text) />
-  </Styled(View)>
-</Styled(View)>
-`;
-
-exports[`Button component test simulate onPress 1`] = `
-<Styled(View)>
-  <TouchableOpacity
-    activeOpacity={0.5}
-    onPress={[Function]}
-  >
-    <Styled(View)>
-      <View
-        style={
-          Object {
-            "alignItems": "center",
-            "height": 60,
-            "justifyContent": "center",
-            "width": 136,
-          }
-        }
-      >
-        <Styled(Styled(Text)) />
-      </View>
-    </Styled(View)>
-  </TouchableOpacity>
-</Styled(View)>
-`;
-
-exports[`Button renders without crashing 1`] = `
+exports[`[Button] rendering test renders [enabled] as expected 1`] = `
 <View
   style={
     Array [
@@ -112,6 +68,7 @@ exports[`Button renders without crashing 1`] = `
         "opacity": 1,
       }
     }
+    testID="press_id"
   >
     <View
       style={

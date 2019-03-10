@@ -161,7 +161,7 @@ class Screen extends Component<Props, State> {
             'sender111',
             '',
           ),
-          'hello2',
+          'Hello2. This is long message. This is long message. This is long message. This is long message. This is long message. This is long message. This is long message. This is long message. This is long message. This is long message. This is long message.',
         ),
         new Chat(
           '',
@@ -180,6 +180,15 @@ class Screen extends Component<Props, State> {
             '',
           ),
           'hello',
+        ),
+        new Chat(
+          '',
+          new User(
+            '2',
+            'sender2222',
+            '',
+          ),
+          'hello. This is my long message. This is my long message. This is my long message. This is my long message. This is my long message. This is my long message. This is my long message. This is my long message. This is my long message.',
         ),
       ],
     };

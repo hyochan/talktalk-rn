@@ -11,7 +11,6 @@ import FindPw from '../screen/FindPw';
 import ProfileUpdate from '../screen/ProfileUpdate';
 import SearchUser from '../screen/SearchUser';
 import Chat from '../screen/Chat';
-import NotFound from '../screen/NotFound';
 import ProfileModal from '../shared/ProfileModal';
 import StatusBar from '../shared/StatusBar';
 import { colors } from '../../utils/Styles';
@@ -22,7 +21,6 @@ const routeConfig = {
   ProfileUpdate: { screen: ProfileUpdate },
   SearchUser: { screen: SearchUser },
   Chat: { screen: Chat },
-  NotFound: { screen: NotFound },
 };
 
 export const commonNavigationOptions = {

@@ -74,78 +74,73 @@ type Props = {
   height?: number;
 };
 
-type State = {
-
-};
-
-class Button extends Component<Props, State> {
-  static defaultProps: Props = {
-    isWhite: false,
-    isLoading: false,
-    isDisabled: false,
-    indicatorColor: 'white',
-    activeOpacity: 0.5,
-    width: 136,
-    height: 60,
-  };
-
-  render() {
-    if (this.props.isDisabled) {
-      return (
-        <StyledContainer>
-          <StyledButtonDisabled>
-            <StyledText>{this.props.children}</StyledText>
-          </StyledButtonDisabled>
-        </StyledContainer>
-      );
-    }
-    return (
-      <StyledContainer>
-        <TouchableOpacity
-          activeOpacity={this.props.activeOpacity}
-          onPress={this.props.onPress}
-        >
-          {
-            !this.props.isWhite
-              ? <StyledButton>
-                {this.renderContent()}
-              </StyledButton>
-              : <StyledButtonWhite>
-                {this.renderContent()}
-              </StyledButtonWhite>
-          }
-        </TouchableOpacity>
-      </StyledContainer>
-    );
-  }
-
-  renderContent() {
+function Button(props: Props) {
+  const renderContent = () => {
     return <View style={{
-      width: this.props.width,
-      height: this.props.height,
+      width: props.width,
+      height: props.height,
       justifyContent: 'center',
       alignItems: 'center',
     }}>
       {
-        this.props.isLoading
-          ? <ActivityIndicator size='small' color={this.props.indicatorColor} />
-          : this.props.imgLeftSrc
+        props.isLoading
+          ? <ActivityIndicator size='small' color={props.indicatorColor} />
+          : props.imgLeftSrc
             ? <StyledImageLeft
-              source={this.props.imgLeftSrc}
+              source={props.imgLeftSrc}
             />
             : null
       }
-      { this.props.isLoading ? null : this.renderText() }
+      { props.isLoading ? null : renderText() }
     </View>;
-  }
+  };
 
-  renderText() {
+  const renderText = () => {
     return (
-      this.props.isWhite
-        ? <StyledText>{this.props.children}</StyledText>
-        : <StyledTextWhite>{this.props.children}</StyledTextWhite>
+      props.isWhite
+        ? <StyledText>{props.children}</StyledText>
+        : <StyledTextWhite>{props.children}</StyledTextWhite>
+    );
+  };
+
+  if (props.isDisabled) {
+    return (
+      <StyledContainer>
+        <StyledButtonDisabled>
+          <StyledText>{props.children}</StyledText>
+        </StyledButtonDisabled>
+      </StyledContainer>
     );
   }
+  return (
+    <StyledContainer>
+      <TouchableOpacity
+        testID='press_id'
+        activeOpacity={props.activeOpacity}
+        onPress={props.onPress}
+      >
+        {
+          !props.isWhite
+            ? <StyledButton>
+              {renderContent()}
+            </StyledButton>
+            : <StyledButtonWhite>
+              {renderContent()}
+            </StyledButtonWhite>
+        }
+      </TouchableOpacity>
+    </StyledContainer>
+  );
 }
+
+Button.defaultProps = {
+  isWhite: false,
+  isLoading: false,
+  isDisabled: false,
+  indicatorColor: 'white',
+  activeOpacity: 0.5,
+  width: 136,
+  height: 60,
+};
 
 export default Button;

@@ -40,4 +40,5 @@ export const colors: Icolors = {
   blueyGray: 'rgb(134,154,183)',
   cloudyBlue: 'rgb(175,194,219)',
   greenishCyan: 'rgb(80,227,194)',
+  paleGray: 'rgb(233,237,244)',
 };

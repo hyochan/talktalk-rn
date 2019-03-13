@@ -260,7 +260,7 @@ exports[`[Chat] rendering test renders as expected 1`] = `
                     "marginRight": 8,
                     "marginVertical": 4,
                     "padding": 12,
-                    "shadowColor": undefined,
+                    "shadowColor": "rgb(233,237,244)",
                     "shadowOffset": Object {
                       "height": 2,
                       "width": 0,
@@ -369,7 +369,7 @@ exports[`[Chat] rendering test renders as expected 1`] = `
                     "marginRight": 8,
                     "marginVertical": 4,
                     "padding": 12,
-                    "shadowColor": undefined,
+                    "shadowColor": "rgb(233,237,244)",
                     "shadowOffset": Object {
                       "height": 2,
                       "width": 0,
@@ -489,7 +489,7 @@ exports[`[Chat] rendering test renders as expected 1`] = `
                     "marginRight": 8,
                     "marginVertical": 4,
                     "padding": 12,
-                    "shadowColor": undefined,
+                    "shadowColor": "rgb(233,237,244)",
                     "shadowOffset": Object {
                       "height": 2,
                       "width": 0,

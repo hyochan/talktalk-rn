@@ -1,5 +1,8 @@
 // @flow
-import React, { Component } from 'react';
+import React, {
+  Component,
+  useState,
+} from 'react';
 import {
   StyleSheet,
   TouchableOpacity,
@@ -9,104 +12,82 @@ import {
   FlatList,
 } from 'react-native';
 
-import type {
-  ____ViewStyleProp_Internal as ViewStyle,
-  ____TextStyleProp_Internal as TextStyle,
-  ____ImageStyleProp_Internal as ImageStyle,
-} from 'react-native/Libraries/StyleSheet/StyleSheetTypes';
-
 import UserListItem from '../shared/UserListItem';
 import EmptyListItem from '../shared/EmptyListItem';
 
 import { ratio, colors } from '../../utils/Styles';
 import { User as Friend } from '../../models/User';
-import { ProfileModalConsumer } from '../../providers/ProfileModalProvider';
+import { ProfileModalContext } from '../../providers/ProfileModalProvider';
 import { getString } from '../../../STRINGS';
 
-type Styles = {
-  container: ViewStyle,
-};
+import styled from 'styled-components/native';
 
-const styles: Styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: 'transparent',
-    flexDirection: 'column',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+const StyledContainer = styled.View`
+  flex: 1;
+  background-color: transparent;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+`;
 
 type Props = {
-
+  navigation: any;
 };
 
-type State = {
-  friends: Friend[],
-};
+function Screen(props: Props) {
+  const profileModal = React.useContext(ProfileModalContext);
+  const [friends, setFriends] = React.useState([
+    new Friend(
+      'my_uid',
+      'hello',
+      '',
+      'I am fine today',
+      false,
+    ),
+  ]);
 
-class Screen extends Component<Props, State> {
-  constructor(props: Props) {
-    super(props);
-    this.state = {
-      friends: [
-        new Friend(
-          'my_uid',
-          'hello',
-          '',
-          'I am fine today',
-          false,
-        ),
-      ],
-    };
-  }
-
-  render() {
-    return (
-      <ProfileModalConsumer>
-        {
-          (data) => {
-            return (
-              <View style={styles.container}>
-                <FlatList
-                  style={{
-                    alignSelf: 'stretch',
-                  }}
-                  contentContainerStyle={
-                    this.state.friends.length === 0
-                      ? {
-                        flex: 1,
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                      }
-                      : null
-                  }
-                  keyExtractor={(item, index) => index.toString()}
-                  data={this.state.friends}
-                  renderItem={({ item }) => this.renderItem(item, data)}
-                  ListEmptyComponent={<EmptyListItem>{getString('NO_CONTENT')}</EmptyListItem>}
-                />
-              </View>
-            );
-          }
-        }
-      </ProfileModalConsumer>
-    );
-  }
-
-  renderItem = (item: Friend, data: any) => {
+  const renderItem = (item: Friend) => {
+    console.log('item', item);
     return (
       <UserListItem
-        id='user'
+        testID='user'
         user={item}
-        onPress={() => this.showProfileModal(item, data)}
+        onPress={() => {
+          if (profileModal && profileModal.dispatch) {
+            profileModal.dispatch({
+              type: 'show-modal',
+              payload: { user: item, deleteMode: true },
+            });
+          }
+        }}
       />
     );
-  }
+  };
 
-  showProfileModal = (item: Friend, data:any) => {
-    data.actions.showModal(item, true);
-  }
+  return (
+    <StyledContainer>
+      <FlatList
+        style={{
+          alignSelf: 'stretch',
+        }}
+        contentContainerStyle={
+          friends.length === 0
+            ? {
+              flex: 1,
+              alignItems: 'center',
+              justifyContent: 'center',
+            }
+            : null
+        }
+        keyExtractor={(item, index) => index.toString()}
+        data={friends}
+        renderItem={({ item }) => renderItem(item)}
+        ListEmptyComponent={
+          <EmptyListItem>{getString('NO_CONTENT')}</EmptyListItem>
+        }
+      />
+    </StyledContainer>
+  );
 }
 
 export default Screen;

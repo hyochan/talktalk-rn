@@ -1,70 +1,38 @@
 import 'react-native';
 import * as React from 'react';
 import Friend from '../Friend';
-import UserListItem from '../../shared/UserListItem';
-import EmptyListItem from '../../shared/EmptyListItem';
 
 // Note: test renderer must be required after react-native.
 import renderer from 'react-test-renderer';
-import { shallow, render } from 'enzyme';
+import { render, fireEvent } from 'react-native-testing-library';
 
-describe('rendering test', () => {
-  const wrapper = shallow(<Friend />);
+const props = {
+  navigation: {
+    navigate: jest.fn(),
+  },
+};
+const component: React.Element<any> = <Friend {...props}/>;
 
+describe('[Friend] rendering test', () => {
   it('renders as expected', () => {
-    expect(wrapper).toMatchSnapshot();
+    const json = renderer.create(component).toJSON();
+    expect(json).toMatchSnapshot();
   });
 });
 
-describe('context', () => {
-  let outer;
-  let props;
-  let wrapper;
-  let context;
+describe('[Friend] interaction', () => {
+  let rendered: renderer.ReactTestRenderer;
+  let root: renderer.ReactTestInstance;
+  let testingLib: any;
 
-  beforeEach(() => {
-    context = {
-      state: {
-        user: null,
-      },
-      actions: {
-        setModal: jest.fn(),
-        showModal: jest.fn(),
-        onChatPressed: jest.fn(),
-      }
-    }
-    props = {
-      navigation: {
-        navigate: jest.fn(),
-      },
-      ...context,
-    };
-    outer = shallow(<Friend />);
-    const Children = outer.props().children;
-    wrapper = shallow(<Children {...props} />);
+  beforeAll(() => {
+    rendered = renderer.create(component);
+    root = rendered.root;
+    testingLib = render(component);
   });
-  it('should render item and call showProfileModal when pressed', () => {
-    const spy = jest.spyOn(outer.instance(), 'showProfileModal');
-    const item = {
-      img: null,
-      displayName: '',
-      statusMsg: '',
-    };
-    const rendered = outer.instance().renderItem(item, context);
-    expect(outer.find(UserListItem).last()).toHaveLength(1);
-    rendered.props.onPress();
-    expect(spy).toHaveBeenCalled();
-  });
-  it('should call showModal on item click', () => {
-    const items = [{
-      img: null,
-      displayName: '',
-      statusMsg: '',
-    }];
-    outer.instance().showProfileModal(items, context);
-    expect(props.actions.showModal).toHaveBeenCalled();
-  });
-  afterAll(() => {
-    wrapper.instance().prototype.showProfileModal.mockRestore();
+
+  it('should dispatch [show-modal] when user is pressed', () => {
+    const user = testingLib.getByTestId('user');
+    fireEvent(user, 'press');
   });
 });

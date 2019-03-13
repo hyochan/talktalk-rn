@@ -1,5 +1,10 @@
 import LinearGradient from 'react-native-linear-gradient';
-import React, { Component } from 'react';
+import React, {
+  Component,
+  useState,
+  useImperativeHandle,
+  forwardRef,
+} from 'react';
 import {
   ActivityIndicator,
   TouchableOpacity,
@@ -15,60 +20,100 @@ import {
 import Modal from 'react-native-modalbox';
 
 import Icon5 from 'react-native-vector-icons/FontAwesome5';
+import styled from 'styled-components/native';
+
 import { User } from '../../models/User';
 import { IC_MASK } from '../../utils/Icons';
 import { ratio, colors } from '../../utils/Styles';
 import { getString } from '../../../STRINGS';
 
-type Styles = {
-  modal: ViewStyle;
-  wrapper: ViewStyle;
-  view: ViewStyle;
-  viewBtns: ViewStyle;
-  viewBtnDivider: ViewStyle;
-  viewBtn: ViewStyle;
-  img: ImageStyle;
-  txtDisplayName: TextStyle;
-  txtStatusMsg: TextStyle;
-  txtBtn: TextStyle;
-  txtFriendAdded: TextStyle;
-  txtFriendAlreadyAdded: TextStyle;
+const StyledWrapper = styled.View`
+  height: 320;
+  margin-horizontal: 20;
+  aligin-self: stretch;
+  align-items: center;
+  justify-content: space-between;
+`;
+
+const StyledView = styled.View`
+  marginTop: 40;
+`;
+
+const StyledViewBtns = styled.View`
+  height: 80;
+  align-self: stretch;
+  background-color: white;
+
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+`;
+
+const StyledViewBtnDivider = styled.View`
+  width: 1;
+  height: 80;
+  background-color: ${colors.paleGray};
+`;
+
+const StyledTextDisplayName = styled.Text`
+  font-size: 24;
+  color: white;
+  font-weight: bold;
+  margin-top: 32;
+  align-self: center;
+`;
+
+const StyledTextStatusMsg = styled.Text`
+  font-size: 12;
+  color: white;
+  margin-top: 8;
+  align-self: center;
+`;
+
+const StyledTextBtn = styled.Text`
+  color: ${colors.dodgerBlue};
+  font-size: 16;
+`;
+
+const StyledTextFriendAdded = styled.Text`
+  color: white;
+  font-size: 12;
+  backround-color: ${colors.dusk};
+  padding: 4;
+`;
+
+const StyledTextFriendAlreadyAdded = styled.Text`
+  color: red;
+  font-size: 12;
+  background-color: ${colors.cloudyBlue};
+  padding: 4;
+`;
+
+type Props = {
+  onChatPressed?: () => void;
 };
 
-const styles: Styles = StyleSheet.create({
-  modal: {
+type Ref = {
+  open: () => void;
+  close: () => void;
+  addFriend: () => void;
+  deleteFriend: () => void;
+};
+
+type Styles = {
+  viewBtn: ViewStyle,
+};
+
+const styles = {
+  wrapper: {
     backgroundColor: 'transparent',
-    alignSelf: 'center',
+    alignSelf: 'stretch',
     height: 320,
+    width: '90%',
 
     alignContent: 'center',
     alignItems: 'center',
     justifyContent: 'center',
-  },
-  wrapper: {
-    height: 320,
-    marginHorizontal: 20,
-    alignSelf: 'stretch',
-
-    alignItems: 'center',
-    justifyContent: 'space-between',
-  },
-  view: {
-    marginTop: 40,
-  },
-  viewBtns: {
-    height: 80,
-    alignSelf: 'stretch',
-    backgroundColor: 'white',
-
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-  },
-  viewBtnDivider: {
-    width: 1,
-    height: 80,
-    backgroundColor: colors.paleGray,
   },
   viewBtn: {
     width: '50%',
@@ -76,164 +121,123 @@ const styles: Styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  img: {
-    alignSelf: 'center',
-  },
-  txtDisplayName: {
-    fontSize: 24,
-    color: 'white',
-    fontWeight: 'bold',
-    marginTop: 32,
-    alignSelf: 'center',
-  },
-  txtStatusMsg: {
-    fontSize: 12,
-    color: 'white',
-    marginTop: 8,
-    alignSelf: 'center',
-  },
-  txtBtn: {
-    color: colors.dodgerBlue,
-    fontSize: 16,
-  },
-  txtFriendAdded: {
-    color: 'white',
-    fontSize: 12,
-    backgroundColor: colors.dusk,
-    padding: 4,
-  },
-  txtFriendAlreadyAdded: {
-    color: 'red',
-    fontSize: 12,
-    backgroundColor: colors.cloudyBlue,
-    padding: 4,
-  },
-});
-
-type Props = {
-  style?: ViewStyle;
-  onChatPressed?: () => void;
 };
 
-type State = {
-  showAddBtn: boolean;
-  isAdding: boolean;
-  isFriendAdded: boolean;
-  isFriendAlreadyAdded: boolean;
-  user: User;
-};
+function Shared(props: Props, ref: Ref) {
+  let modal: any;
+  const [showAddBtn, setShowAddBtn] = useState(true);
+  const [isAdding, setIsAdding] = useState(false);
+  const [isFriendAdded, setIsFriendAdded] = useState(false);
+  const [isFriendAlreadyAdded, setIsFriendAlreadyAdded] = useState(false);
+  const [user, setUser] = useState(new User());
 
-class Shared extends Component<Props, State> {
-  static defaultProps: Props = {
-    style: styles.wrapper,
+  const open = () => {
+    setIsFriendAdded(false);
+    setIsFriendAlreadyAdded(false);
+    if (modal) {
+      modal.open();
+    }
   };
 
-  modal: any;
+  const close = () => {
+    if (modal) {
+      modal.close();
+    }
+  };
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      showAddBtn: true,
-      isAdding: false,
-      isFriendAdded: false,
-      isFriendAlreadyAdded: false,
-      user: new User(),
-    };
-  }
+  const addFriend = () => {
 
-  render() {
-    return (
-      <Modal
-        ref={(v) => this.modal = v}
-        backdropOpacity={0.075}
-        entry={'top'}
-        position={'center'}
-        style={styles.modal}
+  };
+
+  const deleteFriend = () => {
+    if (modal) {
+      modal.close();
+    }
+  };
+
+  useImperativeHandle(ref, () => ({
+    open,
+    close,
+    setUser: (user: User) => {
+      setUser(user);
+    },
+    showAddBtn: (flag: boolean) => {
+      setShowAddBtn(flag);
+    },
+  }));
+
+  return (
+    <Modal
+      ref={(v) => modal = v}
+      backdropOpacity={0.075}
+      entry={'top'}
+      position={'center'}
+      style={styles.wrapper}
+    >
+      <LinearGradient
+        style={{
+          height: 320,
+          marginHorizontal: 20,
+          alignSelf: 'stretch',
+
+          alignItems: 'center',
+          justifyContent: 'space-between',
+        }}
+        start={{ x: 0.4, y: 0.6 }} end={{ x: 1.0, y: 0.8 }}
+        locations={[0, 0.85]}
+        colors={[colors.dodgerBlue, 'rgb(100,199,255)']}
       >
-        <LinearGradient
-          style={this.props.style}
-          start={{ x: 0.4, y: 0.6 }} end={{ x: 1.0, y: 0.8 }}
-          locations={[0, 0.85]}
-          colors={[colors.dodgerBlue, 'rgb(100,199,255)']}>
-          <View style={styles.view}>
-            <TouchableOpacity
-              activeOpacity={0.5}
-              // onPress={this.goToUpdateProfile}
-            >
-              {
-                this.state.user.photoURL
-                  ? <Image style={styles.img} source={this.state.user.photoURL}/>
-                  : <Icon5 name="meh" size={80} color={colors.dusk} light/>
-              }
-            </TouchableOpacity>
-            <Text style={styles.txtDisplayName}>{this.state.user.displayName}</Text>
-            <Text style={styles.txtStatusMsg}>{this.state.user.statusMsg}</Text>
-          </View>
-          {
-            this.state.isFriendAdded
-              ? <Text style={styles.txtFriendAdded}>{getString('FRIEND_ADDED')}</Text>
-              : this.state.isFriendAlreadyAdded
-                ? <Text style={styles.txtFriendAlreadyAdded}>{getString('FRIEND_ALREADY_ADDED')}</Text>
-                : null
-          }
-          <View style={styles.viewBtns}>
-            <TouchableOpacity
-              activeOpacity={0.5}
-              onPress={this.state.showAddBtn ? this.addFriend : this.deleteFriend}
-              style={styles.viewBtn}
-            >
-              <View style={styles.viewBtn}>
-                <Text style={styles.txtBtn}>{
-                  this.state.showAddBtn ? getString('ADD_FRIEND') : getString('DELETE_FRIEND')
-                }</Text>
-              </View>
-            </TouchableOpacity>
-            <View style={styles.viewBtnDivider}/>
-            <TouchableOpacity
-              activeOpacity={0.5}
-              onPress={this.props.onChatPressed}
-              style={styles.viewBtn}
-            >
-              <View style={styles.viewBtn}>
-                <Text style={styles.txtBtn}>{getString('CHAT')}</Text>
-              </View>
-            </TouchableOpacity>
-          </View>
-        </LinearGradient>
-      </Modal>
-    );
-  }
-
-  setUser = (user: User) => {
-    this.setState({
-      user,
-    });
-  }
-
-  open = () => {
-    this.setState({
-      isFriendAdded: false,
-      isFriendAlreadyAdded: false,
-    }, () => {
-      this.modal.open();
-    });
-  }
-
-  close = () => {
-    this.modal.close();
-  }
-
-  showAddBtn = (flag: boolean) => {
-    this.setState({ showAddBtn: flag });
-  }
-
-  addFriend = () => {
-
-  }
-
-  deleteFriend = () => {
-    this.modal.close();
-  }
+        <StyledView>
+          <TouchableOpacity
+            activeOpacity={0.5}
+            // onPress={goToProfile}
+          >
+            {
+              user.photoURL
+                ? <Image style={{
+                  alignSelf: 'center',
+                }} source={user.photoURL}/>
+                : <Icon5 name="meh" size={80} color={colors.dusk} light/>
+            }
+          </TouchableOpacity>
+          <StyledTextDisplayName>{user.displayName}</StyledTextDisplayName>
+          <StyledTextStatusMsg>{user.statusMsg}</StyledTextStatusMsg>
+        </StyledView>
+        {
+          isFriendAdded
+            ? <StyledTextFriendAdded>{getString('FRIEND_ADDED')}</StyledTextFriendAdded>
+            : isFriendAlreadyAdded
+              ? <StyledTextFriendAlreadyAdded>{getString('FRIEND_ALREADY_ADDED')}</StyledTextFriendAlreadyAdded>
+              : null
+        }
+        <StyledViewBtns>
+          <TouchableOpacity
+            testID='btn-add-or-delete'
+            activeOpacity={0.5}
+            onPress={showAddBtn ? addFriend : deleteFriend}
+            style={styles.viewBtn}
+          >
+            <View style={styles.viewBtn}>
+              <StyledTextBtn>{
+                showAddBtn ? getString('ADD_FRIEND') : getString('DELETE_FRIEND')
+              }</StyledTextBtn>
+            </View>
+          </TouchableOpacity>
+          <StyledViewBtnDivider />
+          <TouchableOpacity
+            testID='btn-chat'
+            activeOpacity={0.5}
+            onPress={props.onChatPressed}
+            style={styles.viewBtn}
+          >
+            <View style={styles.viewBtn}>
+              <StyledTextBtn>{getString('CHAT')}</StyledTextBtn>
+            </View>
+          </TouchableOpacity>
+        </StyledViewBtns>
+      </LinearGradient>
+    </Modal>
+  );
 }
 
-export default Shared;
+export default forwardRef(Shared);

@@ -4,63 +4,35 @@ import ProfileModal from '../ProfileModal';
 
 // Note: test renderer must be required after react-native.
 import renderer from 'react-test-renderer';
-import { shallow, render } from 'enzyme';
+import { render, fireEvent } from 'react-native-testing-library';
 
-describe('rendering test', () => {
-  const wrapper = shallow(
-    <ProfileModal />,
-  );
+const component: React.Element<any> = <ProfileModal />;
 
+describe('[ProfileModal] rendering test', () => {
   it('renders as expected', () => {
-    expect(wrapper).toMatchSnapshot();
-    // wrapper.setProps({ filled: false });
-    // expect(wrapper).toMatchSnapshot();
+    const json = renderer.create(component).toJSON();
+    expect(json).toMatchSnapshot();
   });
-
-  // it('simulate onPress', () => {
-  //   let cnt = 1;
-  //   const onPress = () => {
-  //     cnt++;
-  //   };
-
-  //   wrapper.setProps({ onPress: () => onPress()});
-  //   expect(wrapper).toMatchSnapshot();
-
-  //   wrapper.first().props().onPress();
-  //   expect(cnt).toBe(2);
-  // });
 });
 
-describe('interaction', () => {
-  let wrapper;
-  beforeEach(() => {
-    const input = {
-      open: jest.fn(),
-      close: jest.fn(),
-    };
-    wrapper = shallow(<ProfileModal />);
-    wrapper.instance().modal = input;
+describe('[ProfileModal] interaction', () => {
+  let rendered: renderer.ReactTestRenderer;
+  let root: renderer.ReactTestInstance;
+  let testingLib: any;
+
+  beforeAll(() => {
+    rendered = renderer.create(component);
+    root = rendered.root;
+    testingLib = render(component);
   });
-  describe('should setUser', () => {
-    it('should call setUser callback', () => {
-      wrapper.instance().setUser({});
-    });
-    it('should call open', () => {
-      wrapper.instance().open();
-      expect(wrapper.instance().state.isFriendAdded).toBe(false);
-      expect(wrapper.instance().state.isFriendAlreadyAdded).toBe(false);
-    });
-    it('should call showAddBtn', () => {
-      wrapper.instance().showAddBtn(false);
-      expect(wrapper.instance().state.showAddBtn).toBe(false);
-      wrapper.instance().showAddBtn(true);
-      expect(wrapper.instance().state.showAddBtn).toBe(true);
-    });
-    it('should call addFriend', () => {
-      wrapper.instance().addFriend();
-    });
-    it('should call deleteFriend', () => {
-      wrapper.instance().deleteFriend();
-    });
+
+  it('should call [addFriend] when [btn-add-or-delete] has pressed', () => {
+    // const addOrDeleteBtn = testingLib.getByTestId('btn-add-or-delete');
+    // fireEvent(addOrDeleteBtn, 'press');
+  });
+
+  it('should call [onChatPressed] when [onChatPressed] has pressed', () => {
+    // const chatBtn = testingLib.getByTestId('btn-chat');
+    // fireEvent(chatBtn, 'press');
   });
 });

@@ -1,4 +1,4 @@
-import React, { createContext, Component } from 'react';
+import React, { Component, useReducer, useState, useRef } from 'react';
 import { Text, TouchableOpacity, View } from 'react-native';
 import { NavigationScreenProps } from 'react-navigation';
 import { User as Friend } from '../models/User';
@@ -15,53 +15,52 @@ type State = {
   user: Friend[],
 };
 
-class ProfileModalProvider extends Component<Props, State> {
-  static modal: ProfileModal;
+const initialState: State = {
+  user: {
+    displayName: '',
+    age: 0,
+    job: '',
+  },
+};
 
-  constructor(props: Props) {
-    super(props);
-    this.state = {
-      user: null,
-    };
-  }
+let modal: any;
 
-  actions = {
-    setModal: (v: ProfileModal) => {
-      this.modal = v;
-    },
-    showModal: (user: Friend, deleteMode?: boolean) => {
-      this.setState({ user }, () => {
-        if (this.modal) {
-          this.modal.setUser(user);
-          this.modal.showAddBtn(!deleteMode);
-          this.modal.open();
-        }
-      });
-    },
-    onChatPressed: (navigation: NavigationScreenProps) => {
-      if (this.modal) {
-        this.modal.close();
+const reducer = (state, action) => {
+  switch (action.type) {
+    case 'show-modal':
+      if (modal && modal.current) {
+        modal.current.setUser(action.payload.user);
+        modal.current.showAddBtn(!action.payload.deleteMode);
+        modal.current.open();
       }
-      navigation.navigate('Chat');
-    }
-  };
-
-  render() {
-    const { state, actions, modal } = this;
-    const value = { state, actions, modal };
-    return (
-      <ProfileModalContext.Provider value={value}>
-        {this.props.children}
-        <ProfileModal
-          id="modal"
-          ref={(v: ProfileModal) => {
-            this.modal = v;
-          }}
-          onChatPressed={ () => this.actions.onChatPressed(this.props.navigation) }
-        />
-      </ProfileModalContext.Provider>
-    );
+      return {
+        ...state,
+        user: action.payload.user,
+        deleteMode: !action.payload.deleteMode,
+      };
   }
+};
+
+function ProfileModalProvider(props: Props) {
+  modal = useRef(null);
+  const [state, dispatch] = useReducer(reducer, initialState);
+  const value = { state, dispatch };
+
+  return (
+    <ProfileModalContext.Provider value={value}>
+      {props.children}
+      <ProfileModal
+        testID="modal"
+        ref={modal}
+        onChatPressed={() => {
+          if (modal && modal.current) {
+            modal.current.close();
+          }
+          props.navigation.navigate('Chat');
+        }}
+      />
+    </ProfileModalContext.Provider>
+  );
 }
 
-export { ProfileModalConsumer, ProfileModalProvider };
+export { ProfileModalConsumer, ProfileModalContext, ProfileModalProvider };

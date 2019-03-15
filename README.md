@@ -3,7 +3,7 @@
 [![codecov](https://codecov.io/gh/dooboolab/talktalk-rn/branch/master/graph/badge.svg)](https://codecov.io/gh/dooboolab/talktalk-rn)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](https://github.com/dooboolab/talktalk-rn/blob/master/CONTRIBUTING.md)
 [![All Contributors](https://img.shields.io/badge/all_contributors-3-orange.svg?style=flat-square)](#contributors)
-[![Slack](https://img.shields.io/badge/slack-dooboolab-purple.svg)](https://dooboolab.com/joinSlack)
+[![Slack](https://img.shields.io/badge/slack-dooboolab-purple.svg)](https://dooboolab.com/joinSlack) [![Greenkeeper badge](https://badges.greenkeeper.io/dooboolab/talktalk-rn.svg)](https://greenkeeper.io/)
 
 ![m63gkogvnu](https://user-images.githubusercontent.com/27461460/53927695-ffc23580-40ca-11e9-91cd-aadb42eb49a1.gif)
 

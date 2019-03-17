@@ -1,5 +1,5 @@
 // @flow
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import {
   ActivityIndicator,
   StyleSheet,
@@ -92,61 +92,53 @@ type State = {
   focused: boolean;
 };
 
-class Shared extends Component<Props, State> {
-  static defaultProps: Props = {
-    style: styles.wrapper,
-    labelStyle: styles.label,
-    labelStyleFocus: styles.labelFocus,
-  };
+function Shared(props: Props, state: State) {
+  const [focused, setFocused] = useState(false);
 
-  state = {
-    focused: false,
-  };
-
-  constructor(props: Props) {
-    super(props);
-  }
-
-  render() {
-    return (
-      <View style={[
-        styles.wrapper,
-        this.props.style,
-      ]}>
-        { this.renderTxtLabel() }
-        <TextInput
-          style={[
-            this.state.focused ? styles.inputFocus : styles.input,
-            this.props.inputStyle,
-          ]}
-          underlineColorAndroid='transparent' // android fix
-          autoCapitalize='none'
-          autoCorrect={false}
-          multiline={this.props.multiline}
-          onChangeText={this.props.onTextChanged}
-          value={this.props.txt}
-          onFocus={ () => this.setState({ focused: true }) }
-          onBlur={ () => this.setState({ focused: false }) }
-          placeholder={this.props.txtHint}
-          placeholderTextColor={this.props.placeholderTextColor}
-          // onSubmitEditing={this.props.onSubmitEditing}
-          returnKeyType={this.props.returnKeyType}
-          secureTextEntry={this.props.isPassword}
-        />
-      </View>
-    );
-  }
-
-  renderTxtLabel = () => {
-    if (this.props.txtLabel) {
+  const renderTxtLabel = () => {
+    if (props.txtLabel) {
       return (
-        <Text style={this.state.focused ? this.props.labelStyleFocus : this.props.labelStyle}>
-          {this.props.txtLabel}
+        <Text style={focused ? props.labelStyleFocus : props.labelStyle}>
+          {props.txtLabel}
         </Text>
       );
     }
     return null;
-  }
+  };
+
+  return (
+    <View style={[
+      styles.wrapper,
+      props.style,
+    ]}>
+      {renderTxtLabel()}
+      <TextInput
+        style={[
+          focused ? styles.inputFocus : styles.input,
+          props.inputStyle,
+        ]}
+        underlineColorAndroid='transparent' // android fix
+        autoCapitalize='none'
+        autoCorrect={false}
+        multiline={props.multiline}
+        onChangeText={props.onTextChanged}
+        value={props.txt}
+        onFocus={() => setFocused(true)}
+        onBlur={() => setFocused(false)}
+        placeholder={props.txtHint}
+        placeholderTextColor={props.placeholderTextColor}
+        // onSubmitEditing={this.props.onSubmitEditing}
+        returnKeyType={props.returnKeyType}
+        secureTextEntry={props.isPassword}
+      />
+    </View>
+  );
 }
+
+Shared.defaultProps = {
+  style: styles.wrapper,
+  labelStyle: styles.label,
+  labelStyleFocus: styles.labelFocus,
+};
 
 export default Shared;

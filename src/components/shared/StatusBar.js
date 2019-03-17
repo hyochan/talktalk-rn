@@ -1,5 +1,5 @@
 // @flow
-import React, { Component } from 'react';
+import React from 'react';
 import {
   ActivityIndicator,
   StyleSheet,
@@ -22,28 +22,23 @@ type Props = {
   isDarkContent: boolean,
 };
 
-type State = {
+type State = {};
 
-};
-
-class Shared extends Component<Props, State> {
-  static defaultProps: Props = {
-    isDarkContent: false,
-  };
-
-  render() {
-    const statusColor: 'default' | 'light-content' | 'dark-content' = Platform.OS === 'android'
-      ? 'default'
-      : this.props.isDarkContent
-        ? 'dark-content'
-        : 'light-content';
-    return (
-      <StatusBar
-        barStyle={statusColor}
-        backgroundColor={colors.darkBlue}
-      />
-    );
-  }
+function Shared(props: Props, state: State) {
+  const statusColor: 'default' | 'light-content' | 'dark-content' = Platform.OS === 'android'
+    ? 'default'
+    : props.isDarkContent
+      ? 'dark-content'
+      : 'light-content';
+  return (
+    <StatusBar
+      barStyle={statusColor}
+      backgroundColor={colors.darkBlue}
+    />
+  );
 }
 
+Shared.defaultProps = {
+  isDarkContent: false,
+};
 export default Shared;

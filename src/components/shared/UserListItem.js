@@ -1,5 +1,5 @@
 // @flow
-import React, { Component } from 'react';
+import React from 'react';
 import {
   ActivityIndicator,
   StyleSheet,
@@ -72,57 +72,46 @@ type Props = {
   onLongPress?: () => void;
 };
 
-type State = {
+type State = {};
 
-};
-
-class Shared extends Component<Props, State> {
-  static defaultProps: Props = {
-    style: styles.wrapper,
-    user: {
-      uid: '',
-      displayName: '',
-      photoURL: null,
-      statusMsg: '',
-      isOnline: '',
-      friends: '',
-      Chatrooms: '',
-      created: '',
-      updated: '',
-    },
-  };
-
-  constructor(props: Props) {
-    super(props);
-    this.state = {
-    };
-  }
-
-  render() {
-    return (
-      <View style={styles.container}>
-        <TouchableOpacity
-          activeOpacity={0.5}
-          onPress={this.props.onPress}
-          onLongPress={this.props.onLongPress}
-        >
-          <View style={this.props.style}>
-            {
-              this.props.user.photoURL
-                ? <Image style={styles.img} source={this.props.user.photoURL}/>
-                : <Icon5 name="meh" size={40} color={colors.dusk} light/>
-            }
-            <Text style={styles.txt}>{this.props.user.displayName}</Text>
-            {
-              this.props.user.statusMsg
-                ? <Text style={styles.txtRight}>{this.props.user.statusMsg}</Text>
-                : <View/>
-            }
-          </View>
-        </TouchableOpacity>
-      </View>
-    );
-  }
+function Shared(props: Props, state: State) {
+  return (
+    <View style={styles.container}>
+      <TouchableOpacity
+        activeOpacity={0.5}
+        onPress={props.onPress}
+        onLongPress={props.onLongPress}
+      >
+        <View style={props.style}>
+          {
+            props.user.photoURL
+              ? <Image style={styles.img} source={props.user.photoURL}/>
+              : <Icon5 name="meh" size={40} color={colors.dusk} light/>
+          }
+          <Text style={styles.txt}>{props.user.displayName}</Text>
+          {
+            props.user.statusMsg
+              ? <Text style={styles.txtRight}>{props.user.statusMsg}</Text>
+              : <View/>
+          }
+        </View>
+      </TouchableOpacity>
+    </View>
+  );
 }
 
+Shared.defaultProps = {
+  style: styles.wrapper,
+  user: {
+    uid: '',
+    displayName: '',
+    photoURL: null,
+    statusMsg: '',
+    isOnline: '',
+    friends: '',
+    Chatrooms: '',
+    created: '',
+    updated: '',
+  },
+};
 export default Shared;

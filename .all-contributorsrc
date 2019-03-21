@@ -56,6 +56,15 @@
         "talk",
         "test"
       ]
+    },
+    {
+      "login": "YongPilMoon",
+      "name": "YongPilMoon",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/22088158?v=4",
+      "profile": "https://github.com/YongPilMoon",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7,

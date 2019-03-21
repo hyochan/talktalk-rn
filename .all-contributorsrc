@@ -24,9 +24,6 @@
       "contributions": [
         "code",
         "doc",
-        "eventOrganizing",
-        "maintenance",
-        "talk",
         "test"
       ]
     },
@@ -38,8 +35,7 @@
       "contributions": [
         "code",
         "doc",
-        "example",
-        "maintenance"
+        "test"
       ]
     },
     {
@@ -48,12 +44,8 @@
       "avatar_url": "https://avatars3.githubusercontent.com/u/9696352?v=4",
       "profile": "https://blog.cometkim.kr",
       "contributions": [
+        "code",
         "doc",
-        "example",
-        "ideas",
-        "infra",
-        "security",
-        "talk",
         "test"
       ]
     },
@@ -63,7 +55,8 @@
       "avatar_url": "https://avatars1.githubusercontent.com/u/22088158?v=4",
       "profile": "https://github.com/YongPilMoon",
       "contributions": [
-        "code"
+        "code",
+        "test"
       ]
     }
   ],

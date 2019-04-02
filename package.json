@@ -53,7 +53,7 @@
   "devDependencies": {
     "@babel/cli": "^7.4.3",
     "@babel/core": "7.4.3",
-    "@babel/plugin-transform-runtime": "7.4.0",
+    "@babel/plugin-transform-runtime": "7.4.3",
     "@babel/preset-flow": "^7.0.0",
     "@babel/runtime": "7.4.2",
     "all-contributors-cli": "^6.1.2",

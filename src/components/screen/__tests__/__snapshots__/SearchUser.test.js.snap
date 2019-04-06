@@ -57,7 +57,6 @@ exports[`[SearchUser] rendering test renders as expected 1`] = `
           autoCapitalize="none"
           autoCorrect={false}
           defaultValue=""
-          id="styledInput"
           multiline={false}
           onChangeText={[Function]}
           rejectResponderTermination={true}
@@ -74,6 +73,7 @@ exports[`[SearchUser] rendering test renders as expected 1`] = `
               },
             ]
           }
+          testID="txtInput"
           underlineColorAndroid="transparent"
         />
         <Image
@@ -232,7 +232,6 @@ exports[`[SearchUser] rendering test renders as expected 1`] = `
       getItem={[Function]}
       getItemCount={[Function]}
       horizontal={false}
-      id="animatedFlatlist"
       initialNumToRender={10}
       keyExtractor={[Function]}
       maxToRenderPerBatch={10}
@@ -257,6 +256,12 @@ exports[`[SearchUser] rendering test renders as expected 1`] = `
             },
           ],
           "width": "100%",
+        }
+      }
+      testID="animatedFlatlist"
+      testObj={
+        Object {
+          "scrollY": 0,
         }
       }
       updateCellsBatchingPeriod={50}

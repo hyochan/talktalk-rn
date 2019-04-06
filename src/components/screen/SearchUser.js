@@ -1,5 +1,5 @@
 // @flow
-import React, { Component } from 'react';
+import React, { Component, useState, useContext } from 'react';
 import {
   StyleSheet,
   TouchableOpacity,
@@ -11,6 +11,7 @@ import {
   FlatList,
   SafeAreaView,
 } from 'react-native';
+import { NavigationScreenProps } from 'react-navigation';
 import { getString } from '../../../STRINGS';
 import { User as Friend } from '../../models/User';
 import { IC_BACK, IC_SEARCH, IC_ICON } from '../../utils/Icons';
@@ -22,7 +23,7 @@ import type {
 } from 'react-native/Libraries/StyleSheet/StyleSheetTypes';
 
 import { ratio, colors } from '../../utils/Styles';
-import { ProfileModalConsumer } from '../../providers/ProfileModalProvider';
+import { ProfileModalContext } from '../../providers/ProfileModalProvider';
 import EmptyListItem from '../shared/EmptyListItem';
 import UserListItem from '../shared/UserListItem';
 
@@ -102,107 +103,97 @@ const StyledSearchImage = styled.Image`
 `;
 
 type Props = {
-
+  navigation: NavigationScreenProps,
 };
 type State = {
   users: Friend[],
   searchedUsers: Friend[],
 };
 
-class Screen extends Component<Props, State> {
-  static navigationOptions = {
-    title: 'Search User',
-  };
+Screen.navigationOptions = {
+  title: 'Search User',
+};
+function Screen(props: Props) {
+  const profileModal = React.useContext(ProfileModalContext);
+  const [searchedUsers, setSearchedUsers] = useState(userSampleData);
+  const [users, setUsers] = useState(userSampleData);
+  const scrollY = new Animated.Value(0);
 
-  scrollY = new Animated.Value(0);
-  constructor(props: Props) {
-    super(props);
-    this.state = {
-      searchedUsers: userSampleData,
-      users: userSampleData,
-    };
-  }
-
-  renderItem = (item: Friend, data: any) => {
+  const renderItem = ({ item }: Friend) => {
     return (
       <UserListItem
-        id='user'
+        testID='userListItem'
         user={item}
-        onPress={() => this.showProfileModal(item, data)}
+        onPress={() => {
+          if (profileModal && profileModal.dispatch) {
+            profileModal.dispatch({
+              type: 'show-modal',
+              payload: { user: item, deleteMode: true },
+            });
+          }
+        }}
       />
     );
-  }
-  showProfileModal = (item: Friend, data: any) => {
-    data.actions.showModal(item, true);
-  }
-  onTxtChanged = (txt: string) => {
-    this.onSearch(txt);
-    this.scrollY.setValue(0);
-    Animated.timing(this.scrollY, {
+  };
+  const onTxtChanged = (txt: string) => {
+    onSearch(txt);
+    scrollY.setValue(0);
+    Animated.timing(scrollY, {
       toValue: 100,
       duration: 500,
     }).start();
-  }
-  onSearch = (txt: string) => {
+  };
+  const onSearch = (txt: string) => {
     const searchedUser = (txt === '')
-      ? this.state.searchedUsers
-      : this.state.searchedUsers.filter((item) => item.displayName.includes(txt));
-    this.setState({ users: searchedUser });
-  }
-  getContentContainerStyle = () => {
-    return this.state.users.length === 0
+      ? searchedUsers
+      : searchedUsers.filter((item) => item.displayName.includes(txt));
+    setUsers(searchedUser);
+  };
+  const getContentContainerStyle = () => {
+    return users.length === 0
       ? {
         flex: 1,
         alignItems: 'center',
         justifyContent: 'center',
       }
       : null;
-  }
-  render() {
-    return (
-      <ProfileModalConsumer>
-        { (data) => {
-          return (
-            <StyledSafeAreaView>
-              <StyledContainer>
-                <StyledSearchView>
-                  <StyledTextInputWrapper>
-                    <StyledTextInput
-                      id="styledInput"
-                      onChangeText={(text) => this.onTxtChanged(text)}
-                      underlineColorAndroid='transparent' // android fix
-                      autoCapitalize='none'
-                      autoCorrect={false}
-                      multiline={false}
-                      // value={this.searchTxt}
-                      defaultValue={''}
-                    />
-                    <StyledSearchImage source={IC_SEARCH} />
-                  </StyledTextInputWrapper>
-                </StyledSearchView>
-                <StyledAnimatedFlatList
-                  id='animatedFlatlist'
-                  style={{
-                    transform: [{
-                      translateY: this.scrollY.interpolate({
-                        inputRange: [0, 50, 100],
-                        outputRange: [0, 25, 0],
-                      })
-                    }]
-                  }}
-                  contentContainerStyle={this.getContentContainerStyle}
-                  keyExtractor={(item, index) => index.toString()}
-                  data={this.state.users}
-                  renderItem={({ item }) => this.renderItem(item, data)}
-                  ListEmptyComponent={<EmptyListItem>{getString('NO_CONTENT')}</EmptyListItem>}
-                />
-              </StyledContainer>
-            </StyledSafeAreaView>
-          );
-        }}
-      </ProfileModalConsumer>
-    );
-  }
+  };
+  return (
+    <StyledSafeAreaView>
+      <StyledContainer>
+        <StyledSearchView>
+          <StyledTextInputWrapper>
+            <StyledTextInput
+              testID="styledInput"
+              onChangeText={onTxtChanged}
+              underlineColorAndroid='transparent' // android fix
+              autoCapitalize='none'
+              autoCorrect={false}
+              multiline={false}
+              defaultValue={''}
+            />
+            <StyledSearchImage source={IC_SEARCH} />
+          </StyledTextInputWrapper>
+        </StyledSearchView>
+        <StyledAnimatedFlatList
+          testID='animatedFlatlist'
+          style={{
+            transform: [{
+              translateY: scrollY.interpolate({
+                inputRange: [0, 50, 100],
+                outputRange: [0, 25, 0],
+              })
+            }]
+          }}
+          contentContainerStyle={getContentContainerStyle}
+          keyExtractor={(item, index) => index.toString()}
+          data={users}
+          renderItem={renderItem}
+          ListEmptyComponent={<EmptyListItem>{getString('NO_CONTENT')}</EmptyListItem>}
+        />
+      </StyledContainer>
+    </StyledSafeAreaView>
+  );
 }
 
 export default Screen;

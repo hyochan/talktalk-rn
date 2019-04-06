@@ -64,15 +64,16 @@ function Screen(props: Props, state: State) {
   const [rooms, setRooms] = useState(initRooms);
   const onItemClick = (itemId: string) => {
     props.navigation.navigate('Chat', { chatId: itemId });
-  }
-  const renderItem = (item: Chatroom) => {
+  };
+  const renderItem = (item: Chatroom, index: number) => {
     return (
       <ChatroomListItem
+        testID={`listitem${index}`}
         item={item}
         onPress={() => onItemClick(item.id)}
       />
     );
-  }
+  };
   return (
     <StyledContainer>
       <FlatList
@@ -91,7 +92,7 @@ function Screen(props: Props, state: State) {
         }
         keyExtractor={(item, index) => index.toString()}
         data={rooms}
-        renderItem={({ item }) => renderItem(item)}
+        renderItem={({ item, index }) => renderItem(item, index)}
         ListEmptyComponent={<EmptyListItem>{getString('NO_CONTENT')}</EmptyListItem>}
       />
     </StyledContainer>

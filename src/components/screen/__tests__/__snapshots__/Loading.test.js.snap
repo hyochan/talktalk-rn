@@ -1,56 +1,48 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`[Loading] rendering test renders as expected 1`] = `
+exports[`rendering test renders as expected 1`] = `
 <View
   style={
-    Array [
-      Object {
-        "backgroundColor": "transparent",
-      },
-    ]
+    Object {
+      "alignItems": "center",
+      "backgroundColor": "transparent",
+      "flex": 1,
+      "flexDirection": "column",
+      "justifyContent": "center",
+    }
   }
 >
-  <View
+  <AnimatedComponent
+    source={
+      Object {
+        "testUri": "../../../assets/icons/icon.png",
+      }
+    }
     style={
-      Array [
-        Object {
-          "alignItems": "center",
-          "flexBasis": 0,
-          "flexDirection": "column",
-          "flexGrow": 1,
-          "flexShrink": 1,
-          "justifyContent": "center",
-        },
-      ]
+      Object {
+        "height": 60,
+        "marginBottom": 16,
+        "transform": Array [
+          Object {
+            "rotate": "0deg",
+          },
+        ],
+        "width": 60,
+      }
+    }
+  />
+  <Text
+    animation="fadeIn"
+    direction="alternate"
+    iterationCount="infinite"
+    style={
+      Object {
+        "color": "rgb(58,139,255)",
+        "fontSize": 16,
+      }
     }
   >
-    <Image
-      style={
-        Object {
-          "height": 60,
-          "marginBottom": 16,
-          "transform": Array [
-            Object {
-              "rotate": "0deg",
-            },
-          ],
-          "width": 60,
-        }
-      }
-    />
-    <Text
-      animation="fadeIn"
-      direction="alternate"
-      iterationCount="infinite"
-      style={
-        Object {
-          "color": "rgb(58,139,255)",
-          "fontSize": 16,
-        }
-      }
-    >
-      LOADING...
-    </Text>
-  </View>
+    LOADING...
+  </Text>
 </View>
 `;

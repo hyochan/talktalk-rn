@@ -21,24 +21,19 @@ import { animateRotateLoop } from '../../utils/Functions';
 import { ratio, colors } from '../../utils/Styles';
 import { getString } from '../../../STRINGS';
 
-import styled from 'styled-components/native';
+type Styles = {
+  container: ViewStyle,
+};
 
-const StyledView = styled.View`
-  background-color: transparent;
-`;
-const StyledContainer = styled.View`
-  flex: 1;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-`;
-
-const AnimatedImage = Animated.createAnimatedComponent(Image);
-const StyledAnimatedImage = styled(AnimatedImage)`
-  width: 60;
-  height: 60;
-  margin-bottom: 16;
-`;
+const styles: Styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: 'transparent',
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+});
 
 type Props = {
 
@@ -47,22 +42,30 @@ type State = {
 
 };
 
-function Screen(props: Props, state: State) {
-  const spinValue = new Animated.Value(0);
-
-  const spin = spinValue.interpolate({
+class Screen extends Component<Props, State> {
+  static navigationOptions = {
+    title: 'Title',
+  };
+  spinValue = new Animated.Value(0);
+  spin = this.spinValue.interpolate({
     inputRange: [0, 1],
     outputRange: ['0deg', '1260deg'],
   });
 
-  return (
-    <StyledView>
-      <StyledContainer>
-        <StyledAnimatedImage
-          style = {{
-            transform: [{
-              rotate: spin
-            }]
+  constructor(props: Props) {
+    super(props);
+  }
+
+  render() {
+    return (
+      <View style={styles.container}>
+        <Animated.Image
+          source={IC_ICON}
+          style={{
+            width: 60,
+            height: 60,
+            marginBottom: 16,
+            transform: [{ rotate: this.spin }],
           }}
         />
         <Text
@@ -76,9 +79,9 @@ function Screen(props: Props, state: State) {
         >
           { getString('LOADING') }
         </Text>
-      </StyledContainer>
-    </StyledView>
-  );
+      </View>
+    );
+  }
 }
 
 export default Screen;

@@ -15,7 +15,6 @@ const props = {
   onSearch: jest.fn(),
 };
 const component: React.Element<any> = <SearchUser {...props}/>;
-// const component: React.Element<any> = <SearchUser {...props}/>;
 
 describe('[SearchUser] rendering test', () => {
   it('renders as expected', () => {
@@ -24,7 +23,6 @@ describe('[SearchUser] rendering test', () => {
   });
 });
 
-// jest.useFakeTimers(); // related to Animated Component
 describe('[serachUser] interaction', () => {
   let testingLib: RenderAPI
   let txtInputInst: renderer.ReactTestInstance
@@ -42,7 +40,6 @@ describe('[serachUser] interaction', () => {
   };
   
   beforeAll(() => {
-    // jest.useFakeTimers(); // related to Animated Component
     testingLib = render(component);
     txtInputInst = testingLib.getByTestId('txtInput')
     animatedFlatlistInst = testingLib.getByTestId('animatedFlatlist')

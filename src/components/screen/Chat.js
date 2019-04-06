@@ -22,12 +22,6 @@ import styled from 'styled-components/native';
 
 import { Header } from 'react-navigation';
 
-import type {
-  ____ViewStyleProp_Internal as ViewStyle,
-  ____TextStyleProp_Internal as TextStyle,
-  ____ImageStyleProp_Internal as ImageStyle,
-} from 'react-native/Libraries/StyleSheet/StyleSheetTypes';
-
 import ChatListItem from '../shared/ChatListItem';
 import EmptyListItem from '../shared/EmptyListItem';
 import Button from '../shared/Button';
@@ -94,34 +88,10 @@ const StyledViewMenu = styled.View`
   background-color: green;
 `;
 
-type Styles = {
-  btnSend: ViewStyle,
-  txtSend: TextStyle,
-};
-
-const styles: Styles = StyleSheet.create({
-  btnSend: {
-    right: 8,
-    backgroundColor: colors.dodgerBlue,
-    borderRadius: 4,
-    width: 60,
-    height: 36,
-
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  txtSend: {
-    fontSize: 14,
-    fontWeight: 'bold',
-    color: 'white',
-    paddingHorizontal: 5,
-    paddingVertical: 10,
-  },
-});
-
 type Props = {
   navigation: any;
 };
+
 type State = {
   isLoading: boolean,
   showMenu: boolean,
@@ -272,8 +242,6 @@ function Screen(props: Props, state: State) {
                 testID='btn_chat'
                 isLoading={isLoading}
                 onPress={sendChat}
-                style={styles.btnSend}
-                textStyle={styles.txtSend}
               >{getString('SEND')}</Button>
             </StyledViewChat>
             : null
@@ -305,8 +273,6 @@ function Screen(props: Props, state: State) {
                 testID='btn_chat'
                 isLoading={isLoading}
                 onPress={sendChat}
-                style={styles.btnSend}
-                textStyle={styles.txtSend}
               >{getString('SEND')}</Button>
             </StyledViewChat>
             <StyledViewMenu style={{

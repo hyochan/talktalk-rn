@@ -69,7 +69,7 @@ function Screen(props: Props, state: State) {
         <StyledAnimatedImage
           style = {{
             transform: [{
-              rotate: this.spin
+              rotate: spin
             }]
           }}
         />

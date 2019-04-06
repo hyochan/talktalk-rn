@@ -110,32 +110,32 @@ type State = {
   searchedUsers: Friend[],
 };
 
-Screen.navigationOptions = {
-  title: 'Search User',
-};
 function Screen(props: Props) {
-  const profileModal = React.useContext(ProfileModalContext);
+  const profileModal = useContext(ProfileModalContext);
   const [searchedUsers, setSearchedUsers] = useState(userSampleData);
   const [users, setUsers] = useState(userSampleData);
   const scrollY = new Animated.Value(0);
 
-  const renderItem = ({ item }: Friend) => {
+  const userListOnPress = (item: Friend) => {
+    if (profileModal && profileModal.dispatch) {
+      profileModal.dispatch({
+        type: 'show-modal',
+        payload: { user: item, deleteMode: true },
+      });
+    }
+  };
+  const renderItem = ({ item, index }: { item: Friend, index: number}) => {
     return (
       <UserListItem
-        testID='userListItem'
+        testID={`userListItem${index}`}
+        testObj={{ profileModal }}
         user={item}
-        onPress={() => {
-          if (profileModal && profileModal.dispatch) {
-            profileModal.dispatch({
-              type: 'show-modal',
-              payload: { user: item, deleteMode: true },
-            });
-          }
-        }}
+        onPress={(e) => userListOnPress(item)}
       />
     );
   };
   const onTxtChanged = (txt: string) => {
+    console.log('onTxtChanged', { txt });
     onSearch(txt);
     scrollY.setValue(0);
     Animated.timing(scrollY, {
@@ -164,7 +164,7 @@ function Screen(props: Props) {
         <StyledSearchView>
           <StyledTextInputWrapper>
             <StyledTextInput
-              testID="styledInput"
+              testID="txtInput"
               onChangeText={onTxtChanged}
               underlineColorAndroid='transparent' // android fix
               autoCapitalize='none'
@@ -177,6 +177,7 @@ function Screen(props: Props) {
         </StyledSearchView>
         <StyledAnimatedFlatList
           testID='animatedFlatlist'
+          testObj={{ scrollY }}
           style={{
             transform: [{
               translateY: scrollY.interpolate({
@@ -195,5 +196,8 @@ function Screen(props: Props) {
     </StyledSafeAreaView>
   );
 }
+Screen.navigationOptions = {
+  title: 'Search User',
+};
 
 export default Screen;

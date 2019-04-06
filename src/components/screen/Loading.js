@@ -23,7 +23,7 @@ import { getString } from '../../../STRINGS';
 
 import styled from 'styled-components/native';
 
-const StyledView - styled.View`
+const StyledView = styled.View`
   background-color: transparent;
 `;
 const StyledContainer = styled.View`

@@ -21,12 +21,7 @@ import {
 import styled from 'styled-components/native';
 
 import { Header } from 'react-navigation';
-
-import type {
-  ____ViewStyleProp_Internal as ViewStyle,
-  ____TextStyleProp_Internal as TextStyle,
-  ____ImageStyleProp_Internal as ImageStyle,
-} from 'react-native/Libraries/StyleSheet/StyleSheetTypes';
+import Icon5, { FA5Style } from 'react-native-vector-icons/FontAwesome5';
 
 import ChatListItem from '../shared/ChatListItem';
 import EmptyListItem from '../shared/EmptyListItem';
@@ -91,37 +86,15 @@ const StyledViewBottom = styled.View`
 `;
 
 const StyledViewMenu = styled.View`
-  background-color: green;
+  background-color: ${colors.paleGray};
+  flex-direction: row;
+  flex-wrap: wrap;
 `;
-
-type Styles = {
-  btnSend: ViewStyle,
-  txtSend: TextStyle,
-};
-
-const styles: Styles = StyleSheet.create({
-  btnSend: {
-    right: 8,
-    backgroundColor: colors.dodgerBlue,
-    borderRadius: 4,
-    width: 60,
-    height: 36,
-
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  txtSend: {
-    fontSize: 14,
-    fontWeight: 'bold',
-    color: 'white',
-    paddingHorizontal: 5,
-    paddingVertical: 10,
-  },
-});
 
 type Props = {
   navigation: any;
 };
+
 type State = {
   isLoading: boolean,
   showMenu: boolean,
@@ -272,8 +245,6 @@ function Screen(props: Props, state: State) {
                 testID='btn_chat'
                 isLoading={isLoading}
                 onPress={sendChat}
-                style={styles.btnSend}
-                textStyle={styles.txtSend}
               >{getString('SEND')}</Button>
             </StyledViewChat>
             : null
@@ -305,13 +276,41 @@ function Screen(props: Props, state: State) {
                 testID='btn_chat'
                 isLoading={isLoading}
                 onPress={sendChat}
-                style={styles.btnSend}
-                textStyle={styles.txtSend}
               >{getString('SEND')}</Button>
             </StyledViewChat>
             <StyledViewMenu style={{
               height: keyboardHeight,
-            }}/>
+            }}>
+              <View style={{
+                flexDirection: 'row',
+                marginTop: 10,
+              }}>
+                <TouchableOpacity
+                  style={{
+                    marginLeft: 16,
+                    marginTop: 2,
+                    width: 60,
+                    height: 60,
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                  }}
+                >
+                  <Icon5 name='camera' size={36} color={colors.dusk} light/>
+                </TouchableOpacity>
+                <TouchableOpacity
+                  style={{
+                    marginLeft: 16,
+                    marginTop: 4,
+                    width: 60,
+                    height: 60,
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                  }}
+                >
+                  <Icon5 name='image' size={40} color={colors.dusk} light/>
+                </TouchableOpacity>
+              </View>
+            </StyledViewMenu>
           </StyledViewBottom>
           : null
       }

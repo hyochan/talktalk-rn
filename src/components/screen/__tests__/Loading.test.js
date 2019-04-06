@@ -6,7 +6,7 @@ import { getString } from '../../../../STRINGS';
 
 // Note: test renderer must be required after react-native.
 import renderer from 'react-test-renderer';
-ipmort { render, fireEvent } from 'react-native-testing-library';
+import { render, fireEvent } from 'react-native-testing-library';
 
 const props = {
   navigation: {

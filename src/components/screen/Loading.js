@@ -76,7 +76,7 @@ function Screen(props: Props, state: State) {
         <StyledTextLoading>{getString('LOADING')}</StyledTextLoading>
       </StyledContainer>
     </StyledView>
-  )
+  );
 }
 
 export default Screen;

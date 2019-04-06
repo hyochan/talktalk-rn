@@ -58,7 +58,7 @@ type State = {
 function Screen(props: Props, state: State) {
   const spinValue = new Animated.Value(0);
 
-  const spin = this.spinValue.interpolate({
+  const spin = spinValue.interpolate({
     inputRange: [0, 1],
     outputRange: ['0deg', '1260deg'],
   });

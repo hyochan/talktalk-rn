@@ -21,19 +21,25 @@ import { animateRotateLoop } from '../../utils/Functions';
 import { ratio, colors } from '../../utils/Styles';
 import { getString } from '../../../STRINGS';
 
-type Styles = {
-  container: ViewStyle,
-};
+import styled from 'styled-components/native';
 
-const styles: Styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: 'transparent',
-    flexDirection: 'column',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+const StyledView = styled.View`
+  background-color: transparent;
+`;
+
+const StyledContainer = styled.View`
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+`;
+
+const AnimatedImage = Animated.createAnimatedComponent(Image);
+const StyledAnimatedImage = styled(AnimatedImage)`
+  width: 60;
+  height: 60;
+  margin-top: 500;
+`;
 
 type Props = {
 
@@ -42,30 +48,23 @@ type State = {
 
 };
 
-class Screen extends Component<Props, State> {
-  static navigationOptions = {
-    title: 'Title',
-  };
-  spinValue = new Animated.Value(0);
-  spin = this.spinValue.interpolate({
+function Screen(props: Props, state: State) {
+  const spinValue = new Animated.Value(0);
+
+  const spin = spinValue.interpolate({
     inputRange: [0, 1],
     outputRange: ['0deg', '1260deg'],
   });
 
-  constructor(props: Props) {
-    super(props);
-  }
-
-  render() {
-    return (
-      <View style={styles.container}>
-        <Animated.Image
+  return (
+    <StyledView>
+      <StyledContainer>
+        <StyledAnimatedImage
           source={IC_ICON}
-          style={{
-            width: 60,
-            height: 60,
-            marginBottom: 16,
-            transform: [{ rotate: this.spin }],
+          style = {{
+            transform: [{
+              rotate: spin
+            }]
           }}
         />
         <Text
@@ -79,9 +78,9 @@ class Screen extends Component<Props, State> {
         >
           { getString('LOADING') }
         </Text>
-      </View>
-    );
-  }
+      </StyledContainer>
+    </StyledView>
+  );
 }
 
 export default Screen;

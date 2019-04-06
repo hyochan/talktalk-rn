@@ -40,14 +40,6 @@ const StyledAnimatedImage = styled(AnimatedImage)`
   margin-bottom: 16;
 `;
 
-const StyledTextLoading = styled.Text`
-  animation: fadein;
-  iteration-count: infinite;
-  direction: alternate;
-  color: colors.dodgerBlue;
-  font-size: 16;
-`;
-
 type Props = {
 
 };
@@ -73,7 +65,17 @@ function Screen(props: Props, state: State) {
             }]
           }}
         />
-        <StyledTextLoading>{getString('LOADING')}</StyledTextLoading>
+        <Text
+          animation='fadeIn'
+          iterationCount={'infinite'}
+          direction='alternate'
+          style={{
+            color: colors.dodgerBlue,
+            fontSize: 16,
+          }}
+        >
+          { getString('LOADING') }
+        </Text>
       </StyledContainer>
     </StyledView>
   );

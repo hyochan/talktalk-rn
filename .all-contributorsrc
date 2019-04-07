@@ -58,6 +58,16 @@
         "code",
         "test"
       ]
+    },
+    {
+      "login": "unolife",
+      "name": "SeongBeomShin",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/38601861?v=4",
+      "profile": "https://github.com/unolife",
+      "contributions": [
+        "code",
+        "test"
+      ]
     }
   ],
   "contributorsPerLine": 7,

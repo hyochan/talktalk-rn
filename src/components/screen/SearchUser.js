@@ -130,12 +130,11 @@ function Screen(props: Props) {
         testID={`userListItem${index}`}
         testObj={{ profileModal }}
         user={item}
-        onPress={(e) => userListOnPress(item)}
+        onPress={() => userListOnPress(item)}
       />
     );
   };
   const onTxtChanged = (txt: string) => {
-    console.log('onTxtChanged', { txt });
     onSearch(txt);
     scrollY.setValue(0);
     Animated.timing(scrollY, {

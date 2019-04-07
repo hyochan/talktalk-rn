@@ -1,6 +1,7 @@
 import { Animated } from 'react-native';
 import * as React from 'react';
 import SearchUser from '../SearchUser';
+import { ProfileModalProvider } from '../../../providers/ProfileModalProvider'
 import { IC_BACK } from '../../../utils/Icons';
 
 // Note: test renderer must be required after react-native.
@@ -24,6 +25,7 @@ describe('[SearchUser] rendering test', () => {
 });
 
 describe('[serachUser] interaction', () => {
+  let searchUserLib: RenderAPI
   let testingLib: RenderAPI
   let txtInputInst: renderer.ReactTestInstance
   let animatedFlatlistInst: renderer.ReactTestInstance
@@ -40,11 +42,22 @@ describe('[serachUser] interaction', () => {
   };
   
   beforeAll(() => {
-    testingLib = render(component);
-    txtInputInst = testingLib.getByTestId('txtInput')
-    animatedFlatlistInst = testingLib.getByTestId('animatedFlatlist')
+    const providerProps = {
+      navigation: {
+        navigate: jest.fn()
+      }
+    };
+    const providerComponent = (
+      <ProfileModalProvider {...providerProps}>
+        {component}
+      </ProfileModalProvider>
+    );
+    searchUserLib = render(component);
+    testingLib = render(providerComponent);
+    txtInputInst = testingLib.getByTestId('txtInput');
+    animatedFlatlistInst = testingLib.getByTestId('animatedFlatlist');
   });
-  it('when friend name typed in TextInput: (onTxtChanged -> onSearch) and (renderItem)', () => {
+  it('when friend name typed in TextInput: (onTxtChanged -> onSearch) and (renderItem) and (keyExtractor)', () => {
     // setTimeout called - 0
     fireEvent.changeText(txtInputInst, inputData.displayName)
     // setTimeout called - 2
@@ -74,16 +87,22 @@ describe('[serachUser] interaction', () => {
     }).start();
     // setTimeout called - 5
     setTimeout(() => {
-      console.log('after scrollY', afterScrollY)
       expect(scrollY).toEqual(afterScrollY);  // doesn't work
     }, 600);
     // setTimeout called - 6
   });
-  
   it('when profile modal clicked -> should call showProfileModal', () => {
-    fireEvent.changeText(txtInputInst, inputData.displayName);
     let userListItemInst: renderer.ReactTestInstance = testingLib.getByTestId('userListItem0');
+    fireEvent.changeText(txtInputInst, inputData.displayName);
     fireEvent.press(userListItemInst);
-    let { profileModal } = userListItemInst.props.testObj;  // try to detect cotnext, but undefined
+    const { profileModal } = userListItemInst.props.testObj;
+    const reducerState = {
+      user: {
+        ...inputData,
+      },
+      deleteMode: false,
+    };
+    expect(profileModal && profileModal.dispatch).toBeTruthy(); // effects nothing
+    expect(profileModal.state).toEqual(reducerState); // effects nothing
   });
 });

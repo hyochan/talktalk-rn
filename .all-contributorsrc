@@ -68,6 +68,17 @@
         "code",
         "test"
       ]
+    },
+    {
+
+      "login": "bumjoo",
+      "name": "bumjoo.lee",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/43266906?v=4",
+      "profile": "https://github.com/bumjoo",
+      "contributions": [
+        "code",
+        "test"
+      ]
     }
   ],
   "contributorsPerLine": 7,

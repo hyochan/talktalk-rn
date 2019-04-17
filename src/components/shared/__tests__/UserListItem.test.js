@@ -4,29 +4,35 @@ import UserListItem from '../UserListItem';
 
 // Note: test renderer must be required after react-native.
 import renderer from 'react-test-renderer';
-import { shallow, render } from 'enzyme';
+import { render, fireEvent } from 'react-native-testing-library';
 
-describe('rendering test', () => {
-  const wrapper = shallow(
-    <UserListItem />,
-  );
+let cnt = 0;
+const onPress = () => {
+  cnt++;
+};
+const component: React.Element<any> = <UserListItem onPress={onPress}/>;
 
+describe('[UserListItem] rendering test', () => {
   it('renders as expected', () => {
-    expect(wrapper).toMatchSnapshot();
-    // wrapper.setProps({ filled: false });
-    // expect(wrapper).toMatchSnapshot();
+    const json = renderer.create(component).toJSON();
+    expect(json).toMatchSnapshot();
+  });
+});
+
+describe('[UserListItem] interaction', () => {
+  let rendered: renderer.ReactTestRenderer;
+  let root: renderer.ReactTestInstance;
+  let testingLib: any;
+
+  beforeAll(() => {
+    rendered = renderer.create(component);
+    root = rendered.root;
+    testingLib = render(component);
   });
 
-  // it('simulate onPress', () => {
-  //   let cnt = 1;
-  //   const onPress = () => {
-  //     cnt++;
-  //   };
-
-  //   wrapper.setProps({ onPress: () => onPress()});
-  //   expect(wrapper).toMatchSnapshot();
-
-  //   wrapper.first().props().onPress();
-  //   expect(cnt).toBe(2);
-  // });
+  it('should fireEvent when peer image is pressed', () => {
+    const touchBtn = testingLib.getByTestId('press_id');
+    fireEvent(touchBtn, 'press');
+    expect(cnt).toEqual(1);
+  });
 });

@@ -4,29 +4,18 @@ import StatusBar from '../StatusBar';
 
 // Note: test renderer must be required after react-native.
 import renderer from 'react-test-renderer';
-import { shallow, render } from 'enzyme';
+import { render, fireEvent } from 'react-native-testing-library';
 
-describe('rendering test', () => {
-  const wrapper = shallow(
-    <StatusBar />,
-  );
+const component: React.Element<any> = <StatusBar />;
 
+describe('[UserListItem] rendering test', () => {
   it('renders as expected', () => {
-    expect(wrapper).toMatchSnapshot();
-    // wrapper.setProps({ filled: false });
-    // expect(wrapper).toMatchSnapshot();
+    const json = renderer.create(component).toJSON();
+    expect(json).toMatchSnapshot();
   });
-
-  // it('simulate onPress', () => {
-  //   let cnt = 1;
-  //   const onPress = () => {
-  //     cnt++;
-  //   };
-
-  //   wrapper.setProps({ onPress: () => onPress()});
-  //   expect(wrapper).toMatchSnapshot();
-
-  //   wrapper.first().props().onPress();
-  //   expect(cnt).toBe(2);
-  // });
+  it('renders [isDarkContent] as expected', () => {
+    const disabledComponent: React.Element<any> = <StatusBar isDarkContent={true}/>;
+    const json = renderer.create(disabledComponent).toJSON();
+    expect(json).toMatchSnapshot();
+  });
 });

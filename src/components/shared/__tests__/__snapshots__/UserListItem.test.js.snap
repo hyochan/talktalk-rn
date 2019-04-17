@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`rendering test renders as expected 1`] = `
+exports[`[UserListItem] rendering test renders as expected 1`] = `
 <View
   style={
     Object {
@@ -8,8 +8,21 @@ exports[`rendering test renders as expected 1`] = `
     }
   }
 >
-  <TouchableOpacity
-    activeOpacity={0.5}
+  <View
+    accessible={true}
+    isTVSelectable={true}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "opacity": 1,
+      }
+    }
+    testID="press_id"
   >
     <View
       style={
@@ -25,7 +38,7 @@ exports[`rendering test renders as expected 1`] = `
         }
       }
     >
-      <Component
+      <Unknown
         color="rgb(65,77,107)"
         light={true}
         name="meh"
@@ -40,9 +53,11 @@ exports[`rendering test renders as expected 1`] = `
             "width": 100,
           }
         }
-      />
+      >
+        
+      </Text>
       <View />
     </View>
-  </TouchableOpacity>
+  </View>
 </View>
 `;

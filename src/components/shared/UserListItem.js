@@ -78,6 +78,7 @@ function Shared(props: Props, state: State) {
   return (
     <View style={styles.container}>
       <TouchableOpacity
+        testID='press_id'
         activeOpacity={0.5}
         onPress={props.onPress}
         onLongPress={props.onLongPress}

@@ -294,6 +294,7 @@ exports[`[SearchUser] rendering test renders as expected 1`] = `
                   "opacity": 1,
                 }
               }
+              testID="press_id"
             >
               <View
                 style={
@@ -373,6 +374,7 @@ exports[`[SearchUser] rendering test renders as expected 1`] = `
                   "opacity": 1,
                 }
               }
+              testID="press_id"
             >
               <View
                 style={
@@ -459,6 +461,7 @@ exports[`[SearchUser] rendering test renders as expected 1`] = `
                   "opacity": 1,
                 }
               }
+              testID="press_id"
             >
               <View
                 style={
@@ -545,6 +548,7 @@ exports[`[SearchUser] rendering test renders as expected 1`] = `
                   "opacity": 1,
                 }
               }
+              testID="press_id"
             >
               <View
                 style={
@@ -624,6 +628,7 @@ exports[`[SearchUser] rendering test renders as expected 1`] = `
                   "opacity": 1,
                 }
               }
+              testID="press_id"
             >
               <View
                 style={
@@ -710,6 +715,7 @@ exports[`[SearchUser] rendering test renders as expected 1`] = `
                   "opacity": 1,
                 }
               }
+              testID="press_id"
             >
               <View
                 style={
@@ -796,6 +802,7 @@ exports[`[SearchUser] rendering test renders as expected 1`] = `
                   "opacity": 1,
                 }
               }
+              testID="press_id"
             >
               <View
                 style={
@@ -875,6 +882,7 @@ exports[`[SearchUser] rendering test renders as expected 1`] = `
                   "opacity": 1,
                 }
               }
+              testID="press_id"
             >
               <View
                 style={
@@ -961,6 +969,7 @@ exports[`[SearchUser] rendering test renders as expected 1`] = `
                   "opacity": 1,
                 }
               }
+              testID="press_id"
             >
               <View
                 style={

@@ -19,7 +19,12 @@ import { getString } from '../../../STRINGS';
 
 const routeConfig = {
   Main: { screen: MainTabNavigator, navigationOptions: MainTabNavigationOptions },
-  ProfileUpdate: { screen: ProfileUpdate },
+  ProfileUpdate: {
+    screen: ProfileUpdate,
+    navigationOptions: {
+      title: getString('MY_PROFILE'),
+    },
+  },
   SearchUser: { screen: SearchUser },
   Chat: {
     screen: Chat,

@@ -4,21 +4,33 @@ import ProfileUpdate from '../ProfileUpdate';
 
 // Note: test renderer must be required after react-native.
 import renderer from 'react-test-renderer';
-import { shallow, render } from 'enzyme';
+import { render, fireEvent } from 'react-native-testing-library';
+
+const props = {
+  navigation: {
+    navigate: jest.fn(),
+  },
+};
+const component: React.Element<any> = <ProfileUpdate {...props} />;
 
 describe('rendering test', () => {
-  const wrapper = shallow(
-    <ProfileUpdate />,
-  );
-
   it('renders as expected', () => {
-    expect(wrapper).toMatchSnapshot();
+    const json = renderer.create(component).toJSON();
+    expect(json).toMatchSnapshot();
   });
 });
 
 describe('interaction', () => {
-  let props;
-  let wrapper;
+  let rendered: renderer.ReactTestRenderer;
+  let root: renderer.ReactTestInstance;
+  let testingLib: any;
+  let props: any;
+
+  beforeAll(() => {
+    rendered = renderer.create(component);
+    root = rendered.root;
+  });
+
   beforeEach(() => {
     props = {
       navigation: {
@@ -26,38 +38,29 @@ describe('interaction', () => {
         goBack: jest.fn(),
       },
     };
-    wrapper = shallow(<ProfileUpdate {...props} />);
+    const component: React.Element<any> = <ProfileUpdate {...props} />;
+    testingLib = render(component);
   });
-  describe('clicking the button', () => {
-    it('should call onLogout callback', () => {
-      const spy = jest.spyOn(wrapper.instance(), 'onLogout');
-      const btn = wrapper.find('#logout');
-      btn.props().onPress();
-      expect(spy).toHaveBeenCalled();
-      expect(props.navigation.navigate).toHaveBeenCalledWith('AuthStackNavigator');
-    });
+
+  it('should fireEvent when update button pressed', () => {
+    fireEvent(testingLib.getByTestId('update_btn'), 'press');
+    // expect(props.navigation.goBack).toHaveBeenCalledTimes(1);
   });
-  describe('onUpdate', () => {
-    it('should navigate when onUpdate callback', () => {
-      const spy = jest.spyOn(wrapper.instance(), 'onUpdate');
-      const btn = wrapper.find('#update');
-      btn.props().onPress();
-      expect(spy).toHaveBeenCalled();
-      expect(wrapper.instance().state.isUpdating).toEqual(false);
-      expect(props.navigation.goBack).toHaveBeenCalledTimes(1);
-    });
+
+  it('should fireEvent when logout button pressed', () => {
+    fireEvent(testingLib.getByTestId('logout_btn'), 'press');
+    expect(props.navigation.navigate).toHaveBeenCalledWith('AuthStackNavigator');
   });
-  describe('change text', () => {
-    it('should change state onTextChanged', () => {
-      const instance = wrapper.instance();
-      instance.onTextChanged('DISPLAY_NAME', 'my_name');
-      expect(instance.state.displayName).toEqual('my_name');
-      instance.onTextChanged('STATUS_MSG', 'aaaaaa');
-      expect(instance.state.statusMsg).toEqual('aaaaaa');
-    });
-  });
-  afterAll(() => {
-    wrapper.instance().prototype.onLogout.mockRestore();
-    wrapper.instance().prototype.onUpdate.mockRestore();
-  });
+
+  it('should changeText when display name changed', () => {
+    const inputName = testingLib.getByTestId('input_name');
+    inputName.props.onTextChanged('name');
+    expect(inputName.props.txt).toEqual('name');
+  })
+
+  it('should changeText when status message changed', () => {
+    const inputStatus = testingLib.getByTestId('input_status');
+    inputStatus.props.onTextChanged('status');
+    expect(inputStatus.props.txt).toEqual('status');
+  })
 });

@@ -1,5 +1,9 @@
 // @flow
-import React, { Component } from 'react';
+import React, {
+  Component,
+  useState,
+  useEffect,
+} from 'react';
 import {
   StyleSheet,
   TouchableOpacity,
@@ -25,94 +29,38 @@ import { IC_MASK } from '../../utils/Icons';
 import { ratio, colors } from '../../utils/Styles';
 import { getString } from '../../../STRINGS';
 
-type Styles = {
-  container: ViewStyle,
-  scrollView: ViewStyle,
-  scrollViewContainer: ViewStyle,
-  wrapper: ViewStyle,
-  btnWrapper: ViewStyle,
-  btnLogout: ViewStyle,
-  txtLogout: TextStyle,
-  btnUpdate: ViewStyle,
-  txtUpdate: TextStyle,
-};
+const StyledContainer = styled.View`
+  flex: 1;
+  background-color: white;
+  flex-direction: column;
+  align-items: center;
+`;
 
-const styles: Styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: 'white',
-    flexDirection: 'column',
-    alignItems: 'center',
-  },
-  scrollView: {
-    alignSelf: 'stretch',
-  },
-  scrollViewContainer: {
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  wrapper: {
-    marginTop: 48,
-    width: '78%',
+const StyledScrollView = styled.ScrollView`
+  align-self: stretch;
+`;
 
-    flexDirection: 'column',
-    alignItems: 'center',
-  },
-  btnWrapper: {
-    width: '100%',
-    justifyContent: 'space-between',
-    flexDirection: 'row',
-    alignItems: 'center',
-    marginTop: 24,
-    marginBottom: 48,
-  },
-  btnLogout: {
-    backgroundColor: 'transparent',
-    alignSelf: 'center',
-    borderRadius: 4,
-    borderWidth: 1,
-    width: 136,
-    height: 60,
-    borderColor: colors.dodgerBlue,
-    marginRight: 4,
+const StyledWrapper = styled.View`
+  margin-top: 48;
+  width: 78%;
 
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  txtLogout: {
-    fontSize: 16,
-    fontWeight: 'bold',
-    color: colors.dodgerBlue,
-  },
-  btnUpdate: {
-    backgroundColor: colors.dodgerBlue,
-    borderColor: colors.dodgerBlue,
-    borderRadius: 4,
-    borderWidth: 1,
-    width: 136,
-    height: 60,
-    marginLeft: 4,
-    shadowColor: colors.dodgerBlue,
-    shadowOffset: {
-      width: 0,
-      height: 10,
-    },
-    shadowRadius: 4,
-    shadowOpacity: 0.3,
+  flex-direction: column;
+  align-items: center;
+`;
 
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  txtUpdate: {
-    fontSize: 16,
-    fontWeight: 'bold',
-    color: 'white',
-  },
-});
+const StyledBtnWrapper = styled.View`
+  width: 100%;
+  justify-content: space-between;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 24;
+  margin-bottom: 48;
+`;
 
 type Props = {
   navigation: any,
 };
+
 type State = {
   isUpdating: boolean;
   displayName: string;
@@ -120,97 +68,94 @@ type State = {
   photoURL: string;
 };
 
-class Screen extends Component<Props, State> {
-  static navigationOptions = {
-    title: getString('MY_PROFILE'),
-  };
+function Screen(props: Props) {
+  const [isUpdating, setIsUpdating] = useState(false);
+  const [displayName, setDisplayName] = useState('');
+  const [statusMsg, setStatusMsg] = useState('');
+  const [photoURL, setPhotoURL] = useState('');
 
-  constructor(props: Props) {
-    super(props);
-    this.state = {
-      isUpdating: false,
-      displayName: '',
-      statusMsg: '',
-      photoURL: '',
-    };
-  }
-
-  render() {
-    return (
-      <View style={styles.container}>
-        <ScrollView
-          style={styles.scrollView}
-          contentContainerStyle={styles.scrollViewContainer}
-        >
-          <View style={styles.wrapper}>
-            <TouchableOpacity
-              activeOpacity={0.5}
-              onPress={this.onPressImg}
-            >
-              <Icon5 name="meh" size={80} color={colors.dusk} light/>
-            </TouchableOpacity>
-            <TextInput
-              style={{ marginTop: 80 }}
-              txtLabel={getString('NAME')}
-              txtHint={ getString('NAME') }
-              txt={ this.state.displayName }
-              onTextChanged={ (text) => this.onTextChanged('DISPLAY_NAME', text)}
-            />
-            <TextInput
-              style={{ marginTop: 24 }}
-              txtLabel={getString('STATUS_MSG')}
-              txtHint={ getString('STATUS_MSG') }
-              txt={ this.state.statusMsg }
-              onTextChanged={ (text) => this.onTextChanged('STATUS_MSG', text)}
-            />
-            <View style={styles.btnWrapper}>
-              <Button
-                id='logout'
-                onPress={() => this.onLogout()}
-                isWhite
-              >{getString('LOGOUT')}</Button>
-              <View style={{ width: 8 }}/>
-              <Button
-                id='update'
-                isLoading={this.state.isUpdating}
-                onPress={() => this.onUpdate()}
-              >{getString('UPDATE')}</Button>
-            </View>
-          </View>
-        </ScrollView>
-      </View>
-    );
-  }
-
-  onLogout = () => {
-    this.props.navigation.navigate('AuthStackNavigator');
-  }
-
-  onUpdate = () => {
-    this.setState({ isUpdating: true }, () => {
+  useEffect(() => {
+    if (isUpdating) {
       try {
-        this.props.navigation.goBack();
+        props.navigation.goBack();
       } catch (err) {
         console.error(err);
       } finally {
-        this.setState({ isUpdating: false });
+        setIsUpdating(false);
       }
-    });
-  }
+    }
+  }, [isUpdating]);
 
-  onTextChanged = (type: string, text: string) => {
+  const onLogout = () => {
+    props.navigation.navigate('AuthStackNavigator');
+  };
+
+  const onUpdate = () => {
+    setIsUpdating(true);
+  };
+
+  const onTextChanged = (type: string, text: string) => {
     switch (type) {
       case 'DISPLAY_NAME':
-        this.setState({ displayName: text });
+        setDisplayName(text);
         break;
       case 'STATUS_MSG':
-        this.setState({ statusMsg: text });
+        setStatusMsg(text);
         break;
     }
-  }
+  };
 
-  onPressImg = () => {
-  }
+  const onPressImg = () => {
+  };
+
+  return (
+    <StyledContainer>
+      <StyledScrollView
+        contentContainerStyle={{
+          justifyContent: 'center',
+          alignItems: 'center',
+        }}
+      >
+        <StyledWrapper>
+          <TouchableOpacity
+            activeOpacity={0.5}
+            onPress={onPressImg}
+          >
+            <Icon5 name="meh" size={80} color={colors.dusk} light/>
+          </TouchableOpacity>
+          <TextInput
+            testID='input_name'
+            style={{ marginTop: 80 }}
+            txtLabel={getString('NAME')}
+            txtHint={ getString('NAME') }
+            txt={ displayName }
+            onTextChanged={ (text) => onTextChanged('DISPLAY_NAME', text)}
+          />
+          <TextInput
+            testID='input_status'
+            style={{ marginTop: 24 }}
+            txtLabel={getString('STATUS_MSG')}
+            txtHint={ getString('STATUS_MSG') }
+            txt={ statusMsg }
+            onTextChanged={ (text) => onTextChanged('STATUS_MSG', text)}
+          />
+          <StyledBtnWrapper>
+            <Button
+              testID='logout_btn'
+              onPress={() => onLogout()}
+              isWhite
+            >{getString('LOGOUT')}</Button>
+            <View style={{ width: 8 }}/>
+            <Button
+              testID='update_btn'
+              isLoading={isUpdating}
+              onPress={() => onUpdate()}
+            >{getString('UPDATE')}</Button>
+          </StyledBtnWrapper>
+        </StyledWrapper>
+      </StyledScrollView>
+    </StyledContainer>
+  );
 }
 
 export default Screen;

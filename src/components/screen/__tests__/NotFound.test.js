@@ -4,14 +4,13 @@ import NotFound from '../NotFound';
 
 // Note: test renderer must be required after react-native.
 import renderer from 'react-test-renderer';
-import { shallow, render } from 'enzyme';
+import { render, fireEvent } from 'react-native-testing-library';
 
-describe('rendering test', () => {
-  const wrapper = shallow(
-    <NotFound />,
-  );
+const component: React.Element<any> = <NotFound />;
 
+describe('[NotFound] rendering test', () => {
   it('renders as expected', () => {
-    expect(wrapper).toMatchSnapshot();
+    const json = renderer.create(component).toJSON();
+    expect(json).toMatchSnapshot();
   });
 });

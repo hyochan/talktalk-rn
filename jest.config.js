@@ -30,9 +30,6 @@ module.exports = {
     'android.js',
     'android.jsx'
   ],
-  snapshotSerializers: [
-    './node_modules/enzyme-to-json/serializer'
-  ],
   testPathIgnorePatterns: [
     '\\.snap$',
     '<rootDir>/node_modules/'

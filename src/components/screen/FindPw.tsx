@@ -72,7 +72,6 @@ function Screen(props: IProps) {
   };
 
   const onSendLink = () => {
-    console.log('onSendLink');
     setLoading(true);
   };
 

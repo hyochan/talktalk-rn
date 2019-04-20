@@ -191,7 +191,6 @@ function Screen(props: IProps, state: IState) {
   };
 
   const sendChat = () => {
-    console.log('sendChat');
   };
 
   return (

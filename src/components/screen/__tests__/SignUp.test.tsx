@@ -22,7 +22,6 @@ describe('[SignUp] rendering test', () => {
 
 describe('[SignUp] interaction', () => {
   let rendered: renderer.ReactTestRenderer;
-  let root: renderer.ReactTestInstance;
   let testingLib: any;
 
   beforeAll(() => {

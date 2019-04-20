@@ -26,7 +26,6 @@ describe('[Button] rendering test', () => {
 
 describe('[Button] interaction', () => {
   let rendered: renderer.ReactTestRenderer;
-  let root: renderer.ReactTestInstance;
   let testingLib: any;
 
   beforeAll(() => {

@@ -98,7 +98,7 @@ const StyledSearchImage = styled.Image`
 `;
 
 interface IProps {
-  navigation: NavigationScreenProp<NavigationStateRoute<any>>;
+  navigation: any;
 }
 interface IState {
   users: Friend[];

@@ -28,7 +28,7 @@ const StyledContainer = styled.View`
 `;
 
 interface IProps {
-  navigation: NavigationScreenProp<NavigationStateRoute<any>>;
+  navigation: any;
 }
 
 interface IState {

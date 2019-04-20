@@ -4,11 +4,19 @@ module.exports = {
   ...tsJestConfig,
   preset: "react-native",
   transformIgnorePatterns: [
-    "node_modules/(?!(.*-)?react-(.*-)?native(-.*)?)"
+    'node_modules/(?!react-native|react-navigation|react-native-gesture-handler|react-native-animatable|react-native-vector-icons)/',
+    '<rootDir>/lib/'
   ],
   setupFiles: [
     "./test/jestSetup.ts"
   ],
+  coverageDirectory: './coverage/',
+  coveragePathIgnorePatterns: [
+    '/node_modules/',
+    '/test/',
+    '/src/contexts/'
+  ],
+  collectCoverage: true,
   globals: {
     "window": {},
     "ts-jest": {

@@ -61,7 +61,6 @@ exports[`[Chat] rendering test renders as expected 1`] = `
             "id": "",
             "message": "hello1",
             "sender": User {
-              "Chatrooms": Array [],
               "chatrooms": undefined,
               "created": undefined,
               "displayName": "sender111",
@@ -77,9 +76,8 @@ exports[`[Chat] rendering test renders as expected 1`] = `
           Chat {
             "created": undefined,
             "id": "",
-            "message": "Hello2. This is long message. This is long message. This is long message. This is long message. This is long message. This is long message. This is long message. This is long message. This is long message. This is long message. This is long message.",
+            "message": "Hello2. This is long message. This is long message. This is long message.This is long message. This is long message. This is long message. This is long message. This is long message. This is long message. This is long message. This is long message.",
             "sender": User {
-              "Chatrooms": Array [],
               "chatrooms": undefined,
               "created": undefined,
               "displayName": "sender111",
@@ -97,7 +95,6 @@ exports[`[Chat] rendering test renders as expected 1`] = `
             "id": "",
             "message": "hello",
             "sender": User {
-              "Chatrooms": Array [],
               "chatrooms": undefined,
               "created": undefined,
               "displayName": "sender2222",
@@ -115,7 +112,6 @@ exports[`[Chat] rendering test renders as expected 1`] = `
             "id": "",
             "message": "hello",
             "sender": User {
-              "Chatrooms": Array [],
               "chatrooms": undefined,
               "created": undefined,
               "displayName": "sender2222",
@@ -133,7 +129,6 @@ exports[`[Chat] rendering test renders as expected 1`] = `
             "id": "",
             "message": "hello. This is my long message. This is my long message. This is my long message. This is my long message. This is my long message. This is my long message. This is my long message. This is my long message. This is my long message.",
             "sender": User {
-              "Chatrooms": Array [],
               "chatrooms": undefined,
               "created": undefined,
               "displayName": "sender2222",
@@ -387,7 +382,7 @@ exports[`[Chat] rendering test renders as expected 1`] = `
                     ]
                   }
                 >
-                  Hello2. This is long message. This is long message. This is long message. This is long message. This is long message. This is long message. This is long message. This is long message. This is long message. This is long message. This is long message.
+                  Hello2. This is long message. This is long message. This is long message.This is long message. This is long message. This is long message. This is long message. This is long message. This is long message. This is long message. This is long message.
                 </Text>
               </View>
               <Text

@@ -4,6 +4,7 @@ import React, {
   useState,
   useImperativeHandle,
   forwardRef,
+  Ref,
   RefObject,
 } from 'react';
 import {
@@ -119,7 +120,7 @@ const styles: IStyles = {
   },
 };
 
-function Shared(props: IProps, ref: any) {
+const Shared = forwardRef<T, IProps>((props, ref) => {
   let modal: any;
   const [showAddBtn, setShowAddBtn] = useState(true);
   const [isAdding, setIsAdding] = useState(false);
@@ -234,6 +235,6 @@ function Shared(props: IProps, ref: any) {
       </LinearGradient>
     </Modal>
   );
-}
+});
 
-export default forwardRef(Shared);
+export default Shared;

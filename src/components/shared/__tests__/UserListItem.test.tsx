@@ -21,12 +21,10 @@ describe('[UserListItem] rendering test', () => {
 
 describe('[UserListItem] interaction', () => {
   let rendered: renderer.ReactTestRenderer;
-  let root: renderer.ReactTestInstance;
   let testingLib: any;
 
   beforeAll(() => {
     rendered = renderer.create(component);
-    root = rendered.root;
     testingLib = render(component);
   });
 

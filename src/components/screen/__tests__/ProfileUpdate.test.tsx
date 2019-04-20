@@ -22,14 +22,12 @@ describe('rendering test', () => {
 
 describe('interaction', () => {
   let rendered: renderer.ReactTestRenderer;
-  let root: renderer.ReactTestInstance;
   let testingLib: any;
   let props: any;
   let component: React.ReactElement;
 
   beforeAll(() => {
     rendered = renderer.create(component);
-    root = rendered.root;
   });
 
   beforeEach(() => {

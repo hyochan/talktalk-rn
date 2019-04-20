@@ -1,5 +1,11 @@
 import { NativeModules } from 'react-native';
 
+console.error = (message) => {
+  if (!/(React.createElement: type should not be null)/.test(message)) {
+    // throw new Error(message);
+  }
+};
+
 /**
  * monkey patching the locale to avoid the error:
  * Something went wrong initializing the native ReactLocalization module
@@ -9,3 +15,33 @@ import { NativeModules } from 'react-native';
 NativeModules.ReactLocalization = {
   language: 'en_US',
 };
+
+/**
+ * This is patch for mocking `react-native-gesture-handler` that failed `Chat.test.js`.
+ * issue: https://github.com/kmagiera/react-native-gesture-handler/issues/344
+ */
+
+NativeModules.RNGestureHandlerModule = {
+  attachGestureHandler: jest.fn(),
+  createGestureHandler: jest.fn(),
+  dropGestureHandler: jest.fn(),
+  updateGestureHandler: jest.fn(),
+  forceTouchAvailable: jest.fn(),
+  State: {},
+  Directions: {},
+};
+
+NativeModules.PlatformConstants = {
+  forceTouchAvailable: false,
+};
+
+// NativeModules.UIManager = {
+//   RCTView: () => ({
+//     directEventTypes: {},
+//   }),
+// };
+
+jest.mock('react-native-vector-icons/FontAwesome5', () => {
+  const mockComponent = require('react-native/jest/mockComponent');
+  return mockComponent('react-native-vector-icons/FontAwesome5');
+});

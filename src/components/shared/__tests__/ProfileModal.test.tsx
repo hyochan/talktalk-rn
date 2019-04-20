@@ -17,12 +17,10 @@ describe('[ProfileModal] rendering test', () => {
 
 describe('[ProfileModal] interaction', () => {
   let rendered: renderer.ReactTestRenderer;
-  let root: renderer.ReactTestInstance;
   let testingLib: any;
 
   beforeAll(() => {
     rendered = renderer.create(component);
-    root = rendered.root;
     testingLib = render(component);
   });
 

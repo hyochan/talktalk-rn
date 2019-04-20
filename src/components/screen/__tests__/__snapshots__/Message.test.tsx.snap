@@ -44,7 +44,6 @@ exports[`rendering test should render as expected 1`] = `
             "id": "",
             "message": "How are you?",
             "sender": User {
-              "Chatrooms": Array [],
               "chatrooms": undefined,
               "created": undefined,
               "displayName": "dooboolab",
@@ -70,7 +69,6 @@ exports[`rendering test should render as expected 1`] = `
             "id": "",
             "message": "Hi. This is student from react-native-seoul. Nice to meet you.",
             "sender": User {
-              "Chatrooms": Array [],
               "chatrooms": undefined,
               "created": undefined,
               "displayName": "Byun8585",

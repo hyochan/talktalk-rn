@@ -56,7 +56,7 @@ buck-out/
 *.jsbundle
 
 # ignore
-lib
+dist
 
 # ios release bundle
 ios/assets/

@@ -1,12 +1,20 @@
 module.exports = {
-  presets: ['module:metro-react-native-babel-preset', '@babel/flow'],
-  plugins: [
+  "presets": ["module:metro-react-native-babel-preset", "@babel/preset-typescript"],
+  "sourceMaps": "inline",
+  "plugins": [
     [
-      '@babel/plugin-transform-runtime',
+      "@babel/plugin-proposal-decorators",
       {
-        'helpers': true,
-        'regenerator': false
+        "legacy": true
       }
-    ]
+    ],
+    [
+      "@babel/plugin-transform-runtime",
+      {
+        "helpers": true,
+        "regenerator": false
+      }
+    ],
+    "@babel/proposal-object-rest-spread"
   ]
 };

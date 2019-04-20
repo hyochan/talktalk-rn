@@ -1,4 +1,15 @@
 {
   "name": "TalkTalk",
-  "displayName": "TalkTalk"
+  "displayName": "TalkTalk",
+  "entryPoint": "index.js",
+  "packagerOpts": {
+    "assetExts": [
+      "ttf",
+      "png"
+    ],
+    "sourceExts": [
+      "ts",
+      "tsx"
+    ]
+  }
 }

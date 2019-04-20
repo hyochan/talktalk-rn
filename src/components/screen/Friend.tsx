@@ -35,7 +35,7 @@ interface IProps {
 }
 
 function Screen(props: IProps) {
-  const { dispatch } = useContext(ProfileModalContext);
+  const profileModal = useContext(ProfileModalContext);
   const [friends, setFriends] = React.useState([
     new Friend(
       'my_uid',
@@ -53,10 +53,12 @@ function Screen(props: IProps) {
         testID='user'
         user={item}
         onPress={() => {
-          dispatch({
-            type: 'show-modal',
-            payload: { user: item, deleteMode: true },
-          });
+          if (profileModal) {
+            profileModal.dispatch({
+              type: 'show-modal',
+              payload: { user: item, deleteMode: true },
+            });
+          }
         }}
       />
     );

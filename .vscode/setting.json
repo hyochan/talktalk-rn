@@ -1,8 +1,7 @@
 {
   "editor.renderWhitespace": "all",
   "editor.tabSize": 2,
-  "flow.pathToFlow": "${workspaceFolder}/node_modules/.bin/flow",
-  "javascript.format.enable": false,
-  "javascript.validate.enable": false,
-  "flow.useNPMPackagedFlow": true
+  "typescript.format.enable": false,
+  "typescript.validate.enable": false,
+  "typescript.suggest.autoImports": false
 }

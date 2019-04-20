@@ -30,10 +30,9 @@
     "ios:release": "node node_modules/react-native/local-cli/cli.js run-ios --configuration Release",
     "ios:devices": "xcrun simctl list devices",
     "lint": "tslint -c tslint.json './src/**/*.tsx' && tslint -c tslint.json './src/**/*.ts'",
-    "pretest": "npm run lint && npm run flow",
+    "pretest": "npm run lint && npm run tsc",
     "test": "jest -w 1 --coverage",
     "test:local": "npm run lint && npm run flow && npm run jest",
-    "flow": "flow",
     "build": "babel src/ -d lib/",
     "build:ios": "node node_modules/react-native/local-cli/cli.js bundle --entry-file index.js --platform ios --dev false --bundle-output ./ios/main.jsbundle --assets-dest ./ios --sourcemap-output ./ios/main.jsbundle.map",
     "build:android": "node node_modules/react-native/local-cli/cli.js bundle --entry-file index.js --platform android --dev false --bundle-output ./android/main.jsbundle --assets-dest ./android --sourcemap-output ./android/main.jsbundle.map"

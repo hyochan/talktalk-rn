@@ -88,12 +88,12 @@ interface IProps {
   onChatPressed?: () => void;
 }
 
-interface IRef extends RefObject<{}> {
-  open: () => void;
-  close: () => void;
-  addFriend: () => void;
-  deleteFriend: () => void;
-}
+// interface IRef extends RefObject<{}> {
+//   open: () => void;
+//   close: () => void;
+//   addFriend: () => void;
+//   deleteFriend: () => void;
+// }
 
 interface IStyles {
   wrapper: ViewStyle;
@@ -119,7 +119,7 @@ const styles: IStyles = {
   },
 };
 
-function Shared(props: IProps, ref: IRef) {
+function Shared(props: IProps, ref: any) {
   let modal: any;
   const [showAddBtn, setShowAddBtn] = useState(true);
   const [isAdding, setIsAdding] = useState(false);

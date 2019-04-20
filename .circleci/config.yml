@@ -39,16 +39,16 @@ jobs:
             - node_modules
 
       - run:
-          name: ESLint Test
+          name: TSLint Test
           working_directory: .
           command: |
             npm run lint
 
       - run:
-          name: Flow Test
+          name: TS Test
           working_directory: .
           command: |
-            npm run flow
+            npm run tsc
 
       - run:
           name: Jest Test

@@ -95,7 +95,7 @@ function Shared(props: IProps) {
           >
             {
               props.item.sender.photoURL !== ''
-                ? <StyledImageSender source={props.item.sender.photoURL}/>
+                ? <StyledImageSender source={{ uri: props.item.sender.photoURL }}/>
                 : isSamePeerMsg
                   ? <View style={{ width: 40 }} />
                   : <Icon5 name='meh' size={40} color={colors.dusk} light/>

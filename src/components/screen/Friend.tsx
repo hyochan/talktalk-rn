@@ -47,7 +47,6 @@ function Screen(props: IProps) {
   ]);
 
   const renderItem = (item: Friend) => {
-    console.log('item', item);
     return (
       <UserListItem
         testID='user'

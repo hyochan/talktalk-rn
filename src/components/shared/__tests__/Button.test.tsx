@@ -31,7 +31,6 @@ describe('[Button] interaction', () => {
 
   beforeAll(() => {
     rendered = renderer.create(component);
-    root = rendered.root;
     testingLib = render(component);
   });
 

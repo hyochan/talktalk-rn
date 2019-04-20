@@ -26,12 +26,10 @@ describe('[ProfileModalProvider] rendering test', () => {
 describe('[ProfileModalProvider] interactions', () => {
   const component = <ProfileModalProvider { ...props } />;
   let rendered: renderer.ReactTestRenderer;
-  let root: renderer.ReactTestInstance;
   let testingLib: any;
 
   beforeAll(() => {
     rendered = renderer.create(component);
-    root = rendered.root;
     testingLib = render(component);
   });
 

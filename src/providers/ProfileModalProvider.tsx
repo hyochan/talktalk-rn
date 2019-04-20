@@ -8,7 +8,7 @@ import { ProfileModalContext } from '../contexts/ProfileModalContext';
 const ProfileModalConsumer = ProfileModalContext.Consumer;
 
 interface IProps {
-  navigation: NavigationScreenProp<NavigationStateRoute<any>>;
+  navigation: any;
   children?: any;
 }
 

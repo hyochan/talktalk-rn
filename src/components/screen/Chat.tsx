@@ -93,7 +93,7 @@ const StyledViewMenu = styled.View`
 `;
 
 interface IProps {
-  navigation: NavigationScreenProp<NavigationStateRoute<any>>;
+  navigation: any;
 }
 
 interface IState {
@@ -197,7 +197,7 @@ function Screen(props: IProps, state: IState) {
   return (
     <StyledContainer>
       <StyledKeyboardAvoidingView
-        keyboardVerticalOffset={Header.HEIGHT + 24}
+        keyboardVerticalOffset={Header.HEIGHT}
         behavior={Platform.select({
           android: null,
           ios: 'padding',

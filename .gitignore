@@ -57,6 +57,7 @@ buck-out/
 
 # ignore
 dist
+.jest
 
 # ios release bundle
 ios/assets/

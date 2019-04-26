@@ -39,7 +39,7 @@ jobs:
             - node_modules
 
       - run:
-          name: TSLint Test
+          name: Lint Test
           working_directory: .
           command: |
             npm run lint

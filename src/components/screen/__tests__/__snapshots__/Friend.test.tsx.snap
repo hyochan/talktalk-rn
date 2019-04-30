@@ -37,14 +37,14 @@ exports[`[Friend] rendering test renders as expected 1`] = `
       Array [
         User {
           "chatrooms": Array [],
-          "created": 2019-04-30T07:50:12.222Z,
+          "created": undefined,
           "displayName": "hello",
           "friends": Array [],
           "isOnline": false,
           "photoURL": "",
           "statusMsg": "I am fine today",
           "uid": "my_uid",
-          "updated": 2019-04-30T07:50:12.222Z,
+          "updated": undefined,
         },
       ]
     }

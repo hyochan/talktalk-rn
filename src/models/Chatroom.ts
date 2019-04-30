@@ -8,7 +8,7 @@ export class Chatroom {
     public lastChatCnt: number = 0,
     public chats: Chat[] = [],
     public users: User[] = [],
-    public created: Date = new Date(),
-    public updated: Date = new Date(),
+    public created: Date = undefined,
+    public updated: Date = undefined,
   ) {}
 }

@@ -57,89 +57,89 @@ exports[`[Chat] rendering test renders as expected 1`] = `
       data={
         Array [
           Chat {
-            "created": 2019-04-30T07:50:10.366Z,
+            "created": undefined,
             "id": "",
             "message": "hello1",
             "sender": User {
               "chatrooms": Array [],
-              "created": 2019-04-30T07:50:10.366Z,
+              "created": undefined,
               "displayName": "sender111",
               "friends": Array [],
               "isOnline": false,
               "photoURL": "",
               "statusMsg": "",
               "uid": "0",
-              "updated": 2019-04-30T07:50:10.366Z,
+              "updated": undefined,
             },
-            "updated": 2019-04-30T07:50:10.366Z,
+            "updated": undefined,
           },
           Chat {
-            "created": 2019-04-30T07:50:10.366Z,
+            "created": undefined,
             "id": "",
             "message": "Hello2. This is long message. This is long message. This is long message.This is long message. This is long message. This is long message. This is long message. This is long message. This is long message. This is long message. This is long message.",
             "sender": User {
               "chatrooms": Array [],
-              "created": 2019-04-30T07:50:10.366Z,
+              "created": undefined,
               "displayName": "sender111",
               "friends": Array [],
               "isOnline": false,
               "photoURL": "",
               "statusMsg": "",
               "uid": "0",
-              "updated": 2019-04-30T07:50:10.366Z,
+              "updated": undefined,
             },
-            "updated": 2019-04-30T07:50:10.366Z,
+            "updated": undefined,
           },
           Chat {
-            "created": 2019-04-30T07:50:10.366Z,
+            "created": undefined,
             "id": "",
             "message": "hello",
             "sender": User {
               "chatrooms": Array [],
-              "created": 2019-04-30T07:50:10.366Z,
+              "created": undefined,
               "displayName": "sender2222",
               "friends": Array [],
               "isOnline": false,
               "photoURL": "",
               "statusMsg": "",
               "uid": "1",
-              "updated": 2019-04-30T07:50:10.366Z,
+              "updated": undefined,
             },
-            "updated": 2019-04-30T07:50:10.366Z,
+            "updated": undefined,
           },
           Chat {
-            "created": 2019-04-30T07:50:10.366Z,
+            "created": undefined,
             "id": "",
             "message": "hello",
             "sender": User {
               "chatrooms": Array [],
-              "created": 2019-04-30T07:50:10.366Z,
+              "created": undefined,
               "displayName": "sender2222",
               "friends": Array [],
               "isOnline": false,
               "photoURL": "",
               "statusMsg": "",
               "uid": "2",
-              "updated": 2019-04-30T07:50:10.366Z,
+              "updated": undefined,
             },
-            "updated": 2019-04-30T07:50:10.366Z,
+            "updated": undefined,
           },
           Chat {
-            "created": 2019-04-30T07:50:10.366Z,
+            "created": undefined,
             "id": "",
             "message": "hello. This is my long message. This is my long message. This is my long message. This is my long message. This is my long message. This is my long message. This is my long message. This is my long message. This is my long message.",
             "sender": User {
               "chatrooms": Array [],
-              "created": 2019-04-30T07:50:10.366Z,
+              "created": undefined,
               "displayName": "sender2222",
               "friends": Array [],
               "isOnline": false,
               "photoURL": "",
               "statusMsg": "",
               "uid": "2",
-              "updated": 2019-04-30T07:50:10.366Z,
+              "updated": undefined,
             },
-            "updated": 2019-04-30T07:50:10.366Z,
+            "updated": undefined,
           },
         ]
       }
@@ -287,7 +287,7 @@ exports[`[Chat] rendering test renders as expected 1`] = `
                   ]
                 }
               >
-                16 : 50
+                0 : 0
               </Text>
             </View>
           </View>
@@ -396,7 +396,7 @@ exports[`[Chat] rendering test renders as expected 1`] = `
                   ]
                 }
               >
-                16 : 50
+                0 : 0
               </Text>
             </View>
           </View>
@@ -516,7 +516,7 @@ exports[`[Chat] rendering test renders as expected 1`] = `
                   ]
                 }
               >
-                16 : 50
+                0 : 0
               </Text>
             </View>
           </View>
@@ -598,7 +598,7 @@ exports[`[Chat] rendering test renders as expected 1`] = `
                 ]
               }
             >
-              16 : 50
+              0 : 0
             </Text>
           </View>
         </View>
@@ -679,7 +679,7 @@ exports[`[Chat] rendering test renders as expected 1`] = `
                 ]
               }
             >
-              16 : 50
+              0 : 0
             </Text>
           </View>
         </View>

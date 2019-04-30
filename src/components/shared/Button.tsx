@@ -41,8 +41,8 @@ const StyledContainer = styled.View`
 `;
 
 const StyledButtonContainer = styled.View<IButtonContainer>`
-  width: ${({ width }) => width};
-  height: ${({ height }) => height};
+  width: ${({ width }) => `${width}px`};
+  height: ${({ height }) => `${height}px`};
   justify-content: center;
   align-items: center;
 `;

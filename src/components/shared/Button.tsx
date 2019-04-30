@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import {
   ActivityIndicator,
   StyleSheet,
@@ -12,26 +12,51 @@ import styled from 'styled-components/native';
 
 import { ratio, colors } from '../../utils/Styles';
 
+type TStyledElement = {
+  white?: boolean;
+};
+
+type TButtonContainer = {
+  width: number;
+  height: number;
+};
+
+interface IProps {
+  testID: string;
+  containerStyle: ViewStyle;
+  isWhite: boolean;
+  isLoading: boolean;
+  isDisabled: boolean;
+  onPress: () => void;
+  imgLeftSrc: any;
+  indicatorColor: string;
+  activeOpacity: number;
+  children: any;
+  width: number;
+  height: number;
+}
+
 const StyledContainer = styled.View`
   flex: 1;
 `;
 
-const StyledButton = styled.View`
-  background-color: ${colors.dodgerBlue};
+const StyledButtonContainer = styled.View<TButtonContainer>`
+  width: ${({ width }) => width};
+  height: ${({ height }) => height};
+  justify-content: center;
+  align-items: center;
+`;
+
+const StyledButton = styled.View<TStyledElement>`
+  background-color: ${({ white }) => white ? 'white' : colors.dodgerBlue};
   border-color: ${colors.dodgerBlue};
   border-radius: 4;
   border-width: 1;
   shadow-color: ${colors.dodgerBlue};
-  shadow-radius: 4;
-  shadow-opacity: 0.3;
+  shadow-radius: ${({ white }) => white ? 0 : 4};
+  shadow-opacity: ${({ white }) => white ? 0.0 : 0.3};
   align-items: center;
   justify-content: center;
-`;
-
-const StyledButtonWhite = styled(StyledButton)`
-  background-color: white;
-  shadow-radius: 0;
-  shadow-opacity: 0.0;
 `;
 
 const StyledButtonDisabled = styled.View`
@@ -44,14 +69,10 @@ const StyledButtonDisabled = styled.View`
   justify-content: center;
 `;
 
-const StyledText = styled.Text`
+const StyledText = styled.Text<TStyledElement>`
   font-size: 14;
   font-weight: bold;
-  color: ${colors.dodgerBlue};
-`;
-
-const StyledTextWhite = styled(StyledText)`
-  color: white;
+  color: ${({ white }) => white ? 'white' : colors.dodgerBlue};
 `;
 
 const StyledImageLeft = styled.Image`
@@ -61,76 +82,46 @@ const StyledImageLeft = styled.Image`
   left: 16;
 `;
 
-interface IProps {
-  testID?: string;
-  containerStyle?: ViewStyle;
-  isWhite?: boolean;
-  isLoading?: boolean;
-  isDisabled?: boolean;
-  onPress?: () => void;
-  imgLeftSrc?: any;
-  indicatorColor?: string;
-  activeOpacity?: number;
-  children?: any;
-  width?: number;
-  height?: number;
-}
-
-function Button(props: IProps) {
-  const renderContent = () => {
-    return <View style={{
-      width: props.width,
-      height: props.height,
-      justifyContent: 'center',
-      alignItems: 'center',
-    }}>
-      {
-        props.isLoading
-          ? <ActivityIndicator size='small' color={props.indicatorColor} />
-          : props.imgLeftSrc
-            ? <StyledImageLeft
-              source={props.imgLeftSrc}
-            />
-            : null
-      }
-      { props.isLoading ? null : renderText() }
-    </View>;
-  };
-
-  const renderText = () => {
-    return (
-      props.isWhite
-        ? <StyledText>{props.children}</StyledText>
-        : <StyledTextWhite>{props.children}</StyledTextWhite>
-    );
-  };
-
-  if (props.isDisabled) {
-    return (
-      <StyledContainer>
-        <StyledButtonDisabled>
-          <StyledText>{props.children}</StyledText>
-        </StyledButtonDisabled>
-      </StyledContainer>
-    );
-  }
+function Button({
+  isDisabled,
+  isWhite,
+  activeOpacity,
+  onPress,
+  isLoading,
+  width,
+  height,
+  indicatorColor,
+  imgLeftSrc,
+  children
+}: Partial<IProps>) { 
   return (
     <StyledContainer>
-      <TouchableOpacity
-        testID='press_id'
-        activeOpacity={props.activeOpacity}
-        onPress={props.onPress}
-      >
-        {
-          !props.isWhite
-            ? <StyledButton>
-              {renderContent()}
-            </StyledButton>
-            : <StyledButtonWhite>
-              {renderContent()}
-            </StyledButtonWhite>
-        }
-      </TouchableOpacity>
+      {isDisabled ? (
+        <StyledButtonDisabled>
+          <StyledText>{children}</StyledText>
+        </StyledButtonDisabled>
+      ) : (
+        <TouchableOpacity
+          testID="press_id"
+          activeOpacity={activeOpacity}
+          onPress={onPress}
+        >
+          <StyledButton white={isWhite}>
+            <StyledButtonContainer
+              width={width}
+              height={height}
+            >
+              {isLoading
+                ? <ActivityIndicator size='small' color={indicatorColor} />
+                : imgLeftSrc && <StyledImageLeft source={imgLeftSrc} />
+              }
+              {!isLoading && (
+                <StyledText white={!isWhite}>{children}</StyledText>
+              )}
+            </StyledButtonContainer>
+          </StyledButton>            
+        </TouchableOpacity>
+      )}      
     </StyledContainer>
   );
 }

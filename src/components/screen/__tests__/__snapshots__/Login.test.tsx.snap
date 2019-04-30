@@ -235,16 +235,21 @@ exports[`[Login] rendering test renders as expected 1`] = `
                       },
                     ]
                   }
+                  white={true}
                 >
                   <View
+                    height={60}
                     style={
-                      Object {
-                        "alignItems": "center",
-                        "height": 60,
-                        "justifyContent": "center",
-                        "width": 136,
-                      }
+                      Array [
+                        Object {
+                          "alignItems": "center",
+                          "height": 60,
+                          "justifyContent": "center",
+                          "width": 136,
+                        },
+                      ]
                     }
+                    width={136}
                   >
                     <Text
                       style={
@@ -256,6 +261,7 @@ exports[`[Login] rendering test renders as expected 1`] = `
                           },
                         ]
                       }
+                      white={false}
                     >
                       Sign Up
                     </Text>
@@ -313,16 +319,21 @@ exports[`[Login] rendering test renders as expected 1`] = `
                       },
                     ]
                   }
+                  white={false}
                 >
                   <View
+                    height={60}
                     style={
-                      Object {
-                        "alignItems": "center",
-                        "height": 60,
-                        "justifyContent": "center",
-                        "width": 136,
-                      }
+                      Array [
+                        Object {
+                          "alignItems": "center",
+                          "height": 60,
+                          "justifyContent": "center",
+                          "width": 136,
+                        },
+                      ]
                     }
+                    width={136}
                   >
                     <Text
                       style={
@@ -334,6 +345,7 @@ exports[`[Login] rendering test renders as expected 1`] = `
                           },
                         ]
                       }
+                      white={true}
                     >
                       Login
                     </Text>

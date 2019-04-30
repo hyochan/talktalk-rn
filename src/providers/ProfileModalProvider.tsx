@@ -13,7 +13,7 @@ interface IProps {
 }
 
 interface IState {
-  user: Friend;
+  user: Partial<Friend>;
   deleteMode: boolean;
 }
 

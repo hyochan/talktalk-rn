@@ -112,7 +112,7 @@ exports[`[ChatListItem] rendering test renders [peerMessage] as expected 1`] = `
         ]
       }
     >
-      0 : 0
+      15 : 50
     </Text>
   </View>
 </View>

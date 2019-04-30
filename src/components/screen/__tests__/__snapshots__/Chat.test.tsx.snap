@@ -57,89 +57,89 @@ exports[`[Chat] rendering test renders as expected 1`] = `
       data={
         Array [
           Chat {
-            "created": undefined,
+            "created": 2019-04-30T06:50:22.005Z,
             "id": "",
             "message": "hello1",
             "sender": User {
-              "chatrooms": undefined,
-              "created": undefined,
+              "chatrooms": Array [],
+              "created": 2019-04-30T06:50:22.005Z,
               "displayName": "sender111",
-              "friends": undefined,
-              "isOnline": undefined,
+              "friends": Array [],
+              "isOnline": false,
               "photoURL": "",
-              "statusMsg": undefined,
+              "statusMsg": "",
               "uid": "0",
-              "updated": undefined,
+              "updated": 2019-04-30T06:50:22.005Z,
             },
-            "updated": undefined,
+            "updated": 2019-04-30T06:50:22.005Z,
           },
           Chat {
-            "created": undefined,
+            "created": 2019-04-30T06:50:22.005Z,
             "id": "",
             "message": "Hello2. This is long message. This is long message. This is long message.This is long message. This is long message. This is long message. This is long message. This is long message. This is long message. This is long message. This is long message.",
             "sender": User {
-              "chatrooms": undefined,
-              "created": undefined,
+              "chatrooms": Array [],
+              "created": 2019-04-30T06:50:22.005Z,
               "displayName": "sender111",
-              "friends": undefined,
-              "isOnline": undefined,
+              "friends": Array [],
+              "isOnline": false,
               "photoURL": "",
-              "statusMsg": undefined,
+              "statusMsg": "",
               "uid": "0",
-              "updated": undefined,
+              "updated": 2019-04-30T06:50:22.005Z,
             },
-            "updated": undefined,
+            "updated": 2019-04-30T06:50:22.005Z,
           },
           Chat {
-            "created": undefined,
+            "created": 2019-04-30T06:50:22.005Z,
             "id": "",
             "message": "hello",
             "sender": User {
-              "chatrooms": undefined,
-              "created": undefined,
+              "chatrooms": Array [],
+              "created": 2019-04-30T06:50:22.005Z,
               "displayName": "sender2222",
-              "friends": undefined,
-              "isOnline": undefined,
+              "friends": Array [],
+              "isOnline": false,
               "photoURL": "",
-              "statusMsg": undefined,
+              "statusMsg": "",
               "uid": "1",
-              "updated": undefined,
+              "updated": 2019-04-30T06:50:22.005Z,
             },
-            "updated": undefined,
+            "updated": 2019-04-30T06:50:22.005Z,
           },
           Chat {
-            "created": undefined,
+            "created": 2019-04-30T06:50:22.005Z,
             "id": "",
             "message": "hello",
             "sender": User {
-              "chatrooms": undefined,
-              "created": undefined,
+              "chatrooms": Array [],
+              "created": 2019-04-30T06:50:22.005Z,
               "displayName": "sender2222",
-              "friends": undefined,
-              "isOnline": undefined,
+              "friends": Array [],
+              "isOnline": false,
               "photoURL": "",
-              "statusMsg": undefined,
+              "statusMsg": "",
               "uid": "2",
-              "updated": undefined,
+              "updated": 2019-04-30T06:50:22.005Z,
             },
-            "updated": undefined,
+            "updated": 2019-04-30T06:50:22.005Z,
           },
           Chat {
-            "created": undefined,
+            "created": 2019-04-30T06:50:22.005Z,
             "id": "",
             "message": "hello. This is my long message. This is my long message. This is my long message. This is my long message. This is my long message. This is my long message. This is my long message. This is my long message. This is my long message.",
             "sender": User {
-              "chatrooms": undefined,
-              "created": undefined,
+              "chatrooms": Array [],
+              "created": 2019-04-30T06:50:22.005Z,
               "displayName": "sender2222",
-              "friends": undefined,
-              "isOnline": undefined,
+              "friends": Array [],
+              "isOnline": false,
               "photoURL": "",
-              "statusMsg": undefined,
+              "statusMsg": "",
               "uid": "2",
-              "updated": undefined,
+              "updated": 2019-04-30T06:50:22.005Z,
             },
-            "updated": undefined,
+            "updated": 2019-04-30T06:50:22.005Z,
           },
         ]
       }
@@ -287,7 +287,7 @@ exports[`[Chat] rendering test renders as expected 1`] = `
                   ]
                 }
               >
-                0 : 0
+                15 : 50
               </Text>
             </View>
           </View>
@@ -396,7 +396,7 @@ exports[`[Chat] rendering test renders as expected 1`] = `
                   ]
                 }
               >
-                0 : 0
+                15 : 50
               </Text>
             </View>
           </View>
@@ -516,7 +516,7 @@ exports[`[Chat] rendering test renders as expected 1`] = `
                   ]
                 }
               >
-                0 : 0
+                15 : 50
               </Text>
             </View>
           </View>
@@ -598,7 +598,7 @@ exports[`[Chat] rendering test renders as expected 1`] = `
                 ]
               }
             >
-              0 : 0
+              15 : 50
             </Text>
           </View>
         </View>
@@ -679,7 +679,7 @@ exports[`[Chat] rendering test renders as expected 1`] = `
                 ]
               }
             >
-              0 : 0
+              15 : 50
             </Text>
           </View>
         </View>
@@ -804,16 +804,21 @@ exports[`[Chat] rendering test renders as expected 1`] = `
                 },
               ]
             }
+            white={false}
           >
             <View
+              height={60}
               style={
-                Object {
-                  "alignItems": "center",
-                  "height": 60,
-                  "justifyContent": "center",
-                  "width": 136,
-                }
+                Array [
+                  Object {
+                    "alignItems": "center",
+                    "height": 60,
+                    "justifyContent": "center",
+                    "width": 136,
+                  },
+                ]
               }
+              width={136}
             >
               <Text
                 style={
@@ -825,6 +830,7 @@ exports[`[Chat] rendering test renders as expected 1`] = `
                     },
                   ]
                 }
+                white={true}
               >
                 Send
               </Text>

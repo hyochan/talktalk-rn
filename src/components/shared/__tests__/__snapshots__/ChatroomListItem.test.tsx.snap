@@ -126,7 +126,7 @@ exports[`[ChatroomListItem] rendering test renders as expected 1`] = `
               }
             }
           >
-            a few seconds ago
+            nan
           </Text>
         </View>
       </View>

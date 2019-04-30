@@ -10,7 +10,7 @@ export class User {
     public isOnline: boolean = false,
     public friends: User[] = [],
     public chatrooms: Chatroom[] = [],
-    public created: Date = new Date(),
-    public updated: Date = new Date(),
+    public created: Date = undefined,
+    public updated: Date = undefined,
   ) {}
 }

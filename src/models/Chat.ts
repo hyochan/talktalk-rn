@@ -5,7 +5,7 @@ export class Chat {
     public id: string = '', 
     public sender: User = undefined, 
     public message: string = '', 
-    public created: Date = new Date(), 
-    public updated: Date = new Date()
+    public created: Date = undefined, 
+    public updated: Date = undefined
   ) {}
 }

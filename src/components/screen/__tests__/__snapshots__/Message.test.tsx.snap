@@ -37,52 +37,52 @@ exports[`rendering test should render as expected 1`] = `
       Array [
         Chatroom {
           "chats": Array [],
-          "created": 2019-04-30T07:50:12.359Z,
+          "created": undefined,
           "id": "",
           "lastChat": Chat {
-            "created": 2019-04-30T07:50:12.359Z,
+            "created": undefined,
             "id": "",
             "message": "How are you?",
             "sender": User {
               "chatrooms": Array [],
-              "created": 2019-04-30T07:50:12.359Z,
+              "created": undefined,
               "displayName": "dooboolab",
               "friends": Array [],
               "isOnline": true,
               "photoURL": "",
               "statusMsg": "I am fine",
               "uid": "sender_uid1",
-              "updated": 2019-04-30T07:50:12.359Z,
+              "updated": undefined,
             },
-            "updated": 2019-04-30T07:50:12.359Z,
+            "updated": undefined,
           },
           "lastChatCnt": 6,
-          "updated": 2019-04-30T07:50:12.359Z,
+          "updated": undefined,
           "users": Array [],
         },
         Chatroom {
           "chats": Array [],
-          "created": 2019-04-30T07:50:12.359Z,
+          "created": undefined,
           "id": "",
           "lastChat": Chat {
-            "created": 2019-04-30T07:50:12.359Z,
+            "created": undefined,
             "id": "",
             "message": "Hi. This is student from react-native-seoul. Nice to meet you.",
             "sender": User {
               "chatrooms": Array [],
-              "created": 2019-04-30T07:50:12.359Z,
+              "created": undefined,
               "displayName": "Byun8585",
               "friends": Array [],
               "isOnline": false,
               "photoURL": "",
               "statusMsg": "hello folks",
               "uid": "sender_uid2",
-              "updated": 2019-04-30T07:50:12.359Z,
+              "updated": undefined,
             },
-            "updated": 2019-04-30T07:50:12.359Z,
+            "updated": undefined,
           },
           "lastChatCnt": 0,
-          "updated": 2019-04-30T07:50:12.359Z,
+          "updated": undefined,
           "users": Array [],
         },
       ]
@@ -288,7 +288,7 @@ exports[`rendering test should render as expected 1`] = `
                       }
                     }
                   >
-                    a few seconds ago
+                    nan
                   </Text>
                 </View>
               </View>
@@ -425,7 +425,7 @@ exports[`rendering test should render as expected 1`] = `
                       }
                     }
                   >
-                    a few seconds ago
+                    nan
                   </Text>
                 </View>
               </View>

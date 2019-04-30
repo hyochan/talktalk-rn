@@ -7,5 +7,5 @@ export class Chat {
     public message: string = '', 
     public created: Date = new Date(), 
     public updated: Date = new Date()
-   ) {}
+  ) {}
 }

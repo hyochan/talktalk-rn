@@ -12,11 +12,11 @@ import styled from 'styled-components/native';
 
 import { ratio, colors } from '../../utils/Styles';
 
-type TStyledElement = {
+interface IStyledElement {
   white?: boolean;
 };
 
-type TButtonContainer = {
+interface IButtonContainer {
   width: number;
   height: number;
 };
@@ -40,14 +40,14 @@ const StyledContainer = styled.View`
   flex: 1;
 `;
 
-const StyledButtonContainer = styled.View<TButtonContainer>`
+const StyledButtonContainer = styled.View<IButtonContainer>`
   width: ${({ width }) => width};
   height: ${({ height }) => height};
   justify-content: center;
   align-items: center;
 `;
 
-const StyledButton = styled.View<TStyledElement>`
+const StyledButton = styled.View<IStyledElement>`
   background-color: ${({ white }) => white ? 'white' : colors.dodgerBlue};
   border-color: ${colors.dodgerBlue};
   border-radius: 4;
@@ -69,7 +69,7 @@ const StyledButtonDisabled = styled.View`
   justify-content: center;
 `;
 
-const StyledText = styled.Text<TStyledElement>`
+const StyledText = styled.Text<IStyledElement>`
   font-size: 14;
   font-weight: bold;
   color: ${({ white }) => white ? 'white' : colors.dodgerBlue};

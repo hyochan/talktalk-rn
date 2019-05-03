@@ -8,13 +8,10 @@ import {
   ScrollView,
 } from 'react-native';
 import { NavigationScreenProp, NavigationStateRoute } from 'react-navigation';
-
-import styled from 'styled-components/native';
-
+import styled, { withTheme, ThemeProps, DefaultTheme } from 'styled-components/native';
 import TextInput from '../shared/TextInput';
 import Button from '../shared/Button';
 import StatusBar from '../shared/StatusBar';
-import { ratio, colors } from '../../utils/Styles';
 import { getString } from '../../../STRINGS';
 
 const StyledContainer = styled.View`
@@ -44,7 +41,7 @@ const StyledButtonWrapper = styled.View`
   margin-top: 16;
 `;
 
-interface IProps {
+interface IProps extends ThemeProps<DefaultTheme> {
   navigation: any;
 }
 
@@ -74,6 +71,8 @@ function Screen(props: IProps) {
   const onSendLink = () => {
     setLoading(true);
   };
+
+  const { theme: { ratio }} = props;
 
   return (
     <StyledContainer>
@@ -105,6 +104,6 @@ function Screen(props: IProps) {
       </StyledScrollView>
     </StyledContainer>
   );
-}
+} 
 
-export default Screen;
+export default withTheme(Screen);

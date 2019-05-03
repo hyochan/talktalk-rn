@@ -20,70 +20,66 @@ import {
   ImageSourcePropType,
 } from 'react-native';
 import Modal from 'react-native-modalbox';
-
 import Icon5 from 'react-native-vector-icons/FontAwesome5';
-import styled from 'styled-components/native';
-
+import styled, { ThemeProps, DefaultTheme, withTheme } from 'styled-components/native';
 import { User } from '../../models/User';
 import { IC_MASK } from '../../utils/Icons';
-import { ratio, colors } from '../../utils/Styles';
 import { getString } from '../../../STRINGS';
 
 const StyledView = styled.View`
-  marginTop: 40;
+  margin-top: 40px;
 `;
 
 const StyledViewBtns = styled.View`
-  height: 80;
+  height: 80px;
   align-self: stretch;
   background-color: white;
-
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
 `;
 
 const StyledViewBtnDivider = styled.View`
-  width: 1;
-  height: 80;
-  background-color: ${colors.paleGray};
+  width: 1px;
+  height: 80px;
+  background-color: ${({ theme: { colors: { paleGray }}}) => paleGray};
 `;
 
 const StyledTextDisplayName = styled.Text`
-  font-size: 24;
+  font-size: 24px;
   color: white;
   font-weight: bold;
-  margin-top: 32;
+  margin-top: 32px;
   align-self: center;
 `;
 
 const StyledTextStatusMsg = styled.Text`
-  font-size: 12;
+  font-size: 12px;
   color: white;
-  margin-top: 8;
+  margin-top: 8px;
   align-self: center;
 `;
 
 const StyledTextBtn = styled.Text`
-  color: ${colors.dodgerBlue};
-  font-size: 16;
+  color: ${({ theme: { colors: { dodgerBlue }}}) => dodgerBlue};
+  font-size: 16px;
 `;
 
 const StyledTextFriendAdded = styled.Text`
   color: white;
-  font-size: 12;
-  backround-color: ${colors.dusk};
-  padding: 4;
+  font-size: 12px;
+  background-color: ${({ theme: { colors: { dusk }}}) => dusk};
+  padding: 4;px
 `;
 
 const StyledTextFriendAlreadyAdded = styled.Text`
   color: red;
-  font-size: 12;
-  background-color: ${colors.cloudyBlue};
-  padding: 4;
+  font-size: 12px;
+  background-color: ${({ theme: { colors: { cloudyBlue }}}) => cloudyBlue};
+  padding: 4px;
 `;
 
-interface IProps {
+interface IProps extends ThemeProps<DefaultTheme> {
   testID?: string;
   ref?: any;
   onChatPressed?: () => void;
@@ -107,7 +103,6 @@ const styles: IStyles = {
     alignSelf: 'stretch',
     height: 320,
     width: '90%',
-
     alignContent: 'center',
     alignItems: 'center',
     justifyContent: 'center',
@@ -162,7 +157,20 @@ const Shared = forwardRef<IRef, IProps>((props, ref) => {
       setShowAddBtn(flag);
     },
   }));
-
+  const { 
+    photoURL,
+    displayName,
+    statusMsg
+  } = user;
+  const {
+    theme: {
+      colors: {
+        dusk,
+        dodgerBlue
+      }
+    }
+  } = props;
+  const imageURL = typeof photoURL === 'string' ? { uri: photoURL } : photoURL;
   return (
     <Modal
       ref={(v: any) => modal = v}
@@ -176,36 +184,34 @@ const Shared = forwardRef<IRef, IProps>((props, ref) => {
           height: 320,
           marginHorizontal: 20,
           alignSelf: 'stretch',
-
           alignItems: 'center',
           justifyContent: 'space-between',
         }}
         start={{ x: 0.4, y: 0.6 }} end={{ x: 1.0, y: 0.8 }}
         locations={[0, 0.85]}
-        colors={[colors.dodgerBlue, 'rgb(100,199,255)']}
+        colors={[dodgerBlue, 'rgb(100,199,255)']}
       >
         <StyledView>
           <TouchableOpacity
             activeOpacity={0.5}
             // onPress={goToProfile}
           >
-            {
-              user.photoURL
-                ? <Image style={{
-                  alignSelf: 'center',
-                }} source={{uri: user.photoURL}} />
-                : <Icon5 name='meh' size={80} color={colors.dusk} light/>
+            {photoURL
+              ? <Image 
+                  style={{ alignSelf: 'center' }} 
+                  source={imageURL} 
+                />
+              : <Icon5 name='meh' size={80} color={dusk} light/>
             }
           </TouchableOpacity>
-          <StyledTextDisplayName>{user.displayName}</StyledTextDisplayName>
-          <StyledTextStatusMsg>{user.statusMsg}</StyledTextStatusMsg>
+          <StyledTextDisplayName>{displayName}</StyledTextDisplayName>
+          <StyledTextStatusMsg>{statusMsg}</StyledTextStatusMsg>
         </StyledView>
-        {
-          isFriendAdded
-            ? <StyledTextFriendAdded>{getString('FRIEND_ADDED')}</StyledTextFriendAdded>
-            : isFriendAlreadyAdded
-              ? <StyledTextFriendAlreadyAdded>{getString('FRIEND_ALREADY_ADDED')}</StyledTextFriendAlreadyAdded>
-              : null
+        {isFriendAdded
+          ? <StyledTextFriendAdded>{getString('FRIEND_ADDED')}</StyledTextFriendAdded>
+          : isFriendAlreadyAdded
+            ? <StyledTextFriendAlreadyAdded>{getString('FRIEND_ALREADY_ADDED')}</StyledTextFriendAlreadyAdded>
+            : null
         }
         <StyledViewBtns>
           <TouchableOpacity
@@ -237,4 +243,4 @@ const Shared = forwardRef<IRef, IProps>((props, ref) => {
   );
 });
 
-export default Shared;
+export default withTheme(Shared);

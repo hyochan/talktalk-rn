@@ -6,6 +6,9 @@ exports[`[Loading] rendering test renders as expected 1`] = `
     Array [
       Object {
         "backgroundColor": "transparent",
+        "flexBasis": 0,
+        "flexGrow": 1,
+        "flexShrink": 1,
       },
     ]
   }
@@ -33,7 +36,6 @@ exports[`[Loading] rendering test renders as expected 1`] = `
       style={
         Object {
           "height": 60,
-          "marginTop": 500,
           "transform": Array [
             Object {
               "rotate": "0deg",
@@ -48,10 +50,13 @@ exports[`[Loading] rendering test renders as expected 1`] = `
       direction="alternate"
       iterationCount="infinite"
       style={
-        Object {
-          "color": "rgb(58,139,255)",
-          "fontSize": 16,
-        }
+        Array [
+          Object {
+            "color": "rgb(58,139,255)",
+            "fontSize": 16,
+            "marginTop": 16,
+          },
+        ]
       }
     >
       LOADING...

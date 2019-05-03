@@ -9,8 +9,15 @@ import {
   ViewStyle,
   TextStyle,
 } from 'react-native';
+import theme from '../../utils/theme';
 
-import { ratio, colors } from '../../utils/Styles';
+const {
+  colors: {
+    blueyGray,
+    dodgerBlue,
+    dusk
+  }
+} = theme;
 
 interface IStyles {
   wrapper: ViewStyle;
@@ -23,43 +30,40 @@ interface IStyles {
 const styles: IStyles = StyleSheet.create({
   wrapper: {
     alignSelf: 'stretch',
-
     flexDirection: 'column',
     justifyContent: 'flex-start',
     alignItems: 'flex-start',
   },
   label: {
-    color: colors.blueyGray,
+    color: blueyGray,
     marginBottom: 8,
     fontSize: 12,
   },
   labelFocus: {
-    color: colors.dodgerBlue,
+    color: dodgerBlue,
     marginBottom: 8,
     fontSize: 12,
   },
   input: {
     alignSelf: 'stretch',
-    color: colors.dusk,
+    color: dusk,
     fontSize: 16,
     paddingVertical: 22,
     paddingHorizontal: 20,
     borderWidth: 1,
     borderColor: 'rgb(233,237,244)',
-
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'flex-start',
   },
   inputFocus: {
     alignSelf: 'stretch',
-    color: colors.dusk,
+    color: dusk,
     fontSize: 16,
     paddingVertical: 22,
     paddingHorizontal: 20,
     borderWidth: 1,
-    borderColor: colors.dodgerBlue,
-
+    borderColor: dodgerBlue,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'flex-start',

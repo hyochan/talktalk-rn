@@ -1,17 +1,23 @@
 import 'react-native';
 import * as React from 'react';
 import FindPw from '../FindPw';
-
+import { ThemeProvider } from 'styled-components/native';
 // Note: test renderer must be required after react-native.
 import renderer from 'react-test-renderer';
 import { render, fireEvent } from 'react-native-testing-library';
+import theme from '../../../utils/theme';
 
 const props = {
   navigation: {
     navigate: jest.fn(),
   },
+  theme
 };
-const component: React.ReactElement = <FindPw {...props}/>;
+const component: React.ReactElement = (
+  <ThemeProvider theme={theme}>
+    <FindPw {...props}/>
+  </ThemeProvider>
+);
 
 describe('[FindPw] rendering test', () => {
   it('renders as expected', () => {

@@ -393,9 +393,7 @@ exports[`[SearchUser] rendering test renders as expected 1`] = `
                 <Image
                   source={
                     Object {
-                      "uri": Object {
-                        "testUri": "../../../assets/icons/btnBack.png",
-                      },
+                      "testUri": "../../../assets/icons/btnBack.png",
                     }
                   }
                   style={
@@ -482,9 +480,7 @@ exports[`[SearchUser] rendering test renders as expected 1`] = `
                 <Image
                   source={
                     Object {
-                      "uri": Object {
-                        "testUri": "../../../assets/icons/icon.png",
-                      },
+                      "testUri": "../../../assets/icons/icon.png",
                     }
                   }
                   style={
@@ -651,9 +647,7 @@ exports[`[SearchUser] rendering test renders as expected 1`] = `
                 <Image
                   source={
                     Object {
-                      "uri": Object {
-                        "testUri": "../../../assets/icons/btnBack.png",
-                      },
+                      "testUri": "../../../assets/icons/btnBack.png",
                     }
                   }
                   style={
@@ -740,9 +734,7 @@ exports[`[SearchUser] rendering test renders as expected 1`] = `
                 <Image
                   source={
                     Object {
-                      "uri": Object {
-                        "testUri": "../../../assets/icons/icon.png",
-                      },
+                      "testUri": "../../../assets/icons/icon.png",
                     }
                   }
                   style={
@@ -909,9 +901,7 @@ exports[`[SearchUser] rendering test renders as expected 1`] = `
                 <Image
                   source={
                     Object {
-                      "uri": Object {
-                        "testUri": "../../../assets/icons/btnBack.png",
-                      },
+                      "testUri": "../../../assets/icons/btnBack.png",
                     }
                   }
                   style={
@@ -998,9 +988,7 @@ exports[`[SearchUser] rendering test renders as expected 1`] = `
                 <Image
                   source={
                     Object {
-                      "uri": Object {
-                        "testUri": "../../../assets/icons/icon.png",
-                      },
+                      "testUri": "../../../assets/icons/icon.png",
                     }
                   }
                   style={

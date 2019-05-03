@@ -1,7 +1,8 @@
 import 'react-native';
 import * as React from 'react';
 import UserListItem from '../UserListItem';
-
+import { ThemeProvider } from 'styled-components/native';
+import theme from '../../../utils/theme';
 // Note: test renderer must be required after react-native.
 import renderer from 'react-test-renderer';
 import { render, fireEvent } from 'react-native-testing-library';
@@ -10,7 +11,27 @@ let cnt = 0;
 const onPress = () => {
   cnt++;
 };
-const component: React.ReactElement = <UserListItem onPress={onPress}/>;
+
+const props = {
+  user: {
+    uid: '',
+    displayName: '',
+    photoURL: null,
+    statusMsg: '',
+    isOnline: false,
+    friends: [],
+    chatrooms: [],
+    created: undefined,
+    updated: undefined,
+  },
+  onPress,
+  theme
+}
+const component: React.ReactElement = (
+  <ThemeProvider theme={theme}>
+    <UserListItem {...props} />
+  </ThemeProvider>
+);
 
 describe('[UserListItem] rendering test', () => {
   it('renders as expected', () => {

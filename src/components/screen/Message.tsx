@@ -8,10 +8,8 @@ import {
   FlatList,
 } from 'react-native';
 import { NavigationScreenProp, NavigationStateRoute } from 'react-navigation';
-
 import EmptyListItem from '../shared/EmptyListItem';
 import ChatroomListItem from '../shared/ChatroomListItem';
-import { ratio, colors } from '../../utils/Styles';
 import { getString } from '../../../STRINGS';
 import { Chatroom } from '../../models/Chatroom';
 import { Chat } from '../../models/Chat';

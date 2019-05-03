@@ -177,6 +177,7 @@ exports[`[Chat] rendering test renders as expected 1`] = `
           style={null}
         >
           <View
+            isSame={null}
             style={
               Array [
                 Object {
@@ -185,11 +186,8 @@ exports[`[Chat] rendering test renders as expected 1`] = `
                   "justifyContent": "flex-start",
                   "marginLeft": 20,
                   "marginRight": 8,
-                  "minHeight": 48,
-                },
-                Object {
-                  "marginRight": 80,
                   "marginTop": 20,
+                  "minHeight": 48,
                 },
               ]
             }
@@ -247,20 +245,25 @@ exports[`[Chat] rendering test renders as expected 1`] = `
               </Text>
               <View
                 style={
-                  Object {
-                    "backgroundColor": "white",
-                    "borderColor": "rgb(225,225,225)",
-                    "borderRadius": 3,
-                    "borderWidth": 1,
-                    "marginRight": 8,
-                    "marginVertical": 4,
-                    "padding": 12,
-                    "shadowColor": "rgb(233,237,244)",
-                    "shadowOffset": Object {
-                      "height": 2,
-                      "width": 0,
+                  Array [
+                    Object {
+                      "backgroundColor": "white",
+                      "borderColor": "rgb(225,225,225)",
+                      "borderRadius": 3,
+                      "borderWidth": 1,
+                      "marginRight": 8,
+                      "marginVertical": 4,
+                      "paddingBottom": 12,
+                      "paddingLeft": 12,
+                      "paddingRight": 12,
+                      "paddingTop": 12,
+                      "shadowColor": "rgb(233,237,244)",
+                      "shadowOffset": Object {
+                        "height": 2,
+                        "width": 0,
+                      },
                     },
-                  }
+                  ]
                 }
               >
                 <Text
@@ -297,6 +300,7 @@ exports[`[Chat] rendering test renders as expected 1`] = `
           style={null}
         >
           <View
+            isSame={true}
             style={
               Array [
                 Object {
@@ -305,11 +309,8 @@ exports[`[Chat] rendering test renders as expected 1`] = `
                   "justifyContent": "flex-start",
                   "marginLeft": 20,
                   "marginRight": 8,
-                  "minHeight": 48,
-                },
-                Object {
-                  "marginRight": 80,
                   "marginTop": 0,
+                  "minHeight": 48,
                 },
               ]
             }
@@ -356,20 +357,25 @@ exports[`[Chat] rendering test renders as expected 1`] = `
               <View />
               <View
                 style={
-                  Object {
-                    "backgroundColor": "white",
-                    "borderColor": "rgb(225,225,225)",
-                    "borderRadius": 3,
-                    "borderWidth": 1,
-                    "marginRight": 8,
-                    "marginVertical": 4,
-                    "padding": 12,
-                    "shadowColor": "rgb(233,237,244)",
-                    "shadowOffset": Object {
-                      "height": 2,
-                      "width": 0,
+                  Array [
+                    Object {
+                      "backgroundColor": "white",
+                      "borderColor": "rgb(225,225,225)",
+                      "borderRadius": 3,
+                      "borderWidth": 1,
+                      "marginRight": 8,
+                      "marginVertical": 4,
+                      "paddingBottom": 12,
+                      "paddingLeft": 12,
+                      "paddingRight": 12,
+                      "paddingTop": 12,
+                      "shadowColor": "rgb(233,237,244)",
+                      "shadowOffset": Object {
+                        "height": 2,
+                        "width": 0,
+                      },
                     },
-                  }
+                  ]
                 }
               >
                 <Text
@@ -406,6 +412,7 @@ exports[`[Chat] rendering test renders as expected 1`] = `
           style={null}
         >
           <View
+            isSame={false}
             style={
               Array [
                 Object {
@@ -414,11 +421,8 @@ exports[`[Chat] rendering test renders as expected 1`] = `
                   "justifyContent": "flex-start",
                   "marginLeft": 20,
                   "marginRight": 8,
-                  "minHeight": 48,
-                },
-                Object {
-                  "marginRight": 80,
                   "marginTop": 20,
+                  "minHeight": 48,
                 },
               ]
             }
@@ -476,20 +480,25 @@ exports[`[Chat] rendering test renders as expected 1`] = `
               </Text>
               <View
                 style={
-                  Object {
-                    "backgroundColor": "white",
-                    "borderColor": "rgb(225,225,225)",
-                    "borderRadius": 3,
-                    "borderWidth": 1,
-                    "marginRight": 8,
-                    "marginVertical": 4,
-                    "padding": 12,
-                    "shadowColor": "rgb(233,237,244)",
-                    "shadowOffset": Object {
-                      "height": 2,
-                      "width": 0,
+                  Array [
+                    Object {
+                      "backgroundColor": "white",
+                      "borderColor": "rgb(225,225,225)",
+                      "borderRadius": 3,
+                      "borderWidth": 1,
+                      "marginRight": 8,
+                      "marginVertical": 4,
+                      "paddingBottom": 12,
+                      "paddingLeft": 12,
+                      "paddingRight": 12,
+                      "paddingTop": 12,
+                      "shadowColor": "rgb(233,237,244)",
+                      "shadowOffset": Object {
+                        "height": 2,
+                        "width": 0,
+                      },
                     },
-                  }
+                  ]
                 }
               >
                 <Text
@@ -565,12 +574,17 @@ exports[`[Chat] rendering test renders as expected 1`] = `
                 }
               }
               style={
-                Object {
-                  "borderRadius": 3,
-                  "marginHorizontal": 20,
-                  "marginLeft": 8,
-                  "padding": 12,
-                }
+                Array [
+                  Object {
+                    "borderRadius": 3,
+                    "marginHorizontal": 20,
+                    "marginLeft": 8,
+                    "paddingBottom": 12,
+                    "paddingLeft": 12,
+                    "paddingRight": 12,
+                    "paddingTop": 12,
+                  },
+                ]
               }
             >
               <Text
@@ -590,7 +604,7 @@ exports[`[Chat] rendering test renders as expected 1`] = `
               style={
                 Array [
                   Object {
-                    "color": "rgb(175,194,219),",
+                    "color": "rgb(175,194,219)",
                     "fontSize": 12,
                     "marginRight": 20,
                     "marginTop": 4,
@@ -646,12 +660,17 @@ exports[`[Chat] rendering test renders as expected 1`] = `
                 }
               }
               style={
-                Object {
-                  "borderRadius": 3,
-                  "marginHorizontal": 20,
-                  "marginLeft": 8,
-                  "padding": 12,
-                }
+                Array [
+                  Object {
+                    "borderRadius": 3,
+                    "marginHorizontal": 20,
+                    "marginLeft": 8,
+                    "paddingBottom": 12,
+                    "paddingLeft": 12,
+                    "paddingRight": 12,
+                    "paddingTop": 12,
+                  },
+                ]
               }
             >
               <Text
@@ -671,7 +690,7 @@ exports[`[Chat] rendering test renders as expected 1`] = `
               style={
                 Array [
                   Object {
-                    "color": "rgb(175,194,219),",
+                    "color": "rgb(175,194,219)",
                     "fontSize": 12,
                     "marginRight": 20,
                     "marginTop": 4,

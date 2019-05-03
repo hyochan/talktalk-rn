@@ -263,16 +263,15 @@ exports[`rendering test should render as expected 1`] = `
                   }
                 >
                   <Text
+                    lastChatCnt={6}
                     numberOfLines={2}
                     style={
                       Array [
                         Object {
                           "color": "rgb(65,77,107)",
                           "fontSize": 12,
-                          "maxWidth": 150,
-                        },
-                        Object {
                           "fontWeight": "bold",
+                          "maxWidth": 150,
                         },
                       ]
                     }
@@ -281,11 +280,13 @@ exports[`rendering test should render as expected 1`] = `
                   </Text>
                   <Text
                     style={
-                      Object {
-                        "color": "rgb(134,154,183)",
-                        "fontSize": 12,
-                        "textAlign": "right",
-                      }
+                      Array [
+                        Object {
+                          "color": "rgb(134,154,183)",
+                          "fontSize": 12,
+                          "textAlign": "right",
+                        },
+                      ]
                     }
                   >
                     nan
@@ -402,6 +403,7 @@ exports[`rendering test should render as expected 1`] = `
                   }
                 >
                   <Text
+                    lastChatCnt={0}
                     numberOfLines={2}
                     style={
                       Array [
@@ -410,7 +412,6 @@ exports[`rendering test should render as expected 1`] = `
                           "fontSize": 12,
                           "maxWidth": 150,
                         },
-                        Object {},
                       ]
                     }
                   >
@@ -418,11 +419,13 @@ exports[`rendering test should render as expected 1`] = `
                   </Text>
                   <Text
                     style={
-                      Object {
-                        "color": "rgb(134,154,183)",
-                        "fontSize": 12,
-                        "textAlign": "right",
-                      }
+                      Array [
+                        Object {
+                          "color": "rgb(134,154,183)",
+                          "fontSize": 12,
+                          "textAlign": "right",
+                        },
+                      ]
                     }
                   >
                     nan

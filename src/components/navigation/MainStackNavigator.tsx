@@ -9,9 +9,11 @@ import ProfileUpdate from '../screen/ProfileUpdate';
 import SearchUser from '../screen/SearchUser';
 import Chat from '../screen/Chat';
 import StatusBar from '../shared/StatusBar';
-import { colors } from '../../utils/Styles';
+import theme from '../../utils/theme';
 import { ProfileModalProvider, ProfileModalConsumer } from '../../providers/ProfileModalProvider';
 import { getString } from '../../../STRINGS';
+
+const { colors: { dodgerBlue }} = theme;
 
 const routeConfig = {
   Main: { screen: MainTabNavigator, navigationOptions: MainTabNavigationOptions },
@@ -33,7 +35,7 @@ const routeConfig = {
 export const commonNavigationOptions = {
   headerBackTitle: null,
   headerStyle: {
-    backgroundColor: colors.dodgerBlue,
+    backgroundColor: dodgerBlue,
     borderBottomColor: 'transparent',
     borderBottomWidth: 0,
     elevation: 0,
@@ -57,7 +59,7 @@ class RootNavigator extends React.Component<any, any> {
   public render() {
     return (
       <View style={{ flex: 1, flexDirection: 'column' }}>
-        <StatusBar isDarkContent={true}/>
+        <StatusBar isDarkContent={true} />
         <ProfileModalProvider navigation={this.props.navigation}>
           <MainStackNavigator
             navigation={this.props.navigation}

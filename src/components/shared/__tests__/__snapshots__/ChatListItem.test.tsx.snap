@@ -2,6 +2,7 @@
 
 exports[`[ChatListItem] rendering test renders [peerMessage] as expected 1`] = `
 <View
+  isSame={true}
   style={
     Array [
       Object {
@@ -10,11 +11,8 @@ exports[`[ChatListItem] rendering test renders [peerMessage] as expected 1`] = `
         "justifyContent": "flex-start",
         "marginLeft": 20,
         "marginRight": 8,
+        "marginTop": 0,
         "minHeight": 48,
-      },
-      Object {
-        "marginRight": 80,
-        "marginTop": 20,
       },
     ]
   }
@@ -42,11 +40,12 @@ exports[`[ChatListItem] rendering test renders [peerMessage] as expected 1`] = `
       }
       testID="peer_image"
     >
-      <Unknown
-        color="rgb(65,77,107)"
-        light={true}
-        name="meh"
-        size={40}
+      <View
+        style={
+          Object {
+            "width": 40,
+          }
+        }
       />
     </View>
   </View>
@@ -57,35 +56,28 @@ exports[`[ChatListItem] rendering test renders [peerMessage] as expected 1`] = `
       }
     }
   >
-    <Text
+    <View />
+    <View
       style={
         Array [
           Object {
-            "color": "rgb(65,77,107)",
-            "fontSize": 12,
-            "marginBottom": 2,
+            "backgroundColor": "white",
+            "borderColor": "rgb(225,225,225)",
+            "borderRadius": 3,
+            "borderWidth": 1,
+            "marginRight": 8,
+            "marginVertical": 4,
+            "paddingBottom": 12,
+            "paddingLeft": 12,
+            "paddingRight": 12,
+            "paddingTop": 12,
+            "shadowColor": "rgb(233,237,244)",
+            "shadowOffset": Object {
+              "height": 2,
+              "width": 0,
+            },
           },
         ]
-      }
-    >
-      
-    </Text>
-    <View
-      style={
-        Object {
-          "backgroundColor": "white",
-          "borderColor": "rgb(225,225,225)",
-          "borderRadius": 3,
-          "borderWidth": 1,
-          "marginRight": 8,
-          "marginVertical": 4,
-          "padding": 12,
-          "shadowColor": "rgb(233,237,244)",
-          "shadowOffset": Object {
-            "height": 2,
-            "width": 0,
-          },
-        }
       }
     >
       <Text

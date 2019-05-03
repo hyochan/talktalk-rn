@@ -12,9 +12,16 @@ import {
   TextStyle,
 } from 'react-native';
 import Icon5, { FA5Style } from 'react-native-vector-icons/FontAwesome5';
-
-import { ratio, colors } from '../../utils/Styles';
+import { ThemeProps, withTheme, DefaultTheme } from 'styled-components/native';
 import { User as Friend } from '../../models/User';
+import theme from '../../utils/theme'
+
+const {
+  colors: {
+    dusk,
+    paleGray
+  }
+} = theme;
 
 interface IStyles {
   container: ViewStyle;
@@ -33,7 +40,6 @@ const styles: IStyles = StyleSheet.create({
     height: 80,
     borderBottomWidth: 1,
     borderColor: 'rgb(245,245,245)',
-
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'flex-start',
@@ -47,52 +53,65 @@ const styles: IStyles = StyleSheet.create({
     marginLeft: 12,
     width: 100,
     fontSize: 14,
-    color: colors.dusk,
+    color: dusk,
   },
   txtRight: {
     position: 'absolute',
     right: 20,
     fontSize: 12,
-    color: colors.dusk,
+    color: dusk,
     maxWidth: 134.2,
     borderWidth: 0.3,
-    borderColor: colors.paleGray,
+    borderColor: paleGray,
     paddingHorizontal: 8,
     paddingVertical: 4,
   },
 });
 
-interface IProps {
+interface IProps extends ThemeProps<DefaultTheme> {
   testID?: string;
   testObj?: any;
-  style: ViewStyle;
+  style?: ViewStyle;
   user: Friend;
   onPress?: () => void;
   onLongPress?: () => void;
 }
 
-interface IState {}
-
-function Shared(props: IProps, state: IState) {
+function Shared({
+  onPress,
+  onLongPress,
+  style,
+  user: {
+    photoURL,
+    displayName,
+    statusMsg
+  },
+  theme: {
+    colors: {
+      dusk: Dusk
+    }
+  }
+}: IProps) {
+  const photoURLObj = typeof photoURL === 'string'
+    ? { uri: photoURL }
+    : photoURL;
   return (
     <View style={styles.container}>
       <TouchableOpacity
         testID='press_id'
         activeOpacity={0.5}
-        onPress={props.onPress}
-        onLongPress={props.onLongPress}
+        onPress={onPress}
+        onLongPress={onLongPress}
       >
-        <View style={props.style}>
-          {
-            props.user.photoURL
-              ? <Image style={styles.img} source={{ uri: props.user.photoURL }}/>
-              : <Icon5 name='meh' size={40} color={colors.dusk} light/>
+        <View style={style}>
+          {photoURL
+            ? <Image style={styles.img} source={photoURLObj}/>
+            : <Icon5 name='meh' size={40} color={Dusk} light/>
           }
-          <Text style={styles.txt}>{props.user.displayName}</Text>
-          {
-            props.user.statusMsg
-              ? <Text style={styles.txtRight}>{props.user.statusMsg}</Text>
-              : <View/>
+          <Text style={styles.txt}>{displayName}</Text>
+          {statusMsg
+            ? <Text style={styles.txtRight}>{statusMsg}</Text>
+            : <View/>
           }
         </View>
       </TouchableOpacity>
@@ -107,11 +126,11 @@ Shared.defaultProps = {
     displayName: '',
     photoURL: null,
     statusMsg: '',
-    isOnline: '',
-    friends: '',
-    Chatrooms: '',
-    created: '',
-    updated: '',
+    isOnline: false,
+    friends: [],
+    chatrooms: [],
+    created: undefined,
+    updated: undefined,
   },
 };
-export default Shared;
+export default withTheme(Shared);

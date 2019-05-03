@@ -19,11 +19,17 @@ import {
   createMaterialTopTabNavigator,
 } from 'react-navigation';
 import Icon5, { FA5Style } from 'react-native-vector-icons/FontAwesome5';
-
-import { ratio, colors, statusBarHeight } from '../../utils/Styles';
+import theme from '../../utils/theme';
 import { getString } from '../../../STRINGS';
 import Friend from '../screen/Friend';
 import Message from '../screen/Message';
+
+const {
+  statusBarHeight,
+  colors: {
+    dodgerBlue
+  }
+} = theme;
 
 interface IStyles {
   container: ViewStyle;
@@ -88,7 +94,7 @@ const MainTabNavigator = createMaterialTopTabNavigator(
       style: {
         height: 44,
         justifyContent: 'center',
-        backgroundColor: colors.dodgerBlue,
+        backgroundColor: dodgerBlue,
         borderTopColor: 'transparent',
         borderTopWidth: 0,
         elevation: 0,
@@ -101,7 +107,7 @@ export default MainTabNavigator;
 
 export const MainTabNavigationOptions = ({ navigation }) => ({
   title: 'Talk Talk',
-  headerLeft:
+  headerLeft: (
     <View style={{
       marginLeft: 16,
     }}>
@@ -109,10 +115,11 @@ export const MainTabNavigationOptions = ({ navigation }) => ({
         activeOpacity={0.5}
         onPress={() => navigation.navigate('ProfileUpdate')}
       >
-        <Icon5 name='user-circle' size={20} color={colors.dodgerBlue} light={true}/>
+        <Icon5 name='user-circle' size={20} color={dodgerBlue} light={true}/>
       </TouchableOpacity>
-    </View>,
-  headerRight:
+    </View>
+  ),
+  headerRight: (
     <View style={{
       marginRight: 16,
     }}>
@@ -120,7 +127,8 @@ export const MainTabNavigationOptions = ({ navigation }) => ({
         activeOpacity={0.5}
         onPress={() => navigation.navigate('SearchUser')}
       >
-        <Icon5 name='search-plus' size={20} color={colors.dodgerBlue} light={true}/>
+        <Icon5 name='search-plus' size={20} color={dodgerBlue} light={true}/>
       </TouchableOpacity>
-    </View>,
+    </View>
+  )
 });

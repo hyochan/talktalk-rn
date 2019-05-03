@@ -1,7 +1,8 @@
 import 'react-native';
 import * as React from 'react';
 import SignUp from '../SignUp';
-
+import { ThemeProvider } from 'styled-components/native';
+import theme from '../../../utils/theme';
 // Note: test renderer must be required after react-native.
 import renderer from 'react-test-renderer';
 import { render, fireEvent } from 'react-native-testing-library';
@@ -11,7 +12,11 @@ const props = {
     navigate: jest.fn(),
   },
 };
-const component: React.ReactElement = <SignUp {...props}/>;
+const component: React.ReactElement = (
+  <ThemeProvider theme={theme}>
+    <SignUp {...props} />
+  </ThemeProvider>
+);
 
 describe('[SignUp] rendering test', () => {
   it('renders as expected', () => {

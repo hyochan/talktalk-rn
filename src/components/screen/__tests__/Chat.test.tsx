@@ -1,17 +1,24 @@
 import 'react-native';
-import * as React from 'react';
+import React,{ ReactElement } from 'react';
 import Chat from '../Chat';
-
 // Note: test renderer must be required after react-native.
 import renderer from 'react-test-renderer';
+import { ThemeProvider } from 'styled-components/native';
 import { render, fireEvent } from 'react-native-testing-library';
+import theme from '../../../utils/theme';
 
 const props = {
   navigation: {
     navigate: jest.fn(),
   },
+  theme
 };
-const component: React.ReactElement = <Chat {...props}/>;
+
+const component: ReactElement = (
+  <ThemeProvider theme={theme}>
+    <Chat {...props} />
+  </ThemeProvider>
+);
 
 describe('[Chat] rendering test', () => {
   it('renders as expected', () => {

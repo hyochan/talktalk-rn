@@ -14,8 +14,6 @@ import styled from 'styled-components/native';
 import TextInput from '../shared/TextInput';
 import Button from '../shared/Button';
 import StatusBar from '../shared/StatusBar';
-
-import { ratio, colors } from '../../utils/Styles';
 import { getString } from '../../../STRINGS';
 
 const StyledContainer = styled.View`

@@ -4,7 +4,8 @@ import { NavigationScreenProp, NavigationStateRoute } from 'react-navigation';
 import { User as Friend } from '../models/User';
 import ProfileModal from '../components/shared/ProfileModal';
 import { ProfileModalContext } from '../contexts/ProfileModalContext';
-
+import { ThemeProvider } from 'styled-components/native';
+import theme from '../utils/theme';
 const ProfileModalConsumer = ProfileModalContext.Consumer;
 
 interface IProps {
@@ -58,19 +59,21 @@ function ProfileModalProvider(props: IProps) {
   const value = { state, dispatch };
 
   return (
-    <ProfileModalContext.Provider value={value}>
-      {props.children}
-      <ProfileModal
-        testID='modal'
-        ref={modal}
-        onChatPressed={() => {
-          if (modal && modal.current) {
-            modal.current.close();
-          }
-          props.navigation.navigate('Chat');
-        }}
-      />
-    </ProfileModalContext.Provider>
+    <ThemeProvider theme={theme}>
+      <ProfileModalContext.Provider value={value}>
+        {props.children}
+        <ProfileModal
+          testID='modal'
+          ref={modal}
+          onChatPressed={() => {
+            if (modal && modal.current) {
+              modal.current.close();
+            }
+            props.navigation.navigate('Chat');
+          }}
+        />
+      </ProfileModalContext.Provider>
+    </ThemeProvider>
   );
 }
 

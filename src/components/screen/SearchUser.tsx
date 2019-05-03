@@ -16,8 +16,6 @@ import { NavigationScreenProp, NavigationStateRoute } from 'react-navigation';
 import { getString } from '../../../STRINGS';
 import { User as Friend } from '../../models/User';
 import { IC_BACK, IC_SEARCH, IC_ICON } from '../../utils/Icons';
-
-import { ratio, colors } from '../../utils/Styles';
 import { ProfileModalContext } from '../../providers/ProfileModalProvider';
 import EmptyListItem from '../shared/EmptyListItem';
 import UserListItem from '../shared/UserListItem';

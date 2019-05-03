@@ -8,8 +8,6 @@ import {
   ViewStyle,
 } from 'react-native';
 
-import { ratio, colors } from '../../utils/Styles';
-
 interface IStyles {
   wrapper: ViewStyle;
 }

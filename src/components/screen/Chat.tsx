@@ -18,19 +18,16 @@ import {
   FlatList,
 } from 'react-native';
 import { NavigationScreenProp, NavigationStateRoute } from 'react-navigation';
-
-import styled from 'styled-components/native';
+import styled, { ThemeProps, withTheme, DefaultTheme } from 'styled-components/native';
 
 import { Header } from 'react-navigation';
 import Icon5, { FA5Style } from 'react-native-vector-icons/FontAwesome5';
-
 import ChatListItem from '../shared/ChatListItem';
 import EmptyListItem from '../shared/EmptyListItem';
 import Button from '../shared/Button';
 
 import { Chatroom } from '../../models/Chatroom';
 import { IC_SMILE } from '../../utils/Icons';
-import { ratio, colors } from '../../utils/Styles';
 import { getString } from '../../../STRINGS';
 import { Chat } from '../../models/Chat';
 import { User } from '../../models/User';
@@ -46,7 +43,6 @@ const StyledKeyboardAvoidingView = styled.KeyboardAvoidingView`
   flex: 1;
   justify-content: center;
   align-self: stretch;
-
   flex-direction: column;
   align-items: center;
 `;
@@ -58,7 +54,6 @@ const StyledViewChat = styled.View`
   background-color: white;
   min-height: 52;
   max-height: 100;
-
   flex-direction: row;
   justify-content: flex-end;
   align-items: center;
@@ -76,8 +71,8 @@ const StyledTouchMenu = styled.TouchableOpacity`
   position: absolute;
   left: 10;
   height: 100%;
-  minWidth: 20;
-  justifyContent: center;
+  min-width: 20px;
+  justify-content: center;
 `;
 
 const StyledViewBottom = styled.View`
@@ -86,13 +81,14 @@ const StyledViewBottom = styled.View`
   width: 100%;
 `;
 
-const StyledViewMenu = styled.View`
-  background-color: ${colors.paleGray};
+const StyledViewMenu = styled.View<{ height: number }>`
+  background-color: ${({ theme: { colors: { paleGray }}}) => paleGray};
   flex-direction: row;
   flex-wrap: wrap;
+  height: ${({ height }) => height};
 `;
 
-interface IProps {
+interface IProps extends ThemeProps<DefaultTheme> {
   navigation: any;
 }
 
@@ -193,6 +189,15 @@ function Screen(props: IProps, state: IState) {
   const sendChat = () => {
   };
 
+  const {
+    theme: {
+      colors: {
+        dusk,
+        cloudyBlue
+      }
+    }    
+  } = props;
+
   return (
     <StyledContainer>
       <StyledKeyboardAvoidingView
@@ -227,7 +232,7 @@ function Screen(props: IProps, state: IState) {
                 onFocus={() => setShowMenu(false)}
                 multiline={true}
                 placeholder={ getString('WRITE_MESSAGE') }
-                placeholderTextColor={ colors.cloudyBlue }
+                placeholderTextColor={cloudyBlue}
                 value={message}
                 defaultValue={message}
                 onChangeText={(text) => setMessage(text)}
@@ -259,7 +264,7 @@ function Screen(props: IProps, state: IState) {
                 onFocus={() => setShowMenu(false)}
                 multiline={true}
                 placeholder={ getString('WRITE_MESSAGE') }
-                placeholderTextColor={ colors.cloudyBlue }
+                placeholderTextColor={cloudyBlue}
                 value={message}
                 defaultValue={message}
               />
@@ -278,9 +283,7 @@ function Screen(props: IProps, state: IState) {
                 onPress={sendChat}
               >{getString('SEND')}</Button>
             </StyledViewChat>
-            <StyledViewMenu style={{
-              height: keyboardHeight,
-            }}>
+            <StyledViewMenu testID="viewMenu" height={keyboardHeight}>
               <View style={{
                 flexDirection: 'row',
                 marginTop: 10,
@@ -295,7 +298,7 @@ function Screen(props: IProps, state: IState) {
                     alignItems: 'center',
                   }}
                 >
-                  <Icon5 name='camera' size={36} color={colors.dusk} light/>
+                  <Icon5 name='camera' size={36} color={dusk} light />
                 </TouchableOpacity>
                 <TouchableOpacity
                   style={{
@@ -307,7 +310,7 @@ function Screen(props: IProps, state: IState) {
                     alignItems: 'center',
                   }}
                 >
-                  <Icon5 name='image' size={40} color={colors.dusk} light/>
+                  <Icon5 name='image' size={40} color={dusk} light/>
                 </TouchableOpacity>
               </View>
             </StyledViewMenu>
@@ -318,4 +321,4 @@ function Screen(props: IProps, state: IState) {
   );
 }
 
-export default Screen;
+export default withTheme(Screen);

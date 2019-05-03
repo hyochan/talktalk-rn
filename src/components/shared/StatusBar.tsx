@@ -8,8 +8,7 @@ import {
   Platform,
   StatusBar,
 } from 'react-native';
-
-import { ratio, colors } from '../../utils/Styles';
+import { ThemeConsumer } from 'styled-components/native';
 
 interface IProps {
   isDarkContent: boolean;
@@ -24,14 +23,19 @@ function Shared(props: IProps, state: IState) {
       ? 'dark-content'
       : 'light-content';
   return (
-    <StatusBar
-      barStyle={statusColor}
-      backgroundColor={colors.dodgerBlue}
-    />
+    <ThemeConsumer>
+      {({ colors: { dodgerBlue }}) => (
+        <StatusBar
+          barStyle={statusColor}
+          backgroundColor={dodgerBlue}
+        />
+      )}      
+    </ThemeConsumer>
   );
 }
 
 Shared.defaultProps = {
   isDarkContent: false,
 };
+
 export default Shared;

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { useEffect, useRef } from 'react';
 import {
   StyleSheet,
   TouchableOpacity,
@@ -8,15 +8,13 @@ import {
 } from 'react-native';
 
 import { Text } from 'react-native-animatable';
-
+import styled from 'styled-components/native';
 import { IC_ICON } from '../../utils/Icons';
 import { animateRotateLoop } from '../../utils/Functions';
-import { ratio, colors } from '../../utils/Styles';
 import { getString } from '../../../STRINGS';
 
-import styled from 'styled-components/native';
-
 const StyledView = styled.View`
+  flex: 1;
   background-color: transparent;
 `;
 
@@ -31,7 +29,12 @@ const AnimatedImage = Animated.createAnimatedComponent(Image);
 const StyledAnimatedImage = styled(AnimatedImage)`
   width: 60;
   height: 60;
-  margin-top: 500;
+`;
+
+const StyledAnimatableText = styled(Text)`
+  margin-top: 16px;
+  font-size: 16px;
+  color: ${({ theme: { colors: { dodgerBlue }}}) => dodgerBlue};
 `;
 
 interface IProps {
@@ -43,35 +46,33 @@ interface IState {
 }
 
 function Screen(props: IProps, state: IState) {
-  const spinValue = new Animated.Value(0);
+  const spinValue = useRef(new Animated.Value(0)).current;
 
   const spin = spinValue.interpolate({
     inputRange: [0, 1],
-    outputRange: ['0deg', '1260deg'],
+    outputRange: ['0deg', '360deg'],
   });
+
+  useEffect(() => {
+    Animated.loop(
+      Animated.timing(spinValue, { toValue: 1, duration: 1200 })
+    ).start()
+  }, [])
 
   return (
     <StyledView>
       <StyledContainer>
         <StyledAnimatedImage
           source={IC_ICON}
-          style={{
-            transform: [{
-              rotate: spin,
-            }],
-          }}
+          style={{ transform: [{ rotate: spin }] }}
         />
-        <Text
+        <StyledAnimatableText
           animation='fadeIn'
-          iterationCount={'infinite'}
+          iterationCount='infinite'
           direction='alternate'
-          style={{
-            color: colors.dodgerBlue,
-            fontSize: 16,
-          }}
         >
           { getString('LOADING') }
-        </Text>
+        </StyledAnimatableText>
       </StyledContainer>
     </StyledView>
   );

@@ -10,8 +10,6 @@ import {
 } from 'react-native';
 import styled from 'styled-components/native';
 
-import { ratio, colors } from '../../utils/Styles';
-
 interface IStyledElement {
   white?: boolean;
 };
@@ -41,18 +39,18 @@ const StyledContainer = styled.View`
 `;
 
 const StyledButtonContainer = styled.View<IButtonContainer>`
-  width: ${({ width }) => width};
-  height: ${({ height }) => height};
+  width: ${({ width }) => `${width}px`};
+  height: ${({ height }) => `${height}px`};
   justify-content: center;
   align-items: center;
 `;
 
 const StyledButton = styled.View<IStyledElement>`
-  background-color: ${({ white }) => white ? 'white' : colors.dodgerBlue};
-  border-color: ${colors.dodgerBlue};
+  background-color: ${({ white, theme: { colors: { dodgerBlue }}}) => white ? 'white' : dodgerBlue};
+  border-color: ${({ theme: { colors: { dodgerBlue }}}) => dodgerBlue};
   border-radius: 4;
   border-width: 1;
-  shadow-color: ${colors.dodgerBlue};
+  shadow-color: ${({ theme: { colors: { dodgerBlue }}}) => dodgerBlue};
   shadow-radius: ${({ white }) => white ? 0 : 4};
   shadow-opacity: ${({ white }) => white ? 0.0 : 0.3};
   align-items: center;
@@ -72,7 +70,7 @@ const StyledButtonDisabled = styled.View`
 const StyledText = styled.Text<IStyledElement>`
   font-size: 14;
   font-weight: bold;
-  color: ${({ white }) => white ? 'white' : colors.dodgerBlue};
+  color: ${({ white, theme: { colors: { dodgerBlue }}}) => white ? 'white' : dodgerBlue};
 `;
 
 const StyledImageLeft = styled.Image`
@@ -113,11 +111,12 @@ function Button({
             >
               {isLoading
                 ? <ActivityIndicator size='small' color={indicatorColor} />
-                : imgLeftSrc && <StyledImageLeft source={imgLeftSrc} />
+                : (imgLeftSrc ? <StyledImageLeft source={imgLeftSrc} /> : undefined)
               }
-              {!isLoading && (
-                <StyledText white={!isWhite}>{children}</StyledText>
-              )}
+              {!isLoading
+                ? <StyledText white={!isWhite}>{children}</StyledText>
+                : undefined
+              }
             </StyledButtonContainer>
           </StyledButton>            
         </TouchableOpacity>

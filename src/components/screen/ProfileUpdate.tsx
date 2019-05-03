@@ -14,14 +14,10 @@ import {
 } from 'react-native';
 import { NavigationScreenProp, NavigationStateRoute } from 'react-navigation';
 import Icon5, { FA5Style } from 'react-native-vector-icons/FontAwesome5';
-
-import styled from 'styled-components/native';
-
+import styled,{ withTheme, ThemeProps, DefaultTheme } from 'styled-components/native';
 import Button from '../shared/Button';
 import TextInput from '../shared/TextInput';
 import { IC_MASK } from '../../utils/Icons';
-
-import { ratio, colors } from '../../utils/Styles';
 import { getString } from '../../../STRINGS';
 
 const StyledContainer = styled.View`
@@ -52,7 +48,7 @@ const StyledBtnWrapper = styled.View`
   margin-bottom: 48;
 `;
 
-interface IProps {
+interface IProps extends ThemeProps<DefaultTheme> {
   navigation: any;
 }
 
@@ -103,6 +99,14 @@ function Screen(props: IProps) {
   const onPressImg = () => {
   };
 
+  const {
+    theme: {
+      colors: {
+        dusk
+      }
+    }    
+  } = props;
+
   return (
     <StyledContainer>
       <StyledScrollView
@@ -116,7 +120,7 @@ function Screen(props: IProps) {
             activeOpacity={0.5}
             onPress={onPressImg}
           >
-            <Icon5 name='meh' size={80} color={colors.dusk} light/>
+            <Icon5 name='meh' size={80} color={dusk} light/>
           </TouchableOpacity>
           <TextInput
             testID='input_name'
@@ -153,4 +157,4 @@ function Screen(props: IProps) {
   );
 }
 
-export default Screen;
+export default withTheme(Screen);

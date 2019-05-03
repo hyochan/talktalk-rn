@@ -59,7 +59,7 @@ exports[`[Login] rendering test renders as expected 1`] = `
             style={
               Array [
                 Object {
-                  "color": "rgb(65,77,107),",
+                  "color": "rgb(65,77,107)",
                   "fontSize": 20,
                   "fontWeight": "bold",
                   "marginTop": 8,

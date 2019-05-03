@@ -3,7 +3,8 @@ import * as React from 'react';
 import SearchUser from '../SearchUser';
 import { ProfileModalProvider } from '../../../providers/ProfileModalProvider';
 import { IC_BACK } from '../../../utils/Icons';
-
+import { ThemeProvider } from 'styled-components/native';
+import theme from '../../../utils/theme';
 // Note: test renderer must be required after react-native.
 import renderer from 'react-test-renderer';
 import { RenderAPI, render, shallow, fireEvent, waitForElement } from 'react-native-testing-library';
@@ -12,8 +13,14 @@ const props = {
   navigation: {
     navigate: jest.fn(),
   },
+  theme
 };
-const component: React.ReactElement = <SearchUser {...props}/>;
+const component: React.ReactElement = (
+  <ThemeProvider theme={theme}>
+    <SearchUser {...props}/>
+  </ThemeProvider>
+);
+
 
 describe('[SearchUser] rendering test', () => {
   it('renders as expected', () => {
@@ -44,11 +51,14 @@ describe('[serachUser] interaction', () => {
       navigation: {
         navigate: jest.fn(),
       },
+      theme
     };
     const providerComponent = (
-      <ProfileModalProvider {...providerProps}>
-        {component}
-      </ProfileModalProvider>
+      <ThemeProvider theme={theme}>
+        <ProfileModalProvider {...providerProps}>
+          {component}
+        </ProfileModalProvider>
+      </ThemeProvider>
     );
     searchUserLib = render(component);
     testingLib = render(providerComponent);

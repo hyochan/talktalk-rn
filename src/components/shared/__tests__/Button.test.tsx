@@ -1,7 +1,8 @@
 import 'react-native';
 import * as React from 'react';
 import Button from '../Button';
-
+import { ThemeProvider } from 'styled-components/native';
+import theme from '../../../utils/theme';
 // Note: test renderer must be required after react-native.
 import renderer from 'react-test-renderer';
 import { render, fireEvent } from 'react-native-testing-library';
@@ -10,7 +11,13 @@ let cnt = 0;
 const onPress = () => {
   cnt++;
 };
-const component: React.ReactElement = <Button onPress={onPress}/>;
+
+const component: React.ReactElement = (
+  <ThemeProvider theme={theme}>
+    <Button onPress={onPress} />
+  </ThemeProvider>
+);
+  
 
 describe('[Button] rendering test', () => {
   it('renders [enabled] as expected', () => {
@@ -18,7 +25,11 @@ describe('[Button] rendering test', () => {
     expect(json).toMatchSnapshot();
   });
   it('renders [disabled] as expected', () => {
-    const disabledComponent: React.ReactElement = <Button isDisabled={true}/>;
+    const disabledComponent: React.ReactElement = (
+      <ThemeProvider theme={theme}>
+        <Button isDisabled={true}/>
+      </ThemeProvider>
+    );
     const json = renderer.create(disabledComponent).toJSON();
     expect(json).toMatchSnapshot();
   });

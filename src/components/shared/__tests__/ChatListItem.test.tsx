@@ -1,16 +1,38 @@
 import 'react-native';
 import * as React from 'react';
 import ChatListItem from '../ChatListItem';
-
+import { ThemeProvider } from 'styled-components/native';
+import theme from '../../../utils/theme';
 // Note: test renderer must be required after react-native.
 import renderer from 'react-test-renderer';
 import { render, fireEvent } from 'react-native-testing-library';
+import { Chat } from '../../../models/Chat';
+import { User } from '../../../models/User';
 
 let cnt = 0;
-const onPress = () => {
+const onPressPeerImage = () => {
   cnt++;
 };
-const component: React.ReactElement = <ChatListItem onPressPeerImage={onPress}/>;
+
+const props = {
+  item: new Chat(
+    '',
+    new User('', '', '', ''),
+    '',
+  ),
+  prevItem: new Chat(
+    '',
+    new User('', '', '', ''),
+    '',
+  ),
+  onPressPeerImage,
+  theme
+}
+const component: React.ReactElement = (
+  <ThemeProvider theme={theme}>
+    <ChatListItem {...props} />
+  </ThemeProvider> 
+);
 
 describe('[ChatListItem] rendering test', () => {
   it('renders [peerMessage] as expected', () => {

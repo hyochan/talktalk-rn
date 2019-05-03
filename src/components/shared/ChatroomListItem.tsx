@@ -9,7 +9,7 @@ import {
   TextStyle,
 } from 'react-native';
 
-import styled from 'styled-components/native';
+import styled, { css } from 'styled-components/native';
 
 import moment from 'moment';
 import Icon5 from 'react-native-vector-icons/FontAwesome5';
@@ -22,8 +22,6 @@ import { BaseButton } from 'react-native-gesture-handler';
 
 interface IStyles {
   wrapper: ViewStyle;
-  txtMsg: TextStyle;
-  txtDate: TextStyle;
 }
 
 const styles: IStyles = StyleSheet.create({
@@ -32,50 +30,28 @@ const styles: IStyles = StyleSheet.create({
     height: 80,
     borderBottomWidth: 1,
     borderColor: 'rgb(247,248,251)',
-
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'flex-start',
-  },
-  txtMsg: {
-    fontSize: 12,
-    color: colors.dusk,
-    maxWidth: 150,
-  },
-  txtDate: {
-    fontSize: 12,
-    color: colors.blueyGray,
-    textAlign: 'right',
-  },
+  }
 });
-
-const StyledWrapper = styled.View`
-  background-color: white;
-  height: 80;
-  border-bottom-width: 1;
-  border-color: rgb(247,248,251);
-
-  flexDirection: row;
-  alignItems: center;
-  justifyContent: flex-start;
-`;
 
 const StyledStatus = styled.View`
   position: absolute;
-  width: 12;
-  height: 12;
-  borderRadius: 6;
-  backgroundColor: ${colors.greenishCyan};
+  width: 12px;
+  height: 12px;
+  border-radius: 6px;
+  background-color: ${colors.greenishCyan};
   right: 0;
   bottom: 0;
-  border-width: 2;
+  border-width: 2px;
   border-color: white;
 `;
 
 const StyledViewContent = styled.View`
   flex-direction: column;
   flex: 1;
-  padding-right: 20;
+  padding-right: 20px;
 `;
 
 const StyledViewTop = styled.View`
@@ -86,14 +62,14 @@ const StyledViewTop = styled.View`
 
 const StyledTextDisplayName = styled.Text`
   font-weight: bold;
-  font-size: 14;
+  font-size: 14px;
   color: ${colors.dusk};
 `;
 
 const StyledViewCount = styled.View`
-  width: 16;
-  height: 16;
-  border-radius: 8;
+  width: 16px;
+  height: 16px;
+  border-radius: 8px;
   justify-content: center;
   align-items: center;
   background-color: rgb(80, 227, 194);
@@ -105,24 +81,29 @@ const StyledTextCount = styled.Text`
 `;
 
 const StyledViewBottom = styled.View`
-  margin-top: 8;
-
+  margin-top: 8px;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
 `;
 
-const StyledTextMessage = styled.Text`
-  font-size: 12;
+const StyledTextMessage = styled.Text<{ lastChatCnt: number }>`
+  font-size: 12px;
   color: ${colors.dusk};
-  max-width: 150;
+  max-width: 150px;
+  ${({ lastChatCnt }) => lastChatCnt ? 'font-weight: bold;' : ''}
 `;
 
 const StyledTextDate = styled.Text`
-  font-size: 12;
+  font-size: 12px;
   color: ${colors.blueyGray};
   text-align: right;
 `;
+
+const StyledImage = styled.Image`
+  width: 40px;
+  height: 40px;
+`
 
 interface IProps {
   testID?: string;
@@ -131,57 +112,64 @@ interface IProps {
   onPress?: () => void;
 }
 
-function Shared(props: IProps) {
+function Shared({
+  item: {
+    lastChat: {
+      sender: {
+        photoURL,
+        isOnline,
+        displayName
+      },
+      message,
+      created
+    },
+    lastChatCnt
+  },
+  style,
+  onPress
+}: IProps) {
   return (
     <View style={{ width: '100%' }}>
       <TouchableOpacity
         activeOpacity={0.5}
-        onPress={props.onPress}
+        onPress={onPress}
       >
-        <View style={props.style}>
-          <View style={{
-            marginHorizontal: 20,
-          }}>
-            {
-              props.item.lastChat.sender.photoURL
-                ? <Image style={{
-                  width: 40,
-                  height: 40,
-                }} source={{ uri: props.item.lastChat.sender.photoURL }}/>
-                : <Icon5 name='meh' size={40} color={colors.dusk} light/>
+        <View style={style}>
+          <View style={{ marginHorizontal: 20 }}>
+            {photoURL
+              ? <StyledImage source={{ uri: photoURL }} />
+              : <Icon5 name='meh' size={40} color={colors.dusk} light/>
             }
-            {
-              props.item.lastChat.sender.isOnline
-                ? <StyledStatus/>
-                : <View/>
+            {isOnline
+              ? <StyledStatus />
+              : <View/>
             }
           </View>
           <StyledViewContent>
             <StyledViewTop>
-              <StyledTextDisplayName>{props.item.lastChat.sender.displayName}</StyledTextDisplayName>
-              {
-                props.item.lastChatCnt !== 0
-                  ? <StyledViewContent>
-                    <StyledTextCount>{props.item.lastChatCnt}</StyledTextCount>
+              <StyledTextDisplayName>{displayName}</StyledTextDisplayName>
+              {lastChatCnt !== 0
+                ? (
+                  <StyledViewContent>
+                    <StyledTextCount>{lastChatCnt}</StyledTextCount>
                   </StyledViewContent>
-                  : <View/>
-              }
+                ) : (
+                  <View/>
+              )}
             </StyledViewTop>
             <StyledViewBottom>
-              <Text
+              <StyledTextMessage
                 numberOfLines={2}
-                style={[
-                  styles.txtMsg,
-                  props.item.lastChatCnt !== 0 // Have unread message status
-                    ? { fontWeight: 'bold' }
-                    : { },
-                ]}
-              >{props.item.lastChat.message}</Text>
-              <Text style={styles.txtDate}>{
-                props.item.lastChat.created
-                  ? moment(props.item.lastChat.created).fromNow()
+                lastChatCnt={lastChatCnt}
+              >
+                {message}
+              </StyledTextMessage>
+              <StyledTextDate>
+                {created
+                  ? moment(created).fromNow()
                   : 'nan'
-              }</Text>
+                }
+              </StyledTextDate>
             </StyledViewBottom>
           </StyledViewContent>
         </View>

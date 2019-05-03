@@ -113,11 +113,12 @@ function Button({
             >
               {isLoading
                 ? <ActivityIndicator size='small' color={indicatorColor} />
-                : imgLeftSrc && <StyledImageLeft source={imgLeftSrc} />
+                : (imgLeftSrc ? <StyledImageLeft source={imgLeftSrc} /> : undefined)
               }
-              {!isLoading && (
-                <StyledText white={!isWhite}>{children}</StyledText>
-              )}
+              {!isLoading
+                ? <StyledText white={!isWhite}>{children}</StyledText>
+                : undefined
+              }
             </StyledButtonContainer>
           </StyledButton>            
         </TouchableOpacity>

@@ -60,7 +60,7 @@ function Screen(props: IProps, state: IState) {
   }, [])
 
   return (
-    <StyledView>
+    <StyledView testID='loading'>
       <StyledContainer>
         <StyledAnimatedImage
           source={IC_ICON}

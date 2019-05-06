@@ -12,6 +12,7 @@ exports[`[Loading] rendering test renders as expected 1`] = `
       },
     ]
   }
+  testID="loading"
 >
   <View
     style={
@@ -34,15 +35,19 @@ exports[`[Loading] rendering test renders as expected 1`] = `
         }
       }
       style={
-        Object {
-          "height": 60,
-          "transform": Array [
-            Object {
-              "rotate": "0deg",
-            },
-          ],
-          "width": 60,
-        }
+        Array [
+          Object {
+            "height": 60,
+            "width": 60,
+          },
+          Object {
+            "transform": Array [
+              Object {
+                "rotate": undefined,
+              },
+            ],
+          },
+        ]
       }
     />
     <Text

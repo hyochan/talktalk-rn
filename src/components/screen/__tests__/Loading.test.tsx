@@ -21,6 +21,7 @@ jest.mock('Animated', () => {
         start: jest.fn(),
       };
     }),
+    sequence: jest.fn(),
     Value: jest.fn(() => {
       return {
         interpolate: jest.fn(),

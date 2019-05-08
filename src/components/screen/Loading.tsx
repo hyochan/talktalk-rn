@@ -54,9 +54,7 @@ function Screen(props: IProps, state: IState) {
   });
 
   useEffect(() => {
-    Animated.loop(
-      Animated.timing(spinValue, { toValue: 1, duration: 1200 })
-    ).start()
+    animateRotateLoop(spinValue);
   }, [])
 
   return (

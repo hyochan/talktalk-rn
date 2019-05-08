@@ -1,10 +1,9 @@
-
 import React from 'react';
 import { Image, Text } from 'react-native';
 
 const createAnimatableComponent = (Component) => (
   class AnimatableComponent extends React.Component {
-    render() {
+    public render() {
       return <Component/>;
     }
   }

@@ -8,7 +8,7 @@
 ![m63gkogvnu](https://user-images.githubusercontent.com/27461460/53927695-ffc23580-40ca-11e9-91cd-aadb42eb49a1.gif)
 
 > Specification
-* flow
+* typescript
 * styeld-component
 * react-hook
 * react-navigation
@@ -19,8 +19,8 @@
 # Gain points
 ```
 1. Sample of `react context api provider`.
-2. Able to learn how to structure react native app with `context api` and `jest` and `flow`.
-3. Test type with flow with `npm run build` command.
+2. Able to learn how to structure react native app with `context api` and `jest` and `typescript`.
+3. Test type with `typescript` with `npm run build` command.
 4. Learn how to localize your project.
 ```
 
@@ -48,7 +48,6 @@ app/
 ├─ .buckconfig
 ├─ .eslintignore
 ├─ .eslintrc.js
-├─ .flowconfig
 ├─ .gitattributes
 ├─ .gitignore
 ├─ .watchmanconfig

@@ -43,7 +43,7 @@ app/
 │  └─ components
 │  └─ providers
 │  └─ utils
-│  └─ index.js
+│  └─ index.ts
 ├─ test/
 ├─ .buckconfig
 ├─ .eslintignore
@@ -56,7 +56,7 @@ app/
 ├─ index.js
 ├─ package.json
 ├─ README.md
-└─ STRINGS.js
+└─ STRINGS.ts
 ```
 
 # Running the project
@@ -78,7 +78,7 @@ npm test
 We've created test examples with jest-ts in `src/components/screen/__tests__` and `src/components/shared/__tests__`. Since react is component oriented, we've designed to focus on writing test in same level of directory with component. You can simply run `npm test` to test if it succeeds and look more closer opening the source.
 
 ## Localization
-We've defined Localization strings in `STRINGS.js` which is in root dir.
+We've defined Localization strings in `STRINGS.ts` which is in root dir.
 We used [react-native-localization](https://github.com/stefalda/ReactNativeLocalization) pacakage for this one.
 ```
 import LocalizedStrings from 'react-native-localization';

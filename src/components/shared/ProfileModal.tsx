@@ -1,29 +1,19 @@
 import LinearGradient from 'react-native-linear-gradient';
 import React, {
-  Component,
   useState,
   useImperativeHandle,
   forwardRef,
-  Ref,
-  RefObject,
 } from 'react';
 import {
-  ActivityIndicator,
   TouchableOpacity,
-  StyleSheet,
   Image,
-  Text,
   View,
   ViewStyle,
-  ImageStyle,
-  TextStyle,
-  ImageSourcePropType,
 } from 'react-native';
 import Modal from 'react-native-modalbox';
 import Icon5 from 'react-native-vector-icons/FontAwesome5';
 import styled, { ThemeProps, DefaultTheme, withTheme } from 'styled-components/native';
 import { User } from '../../models/User';
-import { IC_MASK } from '../../utils/Icons';
 import { getString } from '../../../STRINGS';
 
 const StyledView = styled.View`
@@ -33,7 +23,7 @@ const StyledView = styled.View`
 const StyledViewBtns = styled.View`
   height: 80px;
   align-self: stretch;
-  background-color: white;
+  background-color: ${({ theme }) => theme.colors.subBackground};
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
@@ -42,7 +32,7 @@ const StyledViewBtns = styled.View`
 const StyledViewBtnDivider = styled.View`
   width: 1px;
   height: 80px;
-  background-color: ${({ theme: { colors: { paleGray }}}) => paleGray};
+  background-color: ${({ theme }) => theme.colors.subBorder};
 `;
 
 const StyledTextDisplayName = styled.Text`
@@ -61,21 +51,21 @@ const StyledTextStatusMsg = styled.Text`
 `;
 
 const StyledTextBtn = styled.Text`
-  color: ${({ theme: { colors: { dodgerBlue }}}) => dodgerBlue};
+  color: ${({ theme }) => theme.colors.text};
   font-size: 16px;
 `;
 
 const StyledTextFriendAdded = styled.Text`
   color: white;
   font-size: 12px;
-  background-color: ${({ theme: { colors: { dusk }}}) => dusk};
-  padding: 4;px
+  background-color: ${({ theme: { colors: { dusk } } }) => dusk};
+  padding: 4px;
 `;
 
 const StyledTextFriendAlreadyAdded = styled.Text`
   color: red;
   font-size: 12px;
-  background-color: ${({ theme: { colors: { cloudyBlue }}}) => cloudyBlue};
+  background-color: ${({ theme: { colors: { cloudyBlue } } }) => cloudyBlue};
   padding: 4px;
 `;
 
@@ -118,7 +108,6 @@ const styles: IStyles = {
 const Shared = forwardRef<IRef, IProps>((props, ref) => {
   let modal: any;
   const [showAddBtn, setShowAddBtn] = useState(true);
-  const [isAdding, setIsAdding] = useState(false);
   const [isFriendAdded, setIsFriendAdded] = useState(false);
   const [isFriendAlreadyAdded, setIsFriendAlreadyAdded] = useState(false);
   const [user, setUser] = useState(new User());
@@ -157,18 +146,18 @@ const Shared = forwardRef<IRef, IProps>((props, ref) => {
       setShowAddBtn(flag);
     },
   }));
-  const { 
+  const {
     photoURL,
     displayName,
-    statusMsg
+    statusMsg,
   } = user;
   const {
     theme: {
       colors: {
         dusk,
-        dodgerBlue
-      }
-    }
+        dodgerBlue,
+      },
+    },
   } = props;
   const imageURL = typeof photoURL === 'string' ? { uri: photoURL } : photoURL;
   return (
@@ -197,10 +186,10 @@ const Shared = forwardRef<IRef, IProps>((props, ref) => {
             // onPress={goToProfile}
           >
             {photoURL
-              ? <Image 
-                  style={{ alignSelf: 'center' }} 
-                  source={imageURL} 
-                />
+              ? <Image
+                style={{ alignSelf: 'center' }}
+                source={imageURL}
+              />
               : <Icon5 name='meh' size={80} color={dusk} light/>
             }
           </TouchableOpacity>

@@ -19,7 +19,7 @@ import styled from 'styled-components/native';
 
 const StyledContainer = styled.View`
   flex: 1;
-  background-color: transparent;
+  background: ${({ theme }) => theme.colors.background};
   flex-direction: column;
   align-items: center;
   justify-content: center;

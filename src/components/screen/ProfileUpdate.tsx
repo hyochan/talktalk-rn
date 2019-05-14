@@ -1,4 +1,3 @@
-// @flow
 import React, {
   Component,
   useState,
@@ -14,7 +13,7 @@ import {
 } from 'react-native';
 import { NavigationScreenProp, NavigationStateRoute } from 'react-navigation';
 import Icon5, { FA5Style } from 'react-native-vector-icons/FontAwesome5';
-import styled,{ withTheme, ThemeProps, DefaultTheme } from 'styled-components/native';
+import styled, { withTheme, ThemeProps, DefaultTheme } from 'styled-components/native';
 import Button from '../shared/Button';
 import TextInput from '../shared/TextInput';
 import { IC_MASK } from '../../utils/Icons';
@@ -22,7 +21,7 @@ import { getString } from '../../../STRINGS';
 
 const StyledContainer = styled.View`
   flex: 1;
-  background-color: white;
+  background-color: ${({ theme }) => theme.colors.background};
   flex-direction: column;
   align-items: center;
 `;
@@ -32,9 +31,8 @@ const StyledScrollView = styled.ScrollView`
 `;
 
 const StyledWrapper = styled.View`
-  margin-top: 48;
+  margin-top: 48px;
   width: 78%;
-
   flex-direction: column;
   align-items: center;
 `;
@@ -44,8 +42,8 @@ const StyledBtnWrapper = styled.View`
   justify-content: space-between;
   flex-direction: row;
   align-items: center;
-  margin-top: 24;
-  margin-bottom: 48;
+  margin-top: 24px;
+  margin-bottom: 48px;
 `;
 
 interface IProps extends ThemeProps<DefaultTheme> {
@@ -56,14 +54,12 @@ interface IState {
   isUpdating: boolean;
   displayName: string;
   statusMsg: string;
-  photoURL: string;
 }
 
 function Screen(props: IProps) {
   const [isUpdating, setIsUpdating] = useState(false);
   const [displayName, setDisplayName] = useState('');
   const [statusMsg, setStatusMsg] = useState('');
-  const [photoURL, setPhotoURL] = useState('');
 
   useEffect(() => {
     if (isUpdating) {
@@ -102,9 +98,9 @@ function Screen(props: IProps) {
   const {
     theme: {
       colors: {
-        dusk
-      }
-    }    
+        text,
+      },
+    },
   } = props;
 
   return (
@@ -120,7 +116,7 @@ function Screen(props: IProps) {
             activeOpacity={0.5}
             onPress={onPressImg}
           >
-            <Icon5 name='meh' size={80} color={dusk} light/>
+            <Icon5 name='meh' size={80} color={text} light/>
           </TouchableOpacity>
           <TextInput
             testID='input_name'
@@ -129,6 +125,7 @@ function Screen(props: IProps) {
             txtHint={ getString('NAME') }
             txt={ displayName }
             onTextChanged={ (text) => onTextChanged('DISPLAY_NAME', text)}
+            placeholderTextColor={text}
           />
           <TextInput
             testID='input_status'
@@ -137,18 +134,19 @@ function Screen(props: IProps) {
             txtHint={ getString('STATUS_MSG') }
             txt={ statusMsg }
             onTextChanged={ (text) => onTextChanged('STATUS_MSG', text)}
+            placeholderTextColor={text}
           />
           <StyledBtnWrapper>
             <Button
               testID='logout_btn'
-              onPress={() => onLogout()}
+              onPress={onLogout}
               isWhite
             >{getString('LOGOUT')}</Button>
             <View style={{ width: 8 }}/>
             <Button
               testID='update_btn'
               isLoading={isUpdating}
-              onPress={() => onUpdate()}
+              onPress={onUpdate}
             >{getString('UPDATE')}</Button>
           </StyledBtnWrapper>
         </StyledWrapper>

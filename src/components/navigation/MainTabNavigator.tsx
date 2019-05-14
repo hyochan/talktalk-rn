@@ -1,11 +1,7 @@
 import React from 'react';
 import {
-  Platform,
-  Image,
   View,
   Text,
-  AsyncStorage,
-  BackHandler,
   StyleSheet,
   TouchableOpacity,
   ViewStyle,
@@ -13,12 +9,9 @@ import {
   TextStyle,
 } from 'react-native';
 import {
-  StackActions,
-  TabBarTop,
-  NavigationAction,
   createMaterialTopTabNavigator,
 } from 'react-navigation';
-import Icon5, { FA5Style } from 'react-native-vector-icons/FontAwesome5';
+import Icon5 from 'react-native-vector-icons/FontAwesome5';
 import theme from '../../utils/theme';
 import { getString } from '../../../STRINGS';
 import Friend from '../screen/Friend';
@@ -27,8 +20,10 @@ import Message from '../screen/Message';
 const {
   statusBarHeight,
   colors: {
-    dodgerBlue
-  }
+    dodgerBlue,
+    background,
+    title,
+  },
 } = theme;
 
 interface IStyles {
@@ -75,11 +70,11 @@ const MainTabNavigator = createMaterialTopTabNavigator(
         switch (routeName) {
           case 'Friend':
             return <Text style={[styles.txt, { opacity: focused ? 1 : 0.8 }]}>
-              {getString('FRIEND')}  <Text style={styles.txtSub}>24</Text>
+              {getString('FRIEND')} <Text style={styles.txtSub}>24</Text>
             </Text>;
           case 'Message':
             return <Text style={[styles.txt, { opacity: focused ? 1 : 0.8 }]}>
-              {getString('MESSAGE')}  <Text style={styles.txtSub}>8</Text>
+              {getString('MESSAGE')} <Text style={styles.txtSub}>8</Text>
             </Text>;
         }
         return null;
@@ -107,6 +102,12 @@ export default MainTabNavigator;
 
 export const MainTabNavigationOptions = ({ navigation }) => ({
   title: 'Talk Talk',
+  headerStyle: {
+    backgroundColor: background,
+  },
+  headerTitleStyle: {
+    color: title,
+  },
   headerLeft: (
     <View style={{
       marginLeft: 16,
@@ -130,5 +131,5 @@ export const MainTabNavigationOptions = ({ navigation }) => ({
         <Icon5 name='search-plus' size={20} color={dodgerBlue} light={true}/>
       </TouchableOpacity>
     </View>
-  )
+  ),
 });

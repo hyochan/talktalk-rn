@@ -54,6 +54,7 @@ const userSampleData = [
 const AnimatedFlatList = Animated.createAnimatedComponent(FlatList);
 const StyledSafeAreaView = styled.SafeAreaView`
   flex: 1;
+  background: ${({ theme }) => theme.colors.background};
 `;
 const StyledContainer = styled.View`
   flex: 1;
@@ -82,7 +83,8 @@ const StyledTextInput = styled.TextInput`
   width: 100%;
   height: 30;
   top: 10;
-  background-color: rgb(247,248,251);
+  color: ${({ theme }) => theme.colors.text};
+  background-color: ${({ theme }) => theme.colors.searchBackground};
   border-radius: 4;
   padding-left: 34;
   padding-right: 10;
@@ -188,8 +190,5 @@ function Screen(props: IProps) {
     </StyledSafeAreaView>
   );
 }
-Screen.navigationOptions = {
-  title: 'Search User',
-};
 
 export default Screen;

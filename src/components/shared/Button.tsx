@@ -46,11 +46,11 @@ const StyledButtonContainer = styled.View<IButtonContainer>`
 `;
 
 const StyledButton = styled.View<IStyledElement>`
-  background-color: ${({ white, theme: { colors: { dodgerBlue }}}) => white ? 'white' : dodgerBlue};
-  border-color: ${({ theme: { colors: { dodgerBlue }}}) => dodgerBlue};
-  border-radius: 4;
-  border-width: 1;
-  shadow-color: ${({ theme: { colors: { dodgerBlue }}}) => dodgerBlue};
+  background-color: ${({ white, theme: { colors: { primaryButton, secondaryButton } } }) => white ? secondaryButton : primaryButton};
+  border-color: ${({ white, theme: { colors: { primaryButtonBorder, secondaryButtonBorder } } }) => white ? secondaryButtonBorder : primaryButtonBorder};
+  border-radius: 4px;
+  border-width: 1px;
+  shadow-color: ${({ theme: { colors: { primaryButton } } }) => primaryButton};
   shadow-radius: ${({ white }) => white ? 0 : 4};
   shadow-opacity: ${({ white }) => white ? 0.0 : 0.3};
   align-items: center;
@@ -60,24 +60,24 @@ const StyledButton = styled.View<IStyledElement>`
 const StyledButtonDisabled = styled.View`
   background-color: rgb(243,243,243);
   align-self: center;
-  border-radius: 4;
-  border-width: 2;
+  border-radius: 4px;
+  border-width: 2px;
   border-color: #333;
   align-items: center;
   justify-content: center;
 `;
 
 const StyledText = styled.Text<IStyledElement>`
-  font-size: 14;
+  font-size: 14px;
   font-weight: bold;
-  color: ${({ white, theme: { colors: { dodgerBlue }}}) => white ? 'white' : dodgerBlue};
+  color: ${({ white, theme: { colors: { primaryButtonText, secondaryButtonText } } }) => white ? secondaryButtonText : primaryButtonText};
 `;
 
 const StyledImageLeft = styled.Image`
-  width: 24;
-  height: 24;
+  width: 24px;
+  height: 24px;
   position: absolute;
-  left: 16;
+  left: 16px;
 `;
 
 function Button({
@@ -90,8 +90,8 @@ function Button({
   height,
   indicatorColor,
   imgLeftSrc,
-  children
-}: Partial<IProps>) { 
+  children,
+}: Partial<IProps>) {
   return (
     <StyledContainer>
       {isDisabled ? (
@@ -114,13 +114,13 @@ function Button({
                 : (imgLeftSrc ? <StyledImageLeft source={imgLeftSrc} /> : undefined)
               }
               {!isLoading
-                ? <StyledText white={!isWhite}>{children}</StyledText>
+                ? <StyledText white={isWhite}>{children}</StyledText>
                 : undefined
               }
             </StyledButtonContainer>
-          </StyledButton>            
+          </StyledButton>
         </TouchableOpacity>
-      )}      
+      )}
     </StyledContainer>
   );
 }

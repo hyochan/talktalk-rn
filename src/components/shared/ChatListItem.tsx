@@ -1,12 +1,6 @@
 import React, { FC } from 'react';
 import {
-  ActivityIndicator,
-  StyleSheet,
-  Image,
-  Text,
   View,
-  Dimensions,
-  PixelRatio,
   TouchableOpacity,
 } from 'react-native';
 
@@ -28,36 +22,36 @@ const StyledWrapperPeer = styled.View<{ isSame: boolean }>`
 `;
 
 const StyledImageSender = styled.Image`
-  width: 32;
-  height: 32;
+  width: 32px;
+  height: 32px;
 `;
 
 const StyledTextPeerMessageContainer = styled.View`
   margin-right: 8px;
-  background-color: white;
+  background-color: ${({ theme }) => theme.colors.subBackground};
   border-radius: 3px;
   border-width: 1px;
-  border-color: rgb(225,225,225);
+  border-color: ${({ theme }) => theme.colors.border};
   padding: 12px;
-  shadow-color: ${({ theme: { colors: { paleGray }}}) => paleGray};
+  shadow-color: ${({ theme: { colors: { paleGray } } }) => paleGray};
   shadow-offset: 0 2px;
   margin-vertical: 4px;
 `;
 
 const StyledTextPeerMessage = styled.Text`
   font-size: 14px;
-  color: ${({ theme: { colors: { dusk }}}) => dusk};
+  color: ${({ theme }) => theme.colors.text};
 `;
 
 const StyledTextPeerName = styled.Text`
   font-size: 12px;
-  color: ${({ theme: { colors: { dusk }}}) => dusk};
+  color: ${({ theme }) => theme.colors.text};
   margin-bottom: 2px;
 `;
 
 const StyledTextPeerDate = styled.Text`
   font-size: 12px;
-  color: ${({ theme: { colors: { cloudyBlue }}}) => cloudyBlue};
+  color: ${({ theme }) => theme.colors.text};
   margin-right: 20px;
 `;
 
@@ -71,14 +65,14 @@ const StyledWrapperMy = styled.View`
 `;
 
 const StyledTextDate = styled.Text`
-  font-size: 12;
-  color: ${({ theme: { colors: { cloudyBlue }}}) => cloudyBlue};
-  margin-top: 4;
-  margin-right: 20;
+  font-size: 12px;
+  color: ${({ theme: { colors: { cloudyBlue } } }) => cloudyBlue};
+  margin-top: 4px;
+  margin-right: 20px;
 `;
 
 const StyledTextMessage = styled.Text`
-  font-size: 14;
+  font-size: 14px;
   color: white;
 `;
 
@@ -103,36 +97,36 @@ interface IImageSenderProps {
 
 const myFakeUid = '2'; // TODO: temporary
 
-const ImageSenderComp: FC<IImageSenderProps> = ({ photoURL, isSamePeerMsg, dusk }) => {
+const ImageSenderComp: FC<IImageSenderProps> = ({ photoURL, isSamePeerMsg, text }) => {
   if (photoURL !== '') {
-    return <StyledImageSender source={{ uri: photoURL }} />
+    return <StyledImageSender source={{ uri: photoURL }} />;
   } else if (isSamePeerMsg) {
-    return <View style={{ width: 40 }} />
+    return <View style={{ width: 40 }} />;
   }
-  return <Icon5 name='meh' size={40} color={dusk} light />
-}
+  return <Icon5 name='meh' size={40} color={text} light />;
+};
 
 function Shared({
   item: {
-    sender: { 
+    sender: {
       uid,
       displayName,
-      photoURL
+      photoURL,
     },
     message,
-    created
+    created,
   },
   prevItem,
   onPressPeerImage,
-  theme: { 
-    colors: { 
-      dusk,
-      dodgerBlue
-    }
-  }
+  theme: {
+    colors: {
+      text,
+      dodgerBlue,
+    },
+  },
 }: IProps) {
   const isSamePeerMsg = prevItem && prevItem.sender.uid === uid;
-  if (uid !== myFakeUid) {  // peer message
+  if (uid !== myFakeUid) { // peer message
     return (
       <StyledWrapperPeer isSame={isSamePeerMsg}>
         <View style={{ marginRight: 8 }}>
@@ -143,7 +137,7 @@ function Shared({
             <ImageSenderComp
               photoURL={photoURL}
               isSamePeerMsg={isSamePeerMsg}
-              dusk={dusk}
+              text={text}
             />
           </TouchableOpacity>
         </View>

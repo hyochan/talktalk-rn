@@ -1,15 +1,5 @@
-import React, { Component, useState, useEffect } from 'react';
-import {
-  StyleSheet,
-  TouchableOpacity,
-  Image,
-  Text,
-  View,
-  ScrollView,
-} from 'react-native';
-import { NavigationScreenProp, NavigationStateRoute } from 'react-navigation';
-
-import styled from 'styled-components/native';
+import React, { useState, useEffect } from 'react';
+import styled, {withTheme} from 'styled-components/native';
 
 import TextInput from '../shared/TextInput';
 import Button from '../shared/Button';
@@ -18,7 +8,7 @@ import { getString } from '../../../STRINGS';
 
 const StyledContainer = styled.View`
   flex:1;
-  background-color: white;
+  background: ${({ theme }) => theme.colors.background};
   flex-direction: column;
   align-items: center;
 `;
@@ -28,7 +18,7 @@ const StyledScrollView = styled.ScrollView`
 `;
 
 const StyledWrapper = styled.View`
-  margin-top: 40;
+  margin-top: 40px;
   width: 78%;
 
   flex-direction: column;
@@ -36,7 +26,7 @@ const StyledWrapper = styled.View`
 `;
 
 const StyledButtonWrapper = styled.View`
-  margin-top: 24;
+  margin-top: 24px;
   width: 100%;
   align-items: flex-end;
 `;
@@ -59,6 +49,7 @@ function Screen(props: IProps, state: IState) {
   const [pw, setPw] = useState('');
   const [displayName, setDisplayName] = useState('');
   const [statusMsg, setStatusMsg] = useState('');
+  const { theme } = props;
 
   useEffect(() => {
     if (isRegistering) {
@@ -104,6 +95,7 @@ function Screen(props: IProps, state: IState) {
             txtHint={ getString('EMAIL') }
             txt={ email }
             onTextChanged={ (text) => onTextChanged('EMAIL', text)}
+            placeholderTextColor={theme.colors.text}
           />
           <TextInput
             testID='pw_input'
@@ -112,6 +104,7 @@ function Screen(props: IProps, state: IState) {
             txtHint={ getString('PASSWORD') }
             txt={ pw }
             onTextChanged={ (text) => onTextChanged('PW', text)}
+            placeholderTextColor={theme.colors.text}
             isPassword={ true }
           />
           <TextInput
@@ -121,6 +114,7 @@ function Screen(props: IProps, state: IState) {
             txtHint={ getString('NAME') }
             txt={ displayName }
             onTextChanged={ (text) => onTextChanged('NAME', text)}
+            placeholderTextColor={theme.colors.text}
           />
           <TextInput
             testID='status_input'
@@ -129,6 +123,7 @@ function Screen(props: IProps, state: IState) {
             txtHint={ getString('STATUS_MSG') }
             txt={ statusMsg }
             onTextChanged={ (text) => onTextChanged('STATUS_MSG', text)}
+            placeholderTextColor={theme.colors.text}
           />
           <StyledButtonWrapper>
             <Button
@@ -143,4 +138,4 @@ function Screen(props: IProps, state: IState) {
   );
 }
 
-export default Screen;
+export default withTheme(Screen);

@@ -15,8 +15,8 @@ const {
   colors: {
     blueyGray,
     dodgerBlue,
-    dusk
-  }
+    text,
+  },
 } = theme;
 
 interface IStyles {
@@ -46,7 +46,7 @@ const styles: IStyles = StyleSheet.create({
   },
   input: {
     alignSelf: 'stretch',
-    color: dusk,
+    color: text,
     fontSize: 16,
     paddingVertical: 22,
     paddingHorizontal: 20,
@@ -58,7 +58,7 @@ const styles: IStyles = StyleSheet.create({
   },
   inputFocus: {
     alignSelf: 'stretch',
-    color: dusk,
+    color: text,
     fontSize: 16,
     paddingVertical: 22,
     paddingHorizontal: 20,

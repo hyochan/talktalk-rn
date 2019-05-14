@@ -1,13 +1,4 @@
-import React, { Component, useState, useEffect } from 'react';
-import {
-  StyleSheet,
-  TouchableOpacity,
-  Image,
-  Text,
-  View,
-  ScrollView,
-} from 'react-native';
-import { NavigationScreenProp, NavigationStateRoute } from 'react-navigation';
+import React, { useState, useEffect } from 'react';
 import styled, { withTheme, ThemeProps, DefaultTheme } from 'styled-components/native';
 import TextInput from '../shared/TextInput';
 import Button from '../shared/Button';
@@ -16,7 +7,7 @@ import { getString } from '../../../STRINGS';
 
 const StyledContainer = styled.View`
   flex: 1;
-  background-color: white;
+  background: ${({ theme }) => theme.colors.background};
   flex-direction: column;
   align-items: center;
 `;
@@ -25,20 +16,15 @@ const StyledScrollView = styled.ScrollView`
   align-self: stretch;
 `;
 
-const StyledScrollViewContainer = styled.View`
-  justify-content: center;
-  align-items: center;
-`;
-
 const StyledWrapper = styled.View`
-  margin-top: 40;
+  margin-top: 40px;
   width: 78%;
 `;
 
 const StyledButtonWrapper = styled.View`
   width: 100%;
   align-items: flex-end;
-  margin-top: 16;
+  margin-top: 16px;
 `;
 
 interface IProps extends ThemeProps<DefaultTheme> {
@@ -72,7 +58,7 @@ function Screen(props: IProps) {
     setLoading(true);
   };
 
-  const { theme: { ratio }} = props;
+  const { theme } = props;
 
   return (
     <StyledContainer>
@@ -86,12 +72,12 @@ function Screen(props: IProps) {
         <StyledWrapper>
           <TextInput
             testID='input_email'
-            style={{ marginTop: 8 * ratio }}
+            style={{ marginTop: 8 * theme.ratio }}
             txtLabel={getString('EMAIL')}
             txtHint={ getString('EMAIL') }
             txt={ email }
             onTextChanged={ (text) => onTextChanged('EMAIL', text)}
-            isPassword={ true }
+            placeholderTextColor={theme.colors.text}
           />
           <StyledButtonWrapper>
             <Button
@@ -104,6 +90,6 @@ function Screen(props: IProps) {
       </StyledScrollView>
     </StyledContainer>
   );
-} 
+}
 
 export default withTheme(Screen);

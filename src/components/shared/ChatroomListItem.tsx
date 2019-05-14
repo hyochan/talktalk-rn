@@ -17,32 +17,26 @@ import { Chat } from '../../models/Chat';
 import { User } from '../../models/User';
 import { BaseButton } from 'react-native-gesture-handler';
 
-interface IStyles {
-  wrapper: ViewStyle;
-}
-
-export const styles: IStyles = StyleSheet.create({
-  wrapper: {
-    backgroundColor: 'white',
-    height: 80,
-    borderBottomWidth: 1,
-    borderColor: 'rgb(247,248,251)',
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'flex-start',
-  }
-});
+const StyledViewChatRoomListItem = styled.View`
+    background: ${({ theme }) => theme.colors.background};
+    height: 80px;
+    border-bottom-width: 1px;
+    border-color: ${({ theme }) => theme.colors.border};
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+`;
 
 const StyledStatus = styled.View`
   position: absolute;
   width: 12px;
   height: 12px;
   border-radius: 6px;
-  background-color: ${({ theme: { colors: { greenishCyan }}}) => greenishCyan};
+  background-color: ${({ theme: { colors: { greenishCyan } } }) => greenishCyan};
   right: 0;
   bottom: 0;
   border-width: 2px;
-  border-color: white;
+  border-color: ${({ theme }) => theme.colors.border};
 `;
 
 const StyledViewContent = styled.View`
@@ -60,7 +54,7 @@ const StyledViewTop = styled.View`
 const StyledTextDisplayName = styled.Text`
   font-weight: bold;
   font-size: 14px;
-  color: ${({ theme: { colors: { dusk }}}) => dusk};
+  color: ${({ theme }) => theme.colors.text};
 `;
 
 const StyledViewCount = styled.View`
@@ -74,7 +68,7 @@ const StyledViewCount = styled.View`
 
 const StyledTextCount = styled.Text`
   font-size: 10;
-  color: white;
+  color: ${({ theme }) => theme.colors.text};
 `;
 
 const StyledViewBottom = styled.View`
@@ -86,21 +80,21 @@ const StyledViewBottom = styled.View`
 
 const StyledTextMessage = styled.Text<{ lastChatCnt: number }>`
   font-size: 12px;
-  color: ${({ theme: { colors: { dusk }}}) => dusk};
+  color: ${({ theme }) => theme.colors.text};
   max-width: 150px;
   ${({ lastChatCnt }) => lastChatCnt ? 'font-weight: bold;' : ''}
 `;
 
 const StyledTextDate = styled.Text`
   font-size: 12px;
-  color: ${({ theme: { colors: { blueyGray }}}) => blueyGray};
+  color: ${({ theme }) => theme.colors.subText};
   text-align: right;
 `;
 
 const StyledImage = styled.Image`
   width: 40px;
   height: 40px;
-`
+`;
 
 interface IProps extends ThemeProps<DefaultTheme> {
   testID?: string;
@@ -115,20 +109,21 @@ function Shared({
       sender: {
         photoURL,
         isOnline,
-        displayName
+        displayName,
       },
       message,
-      created
+      created,
     },
-    lastChatCnt
+    lastChatCnt,
   },
   style,
   onPress,
   theme: {
     colors: {
-      dusk
-    }
-  }
+      text,
+      background,
+    },
+  },
 }: IProps) {
   return (
     <View style={{ width: '100%' }}>
@@ -136,11 +131,11 @@ function Shared({
         activeOpacity={0.5}
         onPress={onPress}
       >
-        <View style={style}>
+        <StyledViewChatRoomListItem>
           <View style={{ marginHorizontal: 20 }}>
             {photoURL
               ? <StyledImage source={{ uri: photoURL }} />
-              : <Icon5 name='meh' size={40} color={dusk} light/>
+              : <Icon5 name='meh' size={40} color={text} light/>
             }
             {isOnline
               ? <StyledStatus />
@@ -157,7 +152,7 @@ function Shared({
                   </StyledViewContent>
                 ) : (
                   <View/>
-              )}
+                )}
             </StyledViewTop>
             <StyledViewBottom>
               <StyledTextMessage
@@ -174,14 +169,13 @@ function Shared({
               </StyledTextDate>
             </StyledViewBottom>
           </StyledViewContent>
-        </View>
+        </StyledViewChatRoomListItem>
       </TouchableOpacity>
     </View>
   );
 }
 
 Shared.defaultProps = {
-  style: styles.wrapper,
   item: new Chatroom(
     '',
     new Chat(

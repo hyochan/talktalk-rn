@@ -1,6 +1,5 @@
 import React from 'react';
-import { AsyncStorage, View, Platform, StyleSheet } from 'react-native';
-import { createStackNavigator, StackActions, NavigationActions } from 'react-navigation';
+import { createStackNavigator } from 'react-navigation';
 import StackViewStyleInterpolator from 'react-navigation-stack/dist/views/StackView/StackViewStyleInterpolator';
 
 import { commonNavigationOptions } from './MainStackNavigator';
@@ -8,6 +7,9 @@ import Login from '../screen/Login';
 import SignUp from '../screen/SignUp';
 import FindPw from '../screen/FindPw';
 import { getString } from '../../../STRINGS';
+import theme from '../../utils/theme';
+
+const { colors: { background, title } } = theme;
 
 const StackNavigator = createStackNavigator(
   {
@@ -15,6 +17,7 @@ const StackNavigator = createStackNavigator(
       screen: Login,
       navigationOptions: {
         headerStyle: {
+          backgroundColor: background,
           borderBottomWidth: 0,
         },
       },
@@ -23,12 +26,26 @@ const StackNavigator = createStackNavigator(
       screen: SignUp,
       navigationOptions: {
         title: getString('SIGNUP'),
+        headerStyle: {
+          backgroundColor: background,
+          borderBottomWidth: 0,
+        },
+        headerTitleStyle: {
+          color: title,
+        },
       },
     },
     FindPw: {
       screen: FindPw,
       navigationOptions: {
         title: getString('FIND_PW'),
+        headerStyle: {
+          backgroundColor: background,
+          borderBottomWidth: 0,
+        },
+        headerTitleStyle: {
+          color: title,
+        },
       },
     },
   },

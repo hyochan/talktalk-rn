@@ -1,17 +1,9 @@
 import React, {
-  Component,
-  useState,
   useContext,
 } from 'react';
 import {
-  StyleSheet,
-  TouchableOpacity,
-  Image,
-  Text,
-  View,
   FlatList,
 } from 'react-native';
-import { NavigationScreenProp, NavigationStateRoute } from 'react-navigation';
 
 import UserListItem from '../shared/UserListItem';
 import EmptyListItem from '../shared/EmptyListItem';
@@ -24,8 +16,8 @@ import styled from 'styled-components/native';
 
 const StyledContainer = styled.View`
   flex: 1;
-  background-color: transparent;
   flex-direction: column;
+  background: ${({ theme }) => theme.colors.background};
   align-items: center;
   justify-content: center;
 `;

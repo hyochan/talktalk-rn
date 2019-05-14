@@ -1,9 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import {
-  StyleSheet,
-  TouchableOpacity,
   Image,
-  View,
   Animated,
 } from 'react-native';
 
@@ -27,14 +24,14 @@ const StyledContainer = styled.View`
 
 const AnimatedImage = Animated.createAnimatedComponent(Image);
 const StyledAnimatedImage = styled(AnimatedImage)`
-  width: 60;
-  height: 60;
+  width: 60px;
+  height: 60px;
 `;
 
 const StyledAnimatableText = styled(Text)`
   margin-top: 16px;
   font-size: 16px;
-  color: ${({ theme: { colors: { dodgerBlue }}}) => dodgerBlue};
+  color: ${({ theme: { colors: { dodgerBlue } } }) => dodgerBlue};
 `;
 
 interface IProps {
@@ -55,7 +52,7 @@ function Screen(props: IProps, state: IState) {
 
   useEffect(() => {
     animateRotateLoop(spinValue);
-  }, [])
+  }, []);
 
   return (
     <StyledView testID='loading'>

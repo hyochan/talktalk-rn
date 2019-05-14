@@ -1,23 +1,16 @@
 import React, {
-  Component,
   useState,
   useEffect,
   useRef,
 } from 'react';
 import {
-  SafeAreaView,
-  StyleSheet,
   TouchableOpacity,
   Image,
-  Text,
   View,
   Keyboard,
   Platform,
-  TextInput,
-  KeyboardAvoidingView,
   FlatList,
 } from 'react-native';
-import { NavigationScreenProp, NavigationStateRoute } from 'react-navigation';
 import styled, { ThemeProps, withTheme, DefaultTheme } from 'styled-components/native';
 
 import { Header } from 'react-navigation';
@@ -26,7 +19,6 @@ import ChatListItem from '../shared/ChatListItem';
 import EmptyListItem from '../shared/EmptyListItem';
 import Button from '../shared/Button';
 
-import { Chatroom } from '../../models/Chatroom';
 import { IC_SMILE } from '../../utils/Icons';
 import { getString } from '../../../STRINGS';
 import { Chat } from '../../models/Chat';
@@ -34,7 +26,7 @@ import { User } from '../../models/User';
 
 const StyledContainer = styled.SafeAreaView`
   flex: 1;
-  background-color: white;
+  background-color: ${({ theme }) => theme.colors.background}; 
   flex-direction: column;
   align-items: center;
 `;
@@ -49,11 +41,11 @@ const StyledKeyboardAvoidingView = styled.KeyboardAvoidingView`
 
 const StyledViewChat = styled.View`
   width: 100%;
-  border-top-width: 0.5;
-  border-color: rgb(225,225,225);
-  background-color: white;
-  min-height: 52;
-  max-height: 100;
+  border-top-width: 0.5px;
+  border-color: ${({ theme }) => theme.colors.border};
+  background-color: ${({ theme }) => theme.colors.background};
+  min-height: 52px;
+  max-height: 100px;
   flex-direction: row;
   justify-content: flex-end;
   align-items: center;
@@ -61,10 +53,11 @@ const StyledViewChat = styled.View`
 
 const StyledInputChat = styled.TextInput`
   width: 80%;
-  font-size: 14;
-  margin-right: 20;
-  padding-left: 48;
+  font-size: 14px;
+  margin-right: 20px;
+  padding-left: 48px;
   color: black;
+  background-color: ${({ theme }) => theme.colors.background};
 `;
 
 const StyledTouchMenu = styled.TouchableOpacity`
@@ -82,7 +75,7 @@ const StyledViewBottom = styled.View`
 `;
 
 const StyledViewMenu = styled.View<{ height: number }>`
-  background-color: ${({ theme: { colors: { paleGray }}}) => paleGray};
+  background-color: ${({ theme: { colors: { paleGray } } }) => paleGray};
   flex-direction: row;
   flex-wrap: wrap;
   height: ${({ height }) => height};
@@ -192,10 +185,10 @@ function Screen(props: IProps, state: IState) {
   const {
     theme: {
       colors: {
-        dusk,
-        cloudyBlue
-      }
-    }    
+        text,
+        cloudyBlue,
+      },
+    },
   } = props;
 
   return (
@@ -298,7 +291,7 @@ function Screen(props: IProps, state: IState) {
                     alignItems: 'center',
                   }}
                 >
-                  <Icon5 name='camera' size={36} color={dusk} light />
+                  <Icon5 name='camera' size={36} color={text} light />
                 </TouchableOpacity>
                 <TouchableOpacity
                   style={{
@@ -310,7 +303,7 @@ function Screen(props: IProps, state: IState) {
                     alignItems: 'center',
                   }}
                 >
-                  <Icon5 name='image' size={40} color={dusk} light/>
+                  <Icon5 name='image' size={40} color={text} light/>
                 </TouchableOpacity>
               </View>
             </StyledViewMenu>

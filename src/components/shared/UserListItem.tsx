@@ -14,13 +14,15 @@ import {
 import Icon5, { FA5Style } from 'react-native-vector-icons/FontAwesome5';
 import { ThemeProps, withTheme, DefaultTheme } from 'styled-components/native';
 import { User as Friend } from '../../models/User';
-import theme from '../../utils/theme'
+import theme from '../../utils/theme';
 
 const {
   colors: {
-    dusk,
-    paleGray
-  }
+    background,
+    border,
+    subBorder,
+    text,
+  },
 } = theme;
 
 interface IStyles {
@@ -36,10 +38,10 @@ const styles: IStyles = StyleSheet.create({
     width: '100%',
   },
   wrapper: {
-    backgroundColor: 'white',
+    backgroundColor: background,
     height: 80,
     borderBottomWidth: 1,
-    borderColor: 'rgb(245,245,245)',
+    borderColor: border,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'flex-start',
@@ -53,16 +55,16 @@ const styles: IStyles = StyleSheet.create({
     marginLeft: 12,
     width: 100,
     fontSize: 14,
-    color: dusk,
+    color: text,
   },
   txtRight: {
     position: 'absolute',
     right: 20,
     fontSize: 12,
-    color: dusk,
+    color: text,
     maxWidth: 134.2,
     borderWidth: 0.3,
-    borderColor: paleGray,
+    borderColor: subBorder,
     paddingHorizontal: 8,
     paddingVertical: 4,
   },
@@ -84,13 +86,13 @@ function Shared({
   user: {
     photoURL,
     displayName,
-    statusMsg
+    statusMsg,
   },
   theme: {
     colors: {
-      dusk: Dusk
-    }
-  }
+      dusk: Dusk,
+    },
+  },
 }: IProps) {
   const photoURLObj = typeof photoURL === 'string'
     ? { uri: photoURL }
@@ -106,7 +108,7 @@ function Shared({
         <View style={style}>
           {photoURL
             ? <Image style={styles.img} source={photoURLObj}/>
-            : <Icon5 name='meh' size={40} color={Dusk} light/>
+            : <Icon5 name='meh' size={40} color={text} light/>
           }
           <Text style={styles.txt}>{displayName}</Text>
           {statusMsg

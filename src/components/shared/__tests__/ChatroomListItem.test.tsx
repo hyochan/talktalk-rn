@@ -5,7 +5,6 @@ import { ThemeProvider } from 'styled-components/native';
 import theme from '../../../utils/theme';
 // Note: test renderer must be required after react-native.
 import renderer from 'react-test-renderer';
-import { render, fireEvent } from 'react-native-testing-library';
 import { Chatroom } from '../../../models/Chatroom';
 import { Chat } from '../../../models/Chat';
 import { User } from '../../../models/User';

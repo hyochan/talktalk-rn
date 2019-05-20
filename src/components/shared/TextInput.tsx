@@ -1,31 +1,34 @@
 import React, { useState } from 'react';
 import {
-  ActivityIndicator,
   StyleSheet,
-  Image,
-  Text,
   View,
-  TextInput,
   ViewStyle,
   TextStyle,
 } from 'react-native';
-import theme from '../../utils/theme';
-
-const {
-  colors: {
-    blueyGray,
-    dodgerBlue,
-    text,
-  },
-} = theme;
+import styled from 'styled-components/native';
 
 interface IStyles {
   wrapper: ViewStyle;
-  label: ViewStyle;
-  labelFocus: TextStyle;
-  input: ViewStyle;
-  inputFocus: TextStyle;
 }
+
+const StyledLabelText = styled.Text<{ focused: boolean }>`
+  color: ${({ focused, theme }) => focused ? theme.colors.dodgerBlue : theme.colors.blueyGray};
+  margin-bottom: 8px;
+  font-size: 12px;
+`;
+
+const StyledTextInput = styled.TextInput<{ focused: boolean }>`
+  margin-bottom: 8px;
+  align-self: stretch;
+  color: ${({ theme }) => theme.colors.text};
+  font-size: 16px;
+  padding: 22px 20px;
+  border-width: 1px;
+  border-color: ${({ theme }) => theme.colors.dodgerBlue};
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+`;
 
 const styles: IStyles = StyleSheet.create({
   wrapper: {
@@ -33,40 +36,6 @@ const styles: IStyles = StyleSheet.create({
     flexDirection: 'column',
     justifyContent: 'flex-start',
     alignItems: 'flex-start',
-  },
-  label: {
-    color: blueyGray,
-    marginBottom: 8,
-    fontSize: 12,
-  },
-  labelFocus: {
-    color: dodgerBlue,
-    marginBottom: 8,
-    fontSize: 12,
-  },
-  input: {
-    alignSelf: 'stretch',
-    color: text,
-    fontSize: 16,
-    paddingVertical: 22,
-    paddingHorizontal: 20,
-    borderWidth: 1,
-    borderColor: 'rgb(233,237,244)',
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'flex-start',
-  },
-  inputFocus: {
-    alignSelf: 'stretch',
-    color: text,
-    fontSize: 16,
-    paddingVertical: 22,
-    paddingHorizontal: 20,
-    borderWidth: 1,
-    borderColor: dodgerBlue,
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'flex-start',
   },
 });
 
@@ -98,9 +67,9 @@ function Shared(props: IProps, state: IState) {
   const renderTxtLabel = () => {
     if (props.txtLabel) {
       return (
-        <Text style={focused ? props.labelStyleFocus : props.labelStyle}>
+        <StyledLabelText focused={focused}>
           {props.txtLabel}
-        </Text>
+        </StyledLabelText>
       );
     }
     return null;
@@ -112,11 +81,8 @@ function Shared(props: IProps, state: IState) {
       props.style,
     ]}>
       {renderTxtLabel()}
-      <TextInput
-        style={[
-          focused ? styles.inputFocus : styles.input,
-          props.inputStyle,
-        ]}
+      <StyledTextInput
+        focused={focused}
         underlineColorAndroid='transparent' // android fix
         autoCapitalize='none'
         autoCorrect={false}

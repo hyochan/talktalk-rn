@@ -2,56 +2,77 @@ import React from 'react';
 import { createStackNavigator } from 'react-navigation';
 import StackViewStyleInterpolator from 'react-navigation-stack/dist/views/StackView/StackViewStyleInterpolator';
 
-import { commonNavigationOptions } from './MainStackNavigator';
 import Login from '../screen/Login';
 import SignUp from '../screen/SignUp';
 import FindPw from '../screen/FindPw';
+import Setting from '../screen/Setting';
 import { getString } from '../../../STRINGS';
-import theme from '../../utils/theme';
-
-const { colors: { background, title } } = theme;
 
 const StackNavigator = createStackNavigator(
   {
     Login: {
       screen: Login,
-      navigationOptions: {
-        headerStyle: {
-          backgroundColor: background,
-          borderBottomWidth: 0,
-        },
+      navigationOptions: ({ screenProps }) => {
+        const { theme } = screenProps;
+        return {
+          headerStyle: {
+            backgroundColor: theme.colors.background,
+            borderBottomWidth: 0,
+          },
+        };
       },
     },
     SignUp: {
       screen: SignUp,
-      navigationOptions: {
-        title: getString('SIGNUP'),
-        headerStyle: {
-          backgroundColor: background,
-          borderBottomWidth: 0,
-        },
-        headerTitleStyle: {
-          color: title,
-        },
+      navigationOptions: ({ screenProps }) => {
+        const { theme } = screenProps;
+        return {
+          title: getString('SIGNUP'),
+          headerStyle: {
+            backgroundColor: theme.colors.background,
+            borderBottomWidth: 0,
+          },
+          headerTitleStyle: {
+            color: theme.colors.title,
+          },
+        };
       },
     },
     FindPw: {
       screen: FindPw,
-      navigationOptions: {
-        title: getString('FIND_PW'),
-        headerStyle: {
-          backgroundColor: background,
-          borderBottomWidth: 0,
-        },
-        headerTitleStyle: {
-          color: title,
-        },
+      navigationOptions: ({ screenProps }) => {
+        const { theme } = screenProps;
+        return {
+          title: getString('FIND_PW'),
+          headerStyle: {
+            backgroundColor: theme.colors.background,
+            borderBottomWidth: 0,
+          },
+          headerTitleStyle: {
+            color: theme.colors.title,
+          },
+        };
+      },
+    },
+    Setting: {
+      screen: Setting,
+      navigationOptions: ({ screenProps }) => {
+        const { theme } = screenProps;
+        return {
+          title: getString('SETTING'),
+          headerStyle: {
+            backgroundColor: theme.colors.background,
+            borderBottomWidth: 0,
+          },
+          headerTitleStyle: {
+            color: theme.colors.title,
+          },
+        };
       },
     },
   },
   {
     initialRouteName: 'Login',
-    navigationOptions: commonNavigationOptions,
     transitionConfig: () => ({ screenInterpolator: StackViewStyleInterpolator.forHorizontal }),
   },
 );

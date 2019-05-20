@@ -1,12 +1,10 @@
-import React, { Component, useReducer, useState, useRef } from 'react';
-import { Text, TouchableOpacity, View } from 'react-native';
-import { NavigationScreenProp, NavigationStateRoute } from 'react-navigation';
+import React, { useContext, useReducer, useRef } from 'react';
 import { User as Friend } from '../models/User';
 import ProfileModal from '../components/shared/ProfileModal';
 import { ProfileModalContext } from '../contexts/ProfileModalContext';
 import { ThemeProvider } from 'styled-components/native';
-import theme from '../utils/theme';
-const ProfileModalConsumer = ProfileModalContext.Consumer;
+import createTheme, { ThemeType } from '../utils/theme';
+import { AppContext } from '../contexts/AppContext';
 
 interface IProps {
   navigation: any;
@@ -57,9 +55,9 @@ function ProfileModalProvider(props: IProps) {
   modal = useRef(null);
   const [state, dispatch] = useReducer(reducer, initialState);
   const value = { state, dispatch };
-
+  const appValue = useContext(AppContext);
   return (
-    <ThemeProvider theme={theme}>
+    <ThemeProvider theme={createTheme(appValue.state.theme)}>
       <ProfileModalContext.Provider value={value}>
         {props.children}
         <ProfileModal
@@ -77,4 +75,4 @@ function ProfileModalProvider(props: IProps) {
   );
 }
 
-export { ProfileModalConsumer, ProfileModalContext, ProfileModalProvider };
+export { ProfileModalContext, ProfileModalProvider };

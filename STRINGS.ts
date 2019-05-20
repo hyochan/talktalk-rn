@@ -29,6 +29,7 @@ export const strings = new LocalizedStrings({
     ERROR: 'Error',
     FRIEND_ADDED: 'Added to your friend.',
     FRIEND_ALREADY_ADDED: 'Already your friend.',
+    SETTING: 'Setting',
   },
   ko: {
     LOADING: '로딩중...',
@@ -58,6 +59,7 @@ export const strings = new LocalizedStrings({
     Error: '에러',
     FRIEND_ADDED: '친구로 등록되었습니다.',
     FRIEND_ALREADY_ADDED: '이미 친구입니다.',
+    SETTING: '설정',
   },
 });
 

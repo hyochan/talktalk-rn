@@ -1,13 +1,7 @@
-import React, { Component, useState } from 'react';
+import React, { useState } from 'react';
 import {
-  StyleSheet,
-  TouchableOpacity,
-  Image,
-  Text,
-  View,
   FlatList,
 } from 'react-native';
-import { NavigationScreenProp, NavigationStateRoute } from 'react-navigation';
 import EmptyListItem from '../shared/EmptyListItem';
 import ChatroomListItem from '../shared/ChatroomListItem';
 import { getString } from '../../../STRINGS';

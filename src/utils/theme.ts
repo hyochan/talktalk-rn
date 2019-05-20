@@ -86,4 +86,4 @@ const createTheme = (type = ThemeType.LIGHT) => {
   return themeStyle;
 };
 
-export default createTheme(ThemeType.LIGHT);
+export default createTheme;

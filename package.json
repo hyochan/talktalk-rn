@@ -82,6 +82,7 @@
     "jsc-android": "^236355.1.1",
     "metro-react-native-babel-preset": "^0.54.0",
     "react-dom": "^16.8.6",
+    "react-native-switch-toggle": "^1.1.0",
     "react-native-testing-library": "^1.7.0",
     "react-test-renderer": "^16.8.6",
     "ts-jest": "^24.0.2",

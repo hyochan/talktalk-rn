@@ -1,74 +1,13 @@
 // @flow
 import React from 'react';
 import {
-  ActivityIndicator,
-  StyleSheet,
-  Image,
-  Text,
   View,
   TouchableOpacity,
   ViewStyle,
-  ImageStyle,
-  TextStyle,
 } from 'react-native';
-import Icon5, { FA5Style } from 'react-native-vector-icons/FontAwesome5';
-import { ThemeProps, withTheme, DefaultTheme } from 'styled-components/native';
+import Icon5 from 'react-native-vector-icons/FontAwesome5';
+import styled, { ThemeProps, withTheme, DefaultTheme } from 'styled-components/native';
 import { User as Friend } from '../../models/User';
-import theme from '../../utils/theme';
-
-const {
-  colors: {
-    background,
-    border,
-    subBorder,
-    text,
-  },
-} = theme;
-
-interface IStyles {
-  container: ViewStyle;
-  wrapper: ViewStyle;
-  img: ImageStyle;
-  txt: TextStyle;
-  txtRight: TextStyle;
-}
-
-const styles: IStyles = StyleSheet.create({
-  container: {
-    width: '100%',
-  },
-  wrapper: {
-    backgroundColor: background,
-    height: 80,
-    borderBottomWidth: 1,
-    borderColor: border,
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'flex-start',
-    paddingHorizontal: 20,
-  },
-  img: {
-    width: 40,
-    height: 40,
-  },
-  txt: {
-    marginLeft: 12,
-    width: 100,
-    fontSize: 14,
-    color: text,
-  },
-  txtRight: {
-    position: 'absolute',
-    right: 20,
-    fontSize: 12,
-    color: text,
-    maxWidth: 134.2,
-    borderWidth: 0.3,
-    borderColor: subBorder,
-    paddingHorizontal: 8,
-    paddingVertical: 4,
-  },
-});
 
 interface IProps extends ThemeProps<DefaultTheme> {
   testID?: string;
@@ -79,50 +18,82 @@ interface IProps extends ThemeProps<DefaultTheme> {
   onLongPress?: () => void;
 }
 
+const StyledWrapperView = styled.View`
+    background-color: ${({ theme }) => theme.colors.background};
+    height: 80px;
+    border-bottom-width: 1px;
+    border-color: ${({ theme }) => theme.colors.border};
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 0 20px;
+`;
+
+const StyledContainerView = styled.View`
+    width: 100%;
+`;
+
+const StyledImage = styled.Image`
+  width: 40px;
+  height: 40px;
+`;
+
+const StyledText = styled.Text` 
+    margin-left: 12px;
+    width: 100px;
+    font-size: 14px;
+    color: ${({ theme }) => theme.colors.text};
+`;
+
+const StyledRightText = styled.Text` 
+    position: absolute;
+    right: 20px;
+    font-size: 12px;
+    color: ${({ theme }) => theme.colors.text};
+    max-width: 134.2px;
+    border-width: 0.3px;
+    border-color: ${({ theme }) => theme.colors.subBorder};
+    padding:4px 8px;
+`;
+
 function Shared({
   onPress,
   onLongPress,
-  style,
   user: {
     photoURL,
     displayName,
     statusMsg,
   },
-  theme: {
-    colors: {
-      dusk: Dusk,
-    },
-  },
+  theme,
 }: IProps) {
   const photoURLObj = typeof photoURL === 'string'
     ? { uri: photoURL }
     : photoURL;
   return (
-    <View style={styles.container}>
+    <StyledContainerView>
       <TouchableOpacity
         testID='press_id'
         activeOpacity={0.5}
         onPress={onPress}
         onLongPress={onLongPress}
       >
-        <View style={style}>
+        <StyledWrapperView>
           {photoURL
-            ? <Image style={styles.img} source={photoURLObj}/>
-            : <Icon5 name='meh' size={40} color={text} light/>
+            ? <StyledImage source={photoURLObj}/>
+            : <Icon5 name='meh' size={40} color={theme.colors.text} light/>
           }
-          <Text style={styles.txt}>{displayName}</Text>
+          <StyledText>{displayName}</StyledText>
           {statusMsg
-            ? <Text style={styles.txtRight}>{statusMsg}</Text>
+            ? <StyledRightText>{statusMsg}</StyledRightText>
             : <View/>
           }
-        </View>
+        </StyledWrapperView>
       </TouchableOpacity>
-    </View>
+    </StyledContainerView>
   );
 }
 
 Shared.defaultProps = {
-  style: styles.wrapper,
   user: {
     uid: '',
     displayName: '',

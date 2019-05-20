@@ -111,6 +111,7 @@ function Screen(props: IProps) {
     timer = setTimeout(() => {
       setIsLoggingIn(false);
       clearTimeout(timer);
+      props.navigation.navigate('Main');
     }, 1000);
   };
 

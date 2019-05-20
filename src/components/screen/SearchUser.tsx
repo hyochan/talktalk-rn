@@ -1,17 +1,9 @@
 // @flow
-import React, { Component, useState, useContext } from 'react';
+import React, { useState, useContext } from 'react';
 import {
-  StyleSheet,
-  TouchableOpacity,
-  Image,
-  Text,
-  View,
-  TextInput,
   Animated,
   FlatList,
-  SafeAreaView,
 } from 'react-native';
-import { NavigationScreenProp, NavigationStateRoute } from 'react-navigation';
 
 import { getString } from '../../../STRINGS';
 import { User as Friend } from '../../models/User';

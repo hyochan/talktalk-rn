@@ -4,7 +4,6 @@ import {
   Text,
   StyleSheet,
   TouchableOpacity,
-  ViewStyle,
   ImageStyle,
   TextStyle,
 } from 'react-native';
@@ -12,32 +11,17 @@ import {
   createMaterialTopTabNavigator,
 } from 'react-navigation';
 import Icon5 from 'react-native-vector-icons/FontAwesome5';
-import theme from '../../utils/theme';
 import { getString } from '../../../STRINGS';
 import Friend from '../screen/Friend';
 import Message from '../screen/Message';
 
-const {
-  statusBarHeight,
-  colors: {
-    dodgerBlue,
-    background,
-    title,
-  },
-} = theme;
-
 interface IStyles {
-  container: ViewStyle;
   imgHeaderLeft: ImageStyle;
   txt: TextStyle;
   txtSub: TextStyle;
 }
 
 const styles: IStyles = StyleSheet.create({
-  container: {
-    flex: 1,
-    paddingTop: statusBarHeight, // false to get height of android too.
-  },
   imgHeaderLeft: {
     marginLeft: 20,
     width: 28,
@@ -63,23 +47,25 @@ const MainTabNavigator = createMaterialTopTabNavigator(
     Message: { screen: Message },
   },
   {
-    navigationOptions: ({ navigation, screenProps }) => ({
-      tabBarVisible: true,
-      tabBarLabel: ({ focused }) => {
-        const { routeName } = navigation.state;
-        switch (routeName) {
-          case 'Friend':
-            return <Text style={[styles.txt, { opacity: focused ? 1 : 0.8 }]}>
-              {getString('FRIEND')} <Text style={styles.txtSub}>24</Text>
-            </Text>;
-          case 'Message':
-            return <Text style={[styles.txt, { opacity: focused ? 1 : 0.8 }]}>
-              {getString('MESSAGE')} <Text style={styles.txtSub}>8</Text>
-            </Text>;
-        }
-        return null;
-      },
-    }),
+    navigationOptions: ({ navigation }) => {
+      return {
+        tabBarVisible: true,
+        tabBarLabel: ({ focused }) => {
+          const { routeName } = navigation.state;
+          switch (routeName) {
+            case 'Friend':
+              return <Text style={[styles.txt, { opacity: focused ? 1 : 0.8 }]}>
+                {getString('FRIEND')} <Text style={styles.txtSub}>24</Text>
+              </Text>;
+            case 'Message':
+              return <Text style={[styles.txt, { opacity: focused ? 1 : 0.8 }]}>
+                {getString('MESSAGE')} <Text style={styles.txtSub}>8</Text>
+              </Text>;
+          }
+          return null;
+        },
+      };
+    },
     animationEnabled: true,
     swipeEnabled: true,
     tabBarOptions: {
@@ -89,7 +75,7 @@ const MainTabNavigator = createMaterialTopTabNavigator(
       style: {
         height: 44,
         justifyContent: 'center',
-        backgroundColor: dodgerBlue,
+        backgroundColor: 'rgb(58,139,255)',
         borderTopColor: 'transparent',
         borderTopWidth: 0,
         elevation: 0,
@@ -100,36 +86,39 @@ const MainTabNavigator = createMaterialTopTabNavigator(
 
 export default MainTabNavigator;
 
-export const MainTabNavigationOptions = ({ navigation }) => ({
-  title: 'Talk Talk',
-  headerStyle: {
-    backgroundColor: background,
-  },
-  headerTitleStyle: {
-    color: title,
-  },
-  headerLeft: (
-    <View style={{
-      marginLeft: 16,
-    }}>
-      <TouchableOpacity
-        activeOpacity={0.5}
-        onPress={() => navigation.navigate('ProfileUpdate')}
-      >
-        <Icon5 name='user-circle' size={20} color={dodgerBlue} light={true}/>
-      </TouchableOpacity>
-    </View>
-  ),
-  headerRight: (
-    <View style={{
-      marginRight: 16,
-    }}>
-      <TouchableOpacity
-        activeOpacity={0.5}
-        onPress={() => navigation.navigate('SearchUser')}
-      >
-        <Icon5 name='search-plus' size={20} color={dodgerBlue} light={true}/>
-      </TouchableOpacity>
-    </View>
-  ),
-});
+export const MainTabNavigationOptions = ({ navigation, screenProps }) => {
+  const { theme } = screenProps;
+  return {
+    title: 'Talk Talk',
+    headerStyle: {
+      backgroundColor: theme.colors.background,
+    },
+    headerTitleStyle: {
+      color: theme.colors.title,
+    },
+    headerLeft: (
+      <View style={{
+        marginLeft: 16,
+      }}>
+        <TouchableOpacity
+          activeOpacity={0.5}
+          onPress={() => navigation.navigate('ProfileUpdate')}
+        >
+          <Icon5 name='user-circle' size={20} color={theme.colors.dodgerBlue} light={true}/>
+        </TouchableOpacity>
+      </View>
+    ),
+    headerRight: (
+      <View style={{
+        marginRight: 16,
+      }}>
+        <TouchableOpacity
+          activeOpacity={0.5}
+          onPress={() => navigation.navigate('SearchUser')}
+        >
+          <Icon5 name='search-plus' size={20} color={theme.colors.dodgerBlue} light={true}/>
+        </TouchableOpacity>
+      </View>
+    ),
+  };
+};

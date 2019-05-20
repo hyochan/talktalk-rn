@@ -2,18 +2,17 @@ import 'react-native';
 import * as React from 'react';
 import StatusBar from '../StatusBar';
 import { ThemeProvider } from 'styled-components/native';
-import theme from '../../../utils/theme';
+import createTheme, { ThemeType } from '../../../utils/theme';
 // Note: test renderer must be required after react-native.
 import renderer from 'react-test-renderer';
-import { render, fireEvent } from 'react-native-testing-library';
 
 const props = {
   isDarkContent: false,
-  theme
-}
+  createTheme,
+};
 
 const component: React.ReactElement = (
-  <ThemeProvider theme={theme}>
+  <ThemeProvider theme={createTheme(ThemeType.LIGHT)}>
     <StatusBar {...props} />
   </ThemeProvider>
 );
@@ -25,7 +24,7 @@ describe('[UserListItem] rendering test', () => {
   });
   it('renders [isDarkContent] as expected', () => {
     const disabledComponent: React.ReactElement = (
-      <ThemeProvider theme={theme}>
+      <ThemeProvider theme={createTheme(ThemeType.LIGHT)}>
         <StatusBar {...props} />
       </ThemeProvider>
     );

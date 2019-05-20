@@ -1,15 +1,9 @@
 import React, { useState } from 'react';
 import {
-  StyleSheet,
-  View,
   ViewStyle,
   TextStyle,
 } from 'react-native';
 import styled from 'styled-components/native';
-
-interface IStyles {
-  wrapper: ViewStyle;
-}
 
 const StyledLabelText = styled.Text<{ focused: boolean }>`
   color: ${({ focused, theme }) => focused ? theme.colors.dodgerBlue : theme.colors.blueyGray};
@@ -30,20 +24,16 @@ const StyledTextInput = styled.TextInput<{ focused: boolean }>`
   justify-content: flex-start;
 `;
 
-const styles: IStyles = StyleSheet.create({
-  wrapper: {
-    alignSelf: 'stretch',
-    flexDirection: 'column',
-    justifyContent: 'flex-start',
-    alignItems: 'flex-start',
-  },
-});
+const StyledWrapperView = styled.View`
+    align-self: stretch;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+`;
 
 interface IProps {
   testID?: string;
   style?: ViewStyle;
-  labelStyle?: TextStyle;
-  labelStyleFocus?: TextStyle;
   placeholderTextColor?: string;
   inputStyle?: TextStyle;
   isPassword?: boolean;
@@ -57,11 +47,7 @@ interface IProps {
   returnKeyType?: any;
 }
 
-interface IState {
-  focused: boolean;
-}
-
-function Shared(props: IProps, state: IState) {
+function Shared(props: IProps) {
   const [focused, setFocused] = useState(false);
 
   const renderTxtLabel = () => {
@@ -76,10 +62,7 @@ function Shared(props: IProps, state: IState) {
   };
 
   return (
-    <View style={[
-      styles.wrapper,
-      props.style,
-    ]}>
+    <StyledWrapperView>
       {renderTxtLabel()}
       <StyledTextInput
         focused={focused}
@@ -97,14 +80,8 @@ function Shared(props: IProps, state: IState) {
         returnKeyType={props.returnKeyType}
         secureTextEntry={props.isPassword}
       />
-    </View>
+    </StyledWrapperView>
   );
 }
-
-Shared.defaultProps = {
-  style: styles.wrapper,
-  labelStyle: styles.label,
-  labelStyleFocus: styles.labelFocus,
-};
 
 export default Shared;

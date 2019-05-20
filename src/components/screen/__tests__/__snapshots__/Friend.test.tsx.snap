@@ -6,7 +6,7 @@ exports[`[Friend] rendering test renders as expected 1`] = `
     Array [
       Object {
         "alignItems": "center",
-        "backgroundColor": "transparent",
+        "backgroundColor": "#FFF",
         "flexBasis": 0,
         "flexDirection": "column",
         "flexGrow": 1,
@@ -83,9 +83,11 @@ exports[`[Friend] rendering test renders as expected 1`] = `
       >
         <View
           style={
-            Object {
-              "width": "100%",
-            }
+            Array [
+              Object {
+                "width": "100%",
+              },
+            ]
           }
         >
           <View
@@ -106,16 +108,21 @@ exports[`[Friend] rendering test renders as expected 1`] = `
           >
             <View
               style={
-                Object {
-                  "alignItems": "center",
-                  "backgroundColor": "white",
-                  "borderBottomWidth": 1,
-                  "borderColor": "rgb(245,245,245)",
-                  "flexDirection": "row",
-                  "height": 80,
-                  "justifyContent": "flex-start",
-                  "paddingHorizontal": 20,
-                }
+                Array [
+                  Object {
+                    "alignItems": "center",
+                    "backgroundColor": "#FFF",
+                    "borderBottomWidth": 1,
+                    "borderColor": "rgb(245,245,245)",
+                    "flexDirection": "row",
+                    "height": 80,
+                    "justifyContent": "flex-start",
+                    "paddingBottom": 0,
+                    "paddingLeft": 20,
+                    "paddingRight": 20,
+                    "paddingTop": 0,
+                  },
+                ]
               }
             >
               <Unknown
@@ -126,29 +133,35 @@ exports[`[Friend] rendering test renders as expected 1`] = `
               />
               <Text
                 style={
-                  Object {
-                    "color": "rgb(65,77,107)",
-                    "fontSize": 14,
-                    "marginLeft": 12,
-                    "width": 100,
-                  }
+                  Array [
+                    Object {
+                      "color": "rgb(65,77,107)",
+                      "fontSize": 14,
+                      "marginLeft": 12,
+                      "width": 100,
+                    },
+                  ]
                 }
               >
                 hello
               </Text>
               <Text
                 style={
-                  Object {
-                    "borderColor": "rgb(233,237,244)",
-                    "borderWidth": 0.3,
-                    "color": "rgb(65,77,107)",
-                    "fontSize": 12,
-                    "maxWidth": 134.2,
-                    "paddingHorizontal": 8,
-                    "paddingVertical": 4,
-                    "position": "absolute",
-                    "right": 20,
-                  }
+                  Array [
+                    Object {
+                      "borderColor": "rgb(233,237,244)",
+                      "borderWidth": 0.3,
+                      "color": "rgb(65,77,107)",
+                      "fontSize": 12,
+                      "maxWidth": 134.2,
+                      "paddingBottom": 4,
+                      "paddingLeft": 8,
+                      "paddingRight": 8,
+                      "paddingTop": 4,
+                      "position": "absolute",
+                      "right": 20,
+                    },
+                  ]
                 }
               >
                 I am fine today

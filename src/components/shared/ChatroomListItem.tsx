@@ -1,12 +1,8 @@
-import React, { Component } from 'react';
+import React from 'react';
 import {
-  StyleSheet,
-  Image,
-  Text,
   View,
   TouchableOpacity,
   ViewStyle,
-  TextStyle,
 } from 'react-native';
 
 import styled, { ThemeProps, DefaultTheme, withTheme } from 'styled-components/native';
@@ -15,7 +11,6 @@ import Icon5 from 'react-native-vector-icons/FontAwesome5';
 import { Chatroom } from '../../models/Chatroom';
 import { Chat } from '../../models/Chat';
 import { User } from '../../models/User';
-import { BaseButton } from 'react-native-gesture-handler';
 
 const StyledViewChatRoomListItem = styled.View`
     background: ${({ theme }) => theme.colors.background};
@@ -57,17 +52,8 @@ const StyledTextDisplayName = styled.Text`
   color: ${({ theme }) => theme.colors.text};
 `;
 
-const StyledViewCount = styled.View`
-  width: 16px;
-  height: 16px;
-  border-radius: 8px;
-  justify-content: center;
-  align-items: center;
-  background-color: rgb(80, 227, 194);
-`;
-
 const StyledTextCount = styled.Text`
-  font-size: 10;
+  font-size: 10px;
   color: ${({ theme }) => theme.colors.text};
 `;
 
@@ -116,12 +102,10 @@ function Shared({
     },
     lastChatCnt,
   },
-  style,
   onPress,
   theme: {
     colors: {
       text,
-      background,
     },
   },
 }: IProps) {

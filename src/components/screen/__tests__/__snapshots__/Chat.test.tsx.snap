@@ -7,7 +7,7 @@ exports[`[Chat] rendering test renders as expected 1`] = `
     Array [
       Object {
         "alignItems": "center",
-        "backgroundColor": "white",
+        "backgroundColor": "#FFF",
         "flexBasis": 0,
         "flexDirection": "column",
         "flexGrow": 1,
@@ -247,8 +247,8 @@ exports[`[Chat] rendering test renders as expected 1`] = `
                 style={
                   Array [
                     Object {
-                      "backgroundColor": "white",
-                      "borderColor": "rgb(225,225,225)",
+                      "backgroundColor": "#FFF",
+                      "borderColor": "rgb(245,245,245)",
                       "borderRadius": 3,
                       "borderWidth": 1,
                       "marginRight": 8,
@@ -283,7 +283,7 @@ exports[`[Chat] rendering test renders as expected 1`] = `
                 style={
                   Array [
                     Object {
-                      "color": "rgb(175,194,219)",
+                      "color": "rgb(65,77,107)",
                       "fontSize": 12,
                       "marginRight": 20,
                     },
@@ -359,8 +359,8 @@ exports[`[Chat] rendering test renders as expected 1`] = `
                 style={
                   Array [
                     Object {
-                      "backgroundColor": "white",
-                      "borderColor": "rgb(225,225,225)",
+                      "backgroundColor": "#FFF",
+                      "borderColor": "rgb(245,245,245)",
                       "borderRadius": 3,
                       "borderWidth": 1,
                       "marginRight": 8,
@@ -395,7 +395,7 @@ exports[`[Chat] rendering test renders as expected 1`] = `
                 style={
                   Array [
                     Object {
-                      "color": "rgb(175,194,219)",
+                      "color": "rgb(65,77,107)",
                       "fontSize": 12,
                       "marginRight": 20,
                     },
@@ -482,8 +482,8 @@ exports[`[Chat] rendering test renders as expected 1`] = `
                 style={
                   Array [
                     Object {
-                      "backgroundColor": "white",
-                      "borderColor": "rgb(225,225,225)",
+                      "backgroundColor": "#FFF",
+                      "borderColor": "rgb(245,245,245)",
                       "borderRadius": 3,
                       "borderWidth": 1,
                       "marginRight": 8,
@@ -518,7 +518,7 @@ exports[`[Chat] rendering test renders as expected 1`] = `
                 style={
                   Array [
                     Object {
-                      "color": "rgb(175,194,219)",
+                      "color": "rgb(65,77,107)",
                       "fontSize": 12,
                       "marginRight": 20,
                     },
@@ -709,8 +709,8 @@ exports[`[Chat] rendering test renders as expected 1`] = `
         Array [
           Object {
             "alignItems": "center",
-            "backgroundColor": "white",
-            "borderColor": "rgb(225,225,225)",
+            "backgroundColor": "#FFF",
+            "borderColor": "rgb(245,245,245)",
             "borderTopWidth": 0.5,
             "flexDirection": "row",
             "justifyContent": "flex-end",
@@ -733,6 +733,7 @@ exports[`[Chat] rendering test renders as expected 1`] = `
         style={
           Array [
             Object {
+              "backgroundColor": "#FFF",
               "color": "black",
               "fontSize": 14,
               "marginRight": 20,
@@ -843,13 +844,13 @@ exports[`[Chat] rendering test renders as expected 1`] = `
                 style={
                   Array [
                     Object {
-                      "color": "white",
+                      "color": "#FFF",
                       "fontSize": 14,
                       "fontWeight": "bold",
                     },
                   ]
                 }
-                white={true}
+                white={false}
               >
                 Send
               </Text>

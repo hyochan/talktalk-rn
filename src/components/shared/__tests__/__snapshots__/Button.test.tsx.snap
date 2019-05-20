@@ -31,7 +31,7 @@ exports[`[Button] rendering test renders [disabled] as expected 1`] = `
       style={
         Array [
           Object {
-            "color": "rgb(58,139,255)",
+            "color": "#FFF",
             "fontSize": 14,
             "fontWeight": "bold",
           },
@@ -106,13 +106,13 @@ exports[`[Button] rendering test renders [enabled] as expected 1`] = `
           style={
             Array [
               Object {
-                "color": "white",
+                "color": "#FFF",
                 "fontSize": 14,
                 "fontWeight": "bold",
               },
             ]
           }
-          white={true}
+          white={false}
         />
       </View>
     </View>

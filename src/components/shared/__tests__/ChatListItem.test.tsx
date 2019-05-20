@@ -2,10 +2,10 @@ import 'react-native';
 import * as React from 'react';
 import ChatListItem from '../ChatListItem';
 import { ThemeProvider } from 'styled-components/native';
-import theme from '../../../utils/theme';
+import createTheme, { ThemeType } from '../../../utils/theme';
 // Note: test renderer must be required after react-native.
 import renderer from 'react-test-renderer';
-import { render, fireEvent } from 'react-native-testing-library';
+import { fireEvent, render } from 'react-native-testing-library';
 import { Chat } from '../../../models/Chat';
 import { User } from '../../../models/User';
 
@@ -26,12 +26,12 @@ const props = {
     '',
   ),
   onPressPeerImage,
-  theme
-}
+  createTheme,
+};
 const component: React.ReactElement = (
-  <ThemeProvider theme={theme}>
+  <ThemeProvider theme={createTheme(ThemeType.LIGHT)}>
     <ChatListItem {...props} />
-  </ThemeProvider> 
+  </ThemeProvider>
 );
 
 describe('[ChatListItem] rendering test', () => {

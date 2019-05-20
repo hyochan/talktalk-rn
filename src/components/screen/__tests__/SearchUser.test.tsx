@@ -1,26 +1,27 @@
-import { Animated } from 'react-native';
+import {Animated} from 'react-native';
 import * as React from 'react';
 import SearchUser from '../SearchUser';
-import { ProfileModalProvider } from '../../../providers/ProfileModalProvider';
-import { IC_BACK } from '../../../utils/Icons';
-import { ThemeProvider } from 'styled-components/native';
-import theme from '../../../utils/theme';
+import {ProfileModalProvider} from '../../../providers/ProfileModalProvider';
+import {IC_BACK} from '../../../utils/Icons';
+import {ThemeProvider} from 'styled-components/native';
+import createTheme, {ThemeType} from '../../../utils/theme';
+
 // Note: test renderer must be required after react-native.
 import renderer from 'react-test-renderer';
-import { RenderAPI, render, shallow, fireEvent, waitForElement } from 'react-native-testing-library';
+import {RenderAPI, render, shallow, fireEvent, waitForElement} from 'react-native-testing-library';
+import {AppProvider} from "../../../providers/AppProvider";
 
 const props = {
   navigation: {
     navigate: jest.fn(),
   },
-  theme
+  createTheme,
 };
 const component: React.ReactElement = (
-  <ThemeProvider theme={theme}>
+  <ThemeProvider theme={createTheme(ThemeType.LIGHT)}>
     <SearchUser {...props}/>
   </ThemeProvider>
 );
-
 
 describe('[SearchUser] rendering test', () => {
   it('renders as expected', () => {
@@ -51,14 +52,16 @@ describe('[serachUser] interaction', () => {
       navigation: {
         navigate: jest.fn(),
       },
-      theme
+      createTheme,
     };
     const providerComponent = (
-      <ThemeProvider theme={theme}>
-        <ProfileModalProvider {...providerProps}>
-          {component}
-        </ProfileModalProvider>
-      </ThemeProvider>
+      <AppProvider>
+        <ThemeProvider theme={createTheme(ThemeType.LIGHT)}>
+          <ProfileModalProvider {...providerProps}>
+            {component}
+          </ProfileModalProvider>
+        </ThemeProvider>
+      </AppProvider>
     );
     searchUserLib = render(component);
     testingLib = render(providerComponent);
@@ -95,7 +98,7 @@ describe('[serachUser] interaction', () => {
     }).start();
     // setTimeout called - 5
     setTimeout(() => {
-      expect(scrollY).toEqual(afterScrollY);  // doesn't work
+      expect(scrollY).toEqual(afterScrollY); // doesn't work
     }, 600);
     // setTimeout called - 6
   });
@@ -103,7 +106,7 @@ describe('[serachUser] interaction', () => {
     const userListItemInst: renderer.ReactTestInstance = testingLib.getByTestId('userListItem0');
     fireEvent.changeText(txtInputInst, inputData.displayName);
     fireEvent.press(userListItemInst);
-    const { profileModal } = userListItemInst.props.testObj;
+    const {profileModal} = userListItemInst.props.testObj;
     const reducerState = {
       user: {
         ...inputData,

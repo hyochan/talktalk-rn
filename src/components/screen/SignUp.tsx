@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import styled, {withTheme} from 'styled-components/native';
+import styled, { DefaultTheme, ThemeProps, withTheme } from 'styled-components/native';
 
 import TextInput from '../shared/TextInput';
 import Button from '../shared/Button';
@@ -31,7 +31,7 @@ const StyledButtonWrapper = styled.View`
   align-items: flex-end;
 `;
 
-interface IProps {
+interface IProps extends ThemeProps<DefaultTheme> {
   navigation: any;
 }
 

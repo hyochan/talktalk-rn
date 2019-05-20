@@ -61,8 +61,8 @@ exports[`[ChatListItem] rendering test renders [peerMessage] as expected 1`] = `
       style={
         Array [
           Object {
-            "backgroundColor": "white",
-            "borderColor": "rgb(225,225,225)",
+            "backgroundColor": "#FFF",
+            "borderColor": "rgb(245,245,245)",
             "borderRadius": 3,
             "borderWidth": 1,
             "marginRight": 8,
@@ -97,7 +97,7 @@ exports[`[ChatListItem] rendering test renders [peerMessage] as expected 1`] = `
       style={
         Array [
           Object {
-            "color": "rgb(175,194,219)",
+            "color": "rgb(65,77,107)",
             "fontSize": 12,
             "marginRight": 20,
           },

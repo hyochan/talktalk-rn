@@ -64,10 +64,12 @@ const Setting: React.FC<SettingProps> = ({ theme }) => {
     }
   }, [isNightMode]);
 
+
   const config = [{
     icon: <Icon5 name='moon' size={20} color={text} solid/>,
     title: 'Night Mode',
     rightItem: <SwitchToggle
+      // @ts-ignore
       onPress={handleOnPress}
       containerStyle={{
         width: 48,

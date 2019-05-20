@@ -3,9 +3,11 @@
 exports[`[UserListItem] rendering test renders as expected 1`] = `
 <View
   style={
-    Object {
-      "width": "100%",
-    }
+    Array [
+      Object {
+        "width": "100%",
+      },
+    ]
   }
 >
   <View
@@ -26,16 +28,21 @@ exports[`[UserListItem] rendering test renders as expected 1`] = `
   >
     <View
       style={
-        Object {
-          "alignItems": "center",
-          "backgroundColor": "white",
-          "borderBottomWidth": 1,
-          "borderColor": "rgb(245,245,245)",
-          "flexDirection": "row",
-          "height": 80,
-          "justifyContent": "flex-start",
-          "paddingHorizontal": 20,
-        }
+        Array [
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "#FFF",
+            "borderBottomWidth": 1,
+            "borderColor": "rgb(245,245,245)",
+            "flexDirection": "row",
+            "height": 80,
+            "justifyContent": "flex-start",
+            "paddingBottom": 0,
+            "paddingLeft": 20,
+            "paddingRight": 20,
+            "paddingTop": 0,
+          },
+        ]
       }
     >
       <Unknown
@@ -46,12 +53,14 @@ exports[`[UserListItem] rendering test renders as expected 1`] = `
       />
       <Text
         style={
-          Object {
-            "color": "rgb(65,77,107)",
-            "fontSize": 14,
-            "marginLeft": 12,
-            "width": 100,
-          }
+          Array [
+            Object {
+              "color": "rgb(65,77,107)",
+              "fontSize": 14,
+              "marginLeft": 12,
+              "width": 100,
+            },
+          ]
         }
       >
         

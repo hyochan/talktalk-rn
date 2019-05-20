@@ -6,6 +6,7 @@ exports[`[SearchUser] rendering test renders as expected 1`] = `
   style={
     Array [
       Object {
+        "backgroundColor": "#FFF",
         "flexBasis": 0,
         "flexGrow": 1,
         "flexShrink": 1,
@@ -65,6 +66,7 @@ exports[`[SearchUser] rendering test renders as expected 1`] = `
               Object {
                 "backgroundColor": "rgb(247,248,251)",
                 "borderRadius": 4,
+                "color": "rgb(65,77,107)",
                 "height": 30,
                 "paddingLeft": 34,
                 "paddingRight": 10,
@@ -275,9 +277,11 @@ exports[`[SearchUser] rendering test renders as expected 1`] = `
         >
           <View
             style={
-              Object {
-                "width": "100%",
-              }
+              Array [
+                Object {
+                  "width": "100%",
+                },
+              ]
             }
           >
             <View
@@ -298,16 +302,21 @@ exports[`[SearchUser] rendering test renders as expected 1`] = `
             >
               <View
                 style={
-                  Object {
-                    "alignItems": "center",
-                    "backgroundColor": "white",
-                    "borderBottomWidth": 1,
-                    "borderColor": "rgb(245,245,245)",
-                    "flexDirection": "row",
-                    "height": 80,
-                    "justifyContent": "flex-start",
-                    "paddingHorizontal": 20,
-                  }
+                  Array [
+                    Object {
+                      "alignItems": "center",
+                      "backgroundColor": "#FFF",
+                      "borderBottomWidth": 1,
+                      "borderColor": "rgb(245,245,245)",
+                      "flexDirection": "row",
+                      "height": 80,
+                      "justifyContent": "flex-start",
+                      "paddingBottom": 0,
+                      "paddingLeft": 20,
+                      "paddingRight": 20,
+                      "paddingTop": 0,
+                    },
+                  ]
                 }
               >
                 <Unknown
@@ -318,29 +327,35 @@ exports[`[SearchUser] rendering test renders as expected 1`] = `
                 />
                 <Text
                   style={
-                    Object {
-                      "color": "rgb(65,77,107)",
-                      "fontSize": 14,
-                      "marginLeft": 12,
-                      "width": 100,
-                    }
+                    Array [
+                      Object {
+                        "color": "rgb(65,77,107)",
+                        "fontSize": 14,
+                        "marginLeft": 12,
+                        "width": 100,
+                      },
+                    ]
                   }
                 >
                   test
                 </Text>
                 <Text
                   style={
-                    Object {
-                      "borderColor": "rgb(233,237,244)",
-                      "borderWidth": 0.3,
-                      "color": "rgb(65,77,107)",
-                      "fontSize": 12,
-                      "maxWidth": 134.2,
-                      "paddingHorizontal": 8,
-                      "paddingVertical": 4,
-                      "position": "absolute",
-                      "right": 20,
-                    }
+                    Array [
+                      Object {
+                        "borderColor": "rgb(233,237,244)",
+                        "borderWidth": 0.3,
+                        "color": "rgb(65,77,107)",
+                        "fontSize": 12,
+                        "maxWidth": 134.2,
+                        "paddingBottom": 4,
+                        "paddingLeft": 8,
+                        "paddingRight": 8,
+                        "paddingTop": 4,
+                        "position": "absolute",
+                        "right": 20,
+                      },
+                    ]
                   }
                 >
                   status
@@ -355,9 +370,11 @@ exports[`[SearchUser] rendering test renders as expected 1`] = `
         >
           <View
             style={
-              Object {
-                "width": "100%",
-              }
+              Array [
+                Object {
+                  "width": "100%",
+                },
+              ]
             }
           >
             <View
@@ -378,16 +395,21 @@ exports[`[SearchUser] rendering test renders as expected 1`] = `
             >
               <View
                 style={
-                  Object {
-                    "alignItems": "center",
-                    "backgroundColor": "white",
-                    "borderBottomWidth": 1,
-                    "borderColor": "rgb(245,245,245)",
-                    "flexDirection": "row",
-                    "height": 80,
-                    "justifyContent": "flex-start",
-                    "paddingHorizontal": 20,
-                  }
+                  Array [
+                    Object {
+                      "alignItems": "center",
+                      "backgroundColor": "#FFF",
+                      "borderBottomWidth": 1,
+                      "borderColor": "rgb(245,245,245)",
+                      "flexDirection": "row",
+                      "height": 80,
+                      "justifyContent": "flex-start",
+                      "paddingBottom": 0,
+                      "paddingLeft": 20,
+                      "paddingRight": 20,
+                      "paddingTop": 0,
+                    },
+                  ]
                 }
               >
                 <Image
@@ -397,37 +419,45 @@ exports[`[SearchUser] rendering test renders as expected 1`] = `
                     }
                   }
                   style={
-                    Object {
-                      "height": 40,
-                      "width": 40,
-                    }
+                    Array [
+                      Object {
+                        "height": 40,
+                        "width": 40,
+                      },
+                    ]
                   }
                 />
                 <Text
                   style={
-                    Object {
-                      "color": "rgb(65,77,107)",
-                      "fontSize": 14,
-                      "marginLeft": 12,
-                      "width": 100,
-                    }
+                    Array [
+                      Object {
+                        "color": "rgb(65,77,107)",
+                        "fontSize": 14,
+                        "marginLeft": 12,
+                        "width": 100,
+                      },
+                    ]
                   }
                 >
                   geoseong
                 </Text>
                 <Text
                   style={
-                    Object {
-                      "borderColor": "rgb(233,237,244)",
-                      "borderWidth": 0.3,
-                      "color": "rgb(65,77,107)",
-                      "fontSize": 12,
-                      "maxWidth": 134.2,
-                      "paddingHorizontal": 8,
-                      "paddingVertical": 4,
-                      "position": "absolute",
-                      "right": 20,
-                    }
+                    Array [
+                      Object {
+                        "borderColor": "rgb(233,237,244)",
+                        "borderWidth": 0.3,
+                        "color": "rgb(65,77,107)",
+                        "fontSize": 12,
+                        "maxWidth": 134.2,
+                        "paddingBottom": 4,
+                        "paddingLeft": 8,
+                        "paddingRight": 8,
+                        "paddingTop": 4,
+                        "position": "absolute",
+                        "right": 20,
+                      },
+                    ]
                   }
                 >
                   healthy
@@ -442,9 +472,11 @@ exports[`[SearchUser] rendering test renders as expected 1`] = `
         >
           <View
             style={
-              Object {
-                "width": "100%",
-              }
+              Array [
+                Object {
+                  "width": "100%",
+                },
+              ]
             }
           >
             <View
@@ -465,16 +497,21 @@ exports[`[SearchUser] rendering test renders as expected 1`] = `
             >
               <View
                 style={
-                  Object {
-                    "alignItems": "center",
-                    "backgroundColor": "white",
-                    "borderBottomWidth": 1,
-                    "borderColor": "rgb(245,245,245)",
-                    "flexDirection": "row",
-                    "height": 80,
-                    "justifyContent": "flex-start",
-                    "paddingHorizontal": 20,
-                  }
+                  Array [
+                    Object {
+                      "alignItems": "center",
+                      "backgroundColor": "#FFF",
+                      "borderBottomWidth": 1,
+                      "borderColor": "rgb(245,245,245)",
+                      "flexDirection": "row",
+                      "height": 80,
+                      "justifyContent": "flex-start",
+                      "paddingBottom": 0,
+                      "paddingLeft": 20,
+                      "paddingRight": 20,
+                      "paddingTop": 0,
+                    },
+                  ]
                 }
               >
                 <Image
@@ -484,37 +521,45 @@ exports[`[SearchUser] rendering test renders as expected 1`] = `
                     }
                   }
                   style={
-                    Object {
-                      "height": 40,
-                      "width": 40,
-                    }
+                    Array [
+                      Object {
+                        "height": 40,
+                        "width": 40,
+                      },
+                    ]
                   }
                 />
                 <Text
                   style={
-                    Object {
-                      "color": "rgb(65,77,107)",
-                      "fontSize": 14,
-                      "marginLeft": 12,
-                      "width": 100,
-                    }
+                    Array [
+                      Object {
+                        "color": "rgb(65,77,107)",
+                        "fontSize": 14,
+                        "marginLeft": 12,
+                        "width": 100,
+                      },
+                    ]
                   }
                 >
                   hyochan
                 </Text>
                 <Text
                   style={
-                    Object {
-                      "borderColor": "rgb(233,237,244)",
-                      "borderWidth": 0.3,
-                      "color": "rgb(65,77,107)",
-                      "fontSize": 12,
-                      "maxWidth": 134.2,
-                      "paddingHorizontal": 8,
-                      "paddingVertical": 4,
-                      "position": "absolute",
-                      "right": 20,
-                    }
+                    Array [
+                      Object {
+                        "borderColor": "rgb(233,237,244)",
+                        "borderWidth": 0.3,
+                        "color": "rgb(65,77,107)",
+                        "fontSize": 12,
+                        "maxWidth": 134.2,
+                        "paddingBottom": 4,
+                        "paddingLeft": 8,
+                        "paddingRight": 8,
+                        "paddingTop": 4,
+                        "position": "absolute",
+                        "right": 20,
+                      },
+                    ]
                   }
                 >
                   healthy
@@ -529,9 +574,11 @@ exports[`[SearchUser] rendering test renders as expected 1`] = `
         >
           <View
             style={
-              Object {
-                "width": "100%",
-              }
+              Array [
+                Object {
+                  "width": "100%",
+                },
+              ]
             }
           >
             <View
@@ -552,16 +599,21 @@ exports[`[SearchUser] rendering test renders as expected 1`] = `
             >
               <View
                 style={
-                  Object {
-                    "alignItems": "center",
-                    "backgroundColor": "white",
-                    "borderBottomWidth": 1,
-                    "borderColor": "rgb(245,245,245)",
-                    "flexDirection": "row",
-                    "height": 80,
-                    "justifyContent": "flex-start",
-                    "paddingHorizontal": 20,
-                  }
+                  Array [
+                    Object {
+                      "alignItems": "center",
+                      "backgroundColor": "#FFF",
+                      "borderBottomWidth": 1,
+                      "borderColor": "rgb(245,245,245)",
+                      "flexDirection": "row",
+                      "height": 80,
+                      "justifyContent": "flex-start",
+                      "paddingBottom": 0,
+                      "paddingLeft": 20,
+                      "paddingRight": 20,
+                      "paddingTop": 0,
+                    },
+                  ]
                 }
               >
                 <Unknown
@@ -572,29 +624,35 @@ exports[`[SearchUser] rendering test renders as expected 1`] = `
                 />
                 <Text
                   style={
-                    Object {
-                      "color": "rgb(65,77,107)",
-                      "fontSize": 14,
-                      "marginLeft": 12,
-                      "width": 100,
-                    }
+                    Array [
+                      Object {
+                        "color": "rgb(65,77,107)",
+                        "fontSize": 14,
+                        "marginLeft": 12,
+                        "width": 100,
+                      },
+                    ]
                   }
                 >
                   test
                 </Text>
                 <Text
                   style={
-                    Object {
-                      "borderColor": "rgb(233,237,244)",
-                      "borderWidth": 0.3,
-                      "color": "rgb(65,77,107)",
-                      "fontSize": 12,
-                      "maxWidth": 134.2,
-                      "paddingHorizontal": 8,
-                      "paddingVertical": 4,
-                      "position": "absolute",
-                      "right": 20,
-                    }
+                    Array [
+                      Object {
+                        "borderColor": "rgb(233,237,244)",
+                        "borderWidth": 0.3,
+                        "color": "rgb(65,77,107)",
+                        "fontSize": 12,
+                        "maxWidth": 134.2,
+                        "paddingBottom": 4,
+                        "paddingLeft": 8,
+                        "paddingRight": 8,
+                        "paddingTop": 4,
+                        "position": "absolute",
+                        "right": 20,
+                      },
+                    ]
                   }
                 >
                   status
@@ -609,9 +667,11 @@ exports[`[SearchUser] rendering test renders as expected 1`] = `
         >
           <View
             style={
-              Object {
-                "width": "100%",
-              }
+              Array [
+                Object {
+                  "width": "100%",
+                },
+              ]
             }
           >
             <View
@@ -632,16 +692,21 @@ exports[`[SearchUser] rendering test renders as expected 1`] = `
             >
               <View
                 style={
-                  Object {
-                    "alignItems": "center",
-                    "backgroundColor": "white",
-                    "borderBottomWidth": 1,
-                    "borderColor": "rgb(245,245,245)",
-                    "flexDirection": "row",
-                    "height": 80,
-                    "justifyContent": "flex-start",
-                    "paddingHorizontal": 20,
-                  }
+                  Array [
+                    Object {
+                      "alignItems": "center",
+                      "backgroundColor": "#FFF",
+                      "borderBottomWidth": 1,
+                      "borderColor": "rgb(245,245,245)",
+                      "flexDirection": "row",
+                      "height": 80,
+                      "justifyContent": "flex-start",
+                      "paddingBottom": 0,
+                      "paddingLeft": 20,
+                      "paddingRight": 20,
+                      "paddingTop": 0,
+                    },
+                  ]
                 }
               >
                 <Image
@@ -651,37 +716,45 @@ exports[`[SearchUser] rendering test renders as expected 1`] = `
                     }
                   }
                   style={
-                    Object {
-                      "height": 40,
-                      "width": 40,
-                    }
+                    Array [
+                      Object {
+                        "height": 40,
+                        "width": 40,
+                      },
+                    ]
                   }
                 />
                 <Text
                   style={
-                    Object {
-                      "color": "rgb(65,77,107)",
-                      "fontSize": 14,
-                      "marginLeft": 12,
-                      "width": 100,
-                    }
+                    Array [
+                      Object {
+                        "color": "rgb(65,77,107)",
+                        "fontSize": 14,
+                        "marginLeft": 12,
+                        "width": 100,
+                      },
+                    ]
                   }
                 >
                   geoseong
                 </Text>
                 <Text
                   style={
-                    Object {
-                      "borderColor": "rgb(233,237,244)",
-                      "borderWidth": 0.3,
-                      "color": "rgb(65,77,107)",
-                      "fontSize": 12,
-                      "maxWidth": 134.2,
-                      "paddingHorizontal": 8,
-                      "paddingVertical": 4,
-                      "position": "absolute",
-                      "right": 20,
-                    }
+                    Array [
+                      Object {
+                        "borderColor": "rgb(233,237,244)",
+                        "borderWidth": 0.3,
+                        "color": "rgb(65,77,107)",
+                        "fontSize": 12,
+                        "maxWidth": 134.2,
+                        "paddingBottom": 4,
+                        "paddingLeft": 8,
+                        "paddingRight": 8,
+                        "paddingTop": 4,
+                        "position": "absolute",
+                        "right": 20,
+                      },
+                    ]
                   }
                 >
                   healthy
@@ -696,9 +769,11 @@ exports[`[SearchUser] rendering test renders as expected 1`] = `
         >
           <View
             style={
-              Object {
-                "width": "100%",
-              }
+              Array [
+                Object {
+                  "width": "100%",
+                },
+              ]
             }
           >
             <View
@@ -719,16 +794,21 @@ exports[`[SearchUser] rendering test renders as expected 1`] = `
             >
               <View
                 style={
-                  Object {
-                    "alignItems": "center",
-                    "backgroundColor": "white",
-                    "borderBottomWidth": 1,
-                    "borderColor": "rgb(245,245,245)",
-                    "flexDirection": "row",
-                    "height": 80,
-                    "justifyContent": "flex-start",
-                    "paddingHorizontal": 20,
-                  }
+                  Array [
+                    Object {
+                      "alignItems": "center",
+                      "backgroundColor": "#FFF",
+                      "borderBottomWidth": 1,
+                      "borderColor": "rgb(245,245,245)",
+                      "flexDirection": "row",
+                      "height": 80,
+                      "justifyContent": "flex-start",
+                      "paddingBottom": 0,
+                      "paddingLeft": 20,
+                      "paddingRight": 20,
+                      "paddingTop": 0,
+                    },
+                  ]
                 }
               >
                 <Image
@@ -738,37 +818,45 @@ exports[`[SearchUser] rendering test renders as expected 1`] = `
                     }
                   }
                   style={
-                    Object {
-                      "height": 40,
-                      "width": 40,
-                    }
+                    Array [
+                      Object {
+                        "height": 40,
+                        "width": 40,
+                      },
+                    ]
                   }
                 />
                 <Text
                   style={
-                    Object {
-                      "color": "rgb(65,77,107)",
-                      "fontSize": 14,
-                      "marginLeft": 12,
-                      "width": 100,
-                    }
+                    Array [
+                      Object {
+                        "color": "rgb(65,77,107)",
+                        "fontSize": 14,
+                        "marginLeft": 12,
+                        "width": 100,
+                      },
+                    ]
                   }
                 >
                   hyochan
                 </Text>
                 <Text
                   style={
-                    Object {
-                      "borderColor": "rgb(233,237,244)",
-                      "borderWidth": 0.3,
-                      "color": "rgb(65,77,107)",
-                      "fontSize": 12,
-                      "maxWidth": 134.2,
-                      "paddingHorizontal": 8,
-                      "paddingVertical": 4,
-                      "position": "absolute",
-                      "right": 20,
-                    }
+                    Array [
+                      Object {
+                        "borderColor": "rgb(233,237,244)",
+                        "borderWidth": 0.3,
+                        "color": "rgb(65,77,107)",
+                        "fontSize": 12,
+                        "maxWidth": 134.2,
+                        "paddingBottom": 4,
+                        "paddingLeft": 8,
+                        "paddingRight": 8,
+                        "paddingTop": 4,
+                        "position": "absolute",
+                        "right": 20,
+                      },
+                    ]
                   }
                 >
                   healthy
@@ -783,9 +871,11 @@ exports[`[SearchUser] rendering test renders as expected 1`] = `
         >
           <View
             style={
-              Object {
-                "width": "100%",
-              }
+              Array [
+                Object {
+                  "width": "100%",
+                },
+              ]
             }
           >
             <View
@@ -806,16 +896,21 @@ exports[`[SearchUser] rendering test renders as expected 1`] = `
             >
               <View
                 style={
-                  Object {
-                    "alignItems": "center",
-                    "backgroundColor": "white",
-                    "borderBottomWidth": 1,
-                    "borderColor": "rgb(245,245,245)",
-                    "flexDirection": "row",
-                    "height": 80,
-                    "justifyContent": "flex-start",
-                    "paddingHorizontal": 20,
-                  }
+                  Array [
+                    Object {
+                      "alignItems": "center",
+                      "backgroundColor": "#FFF",
+                      "borderBottomWidth": 1,
+                      "borderColor": "rgb(245,245,245)",
+                      "flexDirection": "row",
+                      "height": 80,
+                      "justifyContent": "flex-start",
+                      "paddingBottom": 0,
+                      "paddingLeft": 20,
+                      "paddingRight": 20,
+                      "paddingTop": 0,
+                    },
+                  ]
                 }
               >
                 <Unknown
@@ -826,29 +921,35 @@ exports[`[SearchUser] rendering test renders as expected 1`] = `
                 />
                 <Text
                   style={
-                    Object {
-                      "color": "rgb(65,77,107)",
-                      "fontSize": 14,
-                      "marginLeft": 12,
-                      "width": 100,
-                    }
+                    Array [
+                      Object {
+                        "color": "rgb(65,77,107)",
+                        "fontSize": 14,
+                        "marginLeft": 12,
+                        "width": 100,
+                      },
+                    ]
                   }
                 >
                   test
                 </Text>
                 <Text
                   style={
-                    Object {
-                      "borderColor": "rgb(233,237,244)",
-                      "borderWidth": 0.3,
-                      "color": "rgb(65,77,107)",
-                      "fontSize": 12,
-                      "maxWidth": 134.2,
-                      "paddingHorizontal": 8,
-                      "paddingVertical": 4,
-                      "position": "absolute",
-                      "right": 20,
-                    }
+                    Array [
+                      Object {
+                        "borderColor": "rgb(233,237,244)",
+                        "borderWidth": 0.3,
+                        "color": "rgb(65,77,107)",
+                        "fontSize": 12,
+                        "maxWidth": 134.2,
+                        "paddingBottom": 4,
+                        "paddingLeft": 8,
+                        "paddingRight": 8,
+                        "paddingTop": 4,
+                        "position": "absolute",
+                        "right": 20,
+                      },
+                    ]
                   }
                 >
                   status
@@ -863,9 +964,11 @@ exports[`[SearchUser] rendering test renders as expected 1`] = `
         >
           <View
             style={
-              Object {
-                "width": "100%",
-              }
+              Array [
+                Object {
+                  "width": "100%",
+                },
+              ]
             }
           >
             <View
@@ -886,16 +989,21 @@ exports[`[SearchUser] rendering test renders as expected 1`] = `
             >
               <View
                 style={
-                  Object {
-                    "alignItems": "center",
-                    "backgroundColor": "white",
-                    "borderBottomWidth": 1,
-                    "borderColor": "rgb(245,245,245)",
-                    "flexDirection": "row",
-                    "height": 80,
-                    "justifyContent": "flex-start",
-                    "paddingHorizontal": 20,
-                  }
+                  Array [
+                    Object {
+                      "alignItems": "center",
+                      "backgroundColor": "#FFF",
+                      "borderBottomWidth": 1,
+                      "borderColor": "rgb(245,245,245)",
+                      "flexDirection": "row",
+                      "height": 80,
+                      "justifyContent": "flex-start",
+                      "paddingBottom": 0,
+                      "paddingLeft": 20,
+                      "paddingRight": 20,
+                      "paddingTop": 0,
+                    },
+                  ]
                 }
               >
                 <Image
@@ -905,37 +1013,45 @@ exports[`[SearchUser] rendering test renders as expected 1`] = `
                     }
                   }
                   style={
-                    Object {
-                      "height": 40,
-                      "width": 40,
-                    }
+                    Array [
+                      Object {
+                        "height": 40,
+                        "width": 40,
+                      },
+                    ]
                   }
                 />
                 <Text
                   style={
-                    Object {
-                      "color": "rgb(65,77,107)",
-                      "fontSize": 14,
-                      "marginLeft": 12,
-                      "width": 100,
-                    }
+                    Array [
+                      Object {
+                        "color": "rgb(65,77,107)",
+                        "fontSize": 14,
+                        "marginLeft": 12,
+                        "width": 100,
+                      },
+                    ]
                   }
                 >
                   geoseong
                 </Text>
                 <Text
                   style={
-                    Object {
-                      "borderColor": "rgb(233,237,244)",
-                      "borderWidth": 0.3,
-                      "color": "rgb(65,77,107)",
-                      "fontSize": 12,
-                      "maxWidth": 134.2,
-                      "paddingHorizontal": 8,
-                      "paddingVertical": 4,
-                      "position": "absolute",
-                      "right": 20,
-                    }
+                    Array [
+                      Object {
+                        "borderColor": "rgb(233,237,244)",
+                        "borderWidth": 0.3,
+                        "color": "rgb(65,77,107)",
+                        "fontSize": 12,
+                        "maxWidth": 134.2,
+                        "paddingBottom": 4,
+                        "paddingLeft": 8,
+                        "paddingRight": 8,
+                        "paddingTop": 4,
+                        "position": "absolute",
+                        "right": 20,
+                      },
+                    ]
                   }
                 >
                   healthy
@@ -950,9 +1066,11 @@ exports[`[SearchUser] rendering test renders as expected 1`] = `
         >
           <View
             style={
-              Object {
-                "width": "100%",
-              }
+              Array [
+                Object {
+                  "width": "100%",
+                },
+              ]
             }
           >
             <View
@@ -973,16 +1091,21 @@ exports[`[SearchUser] rendering test renders as expected 1`] = `
             >
               <View
                 style={
-                  Object {
-                    "alignItems": "center",
-                    "backgroundColor": "white",
-                    "borderBottomWidth": 1,
-                    "borderColor": "rgb(245,245,245)",
-                    "flexDirection": "row",
-                    "height": 80,
-                    "justifyContent": "flex-start",
-                    "paddingHorizontal": 20,
-                  }
+                  Array [
+                    Object {
+                      "alignItems": "center",
+                      "backgroundColor": "#FFF",
+                      "borderBottomWidth": 1,
+                      "borderColor": "rgb(245,245,245)",
+                      "flexDirection": "row",
+                      "height": 80,
+                      "justifyContent": "flex-start",
+                      "paddingBottom": 0,
+                      "paddingLeft": 20,
+                      "paddingRight": 20,
+                      "paddingTop": 0,
+                    },
+                  ]
                 }
               >
                 <Image
@@ -992,37 +1115,45 @@ exports[`[SearchUser] rendering test renders as expected 1`] = `
                     }
                   }
                   style={
-                    Object {
-                      "height": 40,
-                      "width": 40,
-                    }
+                    Array [
+                      Object {
+                        "height": 40,
+                        "width": 40,
+                      },
+                    ]
                   }
                 />
                 <Text
                   style={
-                    Object {
-                      "color": "rgb(65,77,107)",
-                      "fontSize": 14,
-                      "marginLeft": 12,
-                      "width": 100,
-                    }
+                    Array [
+                      Object {
+                        "color": "rgb(65,77,107)",
+                        "fontSize": 14,
+                        "marginLeft": 12,
+                        "width": 100,
+                      },
+                    ]
                   }
                 >
                   hyochan
                 </Text>
                 <Text
                   style={
-                    Object {
-                      "borderColor": "rgb(233,237,244)",
-                      "borderWidth": 0.3,
-                      "color": "rgb(65,77,107)",
-                      "fontSize": 12,
-                      "maxWidth": 134.2,
-                      "paddingHorizontal": 8,
-                      "paddingVertical": 4,
-                      "position": "absolute",
-                      "right": 20,
-                    }
+                    Array [
+                      Object {
+                        "borderColor": "rgb(233,237,244)",
+                        "borderWidth": 0.3,
+                        "color": "rgb(65,77,107)",
+                        "fontSize": 12,
+                        "maxWidth": 134.2,
+                        "paddingBottom": 4,
+                        "paddingLeft": 8,
+                        "paddingRight": 8,
+                        "paddingTop": 4,
+                        "position": "absolute",
+                        "right": 20,
+                      },
+                    ]
                   }
                 >
                   healthy

@@ -42,7 +42,7 @@ interface IState {
 
 }
 
-function Screen(props: IProps, state: IState) {
+function Loading(props: IProps, state: IState) {
   const spinValue = useRef(new Animated.Value(0)).current;
 
   const spin = spinValue.interpolate({
@@ -73,4 +73,4 @@ function Screen(props: IProps, state: IState) {
   );
 }
 
-export default Screen;
+export default Loading;

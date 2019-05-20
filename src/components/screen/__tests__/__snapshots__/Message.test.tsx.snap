@@ -6,7 +6,7 @@ exports[`rendering test should render as expected 1`] = `
     Array [
       Object {
         "alignItems": "center",
-        "backgroundColor": "transparent",
+        "backgroundColor": "#FFF",
         "flexBasis": 0,
         "flexDirection": "column",
         "flexGrow": 1,
@@ -144,15 +144,17 @@ exports[`rendering test should render as expected 1`] = `
           >
             <View
               style={
-                Object {
-                  "alignItems": "center",
-                  "backgroundColor": "white",
-                  "borderBottomWidth": 1,
-                  "borderColor": "rgb(247,248,251)",
-                  "flexDirection": "row",
-                  "height": 80,
-                  "justifyContent": "flex-start",
-                }
+                Array [
+                  Object {
+                    "alignItems": "center",
+                    "backgroundColor": "#FFF",
+                    "borderBottomWidth": 1,
+                    "borderColor": "rgb(245,245,245)",
+                    "flexDirection": "row",
+                    "height": 80,
+                    "justifyContent": "flex-start",
+                  },
+                ]
               }
             >
               <View
@@ -173,7 +175,7 @@ exports[`rendering test should render as expected 1`] = `
                     Array [
                       Object {
                         "backgroundColor": "rgb(80,227,194)",
-                        "borderColor": "white",
+                        "borderColor": "rgb(245,245,245)",
                         "borderRadius": 6,
                         "borderWidth": 2,
                         "bottom": 0,
@@ -240,7 +242,7 @@ exports[`rendering test should render as expected 1`] = `
                       style={
                         Array [
                           Object {
-                            "color": "white",
+                            "color": "rgb(65,77,107)",
                             "fontSize": 10,
                           },
                         ]
@@ -325,15 +327,17 @@ exports[`rendering test should render as expected 1`] = `
           >
             <View
               style={
-                Object {
-                  "alignItems": "center",
-                  "backgroundColor": "white",
-                  "borderBottomWidth": 1,
-                  "borderColor": "rgb(247,248,251)",
-                  "flexDirection": "row",
-                  "height": 80,
-                  "justifyContent": "flex-start",
-                }
+                Array [
+                  Object {
+                    "alignItems": "center",
+                    "backgroundColor": "#FFF",
+                    "borderBottomWidth": 1,
+                    "borderColor": "rgb(245,245,245)",
+                    "flexDirection": "row",
+                    "height": 80,
+                    "justifyContent": "flex-start",
+                  },
+                ]
               }
             >
               <View

@@ -2,18 +2,16 @@ import 'react-native';
 import * as React from 'react';
 import Loading from '../Loading';
 import { ThemeProvider } from 'styled-components/native';
-import { getString } from '../../../../STRINGS';
-import theme from '../../../utils/theme';
+import createTheme, { ThemeType } from '../../../utils/theme';
 // Note: test renderer must be required after react-native.
-import renderer from 'react-test-renderer';
-import { render, fireEvent, waitForElement } from 'react-native-testing-library';
+import { render, waitForElement } from 'react-native-testing-library';
 
 jest.mock('Animated', () => {
   return {
     loop: jest.fn(() => {
       return {
         start: jest.fn(),
-        reset: jest.fn()
+        reset: jest.fn(),
       };
     }),
     timing: jest.fn(() => {
@@ -35,17 +33,17 @@ const props = {
   navigation: {
     navigate: jest.fn(),
   },
-  theme
+  createTheme,
 };
 
 const component: React.ReactElement = (
-  <ThemeProvider theme={theme}>
+  <ThemeProvider theme={createTheme(ThemeType.LIGHT)}>
     <Loading {...props}/>
   </ThemeProvider>
 );
 
 describe('[Loading] rendering test', () => {
-  it('renders as expected', async (done) => {
+  it('renders as expected', async(done) => {
     const { toJSON } = render(component);
     const loading = await waitForElement(() => toJSON());
     expect(loading).toMatchSnapshot();

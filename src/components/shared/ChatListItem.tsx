@@ -92,7 +92,7 @@ interface IProps extends ThemeProps<DefaultTheme> {
 interface IImageSenderProps {
   photoURL?: string;
   isSamePeerMsg: boolean;
-  dusk: string;
+  text: string;
 }
 
 const myFakeUid = '2'; // TODO: temporary

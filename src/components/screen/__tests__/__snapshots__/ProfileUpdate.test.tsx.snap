@@ -6,7 +6,7 @@ exports[`rendering test renders as expected 1`] = `
     Array [
       Object {
         "alignItems": "center",
-        "backgroundColor": "white",
+        "backgroundColor": "#FFF",
         "flexBasis": 0,
         "flexDirection": "column",
         "flexGrow": 1,
@@ -74,19 +74,19 @@ exports[`rendering test renders as expected 1`] = `
                 "flexDirection": "column",
                 "justifyContent": "flex-start",
               },
-              Object {
-                "marginTop": 80,
-              },
             ]
           }
         >
           <Text
+            focused={false}
             style={
-              Object {
-                "color": "rgb(134,154,183)",
-                "fontSize": 12,
-                "marginBottom": 8,
-              }
+              Array [
+                Object {
+                  "color": "rgb(134,154,183)",
+                  "fontSize": 12,
+                  "marginBottom": 8,
+                },
+              ]
             }
           >
             name
@@ -95,26 +95,30 @@ exports[`rendering test renders as expected 1`] = `
             allowFontScaling={true}
             autoCapitalize="none"
             autoCorrect={false}
+            focused={false}
             onBlur={[Function]}
             onChangeText={[Function]}
             onFocus={[Function]}
             placeholder="name"
+            placeholderTextColor="rgb(65,77,107)"
             rejectResponderTermination={true}
             style={
               Array [
                 Object {
                   "alignItems": "center",
                   "alignSelf": "stretch",
-                  "borderColor": "rgb(233,237,244)",
+                  "borderColor": "rgb(58,139,255)",
                   "borderWidth": 1,
                   "color": "rgb(65,77,107)",
                   "flexDirection": "row",
                   "fontSize": 16,
                   "justifyContent": "flex-start",
-                  "paddingHorizontal": 20,
-                  "paddingVertical": 22,
+                  "marginBottom": 8,
+                  "paddingBottom": 22,
+                  "paddingLeft": 20,
+                  "paddingRight": 20,
+                  "paddingTop": 22,
                 },
-                undefined,
               ]
             }
             underlineColorAndroid="transparent"
@@ -130,19 +134,19 @@ exports[`rendering test renders as expected 1`] = `
                 "flexDirection": "column",
                 "justifyContent": "flex-start",
               },
-              Object {
-                "marginTop": 24,
-              },
             ]
           }
         >
           <Text
+            focused={false}
             style={
-              Object {
-                "color": "rgb(134,154,183)",
-                "fontSize": 12,
-                "marginBottom": 8,
-              }
+              Array [
+                Object {
+                  "color": "rgb(134,154,183)",
+                  "fontSize": 12,
+                  "marginBottom": 8,
+                },
+              ]
             }
           >
             Status message
@@ -151,26 +155,30 @@ exports[`rendering test renders as expected 1`] = `
             allowFontScaling={true}
             autoCapitalize="none"
             autoCorrect={false}
+            focused={false}
             onBlur={[Function]}
             onChangeText={[Function]}
             onFocus={[Function]}
             placeholder="Status message"
+            placeholderTextColor="rgb(65,77,107)"
             rejectResponderTermination={true}
             style={
               Array [
                 Object {
                   "alignItems": "center",
                   "alignSelf": "stretch",
-                  "borderColor": "rgb(233,237,244)",
+                  "borderColor": "rgb(58,139,255)",
                   "borderWidth": 1,
                   "color": "rgb(65,77,107)",
                   "flexDirection": "row",
                   "fontSize": 16,
                   "justifyContent": "flex-start",
-                  "paddingHorizontal": 20,
-                  "paddingVertical": 22,
+                  "marginBottom": 8,
+                  "paddingBottom": 22,
+                  "paddingLeft": 20,
+                  "paddingRight": 20,
+                  "paddingTop": 22,
                 },
-                undefined,
               ]
             }
             underlineColorAndroid="transparent"
@@ -223,7 +231,7 @@ exports[`rendering test renders as expected 1`] = `
                   Array [
                     Object {
                       "alignItems": "center",
-                      "backgroundColor": "white",
+                      "backgroundColor": "#FFF",
                       "borderColor": "rgb(58,139,255)",
                       "borderRadius": 4,
                       "borderWidth": 1,
@@ -260,7 +268,7 @@ exports[`rendering test renders as expected 1`] = `
                         },
                       ]
                     }
-                    white={false}
+                    white={true}
                   >
                     Logout
                   </Text>
@@ -338,13 +346,13 @@ exports[`rendering test renders as expected 1`] = `
                     style={
                       Array [
                         Object {
-                          "color": "white",
+                          "color": "#FFF",
                           "fontSize": 14,
                           "fontWeight": "bold",
                         },
                       ]
                     }
-                    white={true}
+                    white={false}
                   >
                     Update
                   </Text>

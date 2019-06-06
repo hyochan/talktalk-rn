@@ -1,6 +1,6 @@
 import React from 'react';
 import { createStackNavigator } from 'react-navigation';
-import StackViewStyleInterpolator from 'react-navigation-stack/dist/views/StackView/StackViewStyleInterpolator';
+// import StackViewStyleInterpolator from 'react-navigation-stack/dist/views/StackView/StackViewStyleInterpolator';
 
 import Login from '../screen/Login';
 import SignUp from '../screen/SignUp';
@@ -73,7 +73,7 @@ const StackNavigator = createStackNavigator(
   },
   {
     initialRouteName: 'Login',
-    transitionConfig: () => ({ screenInterpolator: StackViewStyleInterpolator.forHorizontal }),
+    // transitionConfig: () => ({ screenInterpolator: StackViewStyleInterpolator.forHorizontal }),
   },
 );
 

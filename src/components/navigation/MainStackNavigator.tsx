@@ -1,7 +1,7 @@
 import React from 'react';
 import { TouchableOpacity, View } from 'react-native';
 import { createStackNavigator } from 'react-navigation';
-import StackViewStyleInterpolator from 'react-navigation-stack/dist/views/StackView/StackViewStyleInterpolator';
+// import StackViewStyleInterpolator from 'react-navigation-stack/dist/views/StackView/StackViewStyleInterpolator';
 import { withTheme } from 'styled-components';
 
 import MainTabNavigator, { MainTabNavigationOptions } from './MainTabNavigator';
@@ -80,7 +80,7 @@ const routeConfig = {
 const navigatorConfig = {
   initialRouteName: 'Main',
   gesturesEnabled: true,
-  transitionConfig: () => ({ screenInterpolator: StackViewStyleInterpolator.forHorizontal }),
+  // transitionConfig: () => ({ screenInterpolator: StackViewStyleInterpolator.forHorizontal }),
 };
 
 const MainStackNavigator = createStackNavigator(routeConfig, navigatorConfig);

@@ -72,3 +72,5 @@ android/app/release
 
 # codecoverage
 coverage/
+
+package-lock.json

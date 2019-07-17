@@ -83,7 +83,7 @@
     "metro-react-native-babel-preset": "^0.54.1",
     "react-dom": "^16.8.3",
     "react-native-switch-toggle": "^1.1.0",
-    "react-native-testing-library": "^1.8.0",
+    "react-native-testing-library": "1.11.0",
     "react-test-renderer": "^16.8.3",
     "ts-jest": "^24.0.2",
     "tslib": "^1.9.3",

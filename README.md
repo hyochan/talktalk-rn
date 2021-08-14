@@ -1,4 +1,6 @@
-# TalkTalk
+> Transferred to [HackaTalk](https://github.com/dooboolab/hackatalk)
+
+# TalkTalk (Deprecated)
 [![CircleCI](https://circleci.com/gh/dooboolab/talktalk-rn.svg?style=shield)](https://circleci.com/gh/dooboolab/talktalk-rn)
 [![codecov](https://codecov.io/gh/dooboolab/talktalk-rn/branch/master/graph/badge.svg)](https://codecov.io/gh/dooboolab/talktalk-rn)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](https://github.com/dooboolab/talktalk-rn/blob/master/CONTRIBUTING.md)
